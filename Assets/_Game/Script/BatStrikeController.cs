@@ -10,6 +10,9 @@ public class BatStrikeController : MonoBehaviour
     [Tooltip("Khoảng cách lùi tối đa (đơn vị Unity).")]
     public float maxPullDistance = 3f;
     
+    [Tooltip("Thời gian giữ chạm tối thiểu để tính là Kéo (giây). Nếu chỉ chạm (tap) nhanh hơn số này thì sẽ bị bỏ qua.")]
+    public float minHoldTime = 0.15f;
+
     [Tooltip("Lực đánh văng về bên phải tối đa.")]
     public float strikeForce = 50f;
     
@@ -20,6 +23,7 @@ public class BatStrikeController : MonoBehaviour
     private Vector3 initialPosition;
     private bool hasFired = false;
     private Rigidbody2D rb;
+    private float holdTime = 0f;
 
     void Start()
     {
@@ -34,16 +38,32 @@ public class BatStrikeController : MonoBehaviour
     {
         if (hasFired) return; // Nếu đã bắn rồi thì không cho thao tác nữa
 
-        // Bắt đầu chạm hoặc đang giữ chạm chuột trái (trên mobile là chạm ngón tay)
+        // Đang giữ chạm chuột trái (trên mobile là chạm ngón tay)
         if (Input.GetMouseButton(0))
         {
-            ChargeBat();
+            holdTime += Time.deltaTime; // Tăng bộ đếm thời gian giữ
+            
+            // Nếu thời gian giữ lớn hơn mức quy định thì mới bắt đầu kéo gậy lùi lại
+            if (holdTime >= minHoldTime)
+            {
+                ChargeBat();
+            }
         }
         
         // Khi thả tay ra
         if (Input.GetMouseButtonUp(0))
         {
-            FireBat();
+            // Kiểm tra xem lúc nãy có giữ đủ lâu để tính là Kéo không
+            if (holdTime >= minHoldTime)
+            {
+                FireBat();
+            }
+            else
+            {
+                // Nếu chỉ là Tap nhanh, reset lại bộ đếm để người chơi có thể giữ lại từ đầu
+                holdTime = 0f;
+                transform.position = initialPosition; // Trả gậy về vị trí gốc lỡ có bị xê dịch tí ti
+            }
         }
     }
 

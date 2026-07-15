@@ -10,6 +10,9 @@ public class BatStrikeController : MonoBehaviour
 	[Tooltip("Khoảng cách lùi tối đa (đơn vị Unity).")]
 	public float maxPullDistance = 3f;
 
+	[Tooltip("Thời gian giữ chạm tối thiểu để tính là Kéo (giây). Nếu chỉ chạm (tap) nhanh hơn số này thì sẽ bị bỏ qua.")]
+	public float minHoldTime = 0.15f;
+
 	[Tooltip("Lực đánh văng về bên phải tối đa.")]
 	public float strikeForce = 50f;
 
@@ -23,6 +26,8 @@ public class BatStrikeController : MonoBehaviour
 
 	private Rigidbody2D rb;
 
+	private float holdTime = 0f;
+
 	private void Start()
 	{
 		initialPosition = base.transform.position;
@@ -32,16 +37,27 @@ public class BatStrikeController : MonoBehaviour
 
 	private void Update()
 	{
-		if (!hasFired)
+		if (hasFired)
 		{
-			if (Input.GetMouseButton(0))
+			return;
+		}
+		if (Input.GetMouseButton(0))
+		{
+			holdTime += Time.deltaTime;
+			if (holdTime >= minHoldTime)
 			{
 				ChargeBat();
 			}
-			if (Input.GetMouseButtonUp(0))
+		}
+		if (Input.GetMouseButtonUp(0))
+		{
+			if (holdTime >= minHoldTime)
 			{
 				FireBat();
+				return;
 			}
+			holdTime = 0f;
+			base.transform.position = initialPosition;
 		}
 	}
 

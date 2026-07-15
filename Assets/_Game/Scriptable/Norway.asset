@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d02e5ad65af5ac45ae37e36fd31ccac, type: 3}
+  m_Name: Norway
+  m_EditorClassIdentifier: 
+  nationality: Norway
+  playerSprite: {fileID: 21300000, guid: 37265c0b626c9cd459b64e89e8fc8387, type: 3}
+  flagSprite: {fileID: 21300000, guid: 583c7ca96ca1c2a41a5d597d802e8910, type: 3}
