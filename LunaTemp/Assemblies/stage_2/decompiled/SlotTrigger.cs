@@ -19,6 +19,14 @@ public class SlotTrigger : MonoBehaviour
 	[Tooltip("Tốc độ Slot bay lên màn hình")]
 	public float moveSpeed = 10f;
 
+	[Header("Hiệu ứng Bay xuống (Tuỳ chọn)")]
+	[Tooltip("Object nào đó sẽ bay xuống cùng lúc với Slot bay lên (Ví dụ: cái búa, màn chắn...)")]
+	public Transform objectToMoveDown;
+
+	[Tooltip("Vị trí đích đến theo chiều dọc màn hình (0 là dưới cùng, 1 là trên cùng). 2/10 màn hình = 0.2")]
+	[Range(0f, 1f)]
+	public float targetScreenYRatio = 0.2f;
+
 	private bool isTriggered = false;
 
 	private void Start()
@@ -57,13 +65,36 @@ public class SlotTrigger : MonoBehaviour
 		Camera mainCam = Camera.main;
 		float targetX = ((mainCam != null) ? mainCam.transform.position.x : base.transform.position.x);
 		float targetY = yAnchor.position.y;
-		Vector3 targetPosition = new Vector3(targetX, targetY, base.transform.position.z);
-		while (Vector3.Distance(base.transform.position, targetPosition) > 0.01f)
+		Vector3 slotStartPos = base.transform.position;
+		Vector3 slotTargetPos = new Vector3(targetX, targetY, base.transform.position.z);
+		Vector3 extraStartPos = Vector3.zero;
+		Vector3 extraTargetPos = Vector3.zero;
+		if (objectToMoveDown != null && mainCam != null)
 		{
-			base.transform.position = Vector3.MoveTowards(base.transform.position, targetPosition, moveSpeed * Time.deltaTime);
+			extraStartPos = objectToMoveDown.position;
+			Vector3 screenPos = new Vector3((float)Screen.width / 2f, (float)Screen.height * targetScreenYRatio, 10f);
+			Vector3 worldPos = mainCam.ScreenToWorldPoint(screenPos);
+			extraTargetPos = new Vector3(extraStartPos.x, worldPos.y, extraStartPos.z);
+		}
+		float totalDistance = Vector3.Distance(slotStartPos, slotTargetPos);
+		float duration = totalDistance / moveSpeed;
+		float elapsedTime = 0f;
+		while (elapsedTime < duration)
+		{
+			elapsedTime += Time.deltaTime;
+			float t = elapsedTime / duration;
+			base.transform.position = Vector3.Lerp(slotStartPos, slotTargetPos, t);
+			if (objectToMoveDown != null)
+			{
+				objectToMoveDown.position = Vector3.Lerp(extraStartPos, extraTargetPos, t);
+			}
 			yield return null;
 		}
-		base.transform.position = targetPosition;
+		base.transform.position = slotTargetPos;
+		if (objectToMoveDown != null)
+		{
+			objectToMoveDown.position = extraTargetPos;
+		}
 		ShowUI();
 	}
 

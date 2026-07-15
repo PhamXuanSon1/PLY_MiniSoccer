@@ -1,12 +1,12 @@
 {
-  "BuildID": "cc4eed0d-e12d-4b07-bc90-31670a7dbdfe",
-  "Command": "project:deploy",
+  "BuildID": "aa1f6b05-1733-4e83-bae0-e881588285d5",
+  "Command": "project:upload",
   "ProjectID": "60d50cfced72ae74bb8c1682cb9abbe6",
-  "ProjectStateHash": "30f87339e5f4dc49f442d16e40bfc15b31fd4bbbcd9246e9793e8f9ae9480529",
+  "ProjectStateHash": "e3acca4276721d78d0690cf78298016f6cb6d398cb51b7d9af4de46391be2ca2",
   "StageCompletedAt": 3,
   "EarliestFatalError": 0,
-  "StartTime": 1784105591866,
-  "EndTime": 1784105621106,
+  "StartTime": 1784110866499,
+  "EndTime": 1784110893204,
   "PlaygroundUserID": 33919,
   "OperatingSystem": "win32",
   "UnityPackageID": null,
@@ -16,9 +16,9 @@
   "LogCount": 7,
   "Logs": [
     {
-      "LogID": "5215b32c-796e-48fe-a9f1-e171a1f77be8",
+      "LogID": "eb7cf43c-72da-451e-aee8-69ce3c38ac73",
       "Order": 6,
-      "Timestamp": 1784105621272,
+      "Timestamp": 1784110893371,
       "Stage": 3,
       "ErrorType": 3,
       "ErrorCode": "LP3007",
@@ -40,9 +40,9 @@
       "Severity": 0
     },
     {
-      "LogID": "1b3d92b9-ea29-4d3c-aac7-6a52e2a3365d",
+      "LogID": "3d8fad1c-d0bf-426c-bdfe-78c94518c56c",
       "Order": 6,
-      "Timestamp": 1784105621273,
+      "Timestamp": 1784110893372,
       "Stage": 3,
       "ErrorType": 3,
       "ErrorCode": "LP3011",
@@ -60,9 +60,9 @@
       "Severity": 0
     },
     {
-      "LogID": "d0a3d88e-cad5-4f42-ba46-9fc9d6757656",
+      "LogID": "9a605c87-ead2-4be3-9712-d830e250a164",
       "Order": 0,
-      "Timestamp": 1784105593812,
+      "Timestamp": 1784110868436,
       "Stage": 1,
       "ErrorType": 0,
       "ErrorCode": "LP1030",
@@ -83,9 +83,9 @@
       "Severity": 0
     },
     {
-      "LogID": "2730b472-9571-4594-9ec9-b11ebd12595c",
+      "LogID": "91a7bcec-aabf-4c95-be50-50c8d98868dd",
       "Order": 1,
-      "Timestamp": 1784105599946,
+      "Timestamp": 1784110871963,
       "Stage": 1,
       "ErrorType": 2,
       "ErrorCode": "LP1014",
@@ -103,9 +103,9 @@
       "Severity": 0
     },
     {
-      "LogID": "fc23e6d1-defe-4e1f-bce2-47e9f6e43997",
+      "LogID": "76a66547-9925-47c4-8c83-69e7f12de06a",
       "Order": 2,
-      "Timestamp": 1784105599960,
+      "Timestamp": 1784110871979,
       "Stage": 1,
       "ErrorType": 0,
       "ErrorCode": "LP1027",
@@ -125,9 +125,9 @@
       "Severity": 0
     },
     {
-      "LogID": "f2d86873-b14a-48eb-9b73-255d94a4ff5e",
+      "LogID": "be6f2e0b-ffc5-4c81-8cc1-90e41974e6f8",
       "Order": 3,
-      "Timestamp": 1784105599960,
+      "Timestamp": 1784110871979,
       "Stage": 1,
       "ErrorType": 0,
       "ErrorCode": "LP1015",
@@ -147,9 +147,9 @@
       "Severity": 0
     },
     {
-      "LogID": "8f35856c-7f5c-4057-af2a-4e9a08c87caf",
+      "LogID": "dbf00400-c46d-458c-8fc8-502b03047ca5",
       "Order": 4,
-      "Timestamp": 1784105599960,
+      "Timestamp": 1784110871979,
       "Stage": 1,
       "ErrorType": 0,
       "ErrorCode": "LP1032",

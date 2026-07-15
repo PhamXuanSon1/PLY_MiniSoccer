@@ -20,6 +20,14 @@ public class SlotTrigger : MonoBehaviour
     [Tooltip("Tốc độ Slot bay lên màn hình")]
     public float moveSpeed = 10f;
 
+    [Header("Hiệu ứng Bay xuống (Tuỳ chọn)")]
+    [Tooltip("Object nào đó sẽ bay xuống cùng lúc với Slot bay lên (Ví dụ: cái búa, màn chắn...)")]
+    public Transform objectToMoveDown;
+    
+    [Tooltip("Vị trí đích đến theo chiều dọc màn hình (0 là dưới cùng, 1 là trên cùng). 2/10 màn hình = 0.2")]
+    [Range(0f, 1f)]
+    public float targetScreenYRatio = 0.2f;
+
     private bool isTriggered = false;
 
     private void Start()
@@ -71,17 +79,50 @@ public class SlotTrigger : MonoBehaviour
         float targetX = (mainCam != null) ? mainCam.transform.position.x : transform.position.x;
         float targetY = yAnchor.position.y;
         
-        Vector3 targetPosition = new Vector3(targetX, targetY, transform.position.z);
+        Vector3 slotStartPos = transform.position;
+        Vector3 slotTargetPos = new Vector3(targetX, targetY, transform.position.z);
 
-        // Di chuyển Slot từ từ lên đích (dùng hàm MoveTowards rất mượt)
-        while (Vector3.Distance(transform.position, targetPosition) > 0.01f)
+        // Tính toán tọa độ cho object phụ bay xuống (nếu có gán)
+        Vector3 extraStartPos = Vector3.zero;
+        Vector3 extraTargetPos = Vector3.zero;
+        if (objectToMoveDown != null && mainCam != null)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
-            yield return null; // Tạm dừng tại đây, đợi đến frame (khung hình) tiếp theo mới chạy tiếp
+            extraStartPos = objectToMoveDown.position;
+            
+            // Tính toạ độ Y trên màn hình (Ví dụ: Screen.height * 0.2)
+            Vector3 screenPos = new Vector3(Screen.width / 2f, Screen.height * targetScreenYRatio, 10f); // 10f là z khoảng cách tới camera
+            Vector3 worldPos = mainCam.ScreenToWorldPoint(screenPos);
+            
+            // Giữ nguyên X và Z của object phụ, chỉ thay đổi Y theo màn hình
+            extraTargetPos = new Vector3(extraStartPos.x, worldPos.y, extraStartPos.z);
+        }
+
+        // Tính toán tổng thời gian bay (dựa trên quãng đường và tốc độ của Slot)
+        float totalDistance = Vector3.Distance(slotStartPos, slotTargetPos);
+        float duration = totalDistance / moveSpeed;
+        float elapsedTime = 0f;
+
+        // Dùng Lerp để đảm bảo cả 2 object chạy từ đầu tới đích trong CÙNG MỘT KHOẢNG THỜI GIAN
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / duration; // t sẽ chạy từ 0 đến 1
+
+            // Slot bay lên
+            transform.position = Vector3.Lerp(slotStartPos, slotTargetPos, t);
+            
+            // Object phụ bay xuống (chắc chắn sẽ đến nơi cùng lúc với Slot)
+            if (objectToMoveDown != null)
+            {
+                objectToMoveDown.position = Vector3.Lerp(extraStartPos, extraTargetPos, t);
+            }
+
+            yield return null; // Đợi đến frame tiếp theo
         }
 
         // Bám chuẩn xác tọa độ điểm đến khi vòng lặp kết thúc
-        transform.position = targetPosition;
+        transform.position = slotTargetPos;
+        if (objectToMoveDown != null) objectToMoveDown.position = extraTargetPos;
 
         // 3. Sau khi Slot bay đến nơi xong xuôi -> Gọi UI hiện lên
         ShowUI();

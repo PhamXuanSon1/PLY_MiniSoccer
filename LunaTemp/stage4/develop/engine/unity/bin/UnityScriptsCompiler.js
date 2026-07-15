@@ -1,9 +1,123 @@
-if ( TRACE ) { TRACE( JSON.parse( '["BatStrikeController#init","BatStrikeController#Start","BatStrikeController#Update","BatStrikeController#ChargeBat","BatStrikeController#FireBat","BatStrikeController#OnCollisionEnter2D","CameraFollow2D#init","CameraFollow2D#LateUpdate","ComponentCache$1#init","ComponentCache$1#Get$1","ComponentCache$1#Get","ComponentCache$1#ClearCache","CupCollision#init","CupCollision#OnCollisionEnter2D","DG.Tweening.DOTweenCYInstruction.WaitForCompletion#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForCompletion#ctor","DG.Tweening.DOTweenCYInstruction.WaitForElapsedLoops#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForElapsedLoops#ctor","DG.Tweening.DOTweenCYInstruction.WaitForKill#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForKill#ctor","DG.Tweening.DOTweenCYInstruction.WaitForPosition#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForPosition#ctor","DG.Tweening.DOTweenCYInstruction.WaitForRewind#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForRewind#ctor","DG.Tweening.DOTweenCYInstruction.WaitForStart#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForStart#ctor","DG.Tweening.DOTweenModuleAudio#DOFade","DG.Tweening.DOTweenModuleAudio#DOPitch","DG.Tweening.DOTweenModuleAudio#DOSetFloat","DG.Tweening.DOTweenModuleAudio#DOComplete","DG.Tweening.DOTweenModuleAudio#DOKill","DG.Tweening.DOTweenModuleAudio#DOFlip","DG.Tweening.DOTweenModuleAudio#DOGoto","DG.Tweening.DOTweenModuleAudio#DOPause","DG.Tweening.DOTweenModuleAudio#DOPlay","DG.Tweening.DOTweenModuleAudio#DOPlayBackwards","DG.Tweening.DOTweenModuleAudio#DOPlayForward","DG.Tweening.DOTweenModuleAudio#DORestart","DG.Tweening.DOTweenModuleAudio#DORewind","DG.Tweening.DOTweenModuleAudio#DOSmoothRewind","DG.Tweening.DOTweenModuleAudio#DOTogglePause","DG.Tweening.DOTweenModulePhysics#DOMove","DG.Tweening.DOTweenModulePhysics#DOMoveX","DG.Tweening.DOTweenModulePhysics#DOMoveY","DG.Tweening.DOTweenModulePhysics#DOMoveZ","DG.Tweening.DOTweenModulePhysics#DORotate","DG.Tweening.DOTweenModulePhysics#DOLookAt","DG.Tweening.DOTweenModulePhysics#DOJump","DG.Tweening.DOTweenModulePhysics#DOPath","DG.Tweening.DOTweenModulePhysics#DOPath$1","DG.Tweening.DOTweenModulePhysics#DOLocalPath","DG.Tweening.DOTweenModulePhysics#DOLocalPath$1","DG.Tweening.DOTweenModulePhysics2D#DOMove","DG.Tweening.DOTweenModulePhysics2D#DOMoveX","DG.Tweening.DOTweenModulePhysics2D#DOMoveY","DG.Tweening.DOTweenModulePhysics2D#DORotate","DG.Tweening.DOTweenModulePhysics2D#DOJump","DG.Tweening.DOTweenModulePhysics2D#DOPath","DG.Tweening.DOTweenModulePhysics2D#DOPath$1","DG.Tweening.DOTweenModulePhysics2D#DOLocalPath","DG.Tweening.DOTweenModulePhysics2D#DOLocalPath$1","DG.Tweening.DOTweenModuleSprite#DOColor","DG.Tweening.DOTweenModuleSprite#DOFade","DG.Tweening.DOTweenModuleSprite#DOGradientColor","DG.Tweening.DOTweenModuleSprite#DOBlendableColor","DG.Tweening.DOTweenModuleUI#DOFade","DG.Tweening.DOTweenModuleUI#DOFade$1","DG.Tweening.DOTweenModuleUI#DOFade$2","DG.Tweening.DOTweenModuleUI#DOFade$3","DG.Tweening.DOTweenModuleUI#DOFade$4","DG.Tweening.DOTweenModuleUI#DOColor","DG.Tweening.DOTweenModuleUI#DOColor$1","DG.Tweening.DOTweenModuleUI#DOColor$2","DG.Tweening.DOTweenModuleUI#DOColor$3","DG.Tweening.DOTweenModuleUI#DOFillAmount","DG.Tweening.DOTweenModuleUI#DOGradientColor","DG.Tweening.DOTweenModuleUI#DOFlexibleSize","DG.Tweening.DOTweenModuleUI#DOMinSize","DG.Tweening.DOTweenModuleUI#DOPreferredSize","DG.Tweening.DOTweenModuleUI#DOScale","DG.Tweening.DOTweenModuleUI#DOAnchorPos","DG.Tweening.DOTweenModuleUI#DOAnchorPosX","DG.Tweening.DOTweenModuleUI#DOAnchorPosY","DG.Tweening.DOTweenModuleUI#DOAnchorPos3D","DG.Tweening.DOTweenModuleUI#DOAnchorPos3DX","DG.Tweening.DOTweenModuleUI#DOAnchorPos3DY","DG.Tweening.DOTweenModuleUI#DOAnchorPos3DZ","DG.Tweening.DOTweenModuleUI#DOAnchorMax","DG.Tweening.DOTweenModuleUI#DOAnchorMin","DG.Tweening.DOTweenModuleUI#DOPivot","DG.Tweening.DOTweenModuleUI#DOPivotX","DG.Tweening.DOTweenModuleUI#DOPivotY","DG.Tweening.DOTweenModuleUI#DOSizeDelta","DG.Tweening.DOTweenModuleUI#DOPunchAnchorPos","DG.Tweening.DOTweenModuleUI#DOShakeAnchorPos","DG.Tweening.DOTweenModuleUI#DOShakeAnchorPos$1","DG.Tweening.DOTweenModuleUI#DOJumpAnchorPos","DG.Tweening.DOTweenModuleUI#DONormalizedPos","DG.Tweening.DOTweenModuleUI#DOHorizontalNormalizedPos","DG.Tweening.DOTweenModuleUI#DOVerticalNormalizedPos","DG.Tweening.DOTweenModuleUI#DOValue","DG.Tweening.DOTweenModuleUI#DOCounter","DG.Tweening.DOTweenModuleUI#DOText","DG.Tweening.DOTweenModuleUI#DOBlendableColor","DG.Tweening.DOTweenModuleUI#DOBlendableColor$1","DG.Tweening.DOTweenModuleUI#DOBlendableColor$2","DG.Tweening.DOTweenModuleUI#DOShapeCircle","DG.Tweening.DOTweenModuleUI.Utils#SwitchToRectTransform","DG.Tweening.DOTweenModuleUnityVersion#DOGradientColor","DG.Tweening.DOTweenModuleUnityVersion#DOGradientColor$1","DG.Tweening.DOTweenModuleUnityVersion#WaitForCompletion","DG.Tweening.DOTweenModuleUnityVersion#WaitForRewind","DG.Tweening.DOTweenModuleUnityVersion#WaitForKill","DG.Tweening.DOTweenModuleUnityVersion#WaitForElapsedLoops","DG.Tweening.DOTweenModuleUnityVersion#WaitForPosition","DG.Tweening.DOTweenModuleUnityVersion#WaitForStart","DG.Tweening.DOTweenModuleUnityVersion#DOOffset","DG.Tweening.DOTweenModuleUnityVersion#DOTiling","DG.Tweening.DOTweenModuleUtils#Init","DG.Tweening.DOTweenModuleUtils#Preserver","DG.Tweening.DOTweenModuleUtils.Physics#SetOrientationOnPath","DG.Tweening.DOTweenModuleUtils.Physics#HasRigidbody2D","DG.Tweening.DOTweenModuleUtils.Physics#HasRigidbody","DG.Tweening.DOTweenModuleUtils.Physics#CreateDOTweenPathTween","HideOnFirstClick#Start","HideOnFirstClick#Update","ItemMovementController#init","ItemMovementController#Start","ItemMovementController#Update","ItemMovementController#HandleItemMovement","MoveBetweenPoints#init","MoveBetweenPoints#Start","PlayerCardUIManager#init","PlayerCardUIManager#Awake","PlayerCardUIManager#GotoStore","PlayerCardUIManager#Start","PlayerCardUIManager#Update","PlayerCardUIManager#ShowPlayerCard","PlayerCardUIManager#WaitAndTriggerObjects","PlayerCardUIManager#HideCard","Ply_Singleton$1#init","Ply_Singleton$1#Awake","Ply_Pool.PoolAmount#getDefaultValue","Ply_Pool.PoolAmount#ctor","Ply_Pool.PoolAmount#getHashCode","Ply_Pool.PoolAmount#equals","Ply_Pool.PoolAmount#$clone","SlotTrigger#init","SlotTrigger#Start","SlotTrigger#OnTriggerEnter2D","SlotTrigger#FlyAndShowUI","SlotTrigger#ShowUI","SoundData#init","Yielders#EndOfFrame#get","Yielders#FixedUpdate#get","Yielders#init","Yielders#Get","Ply_Pool#inherits","Ply_Pool#init","Ply_Pool#Awake","Ply_Pool#OnInit","Ply_Pool#Spawn$1","Ply_Pool#Spawn","Ply_Pool#Despawn","Ply_Pool#GetPrefab","Ply_SoundManager#inherits","Ply_SoundManager#init","Ply_SoundManager#PlayFx","Ply_SoundManager#PlayLoopFx","Ply_SoundManager#StopFx","Ply_SoundManager#PlayBGM1","Ply_SoundManager#PlayBGM2","Ply_SoundManager#GetSoundData","Ply_SoundManager#MuteFx","Ply_SoundManager#Mute"]' ) ); }
+if ( TRACE ) { TRACE( JSON.parse( '["AutoCameraFit#init","AutoCameraFit#Awake","AutoCameraFit#Update","AutoCameraFit#UpdateCameraNow","BatStrikeController#init","BatStrikeController#Start","BatStrikeController#Update","BatStrikeController#ChargeBat","BatStrikeController#FireBat","BatStrikeController#OnCollisionEnter2D","CameraFollow2D#init","CameraFollow2D#LateUpdate","ClickToStore#OnMouseDown","ComponentCache$1#init","ComponentCache$1#Get$1","ComponentCache$1#Get","ComponentCache$1#ClearCache","CupCollision#init","CupCollision#OnCollisionEnter2D","DG.Tweening.DOTweenCYInstruction.WaitForCompletion#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForCompletion#ctor","DG.Tweening.DOTweenCYInstruction.WaitForElapsedLoops#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForElapsedLoops#ctor","DG.Tweening.DOTweenCYInstruction.WaitForKill#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForKill#ctor","DG.Tweening.DOTweenCYInstruction.WaitForPosition#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForPosition#ctor","DG.Tweening.DOTweenCYInstruction.WaitForRewind#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForRewind#ctor","DG.Tweening.DOTweenCYInstruction.WaitForStart#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForStart#ctor","DG.Tweening.DOTweenModuleAudio#DOFade","DG.Tweening.DOTweenModuleAudio#DOPitch","DG.Tweening.DOTweenModuleAudio#DOSetFloat","DG.Tweening.DOTweenModuleAudio#DOComplete","DG.Tweening.DOTweenModuleAudio#DOKill","DG.Tweening.DOTweenModuleAudio#DOFlip","DG.Tweening.DOTweenModuleAudio#DOGoto","DG.Tweening.DOTweenModuleAudio#DOPause","DG.Tweening.DOTweenModuleAudio#DOPlay","DG.Tweening.DOTweenModuleAudio#DOPlayBackwards","DG.Tweening.DOTweenModuleAudio#DOPlayForward","DG.Tweening.DOTweenModuleAudio#DORestart","DG.Tweening.DOTweenModuleAudio#DORewind","DG.Tweening.DOTweenModuleAudio#DOSmoothRewind","DG.Tweening.DOTweenModuleAudio#DOTogglePause","DG.Tweening.DOTweenModulePhysics#DOMove","DG.Tweening.DOTweenModulePhysics#DOMoveX","DG.Tweening.DOTweenModulePhysics#DOMoveY","DG.Tweening.DOTweenModulePhysics#DOMoveZ","DG.Tweening.DOTweenModulePhysics#DORotate","DG.Tweening.DOTweenModulePhysics#DOLookAt","DG.Tweening.DOTweenModulePhysics#DOJump","DG.Tweening.DOTweenModulePhysics#DOPath","DG.Tweening.DOTweenModulePhysics#DOPath$1","DG.Tweening.DOTweenModulePhysics#DOLocalPath","DG.Tweening.DOTweenModulePhysics#DOLocalPath$1","DG.Tweening.DOTweenModulePhysics2D#DOMove","DG.Tweening.DOTweenModulePhysics2D#DOMoveX","DG.Tweening.DOTweenModulePhysics2D#DOMoveY","DG.Tweening.DOTweenModulePhysics2D#DORotate","DG.Tweening.DOTweenModulePhysics2D#DOJump","DG.Tweening.DOTweenModulePhysics2D#DOPath","DG.Tweening.DOTweenModulePhysics2D#DOPath$1","DG.Tweening.DOTweenModulePhysics2D#DOLocalPath","DG.Tweening.DOTweenModulePhysics2D#DOLocalPath$1","DG.Tweening.DOTweenModuleSprite#DOColor","DG.Tweening.DOTweenModuleSprite#DOFade","DG.Tweening.DOTweenModuleSprite#DOGradientColor","DG.Tweening.DOTweenModuleSprite#DOBlendableColor","DG.Tweening.DOTweenModuleUI#DOFade","DG.Tweening.DOTweenModuleUI#DOFade$1","DG.Tweening.DOTweenModuleUI#DOFade$2","DG.Tweening.DOTweenModuleUI#DOFade$3","DG.Tweening.DOTweenModuleUI#DOFade$4","DG.Tweening.DOTweenModuleUI#DOColor","DG.Tweening.DOTweenModuleUI#DOColor$1","DG.Tweening.DOTweenModuleUI#DOColor$2","DG.Tweening.DOTweenModuleUI#DOColor$3","DG.Tweening.DOTweenModuleUI#DOFillAmount","DG.Tweening.DOTweenModuleUI#DOGradientColor","DG.Tweening.DOTweenModuleUI#DOFlexibleSize","DG.Tweening.DOTweenModuleUI#DOMinSize","DG.Tweening.DOTweenModuleUI#DOPreferredSize","DG.Tweening.DOTweenModuleUI#DOScale","DG.Tweening.DOTweenModuleUI#DOAnchorPos","DG.Tweening.DOTweenModuleUI#DOAnchorPosX","DG.Tweening.DOTweenModuleUI#DOAnchorPosY","DG.Tweening.DOTweenModuleUI#DOAnchorPos3D","DG.Tweening.DOTweenModuleUI#DOAnchorPos3DX","DG.Tweening.DOTweenModuleUI#DOAnchorPos3DY","DG.Tweening.DOTweenModuleUI#DOAnchorPos3DZ","DG.Tweening.DOTweenModuleUI#DOAnchorMax","DG.Tweening.DOTweenModuleUI#DOAnchorMin","DG.Tweening.DOTweenModuleUI#DOPivot","DG.Tweening.DOTweenModuleUI#DOPivotX","DG.Tweening.DOTweenModuleUI#DOPivotY","DG.Tweening.DOTweenModuleUI#DOSizeDelta","DG.Tweening.DOTweenModuleUI#DOPunchAnchorPos","DG.Tweening.DOTweenModuleUI#DOShakeAnchorPos","DG.Tweening.DOTweenModuleUI#DOShakeAnchorPos$1","DG.Tweening.DOTweenModuleUI#DOJumpAnchorPos","DG.Tweening.DOTweenModuleUI#DONormalizedPos","DG.Tweening.DOTweenModuleUI#DOHorizontalNormalizedPos","DG.Tweening.DOTweenModuleUI#DOVerticalNormalizedPos","DG.Tweening.DOTweenModuleUI#DOValue","DG.Tweening.DOTweenModuleUI#DOCounter","DG.Tweening.DOTweenModuleUI#DOText","DG.Tweening.DOTweenModuleUI#DOBlendableColor","DG.Tweening.DOTweenModuleUI#DOBlendableColor$1","DG.Tweening.DOTweenModuleUI#DOBlendableColor$2","DG.Tweening.DOTweenModuleUI#DOShapeCircle","DG.Tweening.DOTweenModuleUI.Utils#SwitchToRectTransform","DG.Tweening.DOTweenModuleUnityVersion#DOGradientColor","DG.Tweening.DOTweenModuleUnityVersion#DOGradientColor$1","DG.Tweening.DOTweenModuleUnityVersion#WaitForCompletion","DG.Tweening.DOTweenModuleUnityVersion#WaitForRewind","DG.Tweening.DOTweenModuleUnityVersion#WaitForKill","DG.Tweening.DOTweenModuleUnityVersion#WaitForElapsedLoops","DG.Tweening.DOTweenModuleUnityVersion#WaitForPosition","DG.Tweening.DOTweenModuleUnityVersion#WaitForStart","DG.Tweening.DOTweenModuleUnityVersion#DOOffset","DG.Tweening.DOTweenModuleUnityVersion#DOTiling","DG.Tweening.DOTweenModuleUtils#Init","DG.Tweening.DOTweenModuleUtils#Preserver","DG.Tweening.DOTweenModuleUtils.Physics#SetOrientationOnPath","DG.Tweening.DOTweenModuleUtils.Physics#HasRigidbody2D","DG.Tweening.DOTweenModuleUtils.Physics#HasRigidbody","DG.Tweening.DOTweenModuleUtils.Physics#CreateDOTweenPathTween","HideOnFirstClick#Start","HideOnFirstClick#Update","ItemMovementController#init","ItemMovementController#Start","ItemMovementController#Update","ItemMovementController#HandleItemMovement","MoveBetweenPoints#init","MoveBetweenPoints#Start","PlayerCardUIManager#init","PlayerCardUIManager#Awake","PlayerCardUIManager#GotoStore","PlayerCardUIManager#Start","PlayerCardUIManager#Update","PlayerCardUIManager#ShowPlayerCard","PlayerCardUIManager#WaitAndTriggerObjects","PlayerCardUIManager#HideCard","Ply_Singleton$1#init","Ply_Singleton$1#Awake","Ply_Pool.PoolAmount#getDefaultValue","Ply_Pool.PoolAmount#ctor","Ply_Pool.PoolAmount#getHashCode","Ply_Pool.PoolAmount#equals","Ply_Pool.PoolAmount#$clone","SlotTrigger#init","SlotTrigger#Start","SlotTrigger#OnTriggerEnter2D","SlotTrigger#FlyAndShowUI","SlotTrigger#ShowUI","SoundData#init","Yielders#EndOfFrame#get","Yielders#FixedUpdate#get","Yielders#init","Yielders#Get","Ply_Pool#inherits","Ply_Pool#init","Ply_Pool#Awake","Ply_Pool#OnInit","Ply_Pool#Spawn$1","Ply_Pool#Spawn","Ply_Pool#Despawn","Ply_Pool#GetPrefab","Ply_SoundManager#inherits","Ply_SoundManager#init","Ply_SoundManager#PlayFx","Ply_SoundManager#PlayLoopFx","Ply_SoundManager#StopFx","Ply_SoundManager#PlayBGM1","Ply_SoundManager#PlayBGM2","Ply_SoundManager#GetSoundData","Ply_SoundManager#MuteFx","Ply_SoundManager#Mute"]' ) ); }
 /**
  * @compiler Bridge.NET 17.9.42-luna
  */
 Bridge.assembly("UnityScriptsCompiler", function ($asm, globals) {
     "use strict";
+
+    /*AutoCameraFit start.*/
+    Bridge.define("AutoCameraFit", {
+        inherits: [UnityEngine.MonoBehaviour],
+        fields: {
+            targetArea: null,
+            paddingLandscape: 0,
+            paddingPortrait: 0,
+            extraPaddingSmallScreen: 0,
+            smallScreenThreshold: 0,
+            autoUpdateOnResize: false,
+            adjustInEditMode: false,
+            tallScreenObject: null,
+            tallScreenRatioThreshold: 0,
+            tallScreenYOffset: 0,
+            originalObjectY: 0,
+            hasOriginalObjectY: false,
+            cam: null,
+            lastScreenWidth: 0,
+            lastScreenHeight: 0,
+            canvasBtn: null
+        },
+        ctors: {
+            init: function () {
+if ( TRACE ) { TRACE( "AutoCameraFit#init", this ); }
+
+                this.paddingLandscape = 0.6;
+                this.paddingPortrait = 0.22;
+                this.extraPaddingSmallScreen = 0.12;
+                this.smallScreenThreshold = 720;
+                this.autoUpdateOnResize = true;
+                this.adjustInEditMode = true;
+                this.tallScreenRatioThreshold = 0.49;
+                this.tallScreenYOffset = 1.0;
+                this.hasOriginalObjectY = false;
+            }
+        },
+        methods: {
+            /*AutoCameraFit.Awake start.*/
+            Awake: function () {
+if ( TRACE ) { TRACE( "AutoCameraFit#Awake", this ); }
+
+                this.cam = this.GetComponent(UnityEngine.Camera);
+                this.UpdateCameraNow();
+            },
+            /*AutoCameraFit.Awake end.*/
+
+            /*AutoCameraFit.Update start.*/
+            Update: function () {
+if ( TRACE ) { TRACE( "AutoCameraFit#Update", this ); }
+
+                if ((UnityEngine.Application.isPlaying || this.adjustInEditMode) && this.autoUpdateOnResize && (UnityEngine.Screen.width !== this.lastScreenWidth || UnityEngine.Screen.height !== this.lastScreenHeight)) {
+                    this.UpdateCameraNow();
+                }
+            },
+            /*AutoCameraFit.Update end.*/
+
+            /*AutoCameraFit.UpdateCameraNow start.*/
+            UpdateCameraNow: function () {
+if ( TRACE ) { TRACE( "AutoCameraFit#UpdateCameraNow", this ); }
+
+                var $t;
+                if (UnityEngine.Component.op_Equality(this.targetArea, null)) {
+                    return;
+                }
+                var renderers = this.targetArea.GetComponentsInChildren(UnityEngine.Renderer);
+                if (renderers.length === 0) {
+                    return;
+                }
+                var padding = ((UnityEngine.Screen.width > UnityEngine.Screen.height) ? this.paddingLandscape : this.paddingPortrait);
+                if (UnityEngine.Screen.height < this.smallScreenThreshold || UnityEngine.Screen.width < this.smallScreenThreshold) {
+                    padding += this.extraPaddingSmallScreen;
+                }
+                var bounds = renderers[0].bounds;
+                var array = renderers;
+                $t = Bridge.getEnumerator(array);
+                try {
+                    while ($t.moveNext()) {
+                        var r = $t.Current;
+                        bounds.add( r.bounds );
+                    }
+                } finally {
+                    if (Bridge.is($t, System.IDisposable)) {
+                        $t.System$IDisposable$Dispose();
+                    }
+                }
+                var screenRatio = UnityEngine.Screen.width / UnityEngine.Screen.height;
+                var targetRatio = bounds.halfExtents.$clone().scale( 2 ).x / bounds.halfExtents.$clone().scale( 2 ).y;
+                if (screenRatio >= targetRatio) {
+                    this.cam.orthographicSize = bounds.halfExtents.$clone().scale( 2 ).y / 2.0 + padding;
+                } else {
+                    var differenceInSize = targetRatio / screenRatio;
+                    this.cam.orthographicSize = bounds.halfExtents.$clone().scale( 2 ).y / 2.0 * differenceInSize + padding;
+                }
+                if (UnityEngine.Component.op_Inequality(this.tallScreenObject, null)) {
+                    if (!this.hasOriginalObjectY) {
+                        this.originalObjectY = this.tallScreenObject.localPosition.y;
+                        this.hasOriginalObjectY = true;
+                    }
+                    if (screenRatio <= this.tallScreenRatioThreshold) {
+                        this.tallScreenObject.localPosition = new pc.Vec3( this.tallScreenObject.localPosition.x, this.originalObjectY + this.tallScreenYOffset, this.tallScreenObject.localPosition.z );
+                    } else {
+                        this.tallScreenObject.localPosition = new pc.Vec3( this.tallScreenObject.localPosition.x, this.originalObjectY, this.tallScreenObject.localPosition.z );
+                    }
+                }
+                this.lastScreenWidth = UnityEngine.Screen.width;
+                this.lastScreenHeight = UnityEngine.Screen.height;
+            },
+            /*AutoCameraFit.UpdateCameraNow end.*/
+
+
+        }
+    });
+    /*AutoCameraFit end.*/
 
     /*BatStrikeController start.*/
     Bridge.define("BatStrikeController", {
@@ -118,21 +232,18 @@ if ( TRACE ) { TRACE( "BatStrikeController#OnCollisionEnter2D", this ); }
         inherits: [UnityEngine.MonoBehaviour],
         fields: {
             target: null,
-            smoothTime: 0,
+            smoothSpeed: 0,
             offset: null,
-            followY: false,
-            velocity: null
+            followY: false
         },
         ctors: {
             init: function () {
 if ( TRACE ) { TRACE( "CameraFollow2D#init", this ); }
 
                 this.offset = new UnityEngine.Vector3();
-                this.velocity = new UnityEngine.Vector3();
-                this.smoothTime = 0.25;
+                this.smoothSpeed = 10.0;
                 this.offset = new pc.Vec3( 0.0, 0.0, -10.0 );
                 this.followY = false;
-                this.velocity = pc.Vec3.ZERO.clone();
             }
         },
         methods: {
@@ -145,7 +256,7 @@ if ( TRACE ) { TRACE( "CameraFollow2D#LateUpdate", this ); }
                     if (!this.followY) {
                         targetPosition.y = this.transform.position.y;
                     }
-                    this.transform.position = pc.Vec3.smoothDamp( this.transform.position.$clone(), targetPosition.$clone(), Bridge.ref(this, "velocity"), this.smoothTime, Infinity, UnityEngine.Time.deltaTime );
+                    this.transform.position = new pc.Vec3().lerp( this.transform.position, targetPosition, this.smoothSpeed * UnityEngine.Time.deltaTime );
                 }
             },
             /*CameraFollow2D.LateUpdate end.*/
@@ -154,6 +265,25 @@ if ( TRACE ) { TRACE( "CameraFollow2D#LateUpdate", this ); }
         }
     });
     /*CameraFollow2D end.*/
+
+    /*ClickToStore start.*/
+    Bridge.define("ClickToStore", {
+        inherits: [UnityEngine.MonoBehaviour],
+        methods: {
+            /*ClickToStore.OnMouseDown start.*/
+            OnMouseDown: function () {
+if ( TRACE ) { TRACE( "ClickToStore#OnMouseDown", this ); }
+
+                UnityEngine.Debug.Log$1("\u0110\u00e3 click v\u00e0o Item -> Chuy\u1ec3n h\u01b0\u1edbng ra Store!");
+                Luna.Unity.LifeCycle.GameEnded();
+                Luna.Unity.Playable.InstallFullGame();
+            },
+            /*ClickToStore.OnMouseDown end.*/
+
+
+        }
+    });
+    /*ClickToStore end.*/
 
     /*ComponentCache$1 start.*/
     Bridge.define("ComponentCache$1", function (T) { return {
@@ -2516,6 +2646,8 @@ if ( TRACE ) { TRACE( "Ply_Pool.PoolAmount#$clone", this ); }
             targetTag: null,
             yAnchor: null,
             moveSpeed: 0,
+            objectToMoveDown: null,
+            targetScreenYRatio: 0,
             isTriggered: false
         },
         ctors: {
@@ -2524,6 +2656,7 @@ if ( TRACE ) { TRACE( "SlotTrigger#init", this ); }
 
                 this.targetTag = "Cup";
                 this.moveSpeed = 10.0;
+                this.targetScreenYRatio = 0.2;
                 this.isTriggered = false;
             }
         },
@@ -2571,7 +2704,16 @@ if ( TRACE ) { TRACE( "SlotTrigger#FlyAndShowUI", this ); }
                     mainCam,
                     targetX,
                     targetY,
-                    targetPosition,
+                    slotStartPos,
+                    slotTargetPos,
+                    extraStartPos,
+                    extraTargetPos,
+                    screenPos,
+                    worldPos,
+                    totalDistance,
+                    duration,
+                    elapsedTime,
+                    t,
                     $async_e;
 
                 var $enumerator = new Bridge.GeneratorEnumerator(Bridge.fn.bind(this, function () {
@@ -2582,12 +2724,24 @@ if ( TRACE ) { TRACE( "SlotTrigger#FlyAndShowUI", this ); }
                                     mainCam = UnityEngine.Camera.main;
                                         targetX = ((UnityEngine.Component.op_Inequality(mainCam, null)) ? mainCam.transform.position.x : this.transform.position.x);
                                         targetY = this.yAnchor.position.y;
-                                        targetPosition = new pc.Vec3( targetX, targetY, this.transform.position.z );
+                                        slotStartPos = this.transform.position.$clone();
+                                        slotTargetPos = new pc.Vec3( targetX, targetY, this.transform.position.z );
+                                        extraStartPos = pc.Vec3.ZERO.clone();
+                                        extraTargetPos = pc.Vec3.ZERO.clone();
+                                        if (UnityEngine.Component.op_Inequality(this.objectToMoveDown, null) && UnityEngine.Component.op_Inequality(mainCam, null)) {
+                                            extraStartPos = this.objectToMoveDown.position.$clone();
+                                            screenPos = new pc.Vec3( UnityEngine.Screen.width / 2.0, UnityEngine.Screen.height * this.targetScreenYRatio, 10.0 );
+                                            worldPos = mainCam.ScreenToWorldPoint(screenPos);
+                                            extraTargetPos = new pc.Vec3( extraStartPos.x, worldPos.y, extraStartPos.z );
+                                        }
+                                        totalDistance = pc.Vec3.distance( slotStartPos, slotTargetPos );
+                                        duration = totalDistance / this.moveSpeed;
+                                        elapsedTime = 0.0;
                                     $step = 1;
                                     continue;
                                 }
                                 case 1: {
-                                    if ( pc.Vec3.distance( this.transform.position, targetPosition ) > 0.01 ) {
+                                    if ( elapsedTime < duration ) {
                                             $step = 2;
                                             continue;
                                         } 
@@ -2595,7 +2749,12 @@ if ( TRACE ) { TRACE( "SlotTrigger#FlyAndShowUI", this ); }
                                         continue;
                                 }
                                 case 2: {
-                                    this.transform.position = pc.Vec3.moveTowards( this.transform.position, targetPosition, this.moveSpeed * UnityEngine.Time.deltaTime );
+                                    elapsedTime += UnityEngine.Time.deltaTime;
+                                        t = elapsedTime / duration;
+                                        this.transform.position = new pc.Vec3().lerp( slotStartPos, slotTargetPos, t );
+                                        if (UnityEngine.Component.op_Inequality(this.objectToMoveDown, null)) {
+                                            this.objectToMoveDown.position = new pc.Vec3().lerp( extraStartPos, extraTargetPos, t );
+                                        }
                                         $enumerator.current = null;
                                         $step = 3;
                                         return true;
@@ -2606,7 +2765,10 @@ if ( TRACE ) { TRACE( "SlotTrigger#FlyAndShowUI", this ); }
                                         continue;
                                 }
                                 case 4: {
-                                    this.transform.position = targetPosition.$clone();
+                                    this.transform.position = slotTargetPos.$clone();
+                                        if (UnityEngine.Component.op_Inequality(this.objectToMoveDown, null)) {
+                                            this.objectToMoveDown.position = extraTargetPos.$clone();
+                                        }
                                         this.ShowUI();
 
                                 }
@@ -2949,13 +3111,21 @@ if ( TRACE ) { TRACE( "Ply_SoundManager#Mute", this ); }
     var $m = Bridge.setMetadata,
         $n = ["System","UnityEngine","System.Collections.Generic","System.Collections","UnityEngine.UI","TMPro","DG.Tweening","UnityEngine.Audio","DG.Tweening.Core","DG.Tweening.Plugins.Core.PathCore","System.Globalization","DG.Tweening.Plugins.Options"];
 
+    /*AutoCameraFit start.*/
+    $m("AutoCameraFit", function () { return {"att":1048577,"a":2,"at":[new UnityEngine.ExecuteAlwaysAttribute(),new UnityEngine.RequireComponent.ctor(UnityEngine.Camera)],"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"Awake","t":8,"sn":"Awake","rt":$n[0].Void},{"a":1,"n":"Update","t":8,"sn":"Update","rt":$n[0].Void},{"at":[new UnityEngine.ContextMenu.ctor("Update Camera Fit")],"a":2,"n":"UpdateCameraNow","t":8,"sn":"UpdateCameraNow","rt":$n[0].Void},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"adjustInEditMode","t":4,"rt":$n[0].Boolean,"sn":"adjustInEditMode","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"autoUpdateOnResize","t":4,"rt":$n[0].Boolean,"sn":"autoUpdateOnResize","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"cam","t":4,"rt":$n[1].Camera,"sn":"cam"},{"a":2,"n":"canvasBtn","t":4,"rt":$n[1].GameObject,"sn":"canvasBtn"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"extraPaddingSmallScreen","t":4,"rt":$n[0].Single,"sn":"extraPaddingSmallScreen","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"hasOriginalObjectY","t":4,"rt":$n[0].Boolean,"sn":"hasOriginalObjectY","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"lastScreenHeight","t":4,"rt":$n[0].Int32,"sn":"lastScreenHeight","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":1,"n":"lastScreenWidth","t":4,"rt":$n[0].Int32,"sn":"lastScreenWidth","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":1,"n":"originalObjectY","t":4,"rt":$n[0].Single,"sn":"originalObjectY","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"paddingLandscape","t":4,"rt":$n[0].Single,"sn":"paddingLandscape","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"paddingPortrait","t":4,"rt":$n[0].Single,"sn":"paddingPortrait","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"smallScreenThreshold","t":4,"rt":$n[0].Int32,"sn":"smallScreenThreshold","box":function ($v) { return Bridge.box($v, System.Int32);}},{"at":[new UnityEngine.HeaderAttribute("Tall Screen Adjustments")],"a":2,"n":"tallScreenObject","t":4,"rt":$n[1].Transform,"sn":"tallScreenObject"},{"a":2,"n":"tallScreenRatioThreshold","t":4,"rt":$n[0].Single,"sn":"tallScreenRatioThreshold","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"tallScreenYOffset","t":4,"rt":$n[0].Single,"sn":"tallScreenYOffset","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"targetArea","t":4,"rt":$n[1].Transform,"sn":"targetArea"}]}; }, $n);
+    /*AutoCameraFit end.*/
+
     /*BatStrikeController start.*/
     $m("BatStrikeController", function () { return {"att":1048577,"a":2,"at":[new UnityEngine.RequireComponent.ctor(UnityEngine.Rigidbody2D)],"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"ChargeBat","t":8,"sn":"ChargeBat","rt":$n[0].Void},{"a":1,"n":"FireBat","t":8,"sn":"FireBat","rt":$n[0].Void},{"a":1,"n":"OnCollisionEnter2D","t":8,"pi":[{"n":"collision","pt":$n[1].Collision2D,"ps":0}],"sn":"OnCollisionEnter2D","rt":$n[0].Void,"p":[$n[1].Collision2D]},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"a":1,"n":"Update","t":8,"sn":"Update","rt":$n[0].Void},{"a":1,"n":"hasFired","t":4,"rt":$n[0].Boolean,"sn":"hasFired","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"holdTime","t":4,"rt":$n[0].Single,"sn":"holdTime","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"initialPosition","t":4,"rt":$n[1].Vector3,"sn":"initialPosition"},{"at":[new UnityEngine.TooltipAttribute("Kho\u1ea3ng c\u00e1ch l\u00f9i t\u1ed1i \u0111a (\u0111\u01a1n v\u1ecb Unity).")],"a":2,"n":"maxPullDistance","t":4,"rt":$n[0].Single,"sn":"maxPullDistance","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("Th\u1eddi gian gi\u1eef ch\u1ea1m t\u1ed1i thi\u1ec3u \u0111\u1ec3 t\u00ednh l\u00e0 K\u00e9o (gi\u00e2y). N\u1ebfu ch\u1ec9 ch\u1ea1m (tap) nhanh h\u01a1n s\u1ed1 n\u00e0y th\u00ec s\u1ebd b\u1ecb b\u1ecf qua.")],"a":2,"n":"minHoldTime","t":4,"rt":$n[0].Single,"sn":"minHoldTime","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("Charge Settings"),new UnityEngine.TooltipAttribute("T\u1ed1c \u0111\u1ed9 g\u1eady l\u00f9i v\u1ec1 b\u00ean tr\u00e1i khi \u0111ang gi\u1eef m\u00e0n h\u00ecnh.")],"a":2,"n":"pullSpeed","t":4,"rt":$n[0].Single,"sn":"pullSpeed","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"rb","t":4,"rt":$n[1].Rigidbody2D,"sn":"rb"},{"at":[new UnityEngine.TooltipAttribute("L\u1ef1c \u0111\u00e1nh v\u0103ng v\u1ec1 b\u00ean ph\u1ea3i t\u1ed1i \u0111a.")],"a":2,"n":"strikeForce","t":4,"rt":$n[0].Single,"sn":"strikeForce","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("Collision Settings"),new UnityEngine.TooltipAttribute("Tag c\u1ee7a object Cup (Nh\u1edb g\u00e1n Tag 'Cup' cho Cup trong Unity).")],"a":2,"n":"targetTag","t":4,"rt":$n[0].String,"sn":"targetTag"}]}; }, $n);
     /*BatStrikeController end.*/
 
     /*CameraFollow2D start.*/
-    $m("CameraFollow2D", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"LateUpdate","t":8,"sn":"LateUpdate","rt":$n[0].Void},{"at":[new UnityEngine.TooltipAttribute("B\u1ecf tick n\u1ebfu b\u1ea1n ch\u1ec9 mu\u1ed1n Camera ch\u1ea1y ngang, kh\u00f4ng ch\u1ea1y l\u00ean xu\u1ed1ng")],"a":2,"n":"followY","t":4,"rt":$n[0].Boolean,"sn":"followY","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.TooltipAttribute("V\u1ecb tr\u00ed b\u00f9 tr\u1eeb c\u1ee7a Camera so v\u1edbi Target. Tr\u1ee5c Z lu\u00f4n ph\u1ea3i l\u00e0 s\u1ed1 \u00e2m \u0111\u1ec3 nh\u00ecn th\u1ea5y c\u1ea3nh (VD: -10).")],"a":2,"n":"offset","t":4,"rt":$n[1].Vector3,"sn":"offset"},{"at":[new UnityEngine.HeaderAttribute("\u0110\u1ed9 m\u01b0\u1ee3t & Kho\u1ea3ng c\u00e1ch"),new UnityEngine.TooltipAttribute("Th\u1eddi gian tr\u1ec5 \u0111\u1ec3 Camera \u0111u\u1ed5i k\u1ecbp. C\u00e0ng nh\u1ecf camera b\u00e1m c\u00e0ng s\u00e1t v\u00e0 nhanh, s\u1ed1 to s\u1ebd m\u01b0\u1ee3t nh\u01b0ng ch\u1eadm.")],"a":2,"n":"smoothTime","t":4,"rt":$n[0].Single,"sn":"smoothTime","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("C\u00e0i \u0111\u1eb7t Target"),new UnityEngine.TooltipAttribute("K\u00e9o v\u1eadt th\u1ec3 m\u00e0 Camera c\u1ea7n \u0111i theo (V\u00ed d\u1ee5: Cup) v\u00e0o \u0111\u00e2y")],"a":2,"n":"target","t":4,"rt":$n[1].Transform,"sn":"target"},{"a":1,"n":"velocity","t":4,"rt":$n[1].Vector3,"sn":"velocity"}]}; }, $n);
+    $m("CameraFollow2D", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"LateUpdate","t":8,"sn":"LateUpdate","rt":$n[0].Void},{"at":[new UnityEngine.TooltipAttribute("B\u1ecf tick n\u1ebfu b\u1ea1n ch\u1ec9 mu\u1ed1n Camera ch\u1ea1y ngang, kh\u00f4ng ch\u1ea1y l\u00ean xu\u1ed1ng")],"a":2,"n":"followY","t":4,"rt":$n[0].Boolean,"sn":"followY","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.TooltipAttribute("V\u1ecb tr\u00ed b\u00f9 tr\u1eeb c\u1ee7a Camera so v\u1edbi Target. Tr\u1ee5c Z lu\u00f4n ph\u1ea3i l\u00e0 s\u1ed1 \u00e2m \u0111\u1ec3 nh\u00ecn th\u1ea5y c\u1ea3nh (VD: -10).")],"a":2,"n":"offset","t":4,"rt":$n[1].Vector3,"sn":"offset"},{"at":[new UnityEngine.HeaderAttribute("\u0110\u1ed9 m\u01b0\u1ee3t & Kho\u1ea3ng c\u00e1ch"),new UnityEngine.TooltipAttribute("T\u1ed1c \u0111\u1ed9 b\u00e1m theo (S\u1ed1 c\u00e0ng l\u1edbn b\u00e1m c\u00e0ng s\u00e1t). Khuy\u1ebfn ngh\u1ecb: 5 \u0111\u1ebfn 10")],"a":2,"n":"smoothSpeed","t":4,"rt":$n[0].Single,"sn":"smoothSpeed","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("C\u00e0i \u0111\u1eb7t Target"),new UnityEngine.TooltipAttribute("K\u00e9o v\u1eadt th\u1ec3 m\u00e0 Camera c\u1ea7n \u0111i theo (V\u00ed d\u1ee5: Cup) v\u00e0o \u0111\u00e2y")],"a":2,"n":"target","t":4,"rt":$n[1].Transform,"sn":"target"}]}; }, $n);
     /*CameraFollow2D end.*/
+
+    /*ClickToStore start.*/
+    $m("ClickToStore", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"OnMouseDown","t":8,"sn":"OnMouseDown","rt":$n[0].Void}]}; }, $n);
+    /*ClickToStore end.*/
 
     /*ComponentCache$1 start.*/
     $m("ComponentCache$1", function (T) { return {"att":1048961,"a":2,"s":true,"m":[{"a":2,"n":"ClearCache","is":true,"t":8,"sn":"ClearCache","rt":$n[0].Void},{"a":2,"n":"Get","is":true,"t":8,"pi":[{"n":"collider","pt":$n[1].Collider,"ps":0}],"sn":"Get","rt":T,"p":[$n[1].Collider]},{"a":2,"n":"Get","is":true,"t":8,"pi":[{"n":"transform","pt":$n[1].Transform,"ps":0}],"sn":"Get$1","rt":T,"p":[$n[1].Transform]},{"a":1,"n":"_cache","is":true,"t":4,"rt":$n[2].Dictionary$2(UnityEngine.Transform,T),"sn":"_cache","ro":true}]}; }, $n);
@@ -3020,7 +3190,7 @@ if ( TRACE ) { TRACE( "Ply_SoundManager#Mute", this ); }
     /*PoolType end.*/
 
     /*SlotTrigger start.*/
-    $m("SlotTrigger", function () { return {"att":1048577,"a":2,"at":[new UnityEngine.RequireComponent.ctor(UnityEngine.BoxCollider2D)],"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"FlyAndShowUI","t":8,"sn":"FlyAndShowUI","rt":$n[3].IEnumerator},{"a":1,"n":"OnTriggerEnter2D","t":8,"pi":[{"n":"collision","pt":$n[1].Collider2D,"ps":0}],"sn":"OnTriggerEnter2D","rt":$n[0].Void,"p":[$n[1].Collider2D]},{"a":1,"n":"ShowUI","t":8,"sn":"ShowUI","rt":$n[0].Void},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"at":[new UnityEngine.HeaderAttribute("D\u1eef li\u1ec7u Th\u1ebb C\u1ea7u Th\u1ee7"),new UnityEngine.TooltipAttribute("K\u00e9o th\u1ea3 file Scriptable Object PlayerCardData v\u00e0o \u0111\u00e2y (v\u00ed d\u1ee5: th\u1ebb Messi)")],"a":2,"n":"cardData","t":4,"rt":PlayerCardData,"sn":"cardData"},{"a":1,"n":"isTriggered","t":4,"rt":$n[0].Boolean,"sn":"isTriggered","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.TooltipAttribute("T\u1ed1c \u0111\u1ed9 Slot bay l\u00ean m\u00e0n h\u00ecnh")],"a":2,"n":"moveSpeed","t":4,"rt":$n[0].Single,"sn":"moveSpeed","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("C\u00e0i \u0111\u1eb7t Va ch\u1ea1m"),new UnityEngine.TooltipAttribute("Tag c\u1ee7a qu\u1ea3 C\u00fap")],"a":2,"n":"targetTag","t":4,"rt":$n[0].String,"sn":"targetTag"},{"at":[new UnityEngine.HeaderAttribute("C\u00e0i \u0111\u1eb7t Hi\u1ec7u \u1ee9ng Bay l\u00ean"),new UnityEngine.TooltipAttribute("T\u1ea1o 1 Empty GameObject \u0111\u1eb7t \u1edf v\u1ecb tr\u00ed mu\u1ed1n bay l\u00ean v\u00e0 k\u00e9o n\u00f3 v\u00e0o \u0111\u00e2y (\u0111\u1ec3 l\u1ea5y tr\u1ee5c Y)")],"a":2,"n":"yAnchor","t":4,"rt":$n[1].Transform,"sn":"yAnchor"}]}; }, $n);
+    $m("SlotTrigger", function () { return {"att":1048577,"a":2,"at":[new UnityEngine.RequireComponent.ctor(UnityEngine.BoxCollider2D)],"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"FlyAndShowUI","t":8,"sn":"FlyAndShowUI","rt":$n[3].IEnumerator},{"a":1,"n":"OnTriggerEnter2D","t":8,"pi":[{"n":"collision","pt":$n[1].Collider2D,"ps":0}],"sn":"OnTriggerEnter2D","rt":$n[0].Void,"p":[$n[1].Collider2D]},{"a":1,"n":"ShowUI","t":8,"sn":"ShowUI","rt":$n[0].Void},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"at":[new UnityEngine.HeaderAttribute("D\u1eef li\u1ec7u Th\u1ebb C\u1ea7u Th\u1ee7"),new UnityEngine.TooltipAttribute("K\u00e9o th\u1ea3 file Scriptable Object PlayerCardData v\u00e0o \u0111\u00e2y (v\u00ed d\u1ee5: th\u1ebb Messi)")],"a":2,"n":"cardData","t":4,"rt":PlayerCardData,"sn":"cardData"},{"a":1,"n":"isTriggered","t":4,"rt":$n[0].Boolean,"sn":"isTriggered","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.TooltipAttribute("T\u1ed1c \u0111\u1ed9 Slot bay l\u00ean m\u00e0n h\u00ecnh")],"a":2,"n":"moveSpeed","t":4,"rt":$n[0].Single,"sn":"moveSpeed","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("Hi\u1ec7u \u1ee9ng Bay xu\u1ed1ng (Tu\u1ef3 ch\u1ecdn)"),new UnityEngine.TooltipAttribute("Object n\u00e0o \u0111\u00f3 s\u1ebd bay xu\u1ed1ng c\u00f9ng l\u00fac v\u1edbi Slot bay l\u00ean (V\u00ed d\u1ee5: c\u00e1i b\u00faa, m\u00e0n ch\u1eafn...)")],"a":2,"n":"objectToMoveDown","t":4,"rt":$n[1].Transform,"sn":"objectToMoveDown"},{"at":[new UnityEngine.TooltipAttribute("V\u1ecb tr\u00ed \u0111\u00edch \u0111\u1ebfn theo chi\u1ec1u d\u1ecdc m\u00e0n h\u00ecnh (0 l\u00e0 d\u01b0\u1edbi c\u00f9ng, 1 l\u00e0 tr\u00ean c\u00f9ng). 2/10 m\u00e0n h\u00ecnh = 0.2"),new UnityEngine.RangeAttribute(0.0, 1.0)],"a":2,"n":"targetScreenYRatio","t":4,"rt":$n[0].Single,"sn":"targetScreenYRatio","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("C\u00e0i \u0111\u1eb7t Va ch\u1ea1m"),new UnityEngine.TooltipAttribute("Tag c\u1ee7a qu\u1ea3 C\u00fap")],"a":2,"n":"targetTag","t":4,"rt":$n[0].String,"sn":"targetTag"},{"at":[new UnityEngine.HeaderAttribute("C\u00e0i \u0111\u1eb7t Hi\u1ec7u \u1ee9ng Bay l\u00ean"),new UnityEngine.TooltipAttribute("T\u1ea1o 1 Empty GameObject \u0111\u1eb7t \u1edf v\u1ecb tr\u00ed mu\u1ed1n bay l\u00ean v\u00e0 k\u00e9o n\u00f3 v\u00e0o \u0111\u00e2y (\u0111\u1ec3 l\u1ea5y tr\u1ee5c Y)")],"a":2,"n":"yAnchor","t":4,"rt":$n[1].Transform,"sn":"yAnchor"}]}; }, $n);
     /*SlotTrigger end.*/
 
     /*SoundData start.*/

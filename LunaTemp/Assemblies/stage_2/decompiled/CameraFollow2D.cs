@@ -7,16 +7,14 @@ public class CameraFollow2D : MonoBehaviour
 	public Transform target;
 
 	[Header("Độ mượt & Khoảng cách")]
-	[Tooltip("Thời gian trễ để Camera đuổi kịp. Càng nhỏ camera bám càng sát và nhanh, số to sẽ mượt nhưng chậm.")]
-	public float smoothTime = 0.25f;
+	[Tooltip("Tốc độ bám theo (Số càng lớn bám càng sát). Khuyến nghị: 5 đến 10")]
+	public float smoothSpeed = 10f;
 
 	[Tooltip("Vị trí bù trừ của Camera so với Target. Trục Z luôn phải là số âm để nhìn thấy cảnh (VD: -10).")]
 	public Vector3 offset = new Vector3(0f, 0f, -10f);
 
 	[Tooltip("Bỏ tick nếu bạn chỉ muốn Camera chạy ngang, không chạy lên xuống")]
 	public bool followY = false;
-
-	private Vector3 velocity = Vector3.zero;
 
 	private void LateUpdate()
 	{
@@ -27,7 +25,7 @@ public class CameraFollow2D : MonoBehaviour
 			{
 				targetPosition.y = base.transform.position.y;
 			}
-			base.transform.position = Vector3.SmoothDamp(base.transform.position, targetPosition, ref velocity, smoothTime);
+			base.transform.position = Vector3.Lerp(base.transform.position, targetPosition, smoothSpeed * Time.deltaTime);
 		}
 	}
 }
