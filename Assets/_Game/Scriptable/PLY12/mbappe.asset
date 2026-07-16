@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27f9626f64f552f4399c7d4d5e05231f, type: 3}
+  m_Name: mbappe
+  m_EditorClassIdentifier: 
+  playerName: Mbappe
+  halfBodySprite: {fileID: 21300000, guid: 6fef9f519eedc3e4a9307b4ca70959d6, type: 3}
+  fullBodySprite: {fileID: 21300000, guid: a4fb6b37f1ca9ad4fb3333db3722d722, type: 3}
+  nameAudio: {fileID: 8300000, guid: 4ebae78686316a5469e22194f69e6386, type: 3}
