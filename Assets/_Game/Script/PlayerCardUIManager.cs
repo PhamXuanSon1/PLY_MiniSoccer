@@ -27,8 +27,8 @@ public class PlayerCardUIManager : MonoBehaviour
 
     [Header("UI Elements (Kéo thả từ Canvas vào đây)")]
     public TMP_Text nationalityText;
-    public Image playerImage;
-    public Image flagImage;
+    public SpriteRenderer playerImage;
+    public SpriteRenderer flagImage;
 
     private bool canClickToStore = false;
 

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: UK
   m_EditorClassIdentifier: 
   nationality: England
-  playerSprite: {fileID: 21300000, guid: f3c0c06407808ac4aab61a4df925a992, type: 3}
+  playerSprite: {fileID: 21300000, guid: 4855fcdfe46395b42afab8b0cdb01cd7, type: 3}
   flagSprite: {fileID: 21300000, guid: 9891a2e5b2b399449a2e12bf51cb0e0d, type: 3}

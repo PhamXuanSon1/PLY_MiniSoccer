@@ -1,0 +1,129 @@
+{
+  "BuildID": "9389ae1f-3245-4a8a-a876-7d3b1db9b658",
+  "Command": "project:upload",
+  "ProjectID": "60d50cfced72ae74bb8c1682cb9abbe6",
+  "ProjectStateHash": "3edc7578ee908f77381450c70d3ef95564aeecd5232fb8b8dd8f8ce1143f5dbb",
+  "StageCompletedAt": 3,
+  "EarliestFatalError": 0,
+  "StartTime": 1784167051325,
+  "EndTime": 1784167084135,
+  "PlaygroundUserID": 33919,
+  "OperatingSystem": "win32",
+  "UnityPackageID": null,
+  "TargetPlatform": "playground",
+  "UnityVersion": "6000.0.38f1",
+  "LunaVersion": "7.1.0",
+  "LogCount": 5,
+  "Logs": [
+    {
+      "LogID": "61a3f92f-7c2d-4c0b-8c93-5208d18910b4",
+      "Order": 4,
+      "Timestamp": 1784167084316,
+      "Stage": 3,
+      "ErrorType": 3,
+      "ErrorCode": "LP3007",
+      "Description": "You are not using any custom events",
+      "Details": [
+        "You are not using any custom events. It is recommended to use custom events to have a better understanding of the playable."
+      ],
+      "DescriptionValues": [
+        ""
+      ],
+      "DetailsValues": [
+        ""
+      ],
+      "LogCount": 1,
+      "LinePosition": null,
+      "FilePath": "",
+      "ClassName": "",
+      "MemberName": "",
+      "Severity": 0
+    },
+    {
+      "LogID": "de26109b-be1c-402d-a04c-39bcb60d6f4e",
+      "Order": 4,
+      "Timestamp": 1784167084317,
+      "Stage": 3,
+      "ErrorType": 3,
+      "ErrorCode": "LP3011",
+      "Description": "You are not using any LunaPlaygroundFields attributes.",
+      "Details": [
+        "You are not using any LunaPlaygroundFields attributes, it allows you to configure your playable to different concepts to find the best variation, which can drastically improve playable performance on all ad networks."
+      ],
+      "DescriptionValues": null,
+      "DetailsValues": null,
+      "LogCount": 1,
+      "LinePosition": null,
+      "FilePath": "",
+      "ClassName": "",
+      "MemberName": "",
+      "Severity": 0
+    },
+    {
+      "LogID": "902cda08-f013-4bb6-8b09-2753262ca6bf",
+      "Order": 0,
+      "Timestamp": 1784167059600,
+      "Stage": 1,
+      "ErrorType": 2,
+      "ErrorCode": "LP1014",
+      "Description": "We recommend running Runtime Analysis to find and remove all unused code",
+      "Details": [
+        "Navigate to the Runtime Analysis → Code tab to enable code stripping. Before uploading the playable, please make sure to have played all scenario’s of the playable in a development build to make Runtime Analysis work properly."
+      ],
+      "DescriptionValues": [],
+      "DetailsValues": [],
+      "LogCount": 1,
+      "LinePosition": 0,
+      "FilePath": "",
+      "ClassName": "",
+      "MemberName": "",
+      "Severity": 0
+    },
+    {
+      "LogID": "ddd0a278-d521-4682-9a46-8d5b97d00e06",
+      "Order": 1,
+      "Timestamp": 1784167059615,
+      "Stage": 1,
+      "ErrorType": 0,
+      "ErrorCode": "LP1027",
+      "Description": "This DOTween version is not supported",
+      "Details": [
+        "The incorrect DOTween version for this Unity version is in use, please update or downgrade to the recommended version {0} in the package manager. Go to Window → Package Manager."
+      ],
+      "DescriptionValues": [],
+      "DetailsValues": [
+        ""
+      ],
+      "LogCount": 1,
+      "LinePosition": 0,
+      "FilePath": "",
+      "ClassName": "",
+      "MemberName": "",
+      "Severity": 0
+    },
+    {
+      "LogID": "139c2cf8-182b-4cc9-a1b8-03d9f6e8ae98",
+      "Order": 2,
+      "Timestamp": 1784167059615,
+      "Stage": 1,
+      "ErrorType": 0,
+      "ErrorCode": "LP1032",
+      "Description": "Package(s) is not supported in Luna",
+      "Details": [
+        "Currently package(s) com.unity.timeline are not supported in Luna. We recommend you to remove it and workaround it's functionality."
+      ],
+      "DescriptionValues": [
+        "com.unity.timeline (1.8.7)"
+      ],
+      "DetailsValues": [
+        "com.unity.timeline"
+      ],
+      "LogCount": 1,
+      "LinePosition": 0,
+      "FilePath": "F:/UnityProject/PLY_MiniSoccer/Packages\\manifest.json",
+      "ClassName": "",
+      "MemberName": "",
+      "Severity": 0
+    }
+  ]
+}

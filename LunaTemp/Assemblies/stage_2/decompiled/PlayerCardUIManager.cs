@@ -2,7 +2,6 @@ using System.Collections;
 using Luna.Unity;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerCardUIManager : MonoBehaviour
 {
@@ -26,9 +25,9 @@ public class PlayerCardUIManager : MonoBehaviour
 	[Header("UI Elements (Kéo thả từ Canvas vào đây)")]
 	public TMP_Text nationalityText;
 
-	public Image playerImage;
+	public SpriteRenderer playerImage;
 
-	public Image flagImage;
+	public SpriteRenderer flagImage;
 
 	private bool canClickToStore = false;
 

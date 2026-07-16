@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: France
   m_EditorClassIdentifier: 
   nationality: France
-  playerSprite: {fileID: 21300000, guid: 2ee63dcfac1ef624b8c070d48d120215, type: 3}
+  playerSprite: {fileID: 21300000, guid: fba728d09d1c787408eb60810e46f1ab, type: 3}
   flagSprite: {fileID: 21300000, guid: a751760f3311a8d479dcf6f007f6e1e4, type: 3}
