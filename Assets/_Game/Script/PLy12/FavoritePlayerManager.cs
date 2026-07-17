@@ -23,6 +23,8 @@ public class FavoritePlayerManager : MonoBehaviour
     public AudioSource audioSource;
     [Tooltip("Âm thanh đọc chữ 'OR' (Hoặc)")]
     public AudioClip orAudio;
+    [Tooltip("Âm thanh Ting (Khi người chơi bấm chọn thẻ)")]
+    public AudioClip clickAudio;
 
     [Header("Danh sách Cầu thủ tham gia")]
     [Tooltip("Kéo toàn bộ ScriptableObject cầu thủ (FavoritePlayerCard) vào đây")]
@@ -99,6 +101,7 @@ public class FavoritePlayerManager : MonoBehaviour
 
     private Sequence globalIdleSeq; // Chuỗi hiệu ứng thở luân phiên cho 2 Slot
     private Coroutine nameSequenceRoutine; // Biến lưu trữ tiến trình đọc tên
+    private bool isGameStarted = false; // Đánh dấu xem người chơi đã click lần đầu (Tap to play) chưa
 
     private void Awake()
     {
@@ -127,6 +130,15 @@ public class FavoritePlayerManager : MonoBehaviour
         // 2. Bắn Raycast 3D để chọn Slot (khi game vẫn đang chơi và không bị khoá animation)
         if (!isAnimating && !canClickToStoreGlobal && Input.GetMouseButtonDown(0))
         {
+            // NẾU LÀ CÚ CLICK ĐẦU TIÊN (TAP TO PLAY)
+            if (!isGameStarted)
+            {
+                isGameStarted = true;
+                // Bắt đầu đọc tên 2 người đầu tiên trên sân
+                PlayNameSequence(slotA.currentData.nameAudio, slotB.currentData.nameAudio);
+                return; // Ngưng xử lý, không xét va chạm để tránh vô tình chọn thẻ
+            }
+
             // Bắn một tia từ màn hình vào camera
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -156,8 +168,8 @@ public class FavoritePlayerManager : MonoBehaviour
             // Bắt đầu nhịp thở luân phiên
             PlayGlobalIdleAnimation();
 
-            // Bắt đầu đọc tên 2 người đầu tiên
-            PlayNameSequence(slotA.currentData.nameAudio, slotB.currentData.nameAudio);
+            // KHÔNG GỌI PlayNameSequence Ở ĐÂY NỮA
+            // Đợi người chơi click lần đầu (Tap to play) thì mới đọc tên
         }
         else
         {
@@ -258,10 +270,10 @@ public class FavoritePlayerManager : MonoBehaviour
         {
             audioSource.Stop(); // Câm tiếng cũ
 
-            // Phát ngay lập tức tên của cầu thủ vừa được chọn
-            if (chosenSlot.currentData != null && chosenSlot.currentData.nameAudio != null)
+            // Phát tiếng Ting khi click
+            if (clickAudio != null)
             {
-                audioSource.PlayOneShot(chosenSlot.currentData.nameAudio);
+                audioSource.PlayOneShot(clickAudio);
             }
         }
 

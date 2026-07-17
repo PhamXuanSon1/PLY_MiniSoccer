@@ -24,6 +24,9 @@ public class FavoritePlayerManager : MonoBehaviour
 	[Tooltip("Âm thanh đọc chữ 'OR' (Hoặc)")]
 	public AudioClip orAudio;
 
+	[Tooltip("Âm thanh Ting (Khi người chơi bấm chọn thẻ)")]
+	public AudioClip clickAudio;
+
 	[Header("Danh sách Cầu thủ tham gia")]
 	[Tooltip("Kéo toàn bộ ScriptableObject cầu thủ (FavoritePlayerCard) vào đây")]
 	public List<FavoritePlayerCard> playerList;
@@ -110,6 +113,8 @@ public class FavoritePlayerManager : MonoBehaviour
 
 	private Coroutine nameSequenceRoutine;
 
+	private bool isGameStarted = false;
+
 	public static FavoritePlayerManager Instance { get; private set; }
 
 	private void Awake()
@@ -143,6 +148,12 @@ public class FavoritePlayerManager : MonoBehaviour
 			{
 				return;
 			}
+			if (!isGameStarted)
+			{
+				isGameStarted = true;
+				PlayNameSequence(slotA.currentData.nameAudio, slotB.currentData.nameAudio);
+				return;
+			}
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, out var hit, 100f, slotLayerMask))
 			{
@@ -163,7 +174,6 @@ public class FavoritePlayerManager : MonoBehaviour
 			slotB.SetupSlot(playerList[1]);
 			currentIndex = 2;
 			PlayGlobalIdleAnimation();
-			PlayNameSequence(slotA.currentData.nameAudio, slotB.currentData.nameAudio);
 		}
 		else
 		{
@@ -259,9 +269,9 @@ public class FavoritePlayerManager : MonoBehaviour
 		if (audioSource != null)
 		{
 			audioSource.Stop();
-			if (chosenSlot.currentData != null && chosenSlot.currentData.nameAudio != null)
+			if (clickAudio != null)
 			{
-				audioSource.PlayOneShot(chosenSlot.currentData.nameAudio);
+				audioSource.PlayOneShot(clickAudio);
 			}
 		}
 		Sequence clickSeq = DOTween.Sequence();
