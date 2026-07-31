@@ -8,11 +8,14 @@ using UnityEditor;
 
 public enum FxType
 {
-    Click,
-    Happy,
-    Wrong,
-    Spray,
-    Brush,
+    Angry,
+    Cry,
+    Hehe,
+    Huh,
+    RoarTiger,
+    Siuu,
+    True,
+    False,
 }
 
 [System.Serializable]
@@ -25,18 +28,21 @@ public class SoundData
 [System.Serializable]
 public class FxAudio
 {
-    public SoundData ClickBox;
-    public SoundData Happy;
-    public SoundData Wrong;
-    public SoundData Spray;
-    public SoundData Brush;
+    public SoundData Angry;
+    public SoundData Cry;
+    public SoundData Hehe;
+    public SoundData Huh;
+    public SoundData RoarTiger;
+    public SoundData Siuu;
+    public SoundData True;
+    public SoundData False;
 }
 
 public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>
 {
     public FxAudio fxAudio;
     public AudioSource bgm1;
-    private AudioSource[] fx = new AudioSource[10];
+    private AudioSource[] fx = new AudioSource[20];
 
     bool isMute = false;
 
@@ -106,11 +112,14 @@ public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>
     {
         switch (type)
         {
-            case FxType.Click: return fxAudio.ClickBox;
-            case FxType.Happy: return fxAudio.Happy;
-            case FxType.Wrong: return fxAudio.Wrong;
-            case FxType.Spray: return fxAudio.Spray;
-            case FxType.Brush: return fxAudio.Brush;
+            case FxType.Angry: return fxAudio.Angry;
+            case FxType.Cry: return fxAudio.Cry;
+            case FxType.Hehe: return fxAudio.Hehe;
+            case FxType.Huh: return fxAudio.Huh;
+            case FxType.RoarTiger: return fxAudio.RoarTiger;
+            case FxType.Siuu: return fxAudio.Siuu;
+            case FxType.True: return fxAudio.True;
+            case FxType.False: return fxAudio.False;
             default: return null;
         }
     }

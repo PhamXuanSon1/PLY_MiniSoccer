@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53f933c014e1d9a4fab70a0d461de572, type: 3}
+  m_Name: ViniciusData
+  m_EditorClassIdentifier: 
+  characterName: Vinicius
+  normalSprite: {fileID: 21300000, guid: 21f1d54331b32034da4b4a200d19e38a, type: 3}
+  correctItemID: Bong
+  itemInteractions:
+  - itemID: Bong
+    spriteWithItem: {fileID: 21300000, guid: 53eb5cc04d3f36a46b23487b04c7c0fa, type: 3}
+    fxType: 6
+  - itemID: Euro
+    spriteWithItem: {fileID: 21300000, guid: 2672b8ff85f30d14fa1da199612774bd, type: 3}
+    fxType: 1
+  - itemID: Steak
+    spriteWithItem: {fileID: 21300000, guid: 2d6598e9498e1d54caa3e9ad15d9b04a, type: 3}
+    fxType: 1
+  - itemID: WC
+    spriteWithItem: {fileID: 21300000, guid: 481dbeb0dfb0ce54eb859b63a0c4aad7, type: 3}
+    fxType: 1

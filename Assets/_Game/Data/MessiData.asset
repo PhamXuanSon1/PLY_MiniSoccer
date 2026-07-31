@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53f933c014e1d9a4fab70a0d461de572, type: 3}
+  m_Name: MessiData
+  m_EditorClassIdentifier: 
+  characterName: Messi
+  normalSprite: {fileID: 21300000, guid: 490428f4651f47743a7abc57a585b9f6, type: 3}
+  characterSound: 5
+  correctItemID: WC
+  itemInteractions:
+  - itemID: Bong
+    spriteWithItem: {fileID: 21300000, guid: 266637d28aadcab4284c4d6cf8eeb2f6, type: 3}
+    fxType: 3
+  - itemID: Euro
+    spriteWithItem: {fileID: 21300000, guid: 64dfc3f8b3cac0647ae3ae6861fccbc6, type: 3}
+    fxType: 3
+  - itemID: Steak
+    spriteWithItem: {fileID: 21300000, guid: 045c44aa76db07d429c8c714a495112f, type: 3}
+    fxType: 3
+  - itemID: WC
+    spriteWithItem: {fileID: 21300000, guid: 16541b5141356e642a6492fd0e046cc8, type: 3}
+    fxType: 5

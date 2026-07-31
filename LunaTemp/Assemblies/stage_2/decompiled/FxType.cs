@@ -1,8 +1,11 @@
 public enum FxType
 {
-	Click,
-	Happy,
-	Wrong,
-	Spray,
-	Brush
+	Angry,
+	Cry,
+	Hehe,
+	Huh,
+	RoarTiger,
+	Siuu,
+	True,
+	False
 }

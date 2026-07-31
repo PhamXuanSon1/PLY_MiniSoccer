@@ -2,7 +2,7 @@
     "version": "7.1.0",
     "projectId": "60d50cfced72ae74bb8c1682cb9abbe6",
     "applicationID": 40548,
-    "creativeName": "",
+    "creativeName": "MiniSoccer_PLY14",
     "pgServer": "EU",
     "window": {
         "‐⁙": true
@@ -124,7 +124,8 @@
                 "Stubs/Vungle",
                 "Stubs/MoreMountains.NiceVibrations",
                 "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset",
-                "Assets/TextMesh Pro/Sprites/EmojiOne.png"
+                "Assets/TextMesh Pro/Sprites/EmojiOne.png",
+                "Assets/_Game/Sprite/Item/FootBallBG.png"
             ],
             "includes": [
                 "Assets/Resources/DOTweenSettings.asset",
@@ -175,8 +176,8 @@
             },
             {
                 "name": "physics2d",
-                "excluded": true,
-                "forceIncluded": false
+                "excluded": false,
+                "forceIncluded": true
             },
             {
                 "name": "particle-system",
@@ -1598,10 +1599,6 @@
                 "excluded": true
             },
             {
-                "name": "UnityEngine.Display",
-                "excluded": true
-            },
-            {
                 "name": "UnityEngine.Experimental.Rendering.GraphicsFormatUtility",
                 "excluded": true
             },
@@ -1734,10 +1731,6 @@
                 "excluded": true
             },
             {
-                "name": "UnityEngine.Plane",
-                "excluded": true
-            },
-            {
                 "name": "UnityEngine.Playables.FrameData",
                 "excluded": true
             },
@@ -1779,10 +1772,6 @@
             },
             {
                 "name": "UnityEngine.RaycastHit2D",
-                "excluded": true
-            },
-            {
-                "name": "UnityEngine.RectTransformUtility",
                 "excluded": true
             },
             {
@@ -2318,10 +2307,6 @@
                 "excluded": true
             },
             {
-                "name": "UnityEngine.Collider2D",
-                "excluded": true
-            },
-            {
                 "name": "UnityEngine.Joint",
                 "excluded": true
             },
@@ -2355,10 +2340,6 @@
             },
             {
                 "name": "Luna.Unity.DTO.UnityEngine.Components.TargetJoint2D",
-                "excluded": true
-            },
-            {
-                "name": "UnityEngine.BoxCollider2D",
                 "excluded": true
             },
             {
@@ -3807,7 +3788,7 @@
             },
             {
                 "name": "UnityEngine.CollisionDetectionMode2D",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.CollisionFlags",
@@ -4547,7 +4528,7 @@
             },
             {
                 "name": "UnityEngine.ParticleSystemStopBehavior",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.ParticleSystemSubEmitterProperties",
@@ -5127,7 +5108,7 @@
             },
             {
                 "name": "UnityEngine.RigidbodyConstraints2D",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.RigidbodyInterpolation",
@@ -5143,7 +5124,7 @@
             },
             {
                 "name": "UnityEngine.RigidbodyType2D",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.RotationDriveMode",
@@ -6486,10 +6467,6 @@
                 "excluded": true
             },
             {
-                "name": "UnityEngine.UI.CanvasUpdateRegistry",
-                "excluded": true
-            },
-            {
                 "name": "UnityEngine.UI.ClipperRegistry",
                 "excluded": true
             },
@@ -6518,15 +6495,7 @@
                 "excluded": true
             },
             {
-                "name": "UnityEngine.UI.GraphicRegistry",
-                "excluded": true
-            },
-            {
                 "name": "UnityEngine.UI.LayoutUtility",
-                "excluded": true
-            },
-            {
-                "name": "UnityEngine.UI.MaskUtilities",
                 "excluded": true
             },
             {
@@ -6546,14 +6515,6 @@
                 "excluded": true
             },
             {
-                "name": "UnityEngine.UI.StencilMaterial",
-                "excluded": true
-            },
-            {
-                "name": "UnityEngine.UI.StencilMaterial.MatEntry",
-                "excluded": true
-            },
-            {
                 "name": "UnityEngine.UI.AspectRatioFitter",
                 "excluded": true
             },
@@ -6567,14 +6528,6 @@
             },
             {
                 "name": "UnityEngine.UI.LayoutElement",
-                "excluded": true
-            },
-            {
-                "name": "UnityEngine.UI.Mask",
-                "excluded": true
-            },
-            {
-                "name": "UnityEngine.UI.RectMask2D",
                 "excluded": true
             },
             {
@@ -6731,7 +6684,7 @@
             },
             {
                 "name": "UnityEngine.UI.IClipper",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "UnityEngine.UI.ILayoutIgnorer",
@@ -7699,7 +7652,7 @@
             },
             {
                 "name": "FxType",
-                "excluded": true
+                "excluded": false
             },
             {
                 "name": "PlayerCardData",
@@ -8663,6 +8616,14 @@
             },
             {
                 "name": "DG.Tweening.Plugins.Core.ITPlugin$4",
+                "excluded": false
+            },
+            {
+                "name": "PlaySoundOnEnable",
+                "excluded": true
+            },
+            {
+                "name": "ALEvent",
                 "excluded": false
             }
         ],
@@ -12523,7 +12484,7 @@
                     },
                     {
                         "name": "Current#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "System$Collections$IEnumerator$Current#get",
@@ -15305,7 +15266,7 @@
                     },
                     {
                         "name": "LayerToName",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "GetMask",
@@ -15337,7 +15298,7 @@
                     },
                     {
                         "name": "value#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "value#set",
@@ -15809,7 +15770,7 @@
                     },
                     {
                         "name": "sceneCount#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "init",
@@ -15841,7 +15802,7 @@
                     },
                     {
                         "name": "GetSceneAt",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ProcessAsync",
@@ -15975,7 +15936,7 @@
                     },
                     {
                         "name": "GetLayerIDFromValue",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "GetLayerValueFromName",
@@ -15983,7 +15944,7 @@
                     },
                     {
                         "name": "GetLayerNameFromValue",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "NameToID",
@@ -17931,7 +17892,7 @@
                     },
                     {
                         "name": "targetDisplay#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "targetDisplay#set",
@@ -17995,7 +17956,7 @@
                     },
                     {
                         "name": "ScreenToViewportPoint",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ViewportToScreenPoint",
@@ -18241,7 +18202,7 @@
                     },
                     {
                         "name": "sortingOrder#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "sortingOrder#set",
@@ -18463,7 +18424,7 @@
                     },
                     {
                         "name": "OnDidApplyAnimationProperties",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -18971,19 +18932,19 @@
                 "instanceMethods": [
                     {
                         "name": "init",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Clear",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Release",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -19181,7 +19142,7 @@
                 "instanceMethods": [
                     {
                         "name": "defaultGraphicMaterial#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "init",
@@ -19193,23 +19154,23 @@
                     },
                     {
                         "name": "canvas#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "materialForRendering#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "defaultMaterial#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "canvasRenderer#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "rectTransform#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "rectTransform#set",
@@ -19233,7 +19194,7 @@
                     },
                     {
                         "name": "raycastTarget#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "raycastTarget#set",
@@ -19261,7 +19222,7 @@
                     },
                     {
                         "name": "Awake",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnAfterDeserialize",
@@ -19281,15 +19242,15 @@
                     },
                     {
                         "name": "SetMaterialDirty",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetAllDirty",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Rebuild",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "GetPixelAdjustedRect",
@@ -19345,19 +19306,19 @@
                     },
                     {
                         "name": "SetLayoutDirty",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetVerticesDirty",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "UpdateGeometry",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "UpdateMaterial",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnCanvasGroupChanged",
@@ -19373,7 +19334,7 @@
                     },
                     {
                         "name": "GraphicUpdateComplete",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnRectTransformDimensionsChange",
@@ -19389,15 +19350,15 @@
                     },
                     {
                         "name": "OnEnable",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnDisable",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnCanvasChanged",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "PixelAdjustPoint",
@@ -19419,7 +19380,7 @@
                     },
                     {
                         "name": "maskable#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "maskable#set",
@@ -19443,7 +19404,7 @@
                     },
                     {
                         "name": "GetModifiedMaterial",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Cull",
@@ -19459,11 +19420,11 @@
                     },
                     {
                         "name": "OnEnable",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnDisable",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnTransformParentChanged",
@@ -19475,11 +19436,11 @@
                     },
                     {
                         "name": "OnCanvasHierarchyChanged",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "UpdateClipParent",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "RecalculateClipping",
@@ -19497,7 +19458,7 @@
                 "instanceMethods": [
                     {
                         "name": "sprite#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "sprite#set",
@@ -19513,7 +19474,7 @@
                     },
                     {
                         "name": "activeSprite#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "type#get",
@@ -19573,7 +19534,7 @@
                     },
                     {
                         "name": "material#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "material#set",
@@ -19605,7 +19566,7 @@
                     },
                     {
                         "name": "mainTexture#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "hasBorder#get",
@@ -19665,15 +19626,15 @@
                     },
                     {
                         "name": "Awake",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnEnable",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnDisable",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ConfigureForEntity",
@@ -22969,7 +22930,7 @@
                     },
                     {
                         "name": "PlayFx",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "PlayLoopFx",
@@ -22989,7 +22950,7 @@
                     },
                     {
                         "name": "GetSoundData",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "MuteFx",
@@ -25629,11 +25590,11 @@
                     },
                     {
                         "name": "materialCount#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "cull#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "cull#set",
@@ -25649,7 +25610,7 @@
                     },
                     {
                         "name": "absoluteDepth#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "absoluteDepth#set",
@@ -25709,7 +25670,7 @@
                     },
                     {
                         "name": "SetTexture",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "GetTexture",
@@ -25717,7 +25678,7 @@
                     },
                     {
                         "name": "SetMaterial",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "SetMaterial$1",
@@ -27037,7 +26998,7 @@
                     },
                     {
                         "name": "overrideSorting#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "overrideSorting#set",
@@ -27053,7 +27014,7 @@
                     },
                     {
                         "name": "enabled#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "enabled#set",
@@ -27081,7 +27042,7 @@
                     },
                     {
                         "name": "worldCamera#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "worldCamera#set",
@@ -27089,7 +27050,7 @@
                     },
                     {
                         "name": "renderMode#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "renderMode#set",
@@ -27153,11 +27114,11 @@
                     },
                     {
                         "name": "Awake",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnEnable",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnDisable",
@@ -27385,7 +27346,7 @@
                     },
                     {
                         "name": "OnEnable",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OnDisable",
@@ -27459,7 +27420,7 @@
                     },
                     {
                         "name": "Awake",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ConfigureForEntity",
@@ -27471,7 +27432,7 @@
                     },
                     {
                         "name": "UpdateScreenMatchMode",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -27641,11 +27602,11 @@
                     },
                     {
                         "name": "Raycast",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "canvas#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "m_IgnoreReversedGraphics#get",
@@ -27657,7 +27618,7 @@
                     },
                     {
                         "name": "blockingObjects#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "blockingObjects#set",
@@ -27665,7 +27626,7 @@
                     },
                     {
                         "name": "eventCamera#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ctor",
@@ -32015,11 +31976,11 @@
                     },
                     {
                         "name": "RaycastAll$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "RaycastAll$2",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "RaycastNonAlloc$2",
@@ -32241,11 +32202,11 @@
                     },
                     {
                         "name": "ctor",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "GetPoint",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "getHashCode",
@@ -32295,7 +32256,7 @@
                     },
                     {
                         "name": "$clone",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -32689,7 +32650,7 @@
                     },
                     {
                         "name": "AddRaycaster",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "GetRaycasters",
@@ -33306,6 +33267,876 @@
                         "excluded": true
                     }
                 ]
+            },
+            {
+                "className": "UnityEngine.Collider2D",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "attachedRigidbody#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "isTrigger#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "isTrigger#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "usedByEffector#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "usedByEffector#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "usedByComposite#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "usedByComposite#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "density#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "density#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "offset#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "offset#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "shapeCount#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "bounds#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "sharedMaterial#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "sharedMaterial#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "$ctor1",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "IsTouching",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OverlapPoint",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OverlapPoint$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OverlapCollider",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetContacts$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetContacts",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetContacts$3",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetContacts$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Raycast$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Raycast$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Raycast",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.BoxCollider2D",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "size#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "size#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "CharacterDropZone",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnItemDropped",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ResetCharacter",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnMouseDown",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "CharacterItemData",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "IsCorrectItem",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetSpriteForItem",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetFxTypeForItem",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "DraggableItem",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnMouseDown",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnMouseDrag",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnMouseUp",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetMouseWorldPos",
+                        "excluded": false
+                    },
+                    {
+                        "name": "IsValidItemLayer",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "ItemSequenceManager",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnFirstItemDragged",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TrackFirstClick",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Start",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnItemCompleted",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TrackProgressAnalytics",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ShowResultAndEndcardRoutine",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SpawnNextItemWithDelay",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SpawnNextItem",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetCurrentActiveItem",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OpenStore",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "ItemSpriteMapping",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "getDefaultValue",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "getHashCode",
+                        "excluded": true
+                    },
+                    {
+                        "name": "equals",
+                        "excluded": true
+                    },
+                    {
+                        "name": "$clone",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "AppLovinAnalytics",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Track",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "EndcardClickToStore",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OpenStore",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.UI.CanvasUpdateRegistry",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "instance#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegisterCanvasElementForLayoutRebuild",
+                        "excluded": true
+                    },
+                    {
+                        "name": "RegisterCanvasElementForGraphicRebuild",
+                        "excluded": false
+                    },
+                    {
+                        "name": "UnRegisterCanvasElementForRebuild",
+                        "excluded": false
+                    },
+                    {
+                        "name": "IsRebuildingLayout",
+                        "excluded": true
+                    },
+                    {
+                        "name": "IsRebuildingGraphics",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetKey",
+                        "excluded": false
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PerformUpdate",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PerformLayoutRebuildPhases",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PerformGraphicsRebuildPhases",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.UI.GraphicRegistry",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RegisterGraphicForCanvas",
+                        "excluded": false
+                    },
+                    {
+                        "name": "UnregisterGraphicForCanvas",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetGraphicsForCanvas",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetGraphicsForCanvasInternal",
+                        "excluded": false
+                    },
+                    {
+                        "name": "UnregisterGraphicsEverywhere",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.UI.MaskUtilities",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Notify2DMaskStateChanged",
+                        "excluded": true
+                    },
+                    {
+                        "name": "NotifyStencilStateChanged",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FindRootSortOverrideCanvas",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetStencilDepth",
+                        "excluded": false
+                    },
+                    {
+                        "name": "IsDescendantOrSelf",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetRectMaskForClippable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetRectMasksForClip",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.UI.Mask",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "graphic#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "rectTransform#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "showMaskGraphic#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "showMaskGraphic#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "init",
+                        "excluded": true
+                    },
+                    {
+                        "name": "$ctor1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "MaskEnabled",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnEnable",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnDisable",
+                        "excluded": true
+                    },
+                    {
+                        "name": "UpdateMaskGraphicSettings",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetModifiedMaterial",
+                        "excluded": true
+                    },
+                    {
+                        "name": "IsRaycastLocationValid",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.UI.RectMask2D",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Canvas#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "canvasRect#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "rectTransform#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "rootCanvasRect#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "init",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnEnable",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnDisable",
+                        "excluded": true
+                    },
+                    {
+                        "name": "IsRaycastLocationValid",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PerformClipping",
+                        "excluded": true
+                    },
+                    {
+                        "name": "AddClippable",
+                        "excluded": true
+                    },
+                    {
+                        "name": "RemoveClippable",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnTransformParentChanged",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnCanvasHierarchyChanged",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.UI.StencilMaterial",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Add",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Add$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Add$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Remove",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ClearAll",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.UI.StencilMaterial.MatEntry",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.Display",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "main#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "MultiDisplayLicense",
+                        "excluded": true
+                    },
+                    {
+                        "name": "RelativeMouseAt",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RecreateDisplayList",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FireDisplaysUpdated",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetSystemExtImpl",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetRenderingExtImpl",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetRenderingResolutionImpl",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ActivateDisplayImpl",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetParamsImpl",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetActiveImpl",
+                        "excluded": true
+                    },
+                    {
+                        "name": "RequiresBlitToBackbufferImpl",
+                        "excluded": true
+                    },
+                    {
+                        "name": "RequiresSrgbBlitToBackbufferImpl",
+                        "excluded": true
+                    },
+                    {
+                        "name": "renderingWidth#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "renderingHeight#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "systemWidth#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "systemHeight#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "colorBuffer#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "depthBuffer#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "active#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "requiresBlitToBackbuffer#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "requiresSrgbBlitToBackbuffer#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "$ctor1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Activate",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Activate$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetParams",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetRenderingResolution",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.Plane",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "getDefaultValue",
+                        "excluded": true
+                    },
+                    {
+                        "name": "normal#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "normal#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "$ctor2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "$ctor1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "$ctor3",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetDistanceToPoint",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetSide",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Raycast",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SameSide",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Set3Points",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetNormalAndPosition",
+                        "excluded": false
+                    },
+                    {
+                        "name": "getHashCode",
+                        "excluded": true
+                    },
+                    {
+                        "name": "equals",
+                        "excluded": true
+                    },
+                    {
+                        "name": "$clone",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.RectTransformUtility",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "WorldToScreenPoint",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FlipLayoutOnAxis",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FlipLayoutAxes",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetTransposed",
+                        "excluded": true
+                    },
+                    {
+                        "name": "RectangleContainsScreenPoint$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "RectangleContainsScreenPoint",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PointInRectangle",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ScreenPointToLocalPointInRectangle",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ScreenPointToWorldPointInRectangle",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ScreenPointToRay",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PixelAdjustPoint",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PixelAdjustRect",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": true
+                    }
+                ]
             }
         ],
         "stubberDataList": [],
@@ -33663,6 +34494,446 @@
                         "script": "",
                         "ext": "",
                         "name": "Assets/_Game/Sprite/Item/Square.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/vini.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/vini bong 1.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/vini euro 1.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/vini steak 1.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/vini wc 1.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/ronaldo.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/ronaldo bong.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/ronaldo euro.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/ronaldo steak.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/ronaldo wc.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/messi.png"
+                    },
+                    {
+                        "maxWidth": 900,
+                        "maxHeight": 900,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/messi bong.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/messi euro.png"
+                    },
+                    {
+                        "maxWidth": 900,
+                        "maxHeight": 900,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/messi steak.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/messi wc.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/haaland.png"
+                    },
+                    {
+                        "maxWidth": 870,
+                        "maxHeight": 870,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/haaland bong.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/haaland euro.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/haaland steak.png"
+                    },
+                    {
+                        "maxWidth": 830,
+                        "maxHeight": 830,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/haaland wc.png"
+                    },
+                    {
+                        "maxWidth": 1024,
+                        "maxHeight": 1024,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/endcard/Gemini_Generated_Image_8psgeq8psgeq8psg (1) (1).png"
+                    },
+                    {
+                        "maxWidth": 584,
+                        "maxHeight": 186,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/Win.png"
+                    },
+                    {
+                        "maxWidth": 630,
+                        "maxHeight": 186,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/Lose.png"
+                    },
+                    {
+                        "maxWidth": 650,
+                        "maxHeight": 650,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/vini wc.png"
+                    },
+                    {
+                        "maxWidth": 650,
+                        "maxHeight": 650,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/vini euro.png"
+                    },
+                    {
+                        "maxWidth": 650,
+                        "maxHeight": 650,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/vini steak.png"
+                    },
+                    {
+                        "maxWidth": 650,
+                        "maxHeight": 650,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/vini_wc.png"
+                    },
+                    {
+                        "maxWidth": 650,
+                        "maxHeight": 650,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/vini_euro.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/ronaldo_wc.png"
+                    },
+                    {
+                        "maxWidth": 830,
+                        "maxHeight": 830,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/haaland_wc.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/haaland_euro.png"
+                    },
+                    {
+                        "maxWidth": 650,
+                        "maxHeight": 650,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/vini_steak.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/messi_euro.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/haaland_steak.png"
+                    },
+                    {
+                        "maxWidth": 900,
+                        "maxHeight": 900,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/messi_bong.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/messi_wc.png"
+                    },
+                    {
+                        "maxWidth": 900,
+                        "maxHeight": 900,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/messi_steak.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/ronaldo_bong.png"
+                    },
+                    {
+                        "maxWidth": 1024,
+                        "maxHeight": 1024,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/endcard/Gemini_Generated_Image_8psgeq8psgeq8psg_1_1.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/ronaldo_euro.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/vini_bong.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/ronaldo_steak.png"
+                    },
+                    {
+                        "maxWidth": 870,
+                        "maxHeight": 870,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/haaland_bong.png"
+                    },
+                    {
+                        "maxWidth": 743,
+                        "maxHeight": 186,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/Item/TapToPlay.png"
                     }
                 ]
             },
@@ -33806,6 +35077,86 @@
                         "script": "",
                         "ext": "",
                         "name": "Assets/_Game/Sound/PLY12/Click.mp3"
+                    },
+                    {
+                        "channels": 1,
+                        "startTime": "00:00.000",
+                        "endTime": "00:30.000",
+                        "lengthInSeconds": 30.0,
+                        "bitrate": 64,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sound/PLy14/hehe.mp3"
+                    },
+                    {
+                        "channels": 1,
+                        "startTime": "00:00.000",
+                        "endTime": "00:30.000",
+                        "lengthInSeconds": 30.0,
+                        "bitrate": 64,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sound/PLy14/cry.mp3"
+                    },
+                    {
+                        "channels": 1,
+                        "startTime": "00:00.000",
+                        "endTime": "00:30.000",
+                        "lengthInSeconds": 30.0,
+                        "bitrate": 64,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sound/PLy14/huh.mp3"
+                    },
+                    {
+                        "channels": 1,
+                        "startTime": "00:00.000",
+                        "endTime": "00:30.000",
+                        "lengthInSeconds": 30.0,
+                        "bitrate": 64,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sound/PLy14/roar-tiger.mp3"
+                    },
+                    {
+                        "channels": 1,
+                        "startTime": "00:00.000",
+                        "endTime": "00:30.000",
+                        "lengthInSeconds": 30.0,
+                        "bitrate": 64,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sound/PLy14/siuu.mp3"
+                    },
+                    {
+                        "channels": 1,
+                        "startTime": "00:00.000",
+                        "endTime": "00:30.000",
+                        "lengthInSeconds": 30.0,
+                        "bitrate": 64,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sound/PLy14/angry.mp3"
+                    },
+                    {
+                        "channels": 1,
+                        "startTime": "00:00.000",
+                        "endTime": "00:30.000",
+                        "lengthInSeconds": 30.0,
+                        "bitrate": 64,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sound/PLy14/tingting.mp3"
+                    },
+                    {
+                        "channels": 1,
+                        "startTime": "00:00.000",
+                        "endTime": "00:00.000",
+                        "lengthInSeconds": 0.0,
+                        "bitrate": 64,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sound/PLy14/soundFalse_x2.mp3"
                     }
                 ]
             },

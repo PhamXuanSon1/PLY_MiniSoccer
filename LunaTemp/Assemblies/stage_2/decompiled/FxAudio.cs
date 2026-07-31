@@ -3,13 +3,19 @@ using System;
 [Serializable]
 public class FxAudio
 {
-	public SoundData ClickBox;
+	public SoundData Angry;
 
-	public SoundData Happy;
+	public SoundData Cry;
 
-	public SoundData Wrong;
+	public SoundData Hehe;
 
-	public SoundData Spray;
+	public SoundData Huh;
 
-	public SoundData Brush;
+	public SoundData RoarTiger;
+
+	public SoundData Siuu;
+
+	public SoundData True;
+
+	public SoundData False;
 }

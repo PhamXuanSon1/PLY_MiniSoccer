@@ -6,7 +6,7 @@ public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>
 
 	public AudioSource bgm1;
 
-	private AudioSource[] fx = new AudioSource[10];
+	private AudioSource[] fx = new AudioSource[20];
 
 	private bool isMute = false;
 
@@ -55,7 +55,7 @@ public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>
 
 	public void StopFx(FxType fxType)
 	{
-		if (fxType >= FxType.Click && (int)fxType < fx.Length && fx[(int)fxType] != null)
+		if (fxType >= FxType.Angry && (int)fxType < fx.Length && fx[(int)fxType] != null)
 		{
 			fx[(int)fxType].Stop();
 		}
@@ -78,16 +78,22 @@ public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>
 	{
 		switch (type)
 		{
-		case FxType.Click:
-			return fxAudio.ClickBox;
-		case FxType.Happy:
-			return fxAudio.Happy;
-		case FxType.Wrong:
-			return fxAudio.Wrong;
-		case FxType.Spray:
-			return fxAudio.Spray;
-		case FxType.Brush:
-			return fxAudio.Brush;
+		case FxType.Angry:
+			return fxAudio.Angry;
+		case FxType.Cry:
+			return fxAudio.Cry;
+		case FxType.Hehe:
+			return fxAudio.Hehe;
+		case FxType.Huh:
+			return fxAudio.Huh;
+		case FxType.RoarTiger:
+			return fxAudio.RoarTiger;
+		case FxType.Siuu:
+			return fxAudio.Siuu;
+		case FxType.True:
+			return fxAudio.True;
+		case FxType.False:
+			return fxAudio.False;
 		default:
 			return null;
 		}
