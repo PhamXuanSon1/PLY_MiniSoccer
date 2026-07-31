@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
@@ -6,6 +7,12 @@ public class CharacterDropZone : MonoBehaviour
 {
 	[Header("Character Data (ScriptableObject)")]
 	public CharacterItemData characterData;
+
+	[Header("Animation Settings")]
+	[Tooltip("Thời gian món đồ bay từ targetPoint về vị trí nhân vật")]
+	public float flyToCharacterDuration = 0.35f;
+
+	public Ease flyEase = Ease.InQuad;
 
 	private SpriteRenderer spriteRenderer;
 
@@ -73,22 +80,29 @@ public class CharacterDropZone : MonoBehaviour
 		{
 			charCollider.enabled = false;
 		}
-		item.transform.position = base.transform.position;
-		item.gameObject.SetActive(false);
-		Sprite newSprite = characterData.GetSpriteForItem(item.itemID);
-		if (newSprite != null)
+		Collider itemCollider = item.GetComponent<Collider>();
+		if (itemCollider != null)
 		{
-			spriteRenderer.sprite = newSprite;
+			itemCollider.enabled = false;
 		}
-		FxType fxType = characterData.GetFxTypeForItem(item.itemID);
-		if (Ply_Singleton<Ply_SoundManager>.Ins != null)
+		item.transform.DOMove(base.transform.position, flyToCharacterDuration).SetEase(flyEase).OnComplete(delegate
 		{
-			Ply_Singleton<Ply_SoundManager>.Ins.PlayFx(fxType);
-		}
-		if (ItemSequenceManager.Instance != null)
-		{
-			ItemSequenceManager.Instance.OnItemCompleted();
-		}
+			item.gameObject.SetActive(false);
+			Sprite spriteForItem = characterData.GetSpriteForItem(item.itemID);
+			if (spriteForItem != null)
+			{
+				spriteRenderer.sprite = spriteForItem;
+			}
+			if (Ply_Singleton<Ply_SoundManager>.Ins != null)
+			{
+				FxType fxTypeForItem = characterData.GetFxTypeForItem(item.itemID);
+				Ply_Singleton<Ply_SoundManager>.Ins.PlayFx(fxTypeForItem);
+			}
+			if (ItemSequenceManager.Instance != null)
+			{
+				ItemSequenceManager.Instance.OnItemCompleted();
+			}
+		});
 		return true;
 	}
 }

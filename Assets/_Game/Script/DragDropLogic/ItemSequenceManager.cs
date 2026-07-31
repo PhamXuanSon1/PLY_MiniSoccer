@@ -124,6 +124,13 @@ public class ItemSequenceManager : MonoBehaviour
 
     private void TrackFirstClick()
     {
+        if (hasTrackedFirstClick)
+        {
+            return;
+        }
+
+        hasTrackedFirstClick = true;
+
         // Debug.Log("FIRST CLICK DETECTED -> AppLovinAnalytics.Track(ALEvent.CHALLENGE_STARTED)");
         try
         {
@@ -163,6 +170,11 @@ public class ItemSequenceManager : MonoBehaviour
     public void OnItemCompleted()
     {
         currentItemIndex++;
+
+        if (currentItemIndex == 1)
+        {
+            TrackFirstClick();
+        }
 
         // Bắn sự kiện Analytics tiến độ 25%, 50%, 75%
         TrackProgressAnalytics(currentItemIndex);

@@ -139,6 +139,11 @@ public class ItemSequenceManager : MonoBehaviour
 
 	private void TrackFirstClick()
 	{
+		if (hasTrackedFirstClick)
+		{
+			return;
+		}
+		hasTrackedFirstClick = true;
 		try
 		{
 			AppLovinAnalytics.Track(ALEvent.CHALLENGE_STARTED);
@@ -177,6 +182,10 @@ public class ItemSequenceManager : MonoBehaviour
 	public void OnItemCompleted()
 	{
 		currentItemIndex++;
+		if (currentItemIndex == 1)
+		{
+			TrackFirstClick();
+		}
 		TrackProgressAnalytics(currentItemIndex);
 		if (currentItemIndex < itemList.Count)
 		{

@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Vinicius
   normalSprite: {fileID: 21300000, guid: 21f1d54331b32034da4b4a200d19e38a, type: 3}
+  characterSound: 5
   correctItemID: Bong
   itemInteractions:
   - itemID: Bong
     spriteWithItem: {fileID: 21300000, guid: 53eb5cc04d3f36a46b23487b04c7c0fa, type: 3}
-    fxType: 6
+    fxType: 2
   - itemID: Euro
     spriteWithItem: {fileID: 21300000, guid: 2672b8ff85f30d14fa1da199612774bd, type: 3}
     fxType: 1

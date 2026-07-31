@@ -1277,8 +1277,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 490428f4651f47743a7abc57a585b9f6, type: 3}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: 266637d28aadcab4284c4d6cf8eeb2f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1317,6 +1317,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData: {fileID: 11400000, guid: 6f436ec247df83b4990e0c9a722d2e77, type: 2}
+  flyToCharacterDuration: 0.35
+  flyEase: 5
   hasReceivedItem: 0
   isCorrectItemReceived: 0
 --- !u!65 &416059878
@@ -1885,7 +1887,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: fd0fa0c7d39342e41b64043d8f43b33b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1906,7 +1908,7 @@ Transform:
   m_GameObject: {fileID: 633227861}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1925,6 +1927,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData: {fileID: 11400000, guid: 05551348da7d161498d3f104e596a579, type: 2}
+  flyToCharacterDuration: 0.35
+  flyEase: 5
   hasReceivedItem: 0
   isCorrectItemReceived: 0
 --- !u!65 &633227865
@@ -2744,14 +2748,14 @@ MonoBehaviour:
   - {fileID: 1339728237}
   isWin: 1
   winObject: {fileID: 2051596303}
-  winFxType: 5
+  winFxType: 6
   loseObject: {fileID: 1604165957}
-  loseFxType: 1
+  loseFxType: 7
   resultTextDelay: 0.8
   gameplayObject: {fileID: 245816210}
   endcardObject: {fileID: 7929439268521551448}
   objectToHideOnFirstDrag: {fileID: 1547948617}
-  endcardDelay: 2
+  endcardDelay: 3
   isFailedMode: 0
 --- !u!1 &922903373
 GameObject:
@@ -3941,7 +3945,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 21f1d54331b32034da4b4a200d19e38a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3981,6 +3985,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData: {fileID: 11400000, guid: 962574b522b719e439f6ca1c7b79d636, type: 2}
+  flyToCharacterDuration: 0.35
+  flyEase: 5
   hasReceivedItem: 0
   isCorrectItemReceived: 0
 --- !u!65 &1339728238
@@ -4215,7 +4221,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 908d4d046ebc9c547950a5242ba9f3db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4255,6 +4261,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData: {fileID: 11400000, guid: 29412dbd1d1fed6419fa09105070adc8, type: 2}
+  flyToCharacterDuration: 0.35
+  flyEase: 5
   hasReceivedItem: 0
   isCorrectItemReceived: 0
 --- !u!65 &1423548862
@@ -5038,10 +5046,10 @@ MonoBehaviour:
       clip: {fileID: 8300000, guid: 1461fb43bfab63f43b0b64a3335514b2, type: 3}
       repeatCount: 1
     True:
-      clip: {fileID: 8300000, guid: adcdc17aa46637b4e8f24b4ea24ac0e0, type: 3}
+      clip: {fileID: 8300000, guid: c938ff7c7e402d64984e19cdc5bf02d6, type: 3}
       repeatCount: 1
     False:
-      clip: {fileID: 8300000, guid: e97f036be09172a4bbdc8fc915ec4d4b, type: 3}
+      clip: {fileID: 8300000, guid: e5aa2fed754d4f04ea2af95ddccc7023, type: 3}
       repeatCount: 1
   bgm1: {fileID: 1691136070}
 --- !u!1001 &1774777659

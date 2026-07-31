@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Collider))]
@@ -6,6 +7,11 @@ public class CharacterDropZone : MonoBehaviour
 {
     [Header("Character Data (ScriptableObject)")]
     public CharacterItemData characterData;
+
+    [Header("Animation Settings")]
+    [Tooltip("Thời gian món đồ bay từ targetPoint về vị trí nhân vật")]
+    public float flyToCharacterDuration = 0.35f;
+    public Ease flyEase = Ease.InQuad;
 
     private SpriteRenderer spriteRenderer;
 
@@ -80,38 +86,41 @@ public class CharacterDropZone : MonoBehaviour
             charCollider.enabled = false;
         }
 
-        // Snap item về vị trí nhân vật
-        item.transform.position = transform.position;
-
-        // Ẩn món đồ đi (vì nhân vật đã cầm nó)
-        item.gameObject.SetActive(false);
-
-        // Đổi ảnh nhân vật sang ảnh mới khi cầm đồ (nếu tìm thấy sprite trong Data)
-        Sprite newSprite = characterData.GetSpriteForItem(item.itemID);
-        if (newSprite != null)
+        // Tắt collider của món đồ trong lúc di chuyển
+        Collider itemCollider = item.GetComponent<Collider>();
+        if (itemCollider != null)
         {
-            spriteRenderer.sprite = newSprite;
+            itemCollider.enabled = false;
         }
 
-        // Lấy âm thanh FxType được chọn cho nhân vật/món đồ này trong ScriptableObject
-        FxType fxType = characterData.GetFxTypeForItem(item.itemID);
+        // 1. Món đồ bay từ vị trí targetPoint đến vị trí nhân vật
+        item.transform.DOMove(transform.position, flyToCharacterDuration)
+            .SetEase(flyEase)
+            .OnComplete(() =>
+            {
+                // 2. Khi món đồ bay tới nhân vật ➔ Ẩn món đồ & đổi ảnh nhân vật
+                item.gameObject.SetActive(false);
 
-        // Phát âm thanh thông qua Ply_SoundManager
-        if (Ply_SoundManager.Ins != null)
-        {
-            // 1. Phát âm thanh riêng của nhân vật được chọn trong Data (Siuu, Angry, Cry, Hehe, Huh, RoarTiger...)
-            Ply_SoundManager.Ins.PlayFx(fxType);
+                Sprite newSprite = characterData.GetSpriteForItem(item.itemID);
+                if (newSprite != null)
+                {
+                    spriteRenderer.sprite = newSprite;
+                }
 
-            // 2. Phát âm thanh True / False tương ứng với việc chọn ĐÚNG hay SAI đồ
-            // FxType resultFx = isCorrectItemReceived ? FxType.True : FxType.False;
-            // Ply_SoundManager.Ins.PlayFx(resultFx);
-        }
+                // Phát âm thanh thông qua Ply_SoundManager
+                if (Ply_SoundManager.Ins != null)
+                {
+                    // Phát duy nhất âm thanh được chọn cho nhân vật/món đồ trong Data (Siuu, Angry, Cry, Hehe, Huh, RoarTiger...)
+                    FxType fxType = characterData.GetFxTypeForItem(item.itemID);
+                    Ply_SoundManager.Ins.PlayFx(fxType);
+                }
 
-        // Báo cho ItemSequenceManager biết để chuyển sang món đồ tiếp theo
-        if (ItemSequenceManager.Instance != null)
-        {
-            ItemSequenceManager.Instance.OnItemCompleted();
-        }
+                // 3. Báo cho ItemSequenceManager biết để spawn món đồ tiếp theo
+                if (ItemSequenceManager.Instance != null)
+                {
+                    ItemSequenceManager.Instance.OnItemCompleted();
+                }
+            });
 
         return true;
     }
