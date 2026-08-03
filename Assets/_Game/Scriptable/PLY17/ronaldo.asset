@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27f9626f64f552f4399c7d4d5e05231f, type: 3}
+  m_Name: ronaldo
+  m_EditorClassIdentifier: 
+  playerName: Ronaldo
+  halfBodySprite: {fileID: 21300000, guid: d7e277e7e8daa5044ad278e14618c3ae, type: 3}
+  fullBodySprite: {fileID: 21300000, guid: 0247c48450cf3a8469955cd628c033a6, type: 3}
+  nameAudio: {fileID: 8300000, guid: 8adbf984e9dced14b9deab24386611e2, type: 3}
+  lightEffectSprite: {fileID: 21300000, guid: 0b9a363471906344b8f2891c00a9e594, type: 3}

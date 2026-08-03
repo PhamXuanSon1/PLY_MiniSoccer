@@ -14,4 +14,7 @@ public class FavoritePlayerCard : ScriptableObject
 
 	[Tooltip("Âm thanh đọc tên cầu thủ này")]
 	public AudioClip nameAudio;
+
+	[Tooltip("Ảnh hiệu ứng sáng/glow riêng cho lá bài này")]
+	public Sprite lightEffectSprite;
 }

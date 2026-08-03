@@ -77,8 +77,8 @@ public class FavoritePlayerManager : MonoBehaviour
 	[Space(10f)]
 	[Header("--- CÀI ĐẶT HIỆU ỨNG CLICK (SLOT ĐƯỢC CHỌN) ---")]
 	[Space(5f)]
-	[Tooltip("Mức độ thu nhỏ khi click (0.9 = 90% kích thước gốc)")]
-	public float clickScaleSize = 0.9f;
+	[Tooltip("Mức độ phóng to khi click (1.1 = 110% kích thước gốc)")]
+	public float clickScaleSize = 1.1f;
 
 	[Tooltip("Thời gian nhún xuống")]
 	public float clickDownDuration = 0.1f;
@@ -115,10 +115,17 @@ public class FavoritePlayerManager : MonoBehaviour
 
 	private bool isGameStarted = false;
 
+	private bool challenge25Tracked = false;
+
+	private bool challenge50Tracked = false;
+
+	private bool challenge75Tracked = false;
+
 	public static FavoritePlayerManager Instance { get; private set; }
 
 	private void Awake()
 	{
+		AppLovinAnalytics.Track(ALEvent.LOADING);
 		if (Instance == null)
 		{
 			Instance = this;
@@ -135,10 +142,16 @@ public class FavoritePlayerManager : MonoBehaviour
 
 	private void Update()
 	{
+		if (Input.GetMouseButtonDown(0) && !isGameStarted && !canClickToStoreGlobal)
+		{
+			isGameStarted = true;
+			AppLovinAnalytics.Track(ALEvent.CHALLENGE_STARTED);
+		}
 		if (canClickToStoreGlobal && Input.GetMouseButtonDown(0))
 		{
 			canClickToStoreGlobal = false;
 			Debug.Log("\ud83c\udf89 Chuyển hướng ra Store tải game!");
+			AppLovinAnalytics.Track(ALEvent.CTA_CLICKED);
 			LifeCycle.GameEnded();
 			Playable.InstallFullGame();
 		}
@@ -146,12 +159,6 @@ public class FavoritePlayerManager : MonoBehaviour
 		{
 			if (isAnimating || canClickToStoreGlobal || !Input.GetMouseButtonDown(0))
 			{
-				return;
-			}
-			if (!isGameStarted)
-			{
-				isGameStarted = true;
-				PlayNameSequence(slotA.currentData.nameAudio, slotB.currentData.nameAudio);
 				return;
 			}
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -168,15 +175,19 @@ public class FavoritePlayerManager : MonoBehaviour
 
 	private void Start()
 	{
+		AppLovinAnalytics.Track(ALEvent.LOADED);
+		AppLovinAnalytics.Track(ALEvent.DISPLAYED);
 		if (playerList != null && playerList.Count >= 2)
 		{
 			slotA.SetupSlot(playerList[0]);
 			slotB.SetupSlot(playerList[1]);
 			currentIndex = 2;
 			PlayGlobalIdleAnimation();
+			PlayNameSequence(slotA.currentData.nameAudio, slotB.currentData.nameAudio);
 		}
 		else
 		{
+			AppLovinAnalytics.Track(ALEvent.CHALLENGE_FAILED);
 			Debug.LogError("LỖI: Danh sách cầu thủ phải có ít nhất 2 người trở lên!");
 		}
 	}
@@ -288,6 +299,14 @@ public class FavoritePlayerManager : MonoBehaviour
 		if (chosenSlot.lightEffect != null)
 		{
 			chosenSlot.lightEffect.SetActive(true);
+			if (chosenSlot.currentData != null && chosenSlot.currentData.lightEffectSprite != null)
+			{
+				SpriteRenderer glowRenderer = chosenSlot.lightEffect.GetComponent<SpriteRenderer>();
+				if (glowRenderer != null)
+				{
+					glowRenderer.sprite = chosenSlot.currentData.lightEffectSprite;
+				}
+			}
 		}
 		if (loserSlot.lightEffect != null)
 		{
@@ -313,6 +332,7 @@ public class FavoritePlayerManager : MonoBehaviour
 				loserSlot.spriteRenderer.color = color;
 				loserSlot.SetupSlot(playerList[currentIndex]);
 				currentIndex++;
+				TrackChallengeProgress();
 				Sequence sequence = DOTween.Sequence();
 				sequence.Append(loserSlot.transform.DOScale(loserSlot.originalScale * appearMaxScale, appearUpDuration));
 				sequence.Join(loserSlot.spriteRenderer.DOFade(1f, appearUpDuration));
@@ -333,9 +353,39 @@ public class FavoritePlayerManager : MonoBehaviour
 		});
 	}
 
+	private void TrackChallengeProgress()
+	{
+		if (playerList == null || playerList.Count <= 2)
+		{
+			return;
+		}
+		int totalSelections = playerList.Count - 2;
+		if (totalSelections > 0)
+		{
+			int completedSelections = Mathf.Max(0, currentIndex - 2);
+			float progressPercent = (float)completedSelections * 100f / (float)totalSelections;
+			if (!challenge25Tracked && progressPercent >= 25f)
+			{
+				challenge25Tracked = true;
+				AppLovinAnalytics.Track(ALEvent.CHALLENGE_PASS_25);
+			}
+			if (!challenge50Tracked && progressPercent >= 50f)
+			{
+				challenge50Tracked = true;
+				AppLovinAnalytics.Track(ALEvent.CHALLENGE_PASS_50);
+			}
+			if (!challenge75Tracked && progressPercent >= 75f)
+			{
+				challenge75Tracked = true;
+				AppLovinAnalytics.Track(ALEvent.CHALLENGE_PASS_75);
+			}
+		}
+	}
+
 	private void ShowWinner(FavoritePlayerCard winnerData)
 	{
 		Debug.Log("\ud83c\udf89 TÌM RA NGƯỜI CHIẾN THẮNG: " + winnerData.playerName);
+		AppLovinAnalytics.Track(ALEvent.CHALLENGE_SOLVED);
 		if (slotA != null)
 		{
 			slotA.gameObject.SetActive(false);
@@ -346,6 +396,7 @@ public class FavoritePlayerManager : MonoBehaviour
 		}
 		if (endcardUI != null)
 		{
+			AppLovinAnalytics.Track(ALEvent.ENDCARD_SHOWN);
 			endcardUI.ShowEndcard(winnerData);
 		}
 		else

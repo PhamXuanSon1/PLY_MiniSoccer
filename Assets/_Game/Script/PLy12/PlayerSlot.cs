@@ -42,10 +42,23 @@ public class PlayerSlot : MonoBehaviour
     public void SetupSlot(FavoritePlayerCard data)
     {
         currentData = data;
-        if (spriteRenderer != null && data != null)
+        if (data != null)
         {
-            // Hiển thị ảnh bán thân của cầu thủ lên Slot
-            spriteRenderer.sprite = data.halfBodySprite;
+            if (spriteRenderer != null)
+            {
+                // Hiển thị ảnh bán thân của cầu thủ lên Slot
+                spriteRenderer.sprite = data.halfBodySprite;
+            }
+
+            // Đổi Sprite của lightEffect theo data cầu thủ (nếu có)
+            if (lightEffect != null && data.lightEffectSprite != null)
+            {
+                SpriteRenderer glowRenderer = lightEffect.GetComponent<SpriteRenderer>();
+                if (glowRenderer != null)
+                {
+                    glowRenderer.sprite = data.lightEffectSprite;
+                }
+            }
         }
     }
 

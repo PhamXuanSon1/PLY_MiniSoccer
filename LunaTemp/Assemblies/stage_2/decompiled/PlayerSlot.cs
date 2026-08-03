@@ -38,9 +38,21 @@ public class PlayerSlot : MonoBehaviour
 	public void SetupSlot(FavoritePlayerCard data)
 	{
 		currentData = data;
-		if (spriteRenderer != null && data != null)
+		if (!(data != null))
+		{
+			return;
+		}
+		if (spriteRenderer != null)
 		{
 			spriteRenderer.sprite = data.halfBodySprite;
+		}
+		if (lightEffect != null && data.lightEffectSprite != null)
+		{
+			SpriteRenderer glowRenderer = lightEffect.GetComponent<SpriteRenderer>();
+			if (glowRenderer != null)
+			{
+				glowRenderer.sprite = data.lightEffectSprite;
+			}
 		}
 	}
 }

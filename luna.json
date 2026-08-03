@@ -2,7 +2,7 @@
     "version": "7.1.0",
     "projectId": "60d50cfced72ae74bb8c1682cb9abbe6",
     "applicationID": 40548,
-    "creativeName": "",
+    "creativeName": "MiniSoccer_Ply17",
     "pgServer": "EU",
     "window": {
         "‐⁙": true
@@ -124,7 +124,8 @@
                 "Stubs/Vungle",
                 "Stubs/MoreMountains.NiceVibrations",
                 "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset",
-                "Assets/TextMesh Pro/Sprites/EmojiOne.png"
+                "Assets/TextMesh Pro/Sprites/EmojiOne.png",
+                "Assets/_Game/Sprite/Item/border.png"
             ],
             "includes": [
                 "Assets/Resources/DOTweenSettings.asset",
@@ -8663,6 +8664,14 @@
             },
             {
                 "name": "DG.Tweening.Plugins.Core.ITPlugin$4",
+                "excluded": false
+            },
+            {
+                "name": "PlaySoundOnEnable",
+                "excluded": true
+            },
+            {
+                "name": "ALEvent",
                 "excluded": false
             }
         ],
@@ -31812,6 +31821,10 @@
                     {
                         "name": "WaitAndTriggerObjects",
                         "excluded": false
+                    },
+                    {
+                        "name": "TrackChallengeProgress",
+                        "excluded": false
                     }
                 ]
             },
@@ -33306,6 +33319,16 @@
                         "excluded": true
                     }
                 ]
+            },
+            {
+                "className": "AppLovinAnalytics",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Track",
+                        "excluded": false
+                    }
+                ]
             }
         ],
         "stubberDataList": [],
@@ -33663,6 +33686,136 @@
                         "script": "",
                         "ext": "",
                         "name": "Assets/_Game/Sprite/Item/Square.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply17/haaland.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply17/messi.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply17/maradona (2).png"
+                    },
+                    {
+                        "maxWidth": 755,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply17/Yamal2.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply17/ronaldo de lima (1).png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply17/pele 1.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply17/vini 1.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply17/ronaldo.png"
+                    },
+                    {
+                        "maxWidth": 579,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply17/mbappe.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply17/maguire.png"
+                    },
+                    {
+                        "maxWidth": 1024,
+                        "maxHeight": 1024,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply17/New Sprite Atlas.spriteatlasv2"
+                    },
+                    {
+                        "maxWidth": 2048,
+                        "maxHeight": 2048,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply17/1.spriteatlasv2"
+                    },
+                    {
+                        "maxWidth": 256,
+                        "maxHeight": 256,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply17/2.spriteatlasv2"
                     }
                 ]
             },

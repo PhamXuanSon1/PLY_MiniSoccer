@@ -70,8 +70,8 @@ public class FavoritePlayerManager : MonoBehaviour
     [Space(10)]
     [Header("--- CÀI ĐẶT HIỆU ỨNG CLICK (SLOT ĐƯỢC CHỌN) ---")]
     [Space(5)]
-    [Tooltip("Mức độ thu nhỏ khi click (0.9 = 90% kích thước gốc)")]
-    public float clickScaleSize = 0.9f;
+    [Tooltip("Mức độ phóng to khi click (1.1 = 110% kích thước gốc)")]
+    public float clickScaleSize = 1.1f;
     [Tooltip("Thời gian nhún xuống")]
     public float clickDownDuration = 0.1f;
     [Tooltip("Thời gian nảy lên lại")]
@@ -102,9 +102,13 @@ public class FavoritePlayerManager : MonoBehaviour
     private Sequence globalIdleSeq; // Chuỗi hiệu ứng thở luân phiên cho 2 Slot
     private Coroutine nameSequenceRoutine; // Biến lưu trữ tiến trình đọc tên
     private bool isGameStarted = false; // Đánh dấu xem người chơi đã click lần đầu (Tap to play) chưa
+    private bool challenge25Tracked = false;
+    private bool challenge50Tracked = false;
+    private bool challenge75Tracked = false;
 
     private void Awake()
     {
+        AppLovinAnalytics.Track(ALEvent.LOADING);
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
@@ -117,11 +121,18 @@ public class FavoritePlayerManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetMouseButtonDown(0) && !isGameStarted && !canClickToStoreGlobal)
+        {
+            isGameStarted = true;
+            AppLovinAnalytics.Track(ALEvent.CHALLENGE_STARTED);
+        }
+
         // 1. Kiểm tra click toàn cục ra Store (chỉ xảy ra khi game đã kết thúc và đếm ngược xong)
         if (canClickToStoreGlobal && Input.GetMouseButtonDown(0))
         {
             canClickToStoreGlobal = false; // Chỉ chạy 1 lần
             Debug.Log("🎉 Chuyển hướng ra Store tải game!");
+            AppLovinAnalytics.Track(ALEvent.CTA_CLICKED);
             LifeCycle.GameEnded();
             Playable.InstallFullGame();
             return; // Đã ra store thì ngưng xử lý bên dưới
@@ -130,15 +141,6 @@ public class FavoritePlayerManager : MonoBehaviour
         // 2. Bắn Raycast 3D để chọn Slot (khi game vẫn đang chơi và không bị khoá animation)
         if (!isAnimating && !canClickToStoreGlobal && Input.GetMouseButtonDown(0))
         {
-            // NẾU LÀ CÚ CLICK ĐẦU TIÊN (TAP TO PLAY)
-            if (!isGameStarted)
-            {
-                isGameStarted = true;
-                // Bắt đầu đọc tên 2 người đầu tiên trên sân
-                PlayNameSequence(slotA.currentData.nameAudio, slotB.currentData.nameAudio);
-                return; // Ngưng xử lý, không xét va chạm để tránh vô tình chọn thẻ
-            }
-
             // Bắn một tia từ màn hình vào camera
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -158,6 +160,9 @@ public class FavoritePlayerManager : MonoBehaviour
 
     private void Start()
     {
+        AppLovinAnalytics.Track(ALEvent.LOADED);
+        AppLovinAnalytics.Track(ALEvent.DISPLAYED);
+
         // Khởi tạo 2 cầu thủ đầu tiên ra sân nếu danh sách đủ dài
         if (playerList != null && playerList.Count >= 2)
         {
@@ -168,11 +173,12 @@ public class FavoritePlayerManager : MonoBehaviour
             // Bắt đầu nhịp thở luân phiên
             PlayGlobalIdleAnimation();
 
-            // KHÔNG GỌI PlayNameSequence Ở ĐÂY NỮA
-            // Đợi người chơi click lần đầu (Tap to play) thì mới đọc tên
+            // Tự động đọc tên 2 cầu thủ đầu tiên khi bắt đầu game
+            PlayNameSequence(slotA.currentData.nameAudio, slotB.currentData.nameAudio);
         }
         else
         {
+            AppLovinAnalytics.Track(ALEvent.CHALLENGE_FAILED);
             Debug.LogError("LỖI: Danh sách cầu thủ phải có ít nhất 2 người trở lên!");
         }
     }
@@ -291,10 +297,20 @@ public class FavoritePlayerManager : MonoBehaviour
         // Xác định xem slot nào là slot BỊ LOẠI (slot không được chọn)
         PlayerSlot loserSlot = (chosenSlot == slotA) ? slotB : slotA;
 
-        // Bật viền sáng cho Slot ĐƯỢC CHỌN
+        // Bật viền sáng cho Slot ĐƯỢC CHỌN + Đổi Sprite theo data cầu thủ
         if (chosenSlot.lightEffect != null)
         {
             chosenSlot.lightEffect.SetActive(true);
+
+            // Đổi ảnh Sprite của lightEffect theo data riêng của cầu thủ được chọn
+            if (chosenSlot.currentData != null && chosenSlot.currentData.lightEffectSprite != null)
+            {
+                SpriteRenderer glowRenderer = chosenSlot.lightEffect.GetComponent<SpriteRenderer>();
+                if (glowRenderer != null)
+                {
+                    glowRenderer.sprite = chosenSlot.currentData.lightEffectSprite;
+                }
+            }
         }
 
         // TẮT viền sáng cho Slot BỊ LOẠI (đề phòng nó đang bật)
@@ -337,6 +353,7 @@ public class FavoritePlayerManager : MonoBehaviour
 
                 loserSlot.SetupSlot(playerList[currentIndex]);
                 currentIndex++;
+                TrackChallengeProgress();
 
                 // Tạo chuỗi xuất hiện (Appear Sequence)
                 Sequence appearSeq = DOTween.Sequence();
@@ -376,9 +393,39 @@ public class FavoritePlayerManager : MonoBehaviour
         });
     }
 
+    private void TrackChallengeProgress()
+    {
+        if (playerList == null || playerList.Count <= 2) return;
+
+        int totalSelections = playerList.Count - 2;
+        if (totalSelections <= 0) return;
+
+        int completedSelections = Mathf.Max(0, currentIndex - 2);
+        float progressPercent = (completedSelections * 100f) / totalSelections;
+
+        if (!challenge25Tracked && progressPercent >= 25f)
+        {
+            challenge25Tracked = true;
+            AppLovinAnalytics.Track(ALEvent.CHALLENGE_PASS_25);
+        }
+
+        if (!challenge50Tracked && progressPercent >= 50f)
+        {
+            challenge50Tracked = true;
+            AppLovinAnalytics.Track(ALEvent.CHALLENGE_PASS_50);
+        }
+
+        if (!challenge75Tracked && progressPercent >= 75f)
+        {
+            challenge75Tracked = true;
+            AppLovinAnalytics.Track(ALEvent.CHALLENGE_PASS_75);
+        }
+    }
+
     private void ShowWinner(FavoritePlayerCard winnerData)
     {
         Debug.Log("🎉 TÌM RA NGƯỜI CHIẾN THẮNG: " + winnerData.playerName);
+        AppLovinAnalytics.Track(ALEvent.CHALLENGE_SOLVED);
 
         // Tắt 2 slot chọn lựa đi cho đỡ vướng màn hình
         if (slotA != null) slotA.gameObject.SetActive(false);
@@ -387,6 +434,7 @@ public class FavoritePlayerManager : MonoBehaviour
         // Bật màn hình Endcard lên và truyền dữ liệu người chiến thắng vào
         if (endcardUI != null)
         {
+            AppLovinAnalytics.Track(ALEvent.ENDCARD_SHOWN);
             endcardUI.ShowEndcard(winnerData);
         }
         else
