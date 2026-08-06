@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d02e5ad65af5ac45ae37e36fd31ccac, type: 3}
   m_Name: Vini Jr.
   m_EditorClassIdentifier: 
-  nationality: 
+  playerName: Vini Jr.
   playerSprite: {fileID: 714223354, guid: 272d220667df319418ecbd6c3d6b42af, type: 3}
-  flagSprite: {fileID: 0}

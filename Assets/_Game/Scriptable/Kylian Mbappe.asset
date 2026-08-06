@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d02e5ad65af5ac45ae37e36fd31ccac, type: 3}
   m_Name: Kylian Mbappe
   m_EditorClassIdentifier: 
-  nationality: 
+  playerName: Kylian Mbappe
   playerSprite: {fileID: -218184237, guid: fba728d09d1c787408eb60810e46f1ab, type: 3}
-  flagSprite: {fileID: 0}

@@ -4,8 +4,8 @@ using UnityEditor;
 public class SlotRenameTool
 {
     // Thêm chức năng vào menu chuột phải và menu Tools ở trên cùng
-    [MenuItem("GameObject/Rename Slot by Nationality (Đổi tên theo Quốc gia)", false, 0)]
-    [MenuItem("Tools/Rename Slot by Nationality")]
+    [MenuItem("GameObject/Rename Slot by Player Name (Đổi tên theo Tên cầu thủ)", false, 0)]
+    [MenuItem("Tools/Rename Slot by Player Name")]
     public static void RenameSelectedSlots()
     {
         // Lấy tất cả các object đang được bôi đen (chọn) ở Hierarchy
@@ -29,8 +29,8 @@ public class SlotRenameTool
                 // Lưu lại trạng thái để có thể Undo (Bấm Ctrl+Z để hoàn tác nếu lỡ đổi nhầm)
                 Undo.RecordObject(obj, "Rename Slot");
                 
-                // Lấy quốc tịch từ file Data ra và gắp thêm chữ "Slot"
-                string newName = slot.cardData.nationality + "Slot";
+                // Lấy tên cầu thủ từ file Data ra và gắp thêm chữ "Slot"
+                string newName = (string.IsNullOrEmpty(slot.cardData.playerName) ? slot.cardData.name : slot.cardData.playerName) + "Slot";
                 
                 // Bạn có thể dùng hàm Replace(" ", "") nếu muốn xoá dấu cách:
                 // newName = newName.Replace(" ", ""); 
@@ -42,7 +42,7 @@ public class SlotRenameTool
 
         if (count > 0)
         {
-            Debug.Log("✅ Đã đổi tên thành công " + count + " Slot theo Quốc gia!");
+            Debug.Log("✅ Đã đổi tên thành công " + count + " Slot theo Tên cầu thủ!");
         }
         else
         {

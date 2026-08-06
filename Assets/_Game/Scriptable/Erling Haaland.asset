@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d02e5ad65af5ac45ae37e36fd31ccac, type: 3}
   m_Name: Erling Haaland
   m_EditorClassIdentifier: 
-  nationality: 
+  playerName: Erling Haaland
   playerSprite: {fileID: 889361922, guid: 37265c0b626c9cd459b64e89e8fc8387, type: 3}
-  flagSprite: {fileID: 0}

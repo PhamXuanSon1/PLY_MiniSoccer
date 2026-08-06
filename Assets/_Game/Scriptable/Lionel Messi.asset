@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d02e5ad65af5ac45ae37e36fd31ccac, type: 3}
   m_Name: Lionel Messi
   m_EditorClassIdentifier: 
-  nationality: 
+  playerName: Lionel Messi
   playerSprite: {fileID: 435730995, guid: e27a901f9731ebd4ab603acc8c950910, type: 3}
-  flagSprite: {fileID: 0}

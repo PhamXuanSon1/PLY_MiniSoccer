@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d02e5ad65af5ac45ae37e36fd31ccac, type: 3}
   m_Name: Christiano Ronaldo
   m_EditorClassIdentifier: 
-  nationality: 
+  playerName: Christiano Ronaldo
   playerSprite: {fileID: 1009640694, guid: 5578c8d845886ab4daf3c6bdfbe0208d, type: 3}
-  flagSprite: {fileID: 0}

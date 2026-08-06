@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d02e5ad65af5ac45ae37e36fd31ccac, type: 3}
   m_Name: Jude Bellingham
   m_EditorClassIdentifier: 
-  nationality: 
+  playerName: Jude Bellingham
   playerSprite: {fileID: -1161295490, guid: c5ae293bf2bb5c749a74263035ec63d1, type: 3}
-  flagSprite: {fileID: 0}

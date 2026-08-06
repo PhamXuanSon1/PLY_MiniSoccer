@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d02e5ad65af5ac45ae37e36fd31ccac, type: 3}
   m_Name: Ousmane Dembele
   m_EditorClassIdentifier: 
-  nationality: 
+  playerName: Ousmane Dembele
   playerSprite: {fileID: -1275107551, guid: f68b0d417f6868347be5756f730f0a4d, type: 3}
-  flagSprite: {fileID: 0}

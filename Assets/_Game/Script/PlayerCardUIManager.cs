@@ -26,9 +26,8 @@ public class PlayerCardUIManager : MonoBehaviour
     public GameObject[] objectsToTurnOffAfterWait;
 
     [Header("UI Elements (Kéo thả từ Canvas vào đây)")]
-    public TMP_Text nationalityText;
+    public TMP_Text playerNameText;
     public SpriteRenderer playerImage;
-    public SpriteRenderer flagImage;
 
     private bool canClickToStore = false;
 
@@ -77,10 +76,8 @@ public class PlayerCardUIManager : MonoBehaviour
         }
 
         // Cập nhật thông tin lên giao diện
-        if (nationalityText != null) nationalityText.text = data.nationality;
-        
+        if (playerNameText != null) playerNameText.text = data.playerName;
         if (playerImage != null) playerImage.sprite = data.playerSprite;
-        if (flagImage != null) flagImage.sprite = data.flagSprite;
 
         // Bật Panel hiển thị
         if (cardPanel != null)

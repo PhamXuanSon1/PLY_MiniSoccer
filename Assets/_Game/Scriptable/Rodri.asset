@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d02e5ad65af5ac45ae37e36fd31ccac, type: 3}
   m_Name: Rodri
   m_EditorClassIdentifier: 
-  nationality: 
+  playerName: Rodri
   playerSprite: {fileID: 770718953, guid: 1a8149efc5a838f45b7e202820dabcf3, type: 3}
-  flagSprite: {fileID: 0}

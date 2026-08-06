@@ -23,11 +23,9 @@ public class PlayerCardUIManager : MonoBehaviour
 	public GameObject[] objectsToTurnOffAfterWait;
 
 	[Header("UI Elements (Kéo thả từ Canvas vào đây)")]
-	public TMP_Text nationalityText;
+	public TMP_Text playerNameText;
 
 	public SpriteRenderer playerImage;
-
-	public SpriteRenderer flagImage;
 
 	private bool canClickToStore = false;
 
@@ -72,17 +70,13 @@ public class PlayerCardUIManager : MonoBehaviour
 			Debug.LogWarning("Không có dữ liệu thẻ cầu thủ được truyền vào!");
 			return;
 		}
-		if (nationalityText != null)
+		if (playerNameText != null)
 		{
-			nationalityText.text = data.nationality;
+			playerNameText.text = data.playerName;
 		}
 		if (playerImage != null)
 		{
 			playerImage.sprite = data.playerSprite;
-		}
-		if (flagImage != null)
-		{
-			flagImage.sprite = data.flagSprite;
 		}
 		if (cardPanel != null)
 		{

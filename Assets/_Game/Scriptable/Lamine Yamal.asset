@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d02e5ad65af5ac45ae37e36fd31ccac, type: 3}
   m_Name: Lamine Yamal
   m_EditorClassIdentifier: 
-  nationality: 
+  playerName: Lamine Yamal
   playerSprite: {fileID: -123680660, guid: cbefbf00c10db2041a6e71602c07e4f0, type: 3}
-  flagSprite: {fileID: 0}
