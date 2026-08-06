@@ -2429,10 +2429,6 @@
                 "excluded": true
             },
             {
-                "name": "UnityEngine.SpriteMask",
-                "excluded": true
-            },
-            {
                 "name": "UnityEngine.TrailRenderer",
                 "excluded": true
             },
@@ -18222,7 +18218,7 @@
                     },
                     {
                         "name": "rotation#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "rotation#set",
@@ -19058,7 +19054,7 @@
                     },
                     {
                         "name": "fieldOfView#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "fieldOfView#set",
@@ -19122,7 +19118,7 @@
                     },
                     {
                         "name": "_aspect#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "_aspect#set",
@@ -19130,7 +19126,7 @@
                     },
                     {
                         "name": "aspect#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "aspect#set",
@@ -19138,7 +19134,7 @@
                     },
                     {
                         "name": "orthographicSize#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "orthographicSize#set",
@@ -19266,7 +19262,7 @@
                     },
                     {
                         "name": "WorldToScreenPoint",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ScreenToWorldPoint",
@@ -19286,7 +19282,7 @@
                     },
                     {
                         "name": "WorldToViewportPoint",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ScreenToViewportPoint",
@@ -19298,7 +19294,7 @@
                     },
                     {
                         "name": "ViewportToWorldPoint",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "ViewportPointToRay",
@@ -32687,6 +32683,130 @@
                         "excluded": true
                     }
                 ]
+            },
+            {
+                "className": "UnityEngine.SpriteMask",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "frontSortingLayerID#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "frontSortingLayerID#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "frontSortingOrder#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "frontSortingOrder#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "backSortingLayerID#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "backSortingLayerID#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "backSortingOrder#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "backSortingOrder#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "alphaCutoff#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "alphaCutoff#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "sprite#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "sprite#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "isCustomRangeActive#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "isCustomRangeActive#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "spriteSortPoint#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "spriteSortPoint#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "ScreenHeightPositionAnchor",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnEnable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Start",
+                        "excluded": false
+                    },
+                    {
+                        "name": "LateUpdate",
+                        "excluded": false
+                    },
+                    {
+                        "name": "AlignToScreenHeightRatio",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetTargetCamera",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetAnchor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CacheScreenState",
+                        "excluded": false
+                    },
+                    {
+                        "name": "HasCameraChanged",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnDrawGizmos",
+                        "excluded": true
+                    }
+                ]
             }
         ],
         "stubberDataList": [],
@@ -33154,6 +33274,36 @@
                         "script": "",
                         "ext": "",
                         "name": "Assets/_Game/Sprite/ply11/FullBody/5france (1).png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply11/FullBody/10.Rodri.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply11/FullBody/8.Ousmane Dembele.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply11/FullBody/7.Jude Bellingham.png"
                     }
                 ]
             },
