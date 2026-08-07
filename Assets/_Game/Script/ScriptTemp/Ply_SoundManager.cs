@@ -14,8 +14,8 @@ public enum FxType
     Spray,
     Brush,
     Keo,
-    Win,
-    Loss,
+    Confetti,
+    Lose2,
 }
 
 [System.Serializable]
@@ -34,15 +34,15 @@ public class FxAudio
     public SoundData Spray;
     public SoundData Brush;
     public SoundData Keo;
-    public SoundData Win;
-    public SoundData Loss;
+    public SoundData Confetti;
+    public SoundData Lose2;
 }
 
 public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>
 {
     public FxAudio fxAudio;
     public AudioSource bgm1;
-    private AudioSource[] fx = new AudioSource[15];
+    private AudioSource[] fx = new AudioSource[20];
 
     bool isMute = false;
 
@@ -122,8 +122,8 @@ public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>
             case FxType.Spray: return fxAudio.Spray;
             case FxType.Brush: return fxAudio.Brush;
             case FxType.Keo: return fxAudio.Keo;
-            case FxType.Win: return fxAudio.Win;
-            case FxType.Loss: return fxAudio.Loss;
+            case FxType.Confetti: return fxAudio.Confetti;
+            case FxType.Lose2: return fxAudio.Lose2;
             default: return null;
         }
     }

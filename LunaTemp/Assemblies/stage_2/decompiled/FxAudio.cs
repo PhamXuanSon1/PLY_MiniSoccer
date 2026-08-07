@@ -14,4 +14,8 @@ public class FxAudio
 	public SoundData Brush;
 
 	public SoundData Keo;
+
+	public SoundData Confetti;
+
+	public SoundData Lose2;
 }

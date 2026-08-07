@@ -2160,7 +2160,9 @@ if ( TRACE ) { TRACE( "DG.Tweening.DOTweenModuleUtils.Physics#CreateDOTweenPathT
             Wrong: null,
             Spray: null,
             Brush: null,
-            Keo: null
+            Keo: null,
+            Confetti: null,
+            Lose2: null
         }
     });
     /*FxAudio end.*/
@@ -2175,7 +2177,9 @@ if ( TRACE ) { TRACE( "DG.Tweening.DOTweenModuleUtils.Physics#CreateDOTweenPathT
                 Wrong: 2,
                 Spray: 3,
                 Brush: 4,
-                Keo: 5
+                Keo: 5,
+                Confetti: 6,
+                Lose2: 7
             }
         }
     });
@@ -2355,6 +2359,10 @@ if ( TRACE ) { TRACE( "HairCutController#PerformCut", this ); }
                     UnityEngine.Debug.Log$1("<color=green><b>WIN</b></color> (K\u00e9o \u0111\u00e3 \u0111i qua v\u00e0 ch\u1ea1m v\u00e0o Arrow 218!)");
                     DG.Tweening.DOVirtual.DelayedCall(this.fallDuration, Bridge.fn.bind(this, function () {
                         var $t, $t1;
+                        if (UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(Ply_SoundManager).Ins, null)) {
+                            Ply_Singleton$1(Ply_SoundManager).Ins.PlayFx(FxType.Confetti);
+                            Ply_Singleton$1(Ply_SoundManager).Ins.PlayFx(FxType.Confetti);
+                        }
                         if (UnityEngine.GameObject.op_Inequality(this.winObjectToEnable, null)) {
                             this.winObjectToEnable.SetActive(true);
                         }
@@ -2398,6 +2406,9 @@ if ( TRACE ) { TRACE( "HairCutController#PerformCut", this ); }
                     UnityEngine.Debug.Log$1("<color=red><b>LOSS</b></color> (K\u00e9o kh\u00f4ng ch\u1ea1m v\u00e0o Arrow 218!)");
                     if (UnityEngine.Component.op_Inequality(this.lossSpriteRenderer, null) && this.lossSprite != null) {
                         this.lossSpriteRenderer.sprite = this.lossSprite;
+                        if (UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(Ply_SoundManager).Ins, null)) {
+                            Ply_Singleton$1(Ply_SoundManager).Ins.PlayFx(FxType.Lose2);
+                        }
                     }
                     if (UnityEngine.GameObject.op_Inequality(this.lossObjectToEnable, null)) {
                         this.lossObjectToEnable.SetActive(true);
@@ -3611,7 +3622,7 @@ if ( TRACE ) { TRACE( "Ply_SoundManager#inherits", this ); }
             init: function () {
 if ( TRACE ) { TRACE( "Ply_SoundManager#init", this ); }
 
-                this.fx = System.Array.init(15, null, UnityEngine.AudioSource);
+                this.fx = System.Array.init(20, null, UnityEngine.AudioSource);
                 this.isMute = false;
             }
         },
@@ -3708,6 +3719,10 @@ if ( TRACE ) { TRACE( "Ply_SoundManager#GetSoundData", this ); }
                         return this.fxAudio.Brush;
                     case FxType.Keo: 
                         return this.fxAudio.Keo;
+                    case FxType.Confetti: 
+                        return this.fxAudio.Confetti;
+                    case FxType.Lose2: 
+                        return this.fxAudio.Lose2;
                     default: 
                         return null;
                 }
@@ -3776,11 +3791,11 @@ if ( TRACE ) { TRACE( "Ply_SoundManager#Mute", this ); }
     /*CupCollision end.*/
 
     /*FxAudio start.*/
-    $m("FxAudio", function () { return {"att":1056769,"a":2,"at":[new System.SerializableAttribute()],"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"Brush","t":4,"rt":SoundData,"sn":"Brush"},{"a":2,"n":"ClickBox","t":4,"rt":SoundData,"sn":"ClickBox"},{"a":2,"n":"Happy","t":4,"rt":SoundData,"sn":"Happy"},{"a":2,"n":"Keo","t":4,"rt":SoundData,"sn":"Keo"},{"a":2,"n":"Spray","t":4,"rt":SoundData,"sn":"Spray"},{"a":2,"n":"Wrong","t":4,"rt":SoundData,"sn":"Wrong"}]}; }, $n);
+    $m("FxAudio", function () { return {"att":1056769,"a":2,"at":[new System.SerializableAttribute()],"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"Brush","t":4,"rt":SoundData,"sn":"Brush"},{"a":2,"n":"ClickBox","t":4,"rt":SoundData,"sn":"ClickBox"},{"a":2,"n":"Confetti","t":4,"rt":SoundData,"sn":"Confetti"},{"a":2,"n":"Happy","t":4,"rt":SoundData,"sn":"Happy"},{"a":2,"n":"Keo","t":4,"rt":SoundData,"sn":"Keo"},{"a":2,"n":"Lose2","t":4,"rt":SoundData,"sn":"Lose2"},{"a":2,"n":"Spray","t":4,"rt":SoundData,"sn":"Spray"},{"a":2,"n":"Wrong","t":4,"rt":SoundData,"sn":"Wrong"}]}; }, $n);
     /*FxAudio end.*/
 
     /*FxType start.*/
-    $m("FxType", function () { return {"att":257,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"Brush","is":true,"t":4,"rt":FxType,"sn":"Brush","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Click","is":true,"t":4,"rt":FxType,"sn":"Click","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Happy","is":true,"t":4,"rt":FxType,"sn":"Happy","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Keo","is":true,"t":4,"rt":FxType,"sn":"Keo","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Spray","is":true,"t":4,"rt":FxType,"sn":"Spray","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Wrong","is":true,"t":4,"rt":FxType,"sn":"Wrong","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}}]}; }, $n);
+    $m("FxType", function () { return {"att":257,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"Brush","is":true,"t":4,"rt":FxType,"sn":"Brush","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Click","is":true,"t":4,"rt":FxType,"sn":"Click","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Confetti","is":true,"t":4,"rt":FxType,"sn":"Confetti","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Happy","is":true,"t":4,"rt":FxType,"sn":"Happy","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Keo","is":true,"t":4,"rt":FxType,"sn":"Keo","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Lose2","is":true,"t":4,"rt":FxType,"sn":"Lose2","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Spray","is":true,"t":4,"rt":FxType,"sn":"Spray","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Wrong","is":true,"t":4,"rt":FxType,"sn":"Wrong","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}}]}; }, $n);
     /*FxType end.*/
 
     /*HairCutController start.*/

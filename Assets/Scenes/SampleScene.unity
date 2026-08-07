@@ -5341,6 +5341,12 @@ MonoBehaviour:
     Keo:
       clip: {fileID: 8300000, guid: 33860d24a782935468ab2cd695a42496, type: 3}
       repeatCount: 1
+    Confetti:
+      clip: {fileID: 8300000, guid: 98e38d8a896008545a2de9e1670659c2, type: 3}
+      repeatCount: 1
+    Lose2:
+      clip: {fileID: 8300000, guid: 47d6ecbd384b6ef4bb56ee9929c3645f, type: 3}
+      repeatCount: 1
   bgm1: {fileID: 1691136070}
 --- !u!1 &1791754252
 GameObject:

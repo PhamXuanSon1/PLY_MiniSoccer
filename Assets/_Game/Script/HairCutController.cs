@@ -276,14 +276,16 @@ public class HairCutController : MonoBehaviour
         {
             Debug.Log("<color=green><b>WIN</b></color> (Kéo đã đi qua và chạm vào Arrow 218!)");
 
-            if (Ply_SoundManager.Ins != null)
-            {
-                Ply_SoundManager.Ins.PlayFx(FxType.Win);
-            }
-
             // Chờ tóc rơi xong (fallDuration) rồi mới bật/tắt WIN objects
             DOVirtual.DelayedCall(fallDuration, () =>
             {
+                // Phát sound Confetti 2 lần khi bật WIN obj
+                if (Ply_SoundManager.Ins != null)
+                {
+                    Ply_SoundManager.Ins.PlayFx(FxType.Confetti);
+                    Ply_SoundManager.Ins.PlayFx(FxType.Confetti);
+                }
+
                 // Bật GameObject khi WIN
                 if (winObjectToEnable != null)
                 {
@@ -317,15 +319,15 @@ public class HairCutController : MonoBehaviour
         {
             Debug.Log("<color=red><b>LOSS</b></color> (Kéo không chạm vào Arrow 218!)");
 
-            if (Ply_SoundManager.Ins != null)
-            {
-                Ply_SoundManager.Ins.PlayFx(FxType.Loss);
-            }
-
-            // Đổi Sprite khi bị LOSS
+            // Đổi Sprite khi bị LOSS & phát sound Lose2
             if (lossSpriteRenderer != null && lossSprite != null)
             {
                 lossSpriteRenderer.sprite = lossSprite;
+
+                if (Ply_SoundManager.Ins != null)
+                {
+                    Ply_SoundManager.Ins.PlayFx(FxType.Lose2);
+                }
             }
 
             // Bật GameObject khi bị LOSS

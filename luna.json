@@ -28530,7 +28530,7 @@
                     },
                     {
                         "name": "TriggerWinEndGame",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "TriggerLossEndGame",
@@ -31783,7 +31783,7 @@
                     "startTime": "00:00.000",
                     "endTime": "00:00.000",
                     "lengthInSeconds": 0.0,
-                    "bitrate": 128,
+                    "bitrate": 64,
                     "script": "",
                     "ext": ""
                 },

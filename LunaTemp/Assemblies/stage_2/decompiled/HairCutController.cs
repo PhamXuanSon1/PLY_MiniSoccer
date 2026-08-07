@@ -236,6 +236,11 @@ public class HairCutController : MonoBehaviour
 			Debug.Log("<color=green><b>WIN</b></color> (Kéo đã đi qua và chạm vào Arrow 218!)");
 			DOVirtual.DelayedCall(fallDuration, delegate
 			{
+				if (Ply_Singleton<Ply_SoundManager>.Ins != null)
+				{
+					Ply_Singleton<Ply_SoundManager>.Ins.PlayFx(FxType.Confetti);
+					Ply_Singleton<Ply_SoundManager>.Ins.PlayFx(FxType.Confetti);
+				}
 				if (winObjectToEnable != null)
 				{
 					winObjectToEnable.SetActive(true);
@@ -274,6 +279,10 @@ public class HairCutController : MonoBehaviour
 			if (lossSpriteRenderer != null && lossSprite != null)
 			{
 				lossSpriteRenderer.sprite = lossSprite;
+				if (Ply_Singleton<Ply_SoundManager>.Ins != null)
+				{
+					Ply_Singleton<Ply_SoundManager>.Ins.PlayFx(FxType.Lose2);
+				}
 			}
 			if (lossObjectToEnable != null)
 			{

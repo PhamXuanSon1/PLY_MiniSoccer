@@ -5,5 +5,7 @@ public enum FxType
 	Wrong,
 	Spray,
 	Brush,
-	Keo
+	Keo,
+	Confetti,
+	Lose2
 }

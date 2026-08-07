@@ -6,7 +6,7 @@ public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>
 
 	public AudioSource bgm1;
 
-	private AudioSource[] fx = new AudioSource[15];
+	private AudioSource[] fx = new AudioSource[20];
 
 	private bool isMute = false;
 
@@ -97,6 +97,10 @@ public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>
 			return fxAudio.Brush;
 		case FxType.Keo:
 			return fxAudio.Keo;
+		case FxType.Confetti:
+			return fxAudio.Confetti;
+		case FxType.Lose2:
+			return fxAudio.Lose2;
 		default:
 			return null;
 		}
