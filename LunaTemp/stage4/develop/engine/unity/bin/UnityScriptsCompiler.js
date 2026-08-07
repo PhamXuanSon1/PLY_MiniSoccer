@@ -2199,17 +2199,18 @@ if ( TRACE ) { TRACE( "DG.Tweening.DOTweenModuleUtils.Physics#CreateDOTweenPathT
             fallingHairParent: null,
             fallingHairRenderers: null,
             scissorsCollider: null,
+            targetColliders: null,
             targetCollider: null,
             winObjectToEnable: null,
             winObjectsToEnable: null,
             winObjectToDisable: null,
             winObjectsToDisable: null,
             lossSpriteRenderer: null,
-            lossSprite: null,
             lossObjectToEnable: null,
             lossObjectsToEnable: null,
+            lossObjectToDisable: null,
+            lossObjectsToDisable: null,
             endDelay: 0,
-            immediateEndGameOnLoss: false,
             afterEndDisableObjects: null,
             afterEndEnableObjects: null,
             tutObject: null,
@@ -2226,7 +2227,8 @@ if ( TRACE ) { TRACE( "DG.Tweening.DOTweenModuleUtils.Physics#CreateDOTweenPathT
             isStoreRedirectActive: false,
             tapState: 0,
             initialScissorsPos: null,
-            initialLossSprite: null
+            initialLossSprite: null,
+            lastHitTarget: null
         },
         ctors: {
             init: function () {
@@ -2235,7 +2237,6 @@ if ( TRACE ) { TRACE( "HairCutController#init", this ); }
                 this.initialScissorsPos = new UnityEngine.Vector3();
                 this.scissorMoveDuration = 0.5;
                 this.endDelay = 3.0;
-                this.immediateEndGameOnLoss = false;
                 this.fallDistance = 5.0;
                 this.fallDuration = 1.5;
                 this.fadeDuration = 1.0;
@@ -2316,6 +2317,7 @@ if ( TRACE ) { TRACE( "HairCutController#StartScissorCut", this ); }
                     this.targetAnimatorToDisable.enabled = false;
                 }
                 this.hasHitTarget = false;
+                this.lastHitTarget = null;
                 if (UnityEngine.Component.op_Inequality(this.scissors, null)) {
                     DG.Tweening.ShortcutExtensions.DOKill(this.scissors);
                     if (UnityEngine.Component.op_Inequality(this.linePointA, null)) {
@@ -2343,9 +2345,29 @@ if ( TRACE ) { TRACE( "HairCutController#StartScissorCut", this ); }
             CheckOverlapDuringMove: function () {
 if ( TRACE ) { TRACE( "HairCutController#CheckOverlapDuringMove", this ); }
 
-                if (!this.hasHitTarget && UnityEngine.Component.op_Inequality(this.scissorsCollider, null) && UnityEngine.Component.op_Inequality(this.targetCollider, null) && (this.scissorsCollider.bounds.intersects( this.targetCollider.bounds ) || this.scissorsCollider.IsTouching(this.targetCollider))) {
+                var $t;
+                if (UnityEngine.Component.op_Equality(this.scissorsCollider, null)) {
+                    return;
+                }
+                if (this.targetColliders != null && this.targetColliders.length !== 0) {
+                    var array = this.targetColliders;
+                    $t = Bridge.getEnumerator(array);
+                    try {
+                        while ($t.moveNext()) {
+                            var targetData = $t.Current;
+                            if (targetData != null && UnityEngine.Component.op_Inequality(targetData.collider, null) && (this.scissorsCollider.bounds.intersects( targetData.collider.bounds ) || this.scissorsCollider.IsTouching(targetData.collider)) && !Bridge.referenceEquals(this.lastHitTarget, targetData)) {
+                                this.lastHitTarget = targetData;
+                                UnityEngine.Debug.Log$1(System.String.format("<color=cyan>[Va Ch\u1ea1m]</color> K\u00e9o v\u1eeba \u0111i v\u00e0o Target: {0} | IsWin = {1}", targetData.collider.gameObject.name, Bridge.box(targetData.isWin, System.Boolean, System.Boolean.toString)));
+                            }
+                        }
+                    } finally {
+                        if (Bridge.is($t, System.IDisposable)) {
+                            $t.System$IDisposable$Dispose();
+                        }
+                    }
+                } else if (UnityEngine.Component.op_Inequality(this.targetCollider, null) && (this.scissorsCollider.bounds.intersects( this.targetCollider.bounds ) || this.scissorsCollider.IsTouching(this.targetCollider)) && !this.hasHitTarget) {
                     this.hasHitTarget = true;
-                    UnityEngine.Debug.Log$1(System.String.format("<color=cyan>[Va Ch\u1ea1m]</color> K\u00e9o \u0111\u00e3 ch\u1ea1m v\u00e0o Arrow 218 t\u1ea1i v\u1ecb tr\u00ed X = {0}", [Bridge.box(this.scissors.position.x, System.Single, System.Single.format, System.Single.getHashCode)]));
+                    UnityEngine.Debug.Log$1("<color=cyan>[Va Ch\u1ea1m]</color> K\u00e9o \u0111\u00e3 ch\u1ea1m v\u00e0o TargetCollider \u0111\u01a1n!");
                 }
             },
             /*HairCutController.CheckOverlapDuringMove end.*/
@@ -2354,11 +2376,29 @@ if ( TRACE ) { TRACE( "HairCutController#CheckOverlapDuringMove", this ); }
             PerformCut: function () {
 if ( TRACE ) { TRACE( "HairCutController#PerformCut", this ); }
 
-                var $t, $t1, $t2, $t3;
-                if (this.hasHitTarget) {
-                    UnityEngine.Debug.Log$1("<color=green><b>WIN</b></color> (K\u00e9o \u0111\u00e3 \u0111i qua v\u00e0 ch\u1ea1m v\u00e0o Arrow 218!)");
+                var $t, $t1, $t2;
+                var isWinResult = false;
+                var resultSpriteToApply = null;
+                if (this.targetColliders != null && this.targetColliders.length !== 0) {
+                    if (this.lastHitTarget != null) {
+                        isWinResult = this.lastHitTarget.isWin;
+                        resultSpriteToApply = this.lastHitTarget.resultSprite;
+                        UnityEngine.Debug.Log$1("[HairCutController] Target CU\u1ed0I C\u00d9NG k\u00e9o \u0111i qua: " + (this.lastHitTarget.collider.gameObject.name || "") + " | K\u1ebft qu\u1ea3: " + ((isWinResult ? "WIN" : "LOSS") || ""));
+                    } else {
+                        isWinResult = false;
+                        UnityEngine.Debug.Log$1("[HairCutController] K\u00e9o kh\u00f4ng ch\u1ea1m b\u1ea5t k\u1ef3 Target Collider n\u00e0o -> LOSS!");
+                    }
+                } else {
+                    isWinResult = this.hasHitTarget;
+                }
+                if (isWinResult) {
+                    UnityEngine.Debug.Log$1("<color=green><b>WIN</b></color>");
                     DG.Tweening.DOVirtual.DelayedCall(this.fallDuration, Bridge.fn.bind(this, function () {
                         var $t, $t1;
+                        if (UnityEngine.Component.op_Inequality(this.lossSpriteRenderer, null) && resultSpriteToApply != null) {
+                            this.lossSpriteRenderer.sprite = resultSpriteToApply;
+                            UnityEngine.Debug.Log$1("[HairCutController] T\u00f3c r\u01a1i xong -> \u0110\u00e3 \u0111\u1ed5i Sprite WIN sang: " + (resultSpriteToApply.name || ""));
+                        }
                         if (UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(Ply_SoundManager).Ins, null)) {
                             Ply_Singleton$1(Ply_SoundManager).Ins.PlayFx(FxType.Confetti);
                             Ply_Singleton$1(Ply_SoundManager).Ins.PlayFx(FxType.Confetti);
@@ -2367,8 +2407,58 @@ if ( TRACE ) { TRACE( "HairCutController#PerformCut", this ); }
                             this.winObjectToEnable.SetActive(true);
                         }
                         if (this.winObjectsToEnable != null && this.winObjectsToEnable.length !== 0) {
-                            var array5 = this.winObjectsToEnable;
-                            $t = Bridge.getEnumerator(array5);
+                            var array6 = this.winObjectsToEnable;
+                            $t = Bridge.getEnumerator(array6);
+                            try {
+                                while ($t.moveNext()) {
+                                    var gameObject3 = $t.Current;
+                                    if (UnityEngine.GameObject.op_Inequality(gameObject3, null)) {
+                                        gameObject3.SetActive(true);
+                                    }
+                                }
+                            } finally {
+                                if (Bridge.is($t, System.IDisposable)) {
+                                    $t.System$IDisposable$Dispose();
+                                }
+                            }
+                        }
+                        if (UnityEngine.GameObject.op_Inequality(this.winObjectToDisable, null)) {
+                            this.winObjectToDisable.SetActive(false);
+                        }
+                        if (this.winObjectsToDisable != null && this.winObjectsToDisable.length !== 0) {
+                            var array7 = this.winObjectsToDisable;
+                            $t1 = Bridge.getEnumerator(array7);
+                            try {
+                                while ($t1.moveNext()) {
+                                    var gameObject4 = $t1.Current;
+                                    if (UnityEngine.GameObject.op_Inequality(gameObject4, null)) {
+                                        gameObject4.SetActive(false);
+                                    }
+                                }
+                            } finally {
+                                if (Bridge.is($t1, System.IDisposable)) {
+                                    $t1.System$IDisposable$Dispose();
+                                }
+                            }
+                        }
+                    }));
+                } else {
+                    UnityEngine.Debug.Log$1("<color=red><b>LOSS</b></color>");
+                    DG.Tweening.DOVirtual.DelayedCall(this.fallDuration, Bridge.fn.bind(this, function () {
+                        var $t, $t1;
+                        if (UnityEngine.Component.op_Inequality(this.lossSpriteRenderer, null) && resultSpriteToApply != null) {
+                            this.lossSpriteRenderer.sprite = resultSpriteToApply;
+                            UnityEngine.Debug.Log$1("[HairCutController] T\u00f3c r\u01a1i xong -> \u0110\u00e3 \u0111\u1ed5i Sprite LOSS sang: " + (resultSpriteToApply.name || ""));
+                        }
+                        if (UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(Ply_SoundManager).Ins, null)) {
+                            Ply_Singleton$1(Ply_SoundManager).Ins.PlayFx(FxType.Lose2);
+                        }
+                        if (UnityEngine.GameObject.op_Inequality(this.lossObjectToEnable, null)) {
+                            this.lossObjectToEnable.SetActive(true);
+                        }
+                        if (this.lossObjectsToEnable != null && this.lossObjectsToEnable.length !== 0) {
+                            var array4 = this.lossObjectsToEnable;
+                            $t = Bridge.getEnumerator(array4);
                             try {
                                 while ($t.moveNext()) {
                                     var gameObject = $t.Current;
@@ -2382,12 +2472,12 @@ if ( TRACE ) { TRACE( "HairCutController#PerformCut", this ); }
                                 }
                             }
                         }
-                        if (UnityEngine.GameObject.op_Inequality(this.winObjectToDisable, null)) {
-                            this.winObjectToDisable.SetActive(false);
+                        if (UnityEngine.GameObject.op_Inequality(this.lossObjectToDisable, null)) {
+                            this.lossObjectToDisable.SetActive(false);
                         }
-                        if (this.winObjectsToDisable != null && this.winObjectsToDisable.length !== 0) {
-                            var array6 = this.winObjectsToDisable;
-                            $t1 = Bridge.getEnumerator(array6);
+                        if (this.lossObjectsToDisable != null && this.lossObjectsToDisable.length !== 0) {
+                            var array5 = this.lossObjectsToDisable;
+                            $t1 = Bridge.getEnumerator(array5);
                             try {
                                 while ($t1.moveNext()) {
                                     var gameObject2 = $t1.Current;
@@ -2402,59 +2492,32 @@ if ( TRACE ) { TRACE( "HairCutController#PerformCut", this ); }
                             }
                         }
                     }));
-                } else {
-                    UnityEngine.Debug.Log$1("<color=red><b>LOSS</b></color> (K\u00e9o kh\u00f4ng ch\u1ea1m v\u00e0o Arrow 218!)");
-                    if (UnityEngine.Component.op_Inequality(this.lossSpriteRenderer, null) && this.lossSprite != null) {
-                        this.lossSpriteRenderer.sprite = this.lossSprite;
-                        if (UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(Ply_SoundManager).Ins, null)) {
-                            Ply_Singleton$1(Ply_SoundManager).Ins.PlayFx(FxType.Lose2);
-                        }
-                    }
-                    if (UnityEngine.GameObject.op_Inequality(this.lossObjectToEnable, null)) {
-                        this.lossObjectToEnable.SetActive(true);
-                    }
-                    if (this.lossObjectsToEnable != null && this.lossObjectsToEnable.length !== 0) {
-                        var array = this.lossObjectsToEnable;
-                        $t = Bridge.getEnumerator(array);
-                        try {
-                            while ($t.moveNext()) {
-                                var obj2 = $t.Current;
-                                if (UnityEngine.GameObject.op_Inequality(obj2, null)) {
-                                    obj2.SetActive(true);
-                                }
-                            }
-                        } finally {
-                            if (Bridge.is($t, System.IDisposable)) {
-                                $t.System$IDisposable$Dispose();
-                            }
-                        }
-                    }
                 }
                 if (UnityEngine.GameObject.op_Inequality(this.objectToDisableOnComplete, null)) {
                     this.objectToDisableOnComplete.SetActive(false);
                 }
                 if (this.objectsToDisableOnComplete != null && this.objectsToDisableOnComplete.length !== 0) {
-                    var array2 = this.objectsToDisableOnComplete;
-                    $t1 = Bridge.getEnumerator(array2);
+                    var array = this.objectsToDisableOnComplete;
+                    $t = Bridge.getEnumerator(array);
                     try {
-                        while ($t1.moveNext()) {
-                            var obj = $t1.Current;
+                        while ($t.moveNext()) {
+                            var obj = $t.Current;
                             if (UnityEngine.GameObject.op_Inequality(obj, null)) {
                                 obj.SetActive(false);
                             }
                         }
                     } finally {
-                        if (Bridge.is($t1, System.IDisposable)) {
-                            $t1.System$IDisposable$Dispose();
+                        if (Bridge.is($t, System.IDisposable)) {
+                            $t.System$IDisposable$Dispose();
                         }
                     }
                 }
                 var cutY = ((UnityEngine.Component.op_Inequality(this.linePointA, null)) ? this.linePointA.position.y : this.scissors.position.y);
-                var array3 = this.allMasks;
-                $t2 = Bridge.getEnumerator(array3);
+                var array2 = this.allMasks;
+                $t1 = Bridge.getEnumerator(array2);
                 try {
-                    while ($t2.moveNext()) {
-                        var mask = $t2.Current;
+                    while ($t1.moveNext()) {
+                        var mask = $t1.Current;
                         if (UnityEngine.Component.op_Inequality(mask, null)) {
                             var maskPos = mask.transform.position.$clone();
                             maskPos.y = cutY;
@@ -2463,30 +2526,30 @@ if ( TRACE ) { TRACE( "HairCutController#PerformCut", this ); }
                         }
                     }
                 } finally {
-                    if (Bridge.is($t2, System.IDisposable)) {
-                        $t2.System$IDisposable$Dispose();
+                    if (Bridge.is($t1, System.IDisposable)) {
+                        $t1.System$IDisposable$Dispose();
                     }
                 }
                 if (UnityEngine.Component.op_Inequality(this.fallingHairParent, null)) {
                     DG.Tweening.TweenSettingsExtensions.SetEase$2(DG.Tweening.Core.TweenerCore$3(UnityEngine.Vector3,UnityEngine.Vector3,DG.Tweening.Plugins.Options.VectorOptions), DG.Tweening.ShortcutExtensions.DOMove(this.fallingHairParent, this.fallingHairParent.position.$clone().add( pc.Vec3.DOWN.clone().clone().scale( this.fallDistance ) ), this.fallDuration), DG.Tweening.Ease.InQuad);
                     if (this.fallingHairRenderers != null) {
-                        var array4 = this.fallingHairRenderers;
-                        $t3 = Bridge.getEnumerator(array4);
+                        var array3 = this.fallingHairRenderers;
+                        $t2 = Bridge.getEnumerator(array3);
                         try {
-                            while ($t3.moveNext()) {
-                                var sr = $t3.Current;
+                            while ($t2.moveNext()) {
+                                var sr = $t2.Current;
                                 if (UnityEngine.Component.op_Inequality(sr, null)) {
                                     DG.Tweening.TweenSettingsExtensions.SetDelay(DG.Tweening.Core.TweenerCore$3(UnityEngine.Color,UnityEngine.Color,DG.Tweening.Plugins.Options.ColorOptions), DG.Tweening.DOTweenModuleSprite.DOFade(sr, 0.0, this.fadeDuration), this.fallDuration * 0.3);
                                 }
                             }
                         } finally {
-                            if (Bridge.is($t3, System.IDisposable)) {
-                                $t3.System$IDisposable$Dispose();
+                            if (Bridge.is($t2, System.IDisposable)) {
+                                $t2.System$IDisposable$Dispose();
                             }
                         }
                     }
                 }
-                if (this.hasHitTarget) {
+                if (isWinResult) {
                     DG.Tweening.DOVirtual.DelayedCall(this.endDelay, Bridge.fn.bind(this, function () {
                         this.TriggerWinEndGame();
                     }));
@@ -2554,7 +2617,7 @@ if ( TRACE ) { TRACE( "HairCutController#TriggerWinEndGame", this ); }
             TriggerLossEndGame: function () {
 if ( TRACE ) { TRACE( "HairCutController#TriggerLossEndGame", this ); }
 
-                var $t, $t1, $t2;
+                var $t, $t1, $t2, $t3;
                 UnityEngine.Debug.Log$1("[HairCutController] K\u00edch ho\u1ea1t LOSS END GAME (H\u1ebft endDelay)!");
                 if (this.allMasks != null) {
                     var array = this.allMasks;
@@ -2580,9 +2643,9 @@ if ( TRACE ) { TRACE( "HairCutController#TriggerLossEndGame", this ); }
                     $t1 = Bridge.getEnumerator(array2);
                     try {
                         while ($t1.moveNext()) {
-                            var obj2 = $t1.Current;
-                            if (UnityEngine.GameObject.op_Inequality(obj2, null)) {
-                                obj2.SetActive(true);
+                            var obj3 = $t1.Current;
+                            if (UnityEngine.GameObject.op_Inequality(obj3, null)) {
+                                obj3.SetActive(true);
                             }
                         }
                     } finally {
@@ -2610,14 +2673,33 @@ if ( TRACE ) { TRACE( "HairCutController#TriggerLossEndGame", this ); }
                     $t2 = Bridge.getEnumerator(array3);
                     try {
                         while ($t2.moveNext()) {
-                            var obj = $t2.Current;
-                            if (UnityEngine.GameObject.op_Inequality(obj, null)) {
-                                obj.SetActive(false);
+                            var obj2 = $t2.Current;
+                            if (UnityEngine.GameObject.op_Inequality(obj2, null)) {
+                                obj2.SetActive(false);
                             }
                         }
                     } finally {
                         if (Bridge.is($t2, System.IDisposable)) {
                             $t2.System$IDisposable$Dispose();
+                        }
+                    }
+                }
+                if (UnityEngine.GameObject.op_Inequality(this.lossObjectToDisable, null)) {
+                    this.lossObjectToDisable.SetActive(true);
+                }
+                if (this.lossObjectsToDisable != null && this.lossObjectsToDisable.length !== 0) {
+                    var array4 = this.lossObjectsToDisable;
+                    $t3 = Bridge.getEnumerator(array4);
+                    try {
+                        while ($t3.moveNext()) {
+                            var obj = $t3.Current;
+                            if (UnityEngine.GameObject.op_Inequality(obj, null)) {
+                                obj.SetActive(true);
+                            }
+                        }
+                    } finally {
+                        if (Bridge.is($t3, System.IDisposable)) {
+                            $t3.System$IDisposable$Dispose();
                         }
                     }
                 }
@@ -3464,6 +3546,16 @@ if ( TRACE ) { TRACE( "SoundData#init", this ); }
     });
     /*SoundData end.*/
 
+    /*TargetColliderData start.*/
+    Bridge.define("TargetColliderData", {
+        fields: {
+            collider: null,
+            resultSprite: null,
+            isWin: false
+        }
+    });
+    /*TargetColliderData end.*/
+
     /*Yielders start.*/
     Bridge.define("Yielders", {
         statics: {
@@ -3799,7 +3891,7 @@ if ( TRACE ) { TRACE( "Ply_SoundManager#Mute", this ); }
     /*FxType end.*/
 
     /*HairCutController start.*/
-    $m("HairCutController", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"CheckOverlapDuringMove","t":8,"sn":"CheckOverlapDuringMove","rt":$n[0].Void},{"a":1,"n":"HandleFirstTap","t":8,"sn":"HandleFirstTap","rt":$n[0].Void},{"a":2,"n":"OpenStore","t":8,"sn":"OpenStore","rt":$n[0].Void},{"a":1,"n":"PerformCut","t":8,"sn":"PerformCut","rt":$n[0].Void},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"a":1,"n":"StartScissorCut","t":8,"sn":"StartScissorCut","rt":$n[0].Void},{"a":2,"n":"TriggerLossEndGame","t":8,"sn":"TriggerLossEndGame","rt":$n[0].Void},{"a":2,"n":"TriggerWinEndGame","t":8,"sn":"TriggerWinEndGame","rt":$n[0].Void},{"a":1,"n":"Update","t":8,"sn":"Update","rt":$n[0].Void},{"at":[new UnityEngine.TooltipAttribute("Danh s\u00e1ch GameObject c\u1ea7n T\u1eaeT sau khi k\u1ebft th\u00fac")],"a":2,"n":"afterEndDisableObjects","t":4,"rt":System.Array.type(UnityEngine.GameObject),"sn":"afterEndDisableObjects"},{"at":[new UnityEngine.TooltipAttribute("Danh s\u00e1ch GameObject c\u1ea7n B\u1eacT sau khi k\u1ebft th\u00fac (End Card, UI Store, Overlay...)")],"a":2,"n":"afterEndEnableObjects","t":4,"rt":System.Array.type(UnityEngine.GameObject),"sn":"afterEndEnableObjects"},{"at":[new UnityEngine.HeaderAttribute("=== Sprite Masks (b\u1eadt l\u00ean khi c\u1eaft) ==="),new UnityEngine.TooltipAttribute("K\u00e9o th\u1ea3 T\u1ea4T C\u1ea2 mask con v\u00e0o \u0111\u00e2y")],"a":2,"n":"allMasks","t":4,"rt":System.Array.type(UnityEngine.SpriteMask),"sn":"allMasks"},{"at":[new UnityEngine.TooltipAttribute("Animator c\u1ea7n B\u1eacT (enabled = true) khi Tap l\u1ea7n 1")],"a":2,"n":"animatorToEnableOnFirstTap","t":4,"rt":$n[1].Animator,"sn":"animatorToEnableOnFirstTap"},{"at":[new UnityEngine.HeaderAttribute("=== End Game (Sau 3s) ==="),new UnityEngine.TooltipAttribute("Th\u1eddi gian ch\u1edd tr\u01b0\u1edbc khi chuy\u1ec3n sang End Game & Click To Store (m\u1eb7c \u0111\u1ecbnh 3s)")],"a":2,"n":"endDelay","t":4,"rt":$n[0].Single,"sn":"endDelay","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"fadeDuration","t":4,"rt":$n[0].Single,"sn":"fadeDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"fallDistance","t":4,"rt":$n[0].Single,"sn":"fallDistance","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"fallDuration","t":4,"rt":$n[0].Single,"sn":"fallDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("=== T\u00f3c r\u01a1i xu\u1ed1ng ==="),new UnityEngine.TooltipAttribute("K\u00e9o th\u1ea3 GameObject 'T\u00f3c r\u01a1i xu\u1ed1ng' v\u00e0o \u0111\u00e2y")],"a":2,"n":"fallingHairParent","t":4,"rt":$n[1].Transform,"sn":"fallingHairParent"},{"at":[new UnityEngine.TooltipAttribute("K\u00e9o th\u1ea3 T\u1ea4T C\u1ea2 SpriteRenderer b\u00ean trong 'T\u00f3c r\u01a1i xu\u1ed1ng' v\u00e0o \u0111\u00e2y")],"a":2,"n":"fallingHairRenderers","t":4,"rt":System.Array.type(UnityEngine.SpriteRenderer),"sn":"fallingHairRenderers"},{"at":[new UnityEngine.TooltipAttribute("T\u00ean Trigger parameter c\u1ee7a Animation c\u1ea7n ch\u1ea1y khi Tap l\u1ea7n 1 (\u0111\u1ec3 tr\u1ed1ng n\u1ebfu kh\u00f4ng d\u00f9ng)")],"a":2,"n":"firstTapTriggerName","t":4,"rt":$n[0].String,"sn":"firstTapTriggerName"},{"a":1,"n":"hasCut","t":4,"rt":$n[0].Boolean,"sn":"hasCut","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"hasHitTarget","t":4,"rt":$n[0].Boolean,"sn":"hasHitTarget","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.TooltipAttribute("N\u1ebfu t\u00edch ch\u1ecdn: Khi LOSS s\u1ebd th\u1ef1c hi\u1ec7n End Game ngay l\u1eadp t\u1ee9c (kh\u00f4ng ch\u1edd 3s)")],"a":2,"n":"immediateEndGameOnLoss","t":4,"rt":$n[0].Boolean,"sn":"immediateEndGameOnLoss","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"initialLossSprite","t":4,"rt":$n[1].Sprite,"sn":"initialLossSprite"},{"a":1,"n":"initialScissorsPos","t":4,"rt":$n[1].Vector3,"sn":"initialScissorsPos"},{"a":1,"n":"isMovingScissor","t":4,"rt":$n[0].Boolean,"sn":"isMovingScissor","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"isStoreRedirectActive","t":4,"rt":$n[0].Boolean,"sn":"isStoreRedirectActive","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.TooltipAttribute("\u0110i\u1ec3m A c\u1ee7a line (m\u00e9p tr\u00e1i \u0111\u01b0\u1eddng c\u1eaft)")],"a":2,"n":"linePointA","t":4,"rt":$n[1].Transform,"sn":"linePointA"},{"at":[new UnityEngine.TooltipAttribute("\u0110i\u1ec3m B c\u1ee7a line (m\u00e9p ph\u1ea3i \u0111\u01b0\u1eddng c\u1eaft)")],"a":2,"n":"linePointB","t":4,"rt":$n[1].Transform,"sn":"linePointB"},{"at":[new UnityEngine.TooltipAttribute("GameObject c\u1ea7n B\u1eacT (SetActive = true) khi b\u1ecb LOSS (v\u00ed d\u1ee5: Popup Thua, UI Try Again, v.v.)")],"a":2,"n":"lossObjectToEnable","t":4,"rt":$n[1].GameObject,"sn":"lossObjectToEnable"},{"at":[new UnityEngine.TooltipAttribute("Danh s\u00e1ch nhi\u1ec1u GameObject c\u1ea7n B\u1eacT khi b\u1ecb LOSS")],"a":2,"n":"lossObjectsToEnable","t":4,"rt":System.Array.type(UnityEngine.GameObject),"sn":"lossObjectsToEnable"},{"at":[new UnityEngine.TooltipAttribute("Sprite m\u1edbi khi b\u1ecb LOSS (v\u00ed d\u1ee5: sprite halaand-loss)")],"a":2,"n":"lossSprite","t":4,"rt":$n[1].Sprite,"sn":"lossSprite"},{"at":[new UnityEngine.HeaderAttribute("--- LOSS Settings ---"),new UnityEngine.TooltipAttribute("SpriteRenderer c\u1ea7n \u0111\u1ed5i h\u00ecnh khi b\u1ecb LOSS (v\u00ed d\u1ee5: th\u00e2n/m\u1eb7t nh\u00e2n v\u1eadt)")],"a":2,"n":"lossSpriteRenderer","t":4,"rt":$n[1].SpriteRenderer,"sn":"lossSpriteRenderer"},{"at":[new UnityEngine.HeaderAttribute("=== C\u1ea5u h\u00ecnh ==="),new UnityEngine.TooltipAttribute("GameObject c\u1ea7n T\u1eaeT (SetActive = false) khi k\u00e9o \u0111\u00e3 ch\u1ea1y xong t\u1edbi \u0111i\u1ec3m B")],"a":2,"n":"objectToDisableOnComplete","t":4,"rt":$n[1].GameObject,"sn":"objectToDisableOnComplete"},{"at":[new UnityEngine.TooltipAttribute("Danh s\u00e1ch c\u00e1c GameObject c\u1ea7n T\u1eaeT n\u1ebfu b\u1ea1n mu\u1ed1n t\u1eaft nhi\u1ec1u h\u01a1n 1 object")],"a":2,"n":"objectsToDisableOnComplete","t":4,"rt":System.Array.type(UnityEngine.GameObject),"sn":"objectsToDisableOnComplete"},{"at":[new UnityEngine.TooltipAttribute("Th\u1eddi gian k\u00e9o ch\u1ea1y t\u1eeb A \u2192 B (gi\u00e2y)")],"a":2,"n":"scissorMoveDuration","t":4,"rt":$n[0].Single,"sn":"scissorMoveDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("=== C\u00e2y k\u00e9o ==="),new UnityEngine.TooltipAttribute("K\u00e9o th\u1ea3 con k\u00e9o v\u00e0o \u0111\u00e2y")],"a":2,"n":"scissors","t":4,"rt":$n[1].Transform,"sn":"scissors"},{"at":[new UnityEngine.TooltipAttribute("Animator tr\u00ean con k\u00e9o")],"a":2,"n":"scissorsAnimator","t":4,"rt":$n[1].Animator,"sn":"scissorsAnimator"},{"at":[new UnityEngine.HeaderAttribute("=== Win / Loss Settings ==="),new UnityEngine.TooltipAttribute("BoxCollider2D tr\u00ean con k\u00e9o (Keo)")],"a":2,"n":"scissorsCollider","t":4,"rt":$n[1].Collider2D,"sn":"scissorsCollider"},{"a":1,"n":"tapState","t":4,"rt":$n[0].Int32,"sn":"tapState","box":function ($v) { return Bridge.box($v, System.Int32);}},{"at":[new UnityEngine.TooltipAttribute("Animator c\u1ee7a GameObject c\u1ea7n T\u1eaeT khi click v\u00e0o m\u00e0n h\u00ecnh")],"a":2,"n":"targetAnimatorToDisable","t":4,"rt":$n[1].Animator,"sn":"targetAnimatorToDisable"},{"at":[new UnityEngine.TooltipAttribute("BoxCollider2D c\u1ee7a Arrow 218")],"a":2,"n":"targetCollider","t":4,"rt":$n[1].Collider2D,"sn":"targetCollider"},{"at":[new UnityEngine.HeaderAttribute("=== Step 1 (Tap L\u1ea7n 1) ==="),new UnityEngine.TooltipAttribute("GameObject Tutorial / H\u01b0\u1edbng d\u1eabn c\u1ea7n \u1ea8N khi ng\u01b0\u1eddi ch\u01a1i Tap l\u1ea7n 1")],"a":2,"n":"tutObject","t":4,"rt":$n[1].GameObject,"sn":"tutObject"},{"at":[new UnityEngine.TooltipAttribute("GameObject c\u1ea7n T\u1eaeT khi WIN")],"a":2,"n":"winObjectToDisable","t":4,"rt":$n[1].GameObject,"sn":"winObjectToDisable"},{"at":[new UnityEngine.HeaderAttribute("--- WIN Settings ---"),new UnityEngine.TooltipAttribute("GameObject c\u1ea7n B\u1eacT khi WIN")],"a":2,"n":"winObjectToEnable","t":4,"rt":$n[1].GameObject,"sn":"winObjectToEnable"},{"at":[new UnityEngine.TooltipAttribute("Danh s\u00e1ch c\u00e1c GameObject c\u1ea7n T\u1eaeT khi WIN (UI H\u01b0\u1edbng d\u1eabn, N\u00fat Hold To Shoot, v.v.)")],"a":2,"n":"winObjectsToDisable","t":4,"rt":System.Array.type(UnityEngine.GameObject),"sn":"winObjectsToDisable"},{"at":[new UnityEngine.TooltipAttribute("Danh s\u00e1ch c\u00e1c GameObject c\u1ea7n B\u1eacT khi WIN (Confetti, UI Th\u1eafng, Sound, v.v.)")],"a":2,"n":"winObjectsToEnable","t":4,"rt":System.Array.type(UnityEngine.GameObject),"sn":"winObjectsToEnable"}]}; }, $n);
+    $m("HairCutController", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"CheckOverlapDuringMove","t":8,"sn":"CheckOverlapDuringMove","rt":$n[0].Void},{"a":1,"n":"HandleFirstTap","t":8,"sn":"HandleFirstTap","rt":$n[0].Void},{"a":2,"n":"OpenStore","t":8,"sn":"OpenStore","rt":$n[0].Void},{"a":1,"n":"PerformCut","t":8,"sn":"PerformCut","rt":$n[0].Void},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"a":1,"n":"StartScissorCut","t":8,"sn":"StartScissorCut","rt":$n[0].Void},{"a":2,"n":"TriggerLossEndGame","t":8,"sn":"TriggerLossEndGame","rt":$n[0].Void},{"a":2,"n":"TriggerWinEndGame","t":8,"sn":"TriggerWinEndGame","rt":$n[0].Void},{"a":1,"n":"Update","t":8,"sn":"Update","rt":$n[0].Void},{"at":[new UnityEngine.TooltipAttribute("Danh s\u00e1ch GameObject c\u1ea7n T\u1eaeT sau khi k\u1ebft th\u00fac")],"a":2,"n":"afterEndDisableObjects","t":4,"rt":System.Array.type(UnityEngine.GameObject),"sn":"afterEndDisableObjects"},{"at":[new UnityEngine.TooltipAttribute("Danh s\u00e1ch GameObject c\u1ea7n B\u1eacT sau khi k\u1ebft th\u00fac (End Card, UI Store, Overlay...)")],"a":2,"n":"afterEndEnableObjects","t":4,"rt":System.Array.type(UnityEngine.GameObject),"sn":"afterEndEnableObjects"},{"at":[new UnityEngine.HeaderAttribute("=== Sprite Masks (b\u1eadt l\u00ean khi c\u1eaft) ==="),new UnityEngine.TooltipAttribute("K\u00e9o th\u1ea3 T\u1ea4T C\u1ea2 mask con v\u00e0o \u0111\u00e2y")],"a":2,"n":"allMasks","t":4,"rt":System.Array.type(UnityEngine.SpriteMask),"sn":"allMasks"},{"at":[new UnityEngine.TooltipAttribute("Animator c\u1ea7n B\u1eacT (enabled = true) khi Tap l\u1ea7n 1")],"a":2,"n":"animatorToEnableOnFirstTap","t":4,"rt":$n[1].Animator,"sn":"animatorToEnableOnFirstTap"},{"at":[new UnityEngine.HeaderAttribute("=== End Game (Sau 3s) ==="),new UnityEngine.TooltipAttribute("Th\u1eddi gian ch\u1edd tr\u01b0\u1edbc khi chuy\u1ec3n sang End Game & Click To Store (m\u1eb7c \u0111\u1ecbnh 3s)")],"a":2,"n":"endDelay","t":4,"rt":$n[0].Single,"sn":"endDelay","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"fadeDuration","t":4,"rt":$n[0].Single,"sn":"fadeDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"fallDistance","t":4,"rt":$n[0].Single,"sn":"fallDistance","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"fallDuration","t":4,"rt":$n[0].Single,"sn":"fallDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("=== T\u00f3c r\u01a1i xu\u1ed1ng ==="),new UnityEngine.TooltipAttribute("K\u00e9o th\u1ea3 GameObject 'T\u00f3c r\u01a1i xu\u1ed1ng' v\u00e0o \u0111\u00e2y")],"a":2,"n":"fallingHairParent","t":4,"rt":$n[1].Transform,"sn":"fallingHairParent"},{"at":[new UnityEngine.TooltipAttribute("K\u00e9o th\u1ea3 T\u1ea4T C\u1ea2 SpriteRenderer b\u00ean trong 'T\u00f3c r\u01a1i xu\u1ed1ng' v\u00e0o \u0111\u00e2y")],"a":2,"n":"fallingHairRenderers","t":4,"rt":System.Array.type(UnityEngine.SpriteRenderer),"sn":"fallingHairRenderers"},{"at":[new UnityEngine.TooltipAttribute("T\u00ean Trigger parameter c\u1ee7a Animation c\u1ea7n ch\u1ea1y khi Tap l\u1ea7n 1 (\u0111\u1ec3 tr\u1ed1ng n\u1ebfu kh\u00f4ng d\u00f9ng)")],"a":2,"n":"firstTapTriggerName","t":4,"rt":$n[0].String,"sn":"firstTapTriggerName"},{"a":1,"n":"hasCut","t":4,"rt":$n[0].Boolean,"sn":"hasCut","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"hasHitTarget","t":4,"rt":$n[0].Boolean,"sn":"hasHitTarget","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"initialLossSprite","t":4,"rt":$n[1].Sprite,"sn":"initialLossSprite"},{"a":1,"n":"initialScissorsPos","t":4,"rt":$n[1].Vector3,"sn":"initialScissorsPos"},{"a":1,"n":"isMovingScissor","t":4,"rt":$n[0].Boolean,"sn":"isMovingScissor","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"isStoreRedirectActive","t":4,"rt":$n[0].Boolean,"sn":"isStoreRedirectActive","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"lastHitTarget","t":4,"rt":TargetColliderData,"sn":"lastHitTarget"},{"at":[new UnityEngine.TooltipAttribute("\u0110i\u1ec3m A c\u1ee7a line (m\u00e9p tr\u00e1i \u0111\u01b0\u1eddng c\u1eaft)")],"a":2,"n":"linePointA","t":4,"rt":$n[1].Transform,"sn":"linePointA"},{"at":[new UnityEngine.TooltipAttribute("\u0110i\u1ec3m B c\u1ee7a line (m\u00e9p ph\u1ea3i \u0111\u01b0\u1eddng c\u1eaft)")],"a":2,"n":"linePointB","t":4,"rt":$n[1].Transform,"sn":"linePointB"},{"at":[new UnityEngine.TooltipAttribute("GameObject c\u1ea7n T\u1eaeT (SetActive = false) khi b\u1ecb LOSS")],"a":2,"n":"lossObjectToDisable","t":4,"rt":$n[1].GameObject,"sn":"lossObjectToDisable"},{"at":[new UnityEngine.TooltipAttribute("GameObject c\u1ea7n B\u1eacT (SetActive = true) khi b\u1ecb LOSS (v\u00ed d\u1ee5: Popup Thua, UI Try Again, v.v.)")],"a":2,"n":"lossObjectToEnable","t":4,"rt":$n[1].GameObject,"sn":"lossObjectToEnable"},{"at":[new UnityEngine.TooltipAttribute("Danh s\u00e1ch nhi\u1ec1u GameObject c\u1ea7n T\u1eaeT khi b\u1ecb LOSS")],"a":2,"n":"lossObjectsToDisable","t":4,"rt":System.Array.type(UnityEngine.GameObject),"sn":"lossObjectsToDisable"},{"at":[new UnityEngine.TooltipAttribute("Danh s\u00e1ch nhi\u1ec1u GameObject c\u1ea7n B\u1eacT khi b\u1ecb LOSS")],"a":2,"n":"lossObjectsToEnable","t":4,"rt":System.Array.type(UnityEngine.GameObject),"sn":"lossObjectsToEnable"},{"at":[new UnityEngine.HeaderAttribute("--- LOSS Settings ---"),new UnityEngine.TooltipAttribute("SpriteRenderer nh\u00e2n v\u1eadt c\u1ea7n \u0111\u1ed5i h\u00ecnh khi k\u1ebft th\u00fac (th\u00e2n/m\u1eb7t nh\u00e2n v\u1eadt)")],"a":2,"n":"lossSpriteRenderer","t":4,"rt":$n[1].SpriteRenderer,"sn":"lossSpriteRenderer"},{"at":[new UnityEngine.HeaderAttribute("=== C\u1ea5u h\u00ecnh ==="),new UnityEngine.TooltipAttribute("GameObject c\u1ea7n T\u1eaeT (SetActive = false) khi k\u00e9o \u0111\u00e3 ch\u1ea1y xong t\u1edbi \u0111i\u1ec3m B")],"a":2,"n":"objectToDisableOnComplete","t":4,"rt":$n[1].GameObject,"sn":"objectToDisableOnComplete"},{"at":[new UnityEngine.TooltipAttribute("Danh s\u00e1ch c\u00e1c GameObject c\u1ea7n T\u1eaeT n\u1ebfu b\u1ea1n mu\u1ed1n t\u1eaft nhi\u1ec1u h\u01a1n 1 object")],"a":2,"n":"objectsToDisableOnComplete","t":4,"rt":System.Array.type(UnityEngine.GameObject),"sn":"objectsToDisableOnComplete"},{"at":[new UnityEngine.TooltipAttribute("Th\u1eddi gian k\u00e9o ch\u1ea1y t\u1eeb A \u2192 B (gi\u00e2y)")],"a":2,"n":"scissorMoveDuration","t":4,"rt":$n[0].Single,"sn":"scissorMoveDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("=== C\u00e2y k\u00e9o ==="),new UnityEngine.TooltipAttribute("K\u00e9o th\u1ea3 con k\u00e9o v\u00e0o \u0111\u00e2y")],"a":2,"n":"scissors","t":4,"rt":$n[1].Transform,"sn":"scissors"},{"at":[new UnityEngine.TooltipAttribute("Animator tr\u00ean con k\u00e9o")],"a":2,"n":"scissorsAnimator","t":4,"rt":$n[1].Animator,"sn":"scissorsAnimator"},{"at":[new UnityEngine.HeaderAttribute("=== Win / Loss Settings ==="),new UnityEngine.TooltipAttribute("BoxCollider2D tr\u00ean con k\u00e9o (Keo)")],"a":2,"n":"scissorsCollider","t":4,"rt":$n[1].Collider2D,"sn":"scissorsCollider"},{"a":1,"n":"tapState","t":4,"rt":$n[0].Int32,"sn":"tapState","box":function ($v) { return Bridge.box($v, System.Int32);}},{"at":[new UnityEngine.TooltipAttribute("Animator c\u1ee7a GameObject c\u1ea7n T\u1eaeT khi click v\u00e0o m\u00e0n h\u00ecnh")],"a":2,"n":"targetAnimatorToDisable","t":4,"rt":$n[1].Animator,"sn":"targetAnimatorToDisable"},{"at":[new UnityEngine.TooltipAttribute("Collider \u0111\u01a1n c\u0169 (D\u00f9ng n\u1ebfu kh\u00f4ng \u0111i\u1ec1n danh s\u00e1ch targetColliders)")],"a":2,"n":"targetCollider","t":4,"rt":$n[1].Collider2D,"sn":"targetCollider"},{"at":[new UnityEngine.TooltipAttribute("Danh s\u00e1ch c\u00e1c v\u00f9ng Target Collider (1 v\u00f9ng WIN, c\u00e1c v\u00f9ng kh\u00e1c l\u00e0 LOSS + g\u00e1n Sprite t\u01b0\u01a1ng \u1ee9ng)")],"a":2,"n":"targetColliders","t":4,"rt":System.Array.type(TargetColliderData),"sn":"targetColliders"},{"at":[new UnityEngine.HeaderAttribute("=== Step 1 (Tap L\u1ea7n 1) ==="),new UnityEngine.TooltipAttribute("GameObject Tutorial / H\u01b0\u1edbng d\u1eabn c\u1ea7n \u1ea8N khi ng\u01b0\u1eddi ch\u01a1i Tap l\u1ea7n 1")],"a":2,"n":"tutObject","t":4,"rt":$n[1].GameObject,"sn":"tutObject"},{"at":[new UnityEngine.TooltipAttribute("GameObject c\u1ea7n T\u1eaeT khi WIN")],"a":2,"n":"winObjectToDisable","t":4,"rt":$n[1].GameObject,"sn":"winObjectToDisable"},{"at":[new UnityEngine.HeaderAttribute("--- WIN Settings ---"),new UnityEngine.TooltipAttribute("GameObject c\u1ea7n B\u1eacT khi WIN")],"a":2,"n":"winObjectToEnable","t":4,"rt":$n[1].GameObject,"sn":"winObjectToEnable"},{"at":[new UnityEngine.TooltipAttribute("Danh s\u00e1ch c\u00e1c GameObject c\u1ea7n T\u1eaeT khi WIN (UI H\u01b0\u1edbng d\u1eabn, N\u00fat Hold To Shoot, v.v.)")],"a":2,"n":"winObjectsToDisable","t":4,"rt":System.Array.type(UnityEngine.GameObject),"sn":"winObjectsToDisable"},{"at":[new UnityEngine.TooltipAttribute("Danh s\u00e1ch c\u00e1c GameObject c\u1ea7n B\u1eacT khi WIN (Confetti, UI Th\u1eafng, Sound, v.v.)")],"a":2,"n":"winObjectsToEnable","t":4,"rt":System.Array.type(UnityEngine.GameObject),"sn":"winObjectsToEnable"}]}; }, $n);
     /*HairCutController end.*/
 
     /*HideOnFirstClick start.*/
@@ -3859,6 +3951,10 @@ if ( TRACE ) { TRACE( "Ply_SoundManager#Mute", this ); }
     /*SoundData start.*/
     $m("SoundData", function () { return {"att":1056769,"a":2,"at":[new System.SerializableAttribute()],"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"clip","t":4,"rt":$n[1].AudioClip,"sn":"clip"},{"a":2,"n":"repeatCount","t":4,"rt":$n[0].Int32,"sn":"repeatCount","box":function ($v) { return Bridge.box($v, System.Int32);}}]}; }, $n);
     /*SoundData end.*/
+
+    /*TargetColliderData start.*/
+    $m("TargetColliderData", function () { return {"att":1056769,"a":2,"at":[new System.SerializableAttribute()],"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"at":[new UnityEngine.TooltipAttribute("Collider 2D c\u1ee7a v\u00f9ng m\u1ee5c ti\u00eau")],"a":2,"n":"collider","t":4,"rt":$n[1].Collider2D,"sn":"collider"},{"at":[new UnityEngine.TooltipAttribute("C\u00f3 ph\u1ea3i v\u00f9ng WIN hay kh\u00f4ng? (T\u00edch ch\u1ecdn = WIN, B\u1ecf t\u00edch = LOSS)")],"a":2,"n":"isWin","t":4,"rt":$n[0].Boolean,"sn":"isWin","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.TooltipAttribute("Sprite hi\u1ec3n th\u1ecb cho nh\u00e2n v\u1eadt khi con k\u00e9o \u0111i v\u00e0o v\u00f9ng n\u00e0y cu\u1ed1i c\u00f9ng")],"a":2,"n":"resultSprite","t":4,"rt":$n[1].Sprite,"sn":"resultSprite"}]}; }, $n);
+    /*TargetColliderData end.*/
 
     /*Yielders start.*/
     $m("Yielders", function () { return {"att":1048961,"a":2,"s":true,"m":[{"a":2,"n":"Get","is":true,"t":8,"pi":[{"n":"seconds","pt":$n[0].Single,"ps":0}],"sn":"Get","rt":$n[1].WaitForSeconds,"p":[$n[0].Single]},{"a":2,"n":"EndOfFrame","is":true,"t":16,"rt":$n[1].WaitForEndOfFrame,"g":{"a":2,"n":"get_EndOfFrame","t":8,"rt":$n[1].WaitForEndOfFrame,"fg":"EndOfFrame","is":true},"fn":"EndOfFrame"},{"a":2,"n":"FixedUpdate","is":true,"t":16,"rt":$n[1].WaitForFixedUpdate,"g":{"a":2,"n":"get_FixedUpdate","t":8,"rt":$n[1].WaitForFixedUpdate,"fg":"FixedUpdate","is":true},"fn":"FixedUpdate"},{"a":1,"n":"_endOfFrame","is":true,"t":4,"rt":$n[1].WaitForEndOfFrame,"sn":"_endOfFrame"},{"a":1,"n":"_fixedUpdate","is":true,"t":4,"rt":$n[1].WaitForFixedUpdate,"sn":"_fixedUpdate"},{"a":1,"n":"_timeInterval","is":true,"t":4,"rt":$n[2].Dictionary$2(System.Single,UnityEngine.WaitForSeconds),"sn":"_timeInterval"}]}; }, $n);

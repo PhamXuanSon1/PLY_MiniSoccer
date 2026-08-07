@@ -1,0 +1,151 @@
+{
+  "BuildID": "23dc583e-eb2f-4324-9feb-730db2a20bbb",
+  "Command": "project:deploy",
+  "ProjectID": "60d50cfced72ae74bb8c1682cb9abbe6",
+  "ProjectStateHash": "1b95859be25d8f9002f0f686715ebb984908da98208fafaefaba6f10a69dea48",
+  "StageCompletedAt": 3,
+  "EarliestFatalError": 0,
+  "StartTime": 1786095609375,
+  "EndTime": 1786095636181,
+  "PlaygroundUserID": 33919,
+  "OperatingSystem": "win32",
+  "UnityPackageID": null,
+  "TargetPlatform": "playground",
+  "UnityVersion": "6000.0.38f1",
+  "LunaVersion": "7.1.0",
+  "LogCount": 6,
+  "Logs": [
+    {
+      "LogID": "40784654-2243-4b6c-960b-25e4fb7ace51",
+      "Order": 5,
+      "Timestamp": 1786095636392,
+      "Stage": 3,
+      "ErrorType": 3,
+      "ErrorCode": "LP3007",
+      "Description": "You are not using any custom events",
+      "Details": [
+        "You are not using any custom events. It is recommended to use custom events to have a better understanding of the playable."
+      ],
+      "DescriptionValues": [
+        ""
+      ],
+      "DetailsValues": [
+        ""
+      ],
+      "LogCount": 1,
+      "LinePosition": null,
+      "FilePath": "",
+      "ClassName": "",
+      "MemberName": "",
+      "Severity": 0
+    },
+    {
+      "LogID": "49565d71-19d5-4b8a-89aa-4678f66b561c",
+      "Order": 5,
+      "Timestamp": 1786095636393,
+      "Stage": 3,
+      "ErrorType": 3,
+      "ErrorCode": "LP3011",
+      "Description": "You are not using any LunaPlaygroundFields attributes.",
+      "Details": [
+        "You are not using any LunaPlaygroundFields attributes, it allows you to configure your playable to different concepts to find the best variation, which can drastically improve playable performance on all ad networks."
+      ],
+      "DescriptionValues": null,
+      "DetailsValues": null,
+      "LogCount": 1,
+      "LinePosition": null,
+      "FilePath": "",
+      "ClassName": "",
+      "MemberName": "",
+      "Severity": 0
+    },
+    {
+      "LogID": "21ed8970-2674-4426-af17-fa4ae90d7c42",
+      "Order": 0,
+      "Timestamp": 1786095616342,
+      "Stage": 1,
+      "ErrorType": 2,
+      "ErrorCode": "LP1014",
+      "Description": "We recommend running Runtime Analysis to find and remove all unused code",
+      "Details": [
+        "Navigate to the Runtime Analysis → Code tab to enable code stripping. Before uploading the playable, please make sure to have played all scenario’s of the playable in a development build to make Runtime Analysis work properly."
+      ],
+      "DescriptionValues": [],
+      "DetailsValues": [],
+      "LogCount": 1,
+      "LinePosition": 0,
+      "FilePath": "",
+      "ClassName": "",
+      "MemberName": "",
+      "Severity": 0
+    },
+    {
+      "LogID": "61b4ff28-9d72-45b4-ba3b-434f1495ac60",
+      "Order": 1,
+      "Timestamp": 1786095616357,
+      "Stage": 1,
+      "ErrorType": 0,
+      "ErrorCode": "LP1027",
+      "Description": "This DOTween version is not supported",
+      "Details": [
+        "The incorrect DOTween version for this Unity version is in use, please update or downgrade to the recommended version {0} in the package manager. Go to Window → Package Manager."
+      ],
+      "DescriptionValues": [],
+      "DetailsValues": [
+        ""
+      ],
+      "LogCount": 1,
+      "LinePosition": 0,
+      "FilePath": "",
+      "ClassName": "",
+      "MemberName": "",
+      "Severity": 0
+    },
+    {
+      "LogID": "a403e8bc-28ae-4ee6-9815-7c94d44a329b",
+      "Order": 2,
+      "Timestamp": 1786095616357,
+      "Stage": 1,
+      "ErrorType": 0,
+      "ErrorCode": "LP1015",
+      "Description": "This TMP version is not fully supported",
+      "Details": [
+        "The incorrect Text Mesh Pro for this Unity version is in use, please update or downgrade to the recommended version {0} in the package manager. Go to Window → Package Manager"
+      ],
+      "DescriptionValues": [],
+      "DetailsValues": [
+        ""
+      ],
+      "LogCount": 1,
+      "LinePosition": 0,
+      "FilePath": "",
+      "ClassName": "",
+      "MemberName": "",
+      "Severity": 0
+    },
+    {
+      "LogID": "20955605-a6df-4d27-a875-53141743026e",
+      "Order": 3,
+      "Timestamp": 1786095616357,
+      "Stage": 1,
+      "ErrorType": 0,
+      "ErrorCode": "LP1032",
+      "Description": "Package(s) is not supported in Luna",
+      "Details": [
+        "Currently package(s) com.unity.timeline are not supported in Luna. We recommend you to remove it and workaround it's functionality."
+      ],
+      "DescriptionValues": [
+        "com.unity.timeline (1.8.7)"
+      ],
+      "DetailsValues": [
+        "com.unity.timeline"
+      ],
+      "LogCount": 1,
+      "LinePosition": 0,
+      "FilePath": "F:/UnityProject/PLY_MiniSoccer/Packages\\manifest.json",
+      "ClassName": "",
+      "MemberName": "",
+      "Severity": 0
+    }
+  ]
+}

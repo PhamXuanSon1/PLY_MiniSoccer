@@ -39,7 +39,10 @@ public class HairCutController : MonoBehaviour
 	[Tooltip("BoxCollider2D trên con kéo (Keo)")]
 	public Collider2D scissorsCollider;
 
-	[Tooltip("BoxCollider2D của Arrow 218")]
+	[Tooltip("Danh sách các vùng Target Collider (1 vùng WIN, các vùng khác là LOSS + gán Sprite tương ứng)")]
+	public TargetColliderData[] targetColliders;
+
+	[Tooltip("Collider đơn cũ (Dùng nếu không điền danh sách targetColliders)")]
 	public Collider2D targetCollider;
 
 	[Header("--- WIN Settings ---")]
@@ -56,11 +59,8 @@ public class HairCutController : MonoBehaviour
 	public GameObject[] winObjectsToDisable;
 
 	[Header("--- LOSS Settings ---")]
-	[Tooltip("SpriteRenderer cần đổi hình khi bị LOSS (ví dụ: thân/mặt nhân vật)")]
+	[Tooltip("SpriteRenderer nhân vật cần đổi hình khi kết thúc (thân/mặt nhân vật)")]
 	public SpriteRenderer lossSpriteRenderer;
-
-	[Tooltip("Sprite mới khi bị LOSS (ví dụ: sprite halaand-loss)")]
-	public Sprite lossSprite;
 
 	[Tooltip("GameObject cần BẬT (SetActive = true) khi bị LOSS (ví dụ: Popup Thua, UI Try Again, v.v.)")]
 	public GameObject lossObjectToEnable;
@@ -68,12 +68,15 @@ public class HairCutController : MonoBehaviour
 	[Tooltip("Danh sách nhiều GameObject cần BẬT khi bị LOSS")]
 	public GameObject[] lossObjectsToEnable;
 
+	[Tooltip("GameObject cần TẮT (SetActive = false) khi bị LOSS")]
+	public GameObject lossObjectToDisable;
+
+	[Tooltip("Danh sách nhiều GameObject cần TẮT khi bị LOSS")]
+	public GameObject[] lossObjectsToDisable;
+
 	[Header("=== End Game (Sau 3s) ===")]
 	[Tooltip("Thời gian chờ trước khi chuyển sang End Game & Click To Store (mặc định 3s)")]
 	public float endDelay = 3f;
-
-	[Tooltip("Nếu tích chọn: Khi LOSS sẽ thực hiện End Game ngay lập tức (không chờ 3s)")]
-	public bool immediateEndGameOnLoss = false;
 
 	[Tooltip("Danh sách GameObject cần TẮT sau khi kết thúc")]
 	public GameObject[] afterEndDisableObjects;
@@ -117,6 +120,8 @@ public class HairCutController : MonoBehaviour
 	private Vector3 initialScissorsPos;
 
 	private Sprite initialLossSprite;
+
+	private TargetColliderData lastHitTarget = null;
 
 	private void Start()
 	{
@@ -190,6 +195,7 @@ public class HairCutController : MonoBehaviour
 			targetAnimatorToDisable.enabled = false;
 		}
 		hasHitTarget = false;
+		lastHitTarget = null;
 		if (scissors != null)
 		{
 			scissors.DOKill();
@@ -222,20 +228,61 @@ public class HairCutController : MonoBehaviour
 
 	private void CheckOverlapDuringMove()
 	{
-		if (!hasHitTarget && scissorsCollider != null && targetCollider != null && (scissorsCollider.bounds.Intersects(targetCollider.bounds) || scissorsCollider.IsTouching(targetCollider)))
+		if (scissorsCollider == null)
+		{
+			return;
+		}
+		if (targetColliders != null && targetColliders.Length != 0)
+		{
+			TargetColliderData[] array = targetColliders;
+			foreach (TargetColliderData targetData in array)
+			{
+				if (targetData != null && targetData.collider != null && (scissorsCollider.bounds.Intersects(targetData.collider.bounds) || scissorsCollider.IsTouching(targetData.collider)) && lastHitTarget != targetData)
+				{
+					lastHitTarget = targetData;
+					Debug.Log($"<color=cyan>[Va Chạm]</color> Kéo vừa đi vào Target: {targetData.collider.gameObject.name} | IsWin = {targetData.isWin}");
+				}
+			}
+		}
+		else if (targetCollider != null && (scissorsCollider.bounds.Intersects(targetCollider.bounds) || scissorsCollider.IsTouching(targetCollider)) && !hasHitTarget)
 		{
 			hasHitTarget = true;
-			Debug.Log($"<color=cyan>[Va Chạm]</color> Kéo đã chạm vào Arrow 218 tại vị trí X = {scissors.position.x}");
+			Debug.Log("<color=cyan>[Va Chạm]</color> Kéo đã chạm vào TargetCollider đơn!");
 		}
 	}
 
 	private void PerformCut()
 	{
-		if (hasHitTarget)
+		bool isWinResult = false;
+		Sprite resultSpriteToApply = null;
+		if (targetColliders != null && targetColliders.Length != 0)
 		{
-			Debug.Log("<color=green><b>WIN</b></color> (Kéo đã đi qua và chạm vào Arrow 218!)");
+			if (lastHitTarget != null)
+			{
+				isWinResult = lastHitTarget.isWin;
+				resultSpriteToApply = lastHitTarget.resultSprite;
+				Debug.Log("[HairCutController] Target CUỐI CÙNG kéo đi qua: " + lastHitTarget.collider.gameObject.name + " | Kết quả: " + (isWinResult ? "WIN" : "LOSS"));
+			}
+			else
+			{
+				isWinResult = false;
+				Debug.Log("[HairCutController] Kéo không chạm bất kỳ Target Collider nào -> LOSS!");
+			}
+		}
+		else
+		{
+			isWinResult = hasHitTarget;
+		}
+		if (isWinResult)
+		{
+			Debug.Log("<color=green><b>WIN</b></color>");
 			DOVirtual.DelayedCall(fallDuration, delegate
 			{
+				if (lossSpriteRenderer != null && resultSpriteToApply != null)
+				{
+					lossSpriteRenderer.sprite = resultSpriteToApply;
+					Debug.Log("[HairCutController] Tóc rơi xong -> Đã đổi Sprite WIN sang: " + resultSpriteToApply.name);
+				}
 				if (Ply_Singleton<Ply_SoundManager>.Ins != null)
 				{
 					Ply_Singleton<Ply_SoundManager>.Ins.PlayFx(FxType.Confetti);
@@ -247,12 +294,12 @@ public class HairCutController : MonoBehaviour
 				}
 				if (winObjectsToEnable != null && winObjectsToEnable.Length != 0)
 				{
-					GameObject[] array5 = winObjectsToEnable;
-					foreach (GameObject gameObject in array5)
+					GameObject[] array6 = winObjectsToEnable;
+					foreach (GameObject gameObject3 in array6)
 					{
-						if (gameObject != null)
+						if (gameObject3 != null)
 						{
-							gameObject.SetActive(true);
+							gameObject3.SetActive(true);
 						}
 					}
 				}
@@ -262,8 +309,54 @@ public class HairCutController : MonoBehaviour
 				}
 				if (winObjectsToDisable != null && winObjectsToDisable.Length != 0)
 				{
-					GameObject[] array6 = winObjectsToDisable;
-					foreach (GameObject gameObject2 in array6)
+					GameObject[] array7 = winObjectsToDisable;
+					foreach (GameObject gameObject4 in array7)
+					{
+						if (gameObject4 != null)
+						{
+							gameObject4.SetActive(false);
+						}
+					}
+				}
+			});
+		}
+		else
+		{
+			Debug.Log("<color=red><b>LOSS</b></color>");
+			DOVirtual.DelayedCall(fallDuration, delegate
+			{
+				if (lossSpriteRenderer != null && resultSpriteToApply != null)
+				{
+					lossSpriteRenderer.sprite = resultSpriteToApply;
+					Debug.Log("[HairCutController] Tóc rơi xong -> Đã đổi Sprite LOSS sang: " + resultSpriteToApply.name);
+				}
+				if (Ply_Singleton<Ply_SoundManager>.Ins != null)
+				{
+					Ply_Singleton<Ply_SoundManager>.Ins.PlayFx(FxType.Lose2);
+				}
+				if (lossObjectToEnable != null)
+				{
+					lossObjectToEnable.SetActive(true);
+				}
+				if (lossObjectsToEnable != null && lossObjectsToEnable.Length != 0)
+				{
+					GameObject[] array4 = lossObjectsToEnable;
+					foreach (GameObject gameObject in array4)
+					{
+						if (gameObject != null)
+						{
+							gameObject.SetActive(true);
+						}
+					}
+				}
+				if (lossObjectToDisable != null)
+				{
+					lossObjectToDisable.SetActive(false);
+				}
+				if (lossObjectsToDisable != null && lossObjectsToDisable.Length != 0)
+				{
+					GameObject[] array5 = lossObjectsToDisable;
+					foreach (GameObject gameObject2 in array5)
 					{
 						if (gameObject2 != null)
 						{
@@ -273,41 +366,14 @@ public class HairCutController : MonoBehaviour
 				}
 			});
 		}
-		else
-		{
-			Debug.Log("<color=red><b>LOSS</b></color> (Kéo không chạm vào Arrow 218!)");
-			if (lossSpriteRenderer != null && lossSprite != null)
-			{
-				lossSpriteRenderer.sprite = lossSprite;
-				if (Ply_Singleton<Ply_SoundManager>.Ins != null)
-				{
-					Ply_Singleton<Ply_SoundManager>.Ins.PlayFx(FxType.Lose2);
-				}
-			}
-			if (lossObjectToEnable != null)
-			{
-				lossObjectToEnable.SetActive(true);
-			}
-			if (lossObjectsToEnable != null && lossObjectsToEnable.Length != 0)
-			{
-				GameObject[] array = lossObjectsToEnable;
-				foreach (GameObject obj2 in array)
-				{
-					if (obj2 != null)
-					{
-						obj2.SetActive(true);
-					}
-				}
-			}
-		}
 		if (objectToDisableOnComplete != null)
 		{
 			objectToDisableOnComplete.SetActive(false);
 		}
 		if (objectsToDisableOnComplete != null && objectsToDisableOnComplete.Length != 0)
 		{
-			GameObject[] array2 = objectsToDisableOnComplete;
-			foreach (GameObject obj in array2)
+			GameObject[] array = objectsToDisableOnComplete;
+			foreach (GameObject obj in array)
 			{
 				if (obj != null)
 				{
@@ -316,8 +382,8 @@ public class HairCutController : MonoBehaviour
 			}
 		}
 		float cutY = ((linePointA != null) ? linePointA.position.y : scissors.position.y);
-		SpriteMask[] array3 = allMasks;
-		foreach (SpriteMask mask in array3)
+		SpriteMask[] array2 = allMasks;
+		foreach (SpriteMask mask in array2)
 		{
 			if (mask != null)
 			{
@@ -332,8 +398,8 @@ public class HairCutController : MonoBehaviour
 			fallingHairParent.DOMove(fallingHairParent.position + Vector3.down * fallDistance, fallDuration).SetEase(Ease.InQuad);
 			if (fallingHairRenderers != null)
 			{
-				SpriteRenderer[] array4 = fallingHairRenderers;
-				foreach (SpriteRenderer sr in array4)
+				SpriteRenderer[] array3 = fallingHairRenderers;
+				foreach (SpriteRenderer sr in array3)
 				{
 					if (sr != null)
 					{
@@ -342,7 +408,7 @@ public class HairCutController : MonoBehaviour
 				}
 			}
 		}
-		if (hasHitTarget)
+		if (isWinResult)
 		{
 			DOVirtual.DelayedCall(endDelay, delegate
 			{
@@ -421,11 +487,11 @@ public class HairCutController : MonoBehaviour
 		if (objectsToDisableOnComplete != null && objectsToDisableOnComplete.Length != 0)
 		{
 			GameObject[] array2 = objectsToDisableOnComplete;
-			foreach (GameObject obj2 in array2)
+			foreach (GameObject obj3 in array2)
 			{
-				if (obj2 != null)
+				if (obj3 != null)
 				{
-					obj2.SetActive(true);
+					obj3.SetActive(true);
 				}
 			}
 		}
@@ -452,11 +518,26 @@ public class HairCutController : MonoBehaviour
 		if (lossObjectsToEnable != null && lossObjectsToEnable.Length != 0)
 		{
 			GameObject[] array3 = lossObjectsToEnable;
-			foreach (GameObject obj in array3)
+			foreach (GameObject obj2 in array3)
+			{
+				if (obj2 != null)
+				{
+					obj2.SetActive(false);
+				}
+			}
+		}
+		if (lossObjectToDisable != null)
+		{
+			lossObjectToDisable.SetActive(true);
+		}
+		if (lossObjectsToDisable != null && lossObjectsToDisable.Length != 0)
+		{
+			GameObject[] array4 = lossObjectsToDisable;
+			foreach (GameObject obj in array4)
 			{
 				if (obj != null)
 				{
-					obj.SetActive(false);
+					obj.SetActive(true);
 				}
 			}
 		}

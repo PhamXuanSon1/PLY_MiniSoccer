@@ -2,7 +2,7 @@
     "version": "7.1.0",
     "projectId": "60d50cfced72ae74bb8c1682cb9abbe6",
     "applicationID": 40548,
-    "creativeName": "PLY_V16",
+    "creativeName": "PLY_V15",
     "pgServer": "EU",
     "window": {
         "‐⁙": true
@@ -123,7 +123,8 @@
                 "Stubs/IronSource",
                 "Stubs/Vungle",
                 "Stubs/MoreMountains.NiceVibrations",
-                "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset"
+                "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset",
+                "Assets/TextMesh Pro/Sprites/EmojiOne.png"
             ],
             "includes": [
                 "Assets/Resources/DOTweenSettings.asset",
@@ -8771,6 +8772,10 @@
             {
                 "name": "DG.Tweening.Plugins.Core.ITPlugin$4",
                 "excluded": false
+            },
+            {
+                "name": "TargetColliderData",
+                "excluded": false
             }
         ],
         "unusedMethods": [
@@ -9200,7 +9205,7 @@
                     },
                     {
                         "name": "toString",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "parse",
@@ -25090,7 +25095,7 @@
                     },
                     {
                         "name": "name#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "pixelsPerUnit#get",
@@ -31774,6 +31779,176 @@
                         "script": "",
                         "ext": "",
                         "name": "Assets/_Game/Sprite/ply11/Item/Square.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply11/FullBody/4 NO.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply11/FullBody/5france (1).png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply11/FullBody/1 AR.png"
+                    },
+                    {
+                        "maxWidth": 1636,
+                        "maxHeight": 1024,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply16/keo.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply11/FullBody/2 pt.png"
+                    },
+                    {
+                        "maxWidth": 1500,
+                        "maxHeight": 1500,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply15/freepik_br_7ee75627-1bc1-40bd-b8d6-75053ac1ed75 (Custom) (1) (1).png"
+                    },
+                    {
+                        "maxWidth": 1500,
+                        "maxHeight": 1500,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply15/6.png"
+                    },
+                    {
+                        "maxWidth": 1500,
+                        "maxHeight": 1500,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply15/4.png"
+                    },
+                    {
+                        "maxWidth": 1500,
+                        "maxHeight": 1500,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply15/5.png"
+                    },
+                    {
+                        "maxWidth": 1500,
+                        "maxHeight": 1500,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply15/1.png"
+                    },
+                    {
+                        "maxWidth": 1500,
+                        "maxHeight": 1500,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply15/3.png"
+                    },
+                    {
+                        "maxWidth": 1500,
+                        "maxHeight": 1500,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply15/2.png"
+                    },
+                    {
+                        "maxWidth": 1500,
+                        "maxHeight": 1500,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply15/ao.png"
+                    },
+                    {
+                        "maxWidth": 524,
+                        "maxHeight": 209,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply16/It's ugly.png"
+                    },
+                    {
+                        "maxWidth": 601,
+                        "maxHeight": 210,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply11/Item/Tap to Cut.png"
+                    },
+                    {
+                        "maxWidth": 74,
+                        "maxHeight": 662,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply16/Arrow 218.png"
+                    },
+                    {
+                        "maxWidth": 684,
+                        "maxHeight": 10,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply16/Vector 175.png"
                     }
                 ]
             },
@@ -31817,6 +31992,26 @@
                         "script": "",
                         "ext": "",
                         "name": "Assets/_Game/Sound/scissor_1.ogg"
+                    },
+                    {
+                        "channels": 1,
+                        "startTime": "00:00.000",
+                        "endTime": "00:30.000",
+                        "lengthInSeconds": 30.0,
+                        "bitrate": 64,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sound/lose2.mp3"
+                    },
+                    {
+                        "channels": 1,
+                        "startTime": "00:00.000",
+                        "endTime": "00:00.000",
+                        "lengthInSeconds": 0.0,
+                        "bitrate": 64,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sound/confetti (mp3cut.net).mp3"
                     }
                 ]
             },

@@ -2,6 +2,19 @@ using UnityEngine;
 using DG.Tweening;
 using Luna.Unity;
 
+[System.Serializable]
+public class TargetColliderData
+{
+    [Tooltip("Collider 2D của vùng mục tiêu")]
+    public Collider2D collider;
+
+    [Tooltip("Sprite hiển thị cho nhân vật khi con kéo đi vào vùng này cuối cùng")]
+    public Sprite resultSprite;
+
+    [Tooltip("Có phải vùng WIN hay không? (Tích chọn = WIN, Bỏ tích = LOSS)")]
+    public bool isWin;
+}
+
 public class HairCutController : MonoBehaviour
 {
     [Header("=== Cây kéo ===")]
@@ -38,7 +51,10 @@ public class HairCutController : MonoBehaviour
     [Tooltip("BoxCollider2D trên con kéo (Keo)")]
     public Collider2D scissorsCollider;
 
-    [Tooltip("BoxCollider2D của Arrow 218")]
+    [Tooltip("Danh sách các vùng Target Collider (1 vùng WIN, các vùng khác là LOSS + gán Sprite tương ứng)")]
+    public TargetColliderData[] targetColliders;
+
+    [Tooltip("Collider đơn cũ (Dùng nếu không điền danh sách targetColliders)")]
     public Collider2D targetCollider;
 
     [Header("--- WIN Settings ---")]
@@ -55,11 +71,8 @@ public class HairCutController : MonoBehaviour
     public GameObject[] winObjectsToDisable;
 
     [Header("--- LOSS Settings ---")]
-    [Tooltip("SpriteRenderer cần đổi hình khi bị LOSS (ví dụ: thân/mặt nhân vật)")]
+    [Tooltip("SpriteRenderer nhân vật cần đổi hình khi kết thúc (thân/mặt nhân vật)")]
     public SpriteRenderer lossSpriteRenderer;
-
-    [Tooltip("Sprite mới khi bị LOSS (ví dụ: sprite halaand-loss)")]
-    public Sprite lossSprite;
 
     [Tooltip("GameObject cần BẬT (SetActive = true) khi bị LOSS (ví dụ: Popup Thua, UI Try Again, v.v.)")]
     public GameObject lossObjectToEnable;
@@ -67,12 +80,15 @@ public class HairCutController : MonoBehaviour
     [Tooltip("Danh sách nhiều GameObject cần BẬT khi bị LOSS")]
     public GameObject[] lossObjectsToEnable;
 
+    [Tooltip("GameObject cần TẮT (SetActive = false) khi bị LOSS")]
+    public GameObject lossObjectToDisable;
+
+    [Tooltip("Danh sách nhiều GameObject cần TẮT khi bị LOSS")]
+    public GameObject[] lossObjectsToDisable;
+
     [Header("=== End Game (Sau 3s) ===")]
     [Tooltip("Thời gian chờ trước khi chuyển sang End Game & Click To Store (mặc định 3s)")]
     public float endDelay = 3f;
-
-    [Tooltip("Nếu tích chọn: Khi LOSS sẽ thực hiện End Game ngay lập tức (không chờ 3s)")]
-    public bool immediateEndGameOnLoss = false;
 
     [Tooltip("Danh sách GameObject cần TẮT sau khi kết thúc")]
     public GameObject[] afterEndDisableObjects;
@@ -109,6 +125,7 @@ public class HairCutController : MonoBehaviour
     private int tapState = 0; // 0: Chờ Tap 1, 1: Chờ Tap 2, 2: Đang cắt
     private Vector3 initialScissorsPos;
     private Sprite initialLossSprite;
+    private TargetColliderData lastHitTarget = null;
 
     void Start()
     {
@@ -188,7 +205,7 @@ public class HairCutController : MonoBehaviour
     }
 
     /// <summary>
-    /// Click → Kéo di chuyển từ A → B. Trong lúc di chuyển sẽ quét va chạm liên tục với Arrow 218.
+    /// Click → Kéo di chuyển từ A → B. Trong lúc di chuyển sẽ quét va chạm liên tục với các Target Colliders.
     /// </summary>
     void StartScissorCut()
     {
@@ -205,6 +222,7 @@ public class HairCutController : MonoBehaviour
         }
 
         hasHitTarget = false;
+        lastHitTarget = null;
 
         if (scissors != null)
         {
@@ -248,37 +266,88 @@ public class HairCutController : MonoBehaviour
     }
 
     /// <summary>
-    /// Quét va chạm giữa BoxCollider2D của Kéo và Arrow 218 trong suốt quá trình di chuyển
+    /// Quét va chạm giữa BoxCollider2D của Kéo và danh sách Target Colliders trong suốt quá trình di chuyển
     /// </summary>
     private void CheckOverlapDuringMove()
     {
-        if (hasHitTarget) return; // Nếu đã chạm rồi thì không cần quét nữa
+        if (scissorsCollider == null) return;
 
-        if (scissorsCollider != null && targetCollider != null)
+        // 1. Quét danh sách mảng targetColliders (Nhiều Target)
+        if (targetColliders != null && targetColliders.Length > 0)
+        {
+            foreach (TargetColliderData targetData in targetColliders)
+            {
+                if (targetData != null && targetData.collider != null)
+                {
+                    bool isIntersecting = scissorsCollider.bounds.Intersects(targetData.collider.bounds) || scissorsCollider.IsTouching(targetData.collider);
+
+                    if (isIntersecting)
+                    {
+                        // Cập nhật Target cuối cùng mà kéo đi vào
+                        if (lastHitTarget != targetData)
+                        {
+                            lastHitTarget = targetData;
+                            Debug.Log($"<color=cyan>[Va Chạm]</color> Kéo vừa đi vào Target: {targetData.collider.gameObject.name} | IsWin = {targetData.isWin}");
+                        }
+                    }
+                }
+            }
+        }
+        // 2. Fallback kiểm tra targetCollider đơn (nếu mảng targetColliders rỗng)
+        else if (targetCollider != null)
         {
             bool isIntersecting = scissorsCollider.bounds.Intersects(targetCollider.bounds) || scissorsCollider.IsTouching(targetCollider);
-
-            if (isIntersecting)
+            if (isIntersecting && !hasHitTarget)
             {
                 hasHitTarget = true;
-                Debug.Log($"<color=cyan>[Va Chạm]</color> Kéo đã chạm vào Arrow 218 tại vị trí X = {scissors.position.x}");
+                Debug.Log($"<color=cyan>[Va Chạm]</color> Kéo đã chạm vào TargetCollider đơn!");
             }
         }
     }
 
     /// <summary>
-    /// Khi kéo tới B: kết luận Win/Loss + bật mask + tóc rơi xuống + fade + tắt object chỉ định
+    /// Khi kéo tới B: kết luận Win/Loss + bật mask + tóc rơi xuống + fade + đổi sprite tương ứng với target cuối cùng
     /// </summary>
     void PerformCut()
     {
-        // --- 0. Kết luận Win hay Loss ---
-        if (hasHitTarget)
-        {
-            Debug.Log("<color=green><b>WIN</b></color> (Kéo đã đi qua và chạm vào Arrow 218!)");
+        bool isWinResult = false;
+        Sprite resultSpriteToApply = null;
 
-            // Chờ tóc rơi xong (fallDuration) rồi mới bật/tắt WIN objects
+        // Xác định kết quả dựa trên targetColliders mảng hoặc targetCollider đơn
+        if (targetColliders != null && targetColliders.Length > 0)
+        {
+            if (lastHitTarget != null)
+            {
+                isWinResult = lastHitTarget.isWin;
+                resultSpriteToApply = lastHitTarget.resultSprite;
+                Debug.Log($"[HairCutController] Target CUỐI CÙNG kéo đi qua: {lastHitTarget.collider.gameObject.name} | Kết quả: {(isWinResult ? "WIN" : "LOSS")}");
+            }
+            else
+            {
+                isWinResult = false;
+                Debug.Log("[HairCutController] Kéo không chạm bất kỳ Target Collider nào -> LOSS!");
+            }
+        }
+        else
+        {
+            isWinResult = hasHitTarget;
+        }
+
+        // --- 0. Kết luận Win hay Loss ---
+        if (isWinResult)
+        {
+            Debug.Log("<color=green><b>WIN</b></color>");
+
+            // Chờ tóc rơi xong (fallDuration) mới đổi Sprite nhân vật và bật/tắt WIN objects
             DOVirtual.DelayedCall(fallDuration, () =>
             {
+                // Đổi Sprite nhân vật sau khi tóc rơi xong
+                if (lossSpriteRenderer != null && resultSpriteToApply != null)
+                {
+                    lossSpriteRenderer.sprite = resultSpriteToApply;
+                    Debug.Log($"[HairCutController] Tóc rơi xong -> Đã đổi Sprite WIN sang: {resultSpriteToApply.name}");
+                }
+
                 // Phát sound Confetti 2 lần khi bật WIN obj
                 if (Ply_SoundManager.Ins != null)
                 {
@@ -317,32 +386,52 @@ public class HairCutController : MonoBehaviour
         }
         else
         {
-            Debug.Log("<color=red><b>LOSS</b></color> (Kéo không chạm vào Arrow 218!)");
+            Debug.Log("<color=red><b>LOSS</b></color>");
 
-            // Đổi Sprite khi bị LOSS & phát sound Lose2
-            if (lossSpriteRenderer != null && lossSprite != null)
+            // Chờ tóc rơi xong (fallDuration) mới đổi Sprite nhân vật và bật/tắt LOSS objects
+            DOVirtual.DelayedCall(fallDuration, () =>
             {
-                lossSpriteRenderer.sprite = lossSprite;
+                // Đổi Sprite nhân vật sau khi tóc rơi xong
+                if (lossSpriteRenderer != null && resultSpriteToApply != null)
+                {
+                    lossSpriteRenderer.sprite = resultSpriteToApply;
+                    Debug.Log($"[HairCutController] Tóc rơi xong -> Đã đổi Sprite LOSS sang: {resultSpriteToApply.name}");
+                }
 
+                // Phát sound Lose2 khi bị LOSS
                 if (Ply_SoundManager.Ins != null)
                 {
                     Ply_SoundManager.Ins.PlayFx(FxType.Lose2);
                 }
-            }
 
-            // Bật GameObject khi bị LOSS
-            if (lossObjectToEnable != null)
-            {
-                lossObjectToEnable.SetActive(true);
-            }
-
-            if (lossObjectsToEnable != null && lossObjectsToEnable.Length > 0)
-            {
-                foreach (GameObject obj in lossObjectsToEnable)
+                // Bật GameObject khi bị LOSS
+                if (lossObjectToEnable != null)
                 {
-                    if (obj != null) obj.SetActive(true);
+                    lossObjectToEnable.SetActive(true);
                 }
-            }
+
+                if (lossObjectsToEnable != null && lossObjectsToEnable.Length > 0)
+                {
+                    foreach (GameObject obj in lossObjectsToEnable)
+                    {
+                        if (obj != null) obj.SetActive(true);
+                    }
+                }
+
+                // Tắt GameObject khi bị LOSS
+                if (lossObjectToDisable != null)
+                {
+                    lossObjectToDisable.SetActive(false);
+                }
+
+                if (lossObjectsToDisable != null && lossObjectsToDisable.Length > 0)
+                {
+                    foreach (GameObject obj in lossObjectsToDisable)
+                    {
+                        if (obj != null) obj.SetActive(false);
+                    }
+                }
+            });
         }
 
         // --- 1. Tắt GameObject khi kéo chạy tới B ---
@@ -396,7 +485,7 @@ public class HairCutController : MonoBehaviour
         }
 
         // --- 5. Thực hiện End Game ---
-        if (hasHitTarget)
+        if (isWinResult)
         {
             // WIN: Chờ endDelay (3s/4s) rồi End Game dành riêng cho WIN (tắt/bật afterEnd objects + click ra store)
             DOVirtual.DelayedCall(endDelay, () =>
@@ -518,7 +607,7 @@ public class HairCutController : MonoBehaviour
             }
         }
 
-        // 5. Tắt lossObjectToEnable & lossObjectsToEnable
+        // 5. Tắt lossObjectToEnable & lossObjectsToEnable và Bật lại lossObjectToDisable & lossObjectsToDisable
         if (lossObjectToEnable != null)
         {
             lossObjectToEnable.SetActive(false);
@@ -531,6 +620,22 @@ public class HairCutController : MonoBehaviour
                 if (obj != null)
                 {
                     obj.SetActive(false);
+                }
+            }
+        }
+
+        if (lossObjectToDisable != null)
+        {
+            lossObjectToDisable.SetActive(true);
+        }
+
+        if (lossObjectsToDisable != null && lossObjectsToDisable.Length > 0)
+        {
+            foreach (GameObject obj in lossObjectsToDisable)
+            {
+                if (obj != null)
+                {
+                    obj.SetActive(true);
                 }
             }
         }
