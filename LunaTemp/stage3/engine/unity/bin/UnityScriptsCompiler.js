@@ -1,4 +1,4 @@
-if ( TRACE ) { TRACE( JSON.parse( '["AutoCameraFit#init","AutoCameraFit#Awake","AutoCameraFit#Update","AutoCameraFit#UpdateCameraNow","BatStrikeController#init","BatStrikeController#Start","BatStrikeController#Update","BatStrikeController#ChargeBat","BatStrikeController#FireBat","BatStrikeController#OnCollisionEnter2D","CameraFollow2D#init","CameraFollow2D#LateUpdate","ClickToStore#OnMouseDown","ComponentCache$1#init","ComponentCache$1#Get$1","ComponentCache$1#Get","ComponentCache$1#ClearCache","CupCollision#init","CupCollision#OnCollisionEnter2D","DG.Tweening.DOTweenCYInstruction.WaitForCompletion#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForCompletion#ctor","DG.Tweening.DOTweenCYInstruction.WaitForElapsedLoops#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForElapsedLoops#ctor","DG.Tweening.DOTweenCYInstruction.WaitForKill#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForKill#ctor","DG.Tweening.DOTweenCYInstruction.WaitForPosition#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForPosition#ctor","DG.Tweening.DOTweenCYInstruction.WaitForRewind#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForRewind#ctor","DG.Tweening.DOTweenCYInstruction.WaitForStart#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForStart#ctor","DG.Tweening.DOTweenModuleAudio#DOFade","DG.Tweening.DOTweenModuleAudio#DOPitch","DG.Tweening.DOTweenModuleAudio#DOSetFloat","DG.Tweening.DOTweenModuleAudio#DOComplete","DG.Tweening.DOTweenModuleAudio#DOKill","DG.Tweening.DOTweenModuleAudio#DOFlip","DG.Tweening.DOTweenModuleAudio#DOGoto","DG.Tweening.DOTweenModuleAudio#DOPause","DG.Tweening.DOTweenModuleAudio#DOPlay","DG.Tweening.DOTweenModuleAudio#DOPlayBackwards","DG.Tweening.DOTweenModuleAudio#DOPlayForward","DG.Tweening.DOTweenModuleAudio#DORestart","DG.Tweening.DOTweenModuleAudio#DORewind","DG.Tweening.DOTweenModuleAudio#DOSmoothRewind","DG.Tweening.DOTweenModuleAudio#DOTogglePause","DG.Tweening.DOTweenModulePhysics#DOMove","DG.Tweening.DOTweenModulePhysics#DOMoveX","DG.Tweening.DOTweenModulePhysics#DOMoveY","DG.Tweening.DOTweenModulePhysics#DOMoveZ","DG.Tweening.DOTweenModulePhysics#DORotate","DG.Tweening.DOTweenModulePhysics#DOLookAt","DG.Tweening.DOTweenModulePhysics#DOJump","DG.Tweening.DOTweenModulePhysics#DOPath","DG.Tweening.DOTweenModulePhysics#DOPath$1","DG.Tweening.DOTweenModulePhysics#DOLocalPath","DG.Tweening.DOTweenModulePhysics#DOLocalPath$1","DG.Tweening.DOTweenModulePhysics2D#DOMove","DG.Tweening.DOTweenModulePhysics2D#DOMoveX","DG.Tweening.DOTweenModulePhysics2D#DOMoveY","DG.Tweening.DOTweenModulePhysics2D#DORotate","DG.Tweening.DOTweenModulePhysics2D#DOJump","DG.Tweening.DOTweenModulePhysics2D#DOPath","DG.Tweening.DOTweenModulePhysics2D#DOPath$1","DG.Tweening.DOTweenModulePhysics2D#DOLocalPath","DG.Tweening.DOTweenModulePhysics2D#DOLocalPath$1","DG.Tweening.DOTweenModuleSprite#DOColor","DG.Tweening.DOTweenModuleSprite#DOFade","DG.Tweening.DOTweenModuleSprite#DOGradientColor","DG.Tweening.DOTweenModuleSprite#DOBlendableColor","DG.Tweening.DOTweenModuleUI#DOFade","DG.Tweening.DOTweenModuleUI#DOFade$1","DG.Tweening.DOTweenModuleUI#DOFade$2","DG.Tweening.DOTweenModuleUI#DOFade$3","DG.Tweening.DOTweenModuleUI#DOFade$4","DG.Tweening.DOTweenModuleUI#DOColor","DG.Tweening.DOTweenModuleUI#DOColor$1","DG.Tweening.DOTweenModuleUI#DOColor$2","DG.Tweening.DOTweenModuleUI#DOColor$3","DG.Tweening.DOTweenModuleUI#DOFillAmount","DG.Tweening.DOTweenModuleUI#DOGradientColor","DG.Tweening.DOTweenModuleUI#DOFlexibleSize","DG.Tweening.DOTweenModuleUI#DOMinSize","DG.Tweening.DOTweenModuleUI#DOPreferredSize","DG.Tweening.DOTweenModuleUI#DOScale","DG.Tweening.DOTweenModuleUI#DOAnchorPos","DG.Tweening.DOTweenModuleUI#DOAnchorPosX","DG.Tweening.DOTweenModuleUI#DOAnchorPosY","DG.Tweening.DOTweenModuleUI#DOAnchorPos3D","DG.Tweening.DOTweenModuleUI#DOAnchorPos3DX","DG.Tweening.DOTweenModuleUI#DOAnchorPos3DY","DG.Tweening.DOTweenModuleUI#DOAnchorPos3DZ","DG.Tweening.DOTweenModuleUI#DOAnchorMax","DG.Tweening.DOTweenModuleUI#DOAnchorMin","DG.Tweening.DOTweenModuleUI#DOPivot","DG.Tweening.DOTweenModuleUI#DOPivotX","DG.Tweening.DOTweenModuleUI#DOPivotY","DG.Tweening.DOTweenModuleUI#DOSizeDelta","DG.Tweening.DOTweenModuleUI#DOPunchAnchorPos","DG.Tweening.DOTweenModuleUI#DOShakeAnchorPos","DG.Tweening.DOTweenModuleUI#DOShakeAnchorPos$1","DG.Tweening.DOTweenModuleUI#DOJumpAnchorPos","DG.Tweening.DOTweenModuleUI#DONormalizedPos","DG.Tweening.DOTweenModuleUI#DOHorizontalNormalizedPos","DG.Tweening.DOTweenModuleUI#DOVerticalNormalizedPos","DG.Tweening.DOTweenModuleUI#DOValue","DG.Tweening.DOTweenModuleUI#DOCounter","DG.Tweening.DOTweenModuleUI#DOText","DG.Tweening.DOTweenModuleUI#DOBlendableColor","DG.Tweening.DOTweenModuleUI#DOBlendableColor$1","DG.Tweening.DOTweenModuleUI#DOBlendableColor$2","DG.Tweening.DOTweenModuleUI#DOShapeCircle","DG.Tweening.DOTweenModuleUI.Utils#SwitchToRectTransform","DG.Tweening.DOTweenModuleUnityVersion#DOGradientColor","DG.Tweening.DOTweenModuleUnityVersion#DOGradientColor$1","DG.Tweening.DOTweenModuleUnityVersion#WaitForCompletion","DG.Tweening.DOTweenModuleUnityVersion#WaitForRewind","DG.Tweening.DOTweenModuleUnityVersion#WaitForKill","DG.Tweening.DOTweenModuleUnityVersion#WaitForElapsedLoops","DG.Tweening.DOTweenModuleUnityVersion#WaitForPosition","DG.Tweening.DOTweenModuleUnityVersion#WaitForStart","DG.Tweening.DOTweenModuleUnityVersion#DOOffset","DG.Tweening.DOTweenModuleUnityVersion#DOTiling","DG.Tweening.DOTweenModuleUtils#Init","DG.Tweening.DOTweenModuleUtils#Preserver","DG.Tweening.DOTweenModuleUtils.Physics#SetOrientationOnPath","DG.Tweening.DOTweenModuleUtils.Physics#HasRigidbody2D","DG.Tweening.DOTweenModuleUtils.Physics#HasRigidbody","DG.Tweening.DOTweenModuleUtils.Physics#CreateDOTweenPathTween","HideOnFirstClick#Start","HideOnFirstClick#Update","ItemMovementController#init","ItemMovementController#Start","ItemMovementController#Update","ItemMovementController#HandleItemMovement","MoveBetweenPoints#init","MoveBetweenPoints#Start","PlayerCardUIManager#init","PlayerCardUIManager#Awake","PlayerCardUIManager#GotoStore","PlayerCardUIManager#Start","PlayerCardUIManager#Update","PlayerCardUIManager#ShowPlayerCard","PlayerCardUIManager#WaitAndTriggerObjects","PlayerCardUIManager#HideCard","Ply_Singleton$1#init","Ply_Singleton$1#Awake","Ply_Pool.PoolAmount#getDefaultValue","Ply_Pool.PoolAmount#ctor","Ply_Pool.PoolAmount#getHashCode","Ply_Pool.PoolAmount#equals","Ply_Pool.PoolAmount#$clone","ScreenHeightPositionAnchor#init","ScreenHeightPositionAnchor#Awake","ScreenHeightPositionAnchor#OnEnable","ScreenHeightPositionAnchor#Start","ScreenHeightPositionAnchor#LateUpdate","ScreenHeightPositionAnchor#AlignToScreenHeightRatio","ScreenHeightPositionAnchor#GetTargetCamera","ScreenHeightPositionAnchor#GetAnchor","ScreenHeightPositionAnchor#CacheScreenState","ScreenHeightPositionAnchor#HasCameraChanged","ScreenHeightPositionAnchor#OnDrawGizmos","SlotTrigger#init","SlotTrigger#Start","SlotTrigger#OnTriggerEnter2D","SlotTrigger#FlyAndShowUI","SlotTrigger#ShowUI","SoundData#init","Yielders#EndOfFrame#get","Yielders#FixedUpdate#get","Yielders#init","Yielders#Get","Ply_Pool#inherits","Ply_Pool#init","Ply_Pool#Awake","Ply_Pool#OnInit","Ply_Pool#Spawn$1","Ply_Pool#Spawn","Ply_Pool#Despawn","Ply_Pool#GetPrefab","Ply_SoundManager#inherits","Ply_SoundManager#init","Ply_SoundManager#PlayFx","Ply_SoundManager#PlayLoopFx","Ply_SoundManager#StopFx","Ply_SoundManager#PlayBGM1","Ply_SoundManager#PlayBGM2","Ply_SoundManager#GetSoundData","Ply_SoundManager#MuteFx","Ply_SoundManager#Mute"]' ) ); }
+if ( TRACE ) { TRACE( JSON.parse( '["AutoCameraFit#init","AutoCameraFit#Awake","AutoCameraFit#Update","AutoCameraFit#UpdateCameraNow","BatStrikeController#init","BatStrikeController#Start","BatStrikeController#Update","BatStrikeController#ChargeBat","BatStrikeController#FireBat","BatStrikeController#OnCollisionEnter2D","CameraFollow2D#init","CameraFollow2D#LateUpdate","ClickToStore#OnMouseDown","ComponentCache$1#init","ComponentCache$1#Get$1","ComponentCache$1#Get","ComponentCache$1#ClearCache","CupCollision#init","CupCollision#OnCollisionEnter2D","DG.Tweening.DOTweenCYInstruction.WaitForCompletion#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForCompletion#ctor","DG.Tweening.DOTweenCYInstruction.WaitForElapsedLoops#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForElapsedLoops#ctor","DG.Tweening.DOTweenCYInstruction.WaitForKill#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForKill#ctor","DG.Tweening.DOTweenCYInstruction.WaitForPosition#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForPosition#ctor","DG.Tweening.DOTweenCYInstruction.WaitForRewind#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForRewind#ctor","DG.Tweening.DOTweenCYInstruction.WaitForStart#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForStart#ctor","DG.Tweening.DOTweenModuleAudio#DOFade","DG.Tweening.DOTweenModuleAudio#DOPitch","DG.Tweening.DOTweenModuleAudio#DOSetFloat","DG.Tweening.DOTweenModuleAudio#DOComplete","DG.Tweening.DOTweenModuleAudio#DOKill","DG.Tweening.DOTweenModuleAudio#DOFlip","DG.Tweening.DOTweenModuleAudio#DOGoto","DG.Tweening.DOTweenModuleAudio#DOPause","DG.Tweening.DOTweenModuleAudio#DOPlay","DG.Tweening.DOTweenModuleAudio#DOPlayBackwards","DG.Tweening.DOTweenModuleAudio#DOPlayForward","DG.Tweening.DOTweenModuleAudio#DORestart","DG.Tweening.DOTweenModuleAudio#DORewind","DG.Tweening.DOTweenModuleAudio#DOSmoothRewind","DG.Tweening.DOTweenModuleAudio#DOTogglePause","DG.Tweening.DOTweenModulePhysics#DOMove","DG.Tweening.DOTweenModulePhysics#DOMoveX","DG.Tweening.DOTweenModulePhysics#DOMoveY","DG.Tweening.DOTweenModulePhysics#DOMoveZ","DG.Tweening.DOTweenModulePhysics#DORotate","DG.Tweening.DOTweenModulePhysics#DOLookAt","DG.Tweening.DOTweenModulePhysics#DOJump","DG.Tweening.DOTweenModulePhysics#DOPath","DG.Tweening.DOTweenModulePhysics#DOPath$1","DG.Tweening.DOTweenModulePhysics#DOLocalPath","DG.Tweening.DOTweenModulePhysics#DOLocalPath$1","DG.Tweening.DOTweenModulePhysics2D#DOMove","DG.Tweening.DOTweenModulePhysics2D#DOMoveX","DG.Tweening.DOTweenModulePhysics2D#DOMoveY","DG.Tweening.DOTweenModulePhysics2D#DORotate","DG.Tweening.DOTweenModulePhysics2D#DOJump","DG.Tweening.DOTweenModulePhysics2D#DOPath","DG.Tweening.DOTweenModulePhysics2D#DOPath$1","DG.Tweening.DOTweenModulePhysics2D#DOLocalPath","DG.Tweening.DOTweenModulePhysics2D#DOLocalPath$1","DG.Tweening.DOTweenModuleSprite#DOColor","DG.Tweening.DOTweenModuleSprite#DOFade","DG.Tweening.DOTweenModuleSprite#DOGradientColor","DG.Tweening.DOTweenModuleSprite#DOBlendableColor","DG.Tweening.DOTweenModuleUI#DOFade","DG.Tweening.DOTweenModuleUI#DOFade$1","DG.Tweening.DOTweenModuleUI#DOFade$2","DG.Tweening.DOTweenModuleUI#DOFade$3","DG.Tweening.DOTweenModuleUI#DOFade$4","DG.Tweening.DOTweenModuleUI#DOColor","DG.Tweening.DOTweenModuleUI#DOColor$1","DG.Tweening.DOTweenModuleUI#DOColor$2","DG.Tweening.DOTweenModuleUI#DOColor$3","DG.Tweening.DOTweenModuleUI#DOFillAmount","DG.Tweening.DOTweenModuleUI#DOGradientColor","DG.Tweening.DOTweenModuleUI#DOFlexibleSize","DG.Tweening.DOTweenModuleUI#DOMinSize","DG.Tweening.DOTweenModuleUI#DOPreferredSize","DG.Tweening.DOTweenModuleUI#DOScale","DG.Tweening.DOTweenModuleUI#DOAnchorPos","DG.Tweening.DOTweenModuleUI#DOAnchorPosX","DG.Tweening.DOTweenModuleUI#DOAnchorPosY","DG.Tweening.DOTweenModuleUI#DOAnchorPos3D","DG.Tweening.DOTweenModuleUI#DOAnchorPos3DX","DG.Tweening.DOTweenModuleUI#DOAnchorPos3DY","DG.Tweening.DOTweenModuleUI#DOAnchorPos3DZ","DG.Tweening.DOTweenModuleUI#DOAnchorMax","DG.Tweening.DOTweenModuleUI#DOAnchorMin","DG.Tweening.DOTweenModuleUI#DOPivot","DG.Tweening.DOTweenModuleUI#DOPivotX","DG.Tweening.DOTweenModuleUI#DOPivotY","DG.Tweening.DOTweenModuleUI#DOSizeDelta","DG.Tweening.DOTweenModuleUI#DOPunchAnchorPos","DG.Tweening.DOTweenModuleUI#DOShakeAnchorPos","DG.Tweening.DOTweenModuleUI#DOShakeAnchorPos$1","DG.Tweening.DOTweenModuleUI#DOJumpAnchorPos","DG.Tweening.DOTweenModuleUI#DONormalizedPos","DG.Tweening.DOTweenModuleUI#DOHorizontalNormalizedPos","DG.Tweening.DOTweenModuleUI#DOVerticalNormalizedPos","DG.Tweening.DOTweenModuleUI#DOValue","DG.Tweening.DOTweenModuleUI#DOCounter","DG.Tweening.DOTweenModuleUI#DOText","DG.Tweening.DOTweenModuleUI#DOBlendableColor","DG.Tweening.DOTweenModuleUI#DOBlendableColor$1","DG.Tweening.DOTweenModuleUI#DOBlendableColor$2","DG.Tweening.DOTweenModuleUI#DOShapeCircle","DG.Tweening.DOTweenModuleUI.Utils#SwitchToRectTransform","DG.Tweening.DOTweenModuleUnityVersion#DOGradientColor","DG.Tweening.DOTweenModuleUnityVersion#DOGradientColor$1","DG.Tweening.DOTweenModuleUnityVersion#WaitForCompletion","DG.Tweening.DOTweenModuleUnityVersion#WaitForRewind","DG.Tweening.DOTweenModuleUnityVersion#WaitForKill","DG.Tweening.DOTweenModuleUnityVersion#WaitForElapsedLoops","DG.Tweening.DOTweenModuleUnityVersion#WaitForPosition","DG.Tweening.DOTweenModuleUnityVersion#WaitForStart","DG.Tweening.DOTweenModuleUnityVersion#DOOffset","DG.Tweening.DOTweenModuleUnityVersion#DOTiling","DG.Tweening.DOTweenModuleUtils#Init","DG.Tweening.DOTweenModuleUtils#Preserver","DG.Tweening.DOTweenModuleUtils.Physics#SetOrientationOnPath","DG.Tweening.DOTweenModuleUtils.Physics#HasRigidbody2D","DG.Tweening.DOTweenModuleUtils.Physics#HasRigidbody","DG.Tweening.DOTweenModuleUtils.Physics#CreateDOTweenPathTween","HairCutController#init","HairCutController#Start","HairCutController#Update","HairCutController#HandleFirstTap","HairCutController#StartScissorCut","HairCutController#CheckOverlapDuringMove","HairCutController#PerformCut","HairCutController#TriggerWinEndGame","HairCutController#TriggerLossEndGame","HairCutController#OpenStore","HideOnFirstClick#Start","HideOnFirstClick#Update","ItemMovementController#init","ItemMovementController#Start","ItemMovementController#Update","ItemMovementController#HandleItemMovement","MoveBetweenPoints#init","MoveBetweenPoints#Start","PlayerCardUIManager#init","PlayerCardUIManager#Awake","PlayerCardUIManager#GotoStore","PlayerCardUIManager#Start","PlayerCardUIManager#Update","PlayerCardUIManager#ShowPlayerCard","PlayerCardUIManager#WaitAndTriggerObjects","PlayerCardUIManager#HideCard","Ply_Singleton$1#Instance#get","Ply_Singleton$1#init","Ply_Singleton$1#Awake","Ply_Pool.PoolAmount#getDefaultValue","Ply_Pool.PoolAmount#ctor","Ply_Pool.PoolAmount#getHashCode","Ply_Pool.PoolAmount#equals","Ply_Pool.PoolAmount#$clone","ScreenHeightPositionAnchor#init","ScreenHeightPositionAnchor#Awake","ScreenHeightPositionAnchor#OnEnable","ScreenHeightPositionAnchor#Start","ScreenHeightPositionAnchor#LateUpdate","ScreenHeightPositionAnchor#AlignToScreenHeightRatio","ScreenHeightPositionAnchor#GetTargetCamera","ScreenHeightPositionAnchor#GetAnchor","ScreenHeightPositionAnchor#CacheScreenState","ScreenHeightPositionAnchor#HasCameraChanged","ScreenHeightPositionAnchor#OnDrawGizmos","SlotTrigger#init","SlotTrigger#Start","SlotTrigger#OnTriggerEnter2D","SlotTrigger#FlyAndShowUI","SlotTrigger#ShowUI","SoundData#init","Yielders#EndOfFrame#get","Yielders#FixedUpdate#get","Yielders#init","Yielders#Get","Ply_Pool#inherits","Ply_Pool#init","Ply_Pool#Awake","Ply_Pool#OnInit","Ply_Pool#Spawn$1","Ply_Pool#Spawn","Ply_Pool#Despawn","Ply_Pool#GetPrefab","Ply_SoundManager#inherits","Ply_SoundManager#init","Ply_SoundManager#PlayFx","Ply_SoundManager#PlayLoopFx","Ply_SoundManager#StopFx","Ply_SoundManager#PlayBGM1","Ply_SoundManager#PlayBGM2","Ply_SoundManager#GetSoundData","Ply_SoundManager#MuteFx","Ply_SoundManager#Mute"]' ) ); }
 /**
  * @compiler Bridge.NET 17.9.42-luna
  */
@@ -2159,7 +2159,8 @@ if ( TRACE ) { TRACE( "DG.Tweening.DOTweenModuleUtils.Physics#CreateDOTweenPathT
             Happy: null,
             Wrong: null,
             Spray: null,
-            Brush: null
+            Brush: null,
+            Keo: null
         }
     });
     /*FxAudio end.*/
@@ -2173,11 +2174,464 @@ if ( TRACE ) { TRACE( "DG.Tweening.DOTweenModuleUtils.Physics#CreateDOTweenPathT
                 Happy: 1,
                 Wrong: 2,
                 Spray: 3,
-                Brush: 4
+                Brush: 4,
+                Keo: 5
             }
         }
     });
     /*FxType end.*/
+
+    /*HairCutController start.*/
+    Bridge.define("HairCutController", {
+        inherits: [UnityEngine.MonoBehaviour],
+        fields: {
+            scissors: null,
+            scissorsAnimator: null,
+            targetAnimatorToDisable: null,
+            linePointA: null,
+            linePointB: null,
+            scissorMoveDuration: 0,
+            allMasks: null,
+            fallingHairParent: null,
+            fallingHairRenderers: null,
+            scissorsCollider: null,
+            targetCollider: null,
+            winObjectToEnable: null,
+            winObjectsToEnable: null,
+            winObjectToDisable: null,
+            winObjectsToDisable: null,
+            lossSpriteRenderer: null,
+            lossSprite: null,
+            lossObjectToEnable: null,
+            lossObjectsToEnable: null,
+            endDelay: 0,
+            immediateEndGameOnLoss: false,
+            afterEndDisableObjects: null,
+            afterEndEnableObjects: null,
+            tutObject: null,
+            animatorToEnableOnFirstTap: null,
+            firstTapTriggerName: null,
+            objectToDisableOnComplete: null,
+            objectsToDisableOnComplete: null,
+            fallDistance: 0,
+            fallDuration: 0,
+            fadeDuration: 0,
+            hasCut: false,
+            isMovingScissor: false,
+            hasHitTarget: false,
+            isStoreRedirectActive: false,
+            tapState: 0,
+            initialScissorsPos: null,
+            initialLossSprite: null
+        },
+        ctors: {
+            init: function () {
+if ( TRACE ) { TRACE( "HairCutController#init", this ); }
+
+                this.initialScissorsPos = new UnityEngine.Vector3();
+                this.scissorMoveDuration = 0.5;
+                this.endDelay = 3.0;
+                this.immediateEndGameOnLoss = false;
+                this.fallDistance = 5.0;
+                this.fallDuration = 1.5;
+                this.fadeDuration = 1.0;
+                this.hasCut = false;
+                this.isMovingScissor = false;
+                this.hasHitTarget = false;
+                this.isStoreRedirectActive = false;
+                this.tapState = 0;
+            }
+        },
+        methods: {
+            /*HairCutController.Start start.*/
+            Start: function () {
+if ( TRACE ) { TRACE( "HairCutController#Start", this ); }
+
+                if (UnityEngine.Component.op_Inequality(this.scissors, null)) {
+                    this.initialScissorsPos = this.scissors.position.$clone();
+                }
+                if (UnityEngine.Component.op_Inequality(this.lossSpriteRenderer, null)) {
+                    this.initialLossSprite = this.lossSpriteRenderer.sprite;
+                }
+            },
+            /*HairCutController.Start end.*/
+
+            /*HairCutController.Update start.*/
+            Update: function () {
+if ( TRACE ) { TRACE( "HairCutController#Update", this ); }
+
+                if (this.isStoreRedirectActive) {
+                    if (UnityEngine.Input.GetMouseButtonDown(0) || (UnityEngine.Input.touchCount > 0 && UnityEngine.Input.GetTouch(0).phase === UnityEngine.TouchPhase.Began)) {
+                        UnityEngine.Debug.Log$1("[HairCutController] Ng\u01b0\u1eddi ch\u01a1i click m\u00e0n h\u00ecnh -> M\u1edf Store (Luna)!");
+                        Luna.Unity.LifeCycle.GameEnded();
+                        Luna.Unity.Playable.InstallFullGame();
+                    }
+                    return;
+                }
+                if (this.isMovingScissor) {
+                    this.CheckOverlapDuringMove();
+                }
+                if (UnityEngine.Input.GetMouseButtonDown(0) || (UnityEngine.Input.touchCount > 0 && UnityEngine.Input.GetTouch(0).phase === UnityEngine.TouchPhase.Began)) {
+                    if (this.tapState === 0) {
+                        this.tapState = 1;
+                        this.HandleFirstTap();
+                    } else if (this.tapState === 1 && !this.hasCut) {
+                        this.tapState = 2;
+                        this.hasCut = true;
+                        this.StartScissorCut();
+                    }
+                }
+            },
+            /*HairCutController.Update end.*/
+
+            /*HairCutController.HandleFirstTap start.*/
+            HandleFirstTap: function () {
+if ( TRACE ) { TRACE( "HairCutController#HandleFirstTap", this ); }
+
+                UnityEngine.Debug.Log$1("[HairCutController] TAP L\u1ea6N 1: \u1ea8n Tutorial & B\u1eadt Animation!");
+                if (UnityEngine.GameObject.op_Inequality(this.tutObject, null)) {
+                    this.tutObject.SetActive(false);
+                }
+                if (UnityEngine.Component.op_Inequality(this.animatorToEnableOnFirstTap, null)) {
+                    this.animatorToEnableOnFirstTap.enabled = true;
+                    if (!System.String.isNullOrEmpty(this.firstTapTriggerName)) {
+                        this.animatorToEnableOnFirstTap.SetTrigger$1(this.firstTapTriggerName);
+                    }
+                }
+            },
+            /*HairCutController.HandleFirstTap end.*/
+
+            /*HairCutController.StartScissorCut start.*/
+            StartScissorCut: function () {
+if ( TRACE ) { TRACE( "HairCutController#StartScissorCut", this ); }
+
+                if (UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(Ply_SoundManager).Ins, null)) {
+                    Ply_Singleton$1(Ply_SoundManager).Ins.PlayFx(FxType.Keo);
+                }
+                if (UnityEngine.Component.op_Inequality(this.targetAnimatorToDisable, null)) {
+                    this.targetAnimatorToDisable.enabled = false;
+                }
+                this.hasHitTarget = false;
+                if (UnityEngine.Component.op_Inequality(this.scissors, null)) {
+                    DG.Tweening.ShortcutExtensions.DOKill(this.scissors);
+                    if (UnityEngine.Component.op_Inequality(this.linePointA, null)) {
+                        this.scissors.position = this.linePointA.position.$clone();
+                    }
+                    if (UnityEngine.Component.op_Inequality(this.scissorsAnimator, null)) {
+                        this.scissorsAnimator.SetTrigger$1("Keo");
+                    }
+                    var targetB = ((UnityEngine.Component.op_Inequality(this.linePointB, null)) ? this.linePointB.position.$clone() : this.scissors.position.$clone());
+                    this.isMovingScissor = true;
+                    DG.Tweening.TweenSettingsExtensions.OnComplete(DG.Tweening.Core.TweenerCore$3(UnityEngine.Vector3,UnityEngine.Vector3,DG.Tweening.Plugins.Options.VectorOptions), DG.Tweening.TweenSettingsExtensions.OnUpdate(DG.Tweening.Core.TweenerCore$3(UnityEngine.Vector3,UnityEngine.Vector3,DG.Tweening.Plugins.Options.VectorOptions), DG.Tweening.TweenSettingsExtensions.SetEase$2(DG.Tweening.Core.TweenerCore$3(UnityEngine.Vector3,UnityEngine.Vector3,DG.Tweening.Plugins.Options.VectorOptions), DG.Tweening.ShortcutExtensions.DOMove(this.scissors, targetB.$clone(), this.scissorMoveDuration), DG.Tweening.Ease.Linear), Bridge.fn.bind(this, function () {
+                        this.CheckOverlapDuringMove();
+                    })), Bridge.fn.bind(this, function () {
+                        this.isMovingScissor = false;
+                        UnityEngine.Debug.Log$1("[HairCutController] K\u00e9o \u0111\u00e3 ho\u00e0n th\u00e0nh di chuy\u1ec3n t\u1eeb A -> B!");
+                        this.PerformCut();
+                    }));
+                } else {
+                    this.PerformCut();
+                }
+            },
+            /*HairCutController.StartScissorCut end.*/
+
+            /*HairCutController.CheckOverlapDuringMove start.*/
+            CheckOverlapDuringMove: function () {
+if ( TRACE ) { TRACE( "HairCutController#CheckOverlapDuringMove", this ); }
+
+                if (!this.hasHitTarget && UnityEngine.Component.op_Inequality(this.scissorsCollider, null) && UnityEngine.Component.op_Inequality(this.targetCollider, null) && (this.scissorsCollider.bounds.intersects( this.targetCollider.bounds ) || this.scissorsCollider.IsTouching(this.targetCollider))) {
+                    this.hasHitTarget = true;
+                    UnityEngine.Debug.Log$1(System.String.format("<color=cyan>[Va Ch\u1ea1m]</color> K\u00e9o \u0111\u00e3 ch\u1ea1m v\u00e0o Arrow 218 t\u1ea1i v\u1ecb tr\u00ed X = {0}", [Bridge.box(this.scissors.position.x, System.Single, System.Single.format, System.Single.getHashCode)]));
+                }
+            },
+            /*HairCutController.CheckOverlapDuringMove end.*/
+
+            /*HairCutController.PerformCut start.*/
+            PerformCut: function () {
+if ( TRACE ) { TRACE( "HairCutController#PerformCut", this ); }
+
+                var $t, $t1, $t2, $t3;
+                if (this.hasHitTarget) {
+                    UnityEngine.Debug.Log$1("<color=green><b>WIN</b></color> (K\u00e9o \u0111\u00e3 \u0111i qua v\u00e0 ch\u1ea1m v\u00e0o Arrow 218!)");
+                    DG.Tweening.DOVirtual.DelayedCall(this.fallDuration, Bridge.fn.bind(this, function () {
+                        var $t, $t1;
+                        if (UnityEngine.GameObject.op_Inequality(this.winObjectToEnable, null)) {
+                            this.winObjectToEnable.SetActive(true);
+                        }
+                        if (this.winObjectsToEnable != null && this.winObjectsToEnable.length !== 0) {
+                            var array5 = this.winObjectsToEnable;
+                            $t = Bridge.getEnumerator(array5);
+                            try {
+                                while ($t.moveNext()) {
+                                    var gameObject = $t.Current;
+                                    if (UnityEngine.GameObject.op_Inequality(gameObject, null)) {
+                                        gameObject.SetActive(true);
+                                    }
+                                }
+                            } finally {
+                                if (Bridge.is($t, System.IDisposable)) {
+                                    $t.System$IDisposable$Dispose();
+                                }
+                            }
+                        }
+                        if (UnityEngine.GameObject.op_Inequality(this.winObjectToDisable, null)) {
+                            this.winObjectToDisable.SetActive(false);
+                        }
+                        if (this.winObjectsToDisable != null && this.winObjectsToDisable.length !== 0) {
+                            var array6 = this.winObjectsToDisable;
+                            $t1 = Bridge.getEnumerator(array6);
+                            try {
+                                while ($t1.moveNext()) {
+                                    var gameObject2 = $t1.Current;
+                                    if (UnityEngine.GameObject.op_Inequality(gameObject2, null)) {
+                                        gameObject2.SetActive(false);
+                                    }
+                                }
+                            } finally {
+                                if (Bridge.is($t1, System.IDisposable)) {
+                                    $t1.System$IDisposable$Dispose();
+                                }
+                            }
+                        }
+                    }));
+                } else {
+                    UnityEngine.Debug.Log$1("<color=red><b>LOSS</b></color> (K\u00e9o kh\u00f4ng ch\u1ea1m v\u00e0o Arrow 218!)");
+                    if (UnityEngine.Component.op_Inequality(this.lossSpriteRenderer, null) && this.lossSprite != null) {
+                        this.lossSpriteRenderer.sprite = this.lossSprite;
+                    }
+                    if (UnityEngine.GameObject.op_Inequality(this.lossObjectToEnable, null)) {
+                        this.lossObjectToEnable.SetActive(true);
+                    }
+                    if (this.lossObjectsToEnable != null && this.lossObjectsToEnable.length !== 0) {
+                        var array = this.lossObjectsToEnable;
+                        $t = Bridge.getEnumerator(array);
+                        try {
+                            while ($t.moveNext()) {
+                                var obj2 = $t.Current;
+                                if (UnityEngine.GameObject.op_Inequality(obj2, null)) {
+                                    obj2.SetActive(true);
+                                }
+                            }
+                        } finally {
+                            if (Bridge.is($t, System.IDisposable)) {
+                                $t.System$IDisposable$Dispose();
+                            }
+                        }
+                    }
+                }
+                if (UnityEngine.GameObject.op_Inequality(this.objectToDisableOnComplete, null)) {
+                    this.objectToDisableOnComplete.SetActive(false);
+                }
+                if (this.objectsToDisableOnComplete != null && this.objectsToDisableOnComplete.length !== 0) {
+                    var array2 = this.objectsToDisableOnComplete;
+                    $t1 = Bridge.getEnumerator(array2);
+                    try {
+                        while ($t1.moveNext()) {
+                            var obj = $t1.Current;
+                            if (UnityEngine.GameObject.op_Inequality(obj, null)) {
+                                obj.SetActive(false);
+                            }
+                        }
+                    } finally {
+                        if (Bridge.is($t1, System.IDisposable)) {
+                            $t1.System$IDisposable$Dispose();
+                        }
+                    }
+                }
+                var cutY = ((UnityEngine.Component.op_Inequality(this.linePointA, null)) ? this.linePointA.position.y : this.scissors.position.y);
+                var array3 = this.allMasks;
+                $t2 = Bridge.getEnumerator(array3);
+                try {
+                    while ($t2.moveNext()) {
+                        var mask = $t2.Current;
+                        if (UnityEngine.Component.op_Inequality(mask, null)) {
+                            var maskPos = mask.transform.position.$clone();
+                            maskPos.y = cutY;
+                            mask.transform.position = maskPos.$clone();
+                            mask.gameObject.SetActive(true);
+                        }
+                    }
+                } finally {
+                    if (Bridge.is($t2, System.IDisposable)) {
+                        $t2.System$IDisposable$Dispose();
+                    }
+                }
+                if (UnityEngine.Component.op_Inequality(this.fallingHairParent, null)) {
+                    DG.Tweening.TweenSettingsExtensions.SetEase$2(DG.Tweening.Core.TweenerCore$3(UnityEngine.Vector3,UnityEngine.Vector3,DG.Tweening.Plugins.Options.VectorOptions), DG.Tweening.ShortcutExtensions.DOMove(this.fallingHairParent, this.fallingHairParent.position.$clone().add( pc.Vec3.DOWN.clone().clone().scale( this.fallDistance ) ), this.fallDuration), DG.Tweening.Ease.InQuad);
+                    if (this.fallingHairRenderers != null) {
+                        var array4 = this.fallingHairRenderers;
+                        $t3 = Bridge.getEnumerator(array4);
+                        try {
+                            while ($t3.moveNext()) {
+                                var sr = $t3.Current;
+                                if (UnityEngine.Component.op_Inequality(sr, null)) {
+                                    DG.Tweening.TweenSettingsExtensions.SetDelay(DG.Tweening.Core.TweenerCore$3(UnityEngine.Color,UnityEngine.Color,DG.Tweening.Plugins.Options.ColorOptions), DG.Tweening.DOTweenModuleSprite.DOFade(sr, 0.0, this.fadeDuration), this.fallDuration * 0.3);
+                                }
+                            }
+                        } finally {
+                            if (Bridge.is($t3, System.IDisposable)) {
+                                $t3.System$IDisposable$Dispose();
+                            }
+                        }
+                    }
+                }
+                if (this.hasHitTarget) {
+                    DG.Tweening.DOVirtual.DelayedCall(this.endDelay, Bridge.fn.bind(this, function () {
+                        this.TriggerWinEndGame();
+                    }));
+                } else {
+                    DG.Tweening.DOVirtual.DelayedCall(this.endDelay, Bridge.fn.bind(this, function () {
+                        this.TriggerLossEndGame();
+                    }));
+                }
+            },
+            /*HairCutController.PerformCut end.*/
+
+            /*HairCutController.TriggerWinEndGame start.*/
+            TriggerWinEndGame: function () {
+if ( TRACE ) { TRACE( "HairCutController#TriggerWinEndGame", this ); }
+
+                var $t, $t1;
+                UnityEngine.Debug.Log$1("[HairCutController] K\u00edch ho\u1ea1t WIN END GAME!");
+                if (this.afterEndDisableObjects != null) {
+                    var array = this.afterEndDisableObjects;
+                    $t = Bridge.getEnumerator(array);
+                    try {
+                        while ($t.moveNext()) {
+                            var obj2 = $t.Current;
+                            if (UnityEngine.GameObject.op_Inequality(obj2, null)) {
+                                if (UnityEngine.GameObject.op_Equality(obj2, Bridge.ensureBaseProperty(this, "gameObject").$UnityEngine$Component$gameObject)) {
+                                    UnityEngine.Debug.LogWarning$1("[HairCutController] \u26a0\ufe0f C\u1ea2NH B\u00c1O: B\u1ea1n \u0111ang \u0111\u01b0a GameObject ch\u1ee9a HairCutController v\u00e0o AfterEndDisableObjects! Vui l\u00f2ng b\u1ecf GameObject ch\u1ee9a script n\u00e0y ra kh\u1ecfi danh s\u00e1ch!");
+                                } else {
+                                    obj2.SetActive(false);
+                                }
+                            }
+                        }
+                    } finally {
+                        if (Bridge.is($t, System.IDisposable)) {
+                            $t.System$IDisposable$Dispose();
+                        }
+                    }
+                }
+                if (this.afterEndEnableObjects != null) {
+                    var array2 = this.afterEndEnableObjects;
+                    $t1 = Bridge.getEnumerator(array2);
+                    try {
+                        while ($t1.moveNext()) {
+                            var obj = $t1.Current;
+                            if (UnityEngine.GameObject.op_Inequality(obj, null)) {
+                                obj.SetActive(true);
+                                var btn = obj.GetComponent(UnityEngine.UI.Button);
+                                if (UnityEngine.MonoBehaviour.op_Inequality(btn, null)) {
+                                    btn.onClick.RemoveAllListeners();
+                                    btn.onClick.AddListener(Bridge.fn.cacheBind(this, this.OpenStore));
+                                }
+                            }
+                        }
+                    } finally {
+                        if (Bridge.is($t1, System.IDisposable)) {
+                            $t1.System$IDisposable$Dispose();
+                        }
+                    }
+                }
+                this.isStoreRedirectActive = true;
+                UnityEngine.Debug.Log$1("[HairCutController] WIN -> \u0110\u00c3 K\u00cdCH HO\u1ea0T: Click m\u00e0n h\u00ecnh b\u1ea5t k\u1ef3 l\u00fac n\u00e0o c\u0169ng ra Store!");
+            },
+            /*HairCutController.TriggerWinEndGame end.*/
+
+            /*HairCutController.TriggerLossEndGame start.*/
+            TriggerLossEndGame: function () {
+if ( TRACE ) { TRACE( "HairCutController#TriggerLossEndGame", this ); }
+
+                var $t, $t1, $t2;
+                UnityEngine.Debug.Log$1("[HairCutController] K\u00edch ho\u1ea1t LOSS END GAME (H\u1ebft endDelay)!");
+                if (this.allMasks != null) {
+                    var array = this.allMasks;
+                    $t = Bridge.getEnumerator(array);
+                    try {
+                        while ($t.moveNext()) {
+                            var mask = $t.Current;
+                            if (UnityEngine.Component.op_Inequality(mask, null)) {
+                                mask.gameObject.SetActive(false);
+                            }
+                        }
+                    } finally {
+                        if (Bridge.is($t, System.IDisposable)) {
+                            $t.System$IDisposable$Dispose();
+                        }
+                    }
+                }
+                if (UnityEngine.GameObject.op_Inequality(this.objectToDisableOnComplete, null)) {
+                    this.objectToDisableOnComplete.SetActive(true);
+                }
+                if (this.objectsToDisableOnComplete != null && this.objectsToDisableOnComplete.length !== 0) {
+                    var array2 = this.objectsToDisableOnComplete;
+                    $t1 = Bridge.getEnumerator(array2);
+                    try {
+                        while ($t1.moveNext()) {
+                            var obj2 = $t1.Current;
+                            if (UnityEngine.GameObject.op_Inequality(obj2, null)) {
+                                obj2.SetActive(true);
+                            }
+                        }
+                    } finally {
+                        if (Bridge.is($t1, System.IDisposable)) {
+                            $t1.System$IDisposable$Dispose();
+                        }
+                    }
+                }
+                if (UnityEngine.Component.op_Inequality(this.targetAnimatorToDisable, null)) {
+                    this.targetAnimatorToDisable.enabled = true;
+                }
+                if (UnityEngine.Component.op_Inequality(this.scissors, null)) {
+                    DG.Tweening.ShortcutExtensions.DOKill(this.scissors);
+                    if (UnityEngine.Component.op_Inequality(this.linePointA, null)) {
+                        this.scissors.position = this.linePointA.position.$clone();
+                    } else {
+                        this.scissors.position = this.initialScissorsPos.$clone();
+                    }
+                }
+                if (UnityEngine.GameObject.op_Inequality(this.lossObjectToEnable, null)) {
+                    this.lossObjectToEnable.SetActive(false);
+                }
+                if (this.lossObjectsToEnable != null && this.lossObjectsToEnable.length !== 0) {
+                    var array3 = this.lossObjectsToEnable;
+                    $t2 = Bridge.getEnumerator(array3);
+                    try {
+                        while ($t2.moveNext()) {
+                            var obj = $t2.Current;
+                            if (UnityEngine.GameObject.op_Inequality(obj, null)) {
+                                obj.SetActive(false);
+                            }
+                        }
+                    } finally {
+                        if (Bridge.is($t2, System.IDisposable)) {
+                            $t2.System$IDisposable$Dispose();
+                        }
+                    }
+                }
+                if (UnityEngine.Component.op_Inequality(this.lossSpriteRenderer, null) && this.initialLossSprite != null) {
+                    this.lossSpriteRenderer.sprite = this.initialLossSprite;
+                }
+                this.isStoreRedirectActive = true;
+                UnityEngine.Debug.Log$1("[HairCutController] LOSS -> \u0110\u00c3 K\u00cdCH HO\u1ea0T: K\u00e9o v\u1ec1 v\u1ecb tr\u00ed c\u0169, Kh\u00f4i ph\u1ee5c Sprite ban \u0111\u1ea7u & Click m\u00e0n h\u00ecnh b\u1ea5t k\u1ef3 l\u00fac n\u00e0o c\u0169ng ra Store!");
+            },
+            /*HairCutController.TriggerLossEndGame end.*/
+
+            /*HairCutController.OpenStore start.*/
+            OpenStore: function () {
+if ( TRACE ) { TRACE( "HairCutController#OpenStore", this ); }
+
+                UnityEngine.Debug.Log$1("[HairCutController] Chuy\u1ec3n h\u01b0\u1edbng m\u1edf Store Luna!");
+                Luna.Unity.LifeCycle.GameEnded();
+                Luna.Unity.Playable.InstallFullGame();
+            },
+            /*HairCutController.OpenStore end.*/
+
+
+        }
+    });
+    /*HairCutController end.*/
 
     /*HideOnFirstClick start.*/
     Bridge.define("HideOnFirstClick", {
@@ -2547,6 +3001,15 @@ if ( TRACE ) { TRACE( "PlayerCardUIManager#HideCard", this ); }
         statics: {
             fields: {
                 Ins: Bridge.getDefaultValue(T)
+            },
+            props: {
+                Instance: {
+                    get: function () {
+if ( TRACE ) { TRACE( "Ply_Singleton$1#Instance#get", this ); }
+
+                        return Bridge.rValue(Ply_Singleton$1(T).Ins);
+                    }
+                }
             },
             ctors: {
                 init: function () {
@@ -3148,7 +3611,7 @@ if ( TRACE ) { TRACE( "Ply_SoundManager#inherits", this ); }
             init: function () {
 if ( TRACE ) { TRACE( "Ply_SoundManager#init", this ); }
 
-                this.fx = System.Array.init(10, null, UnityEngine.AudioSource);
+                this.fx = System.Array.init(15, null, UnityEngine.AudioSource);
                 this.isMute = false;
             }
         },
@@ -3161,11 +3624,14 @@ if ( TRACE ) { TRACE( "Ply_SoundManager#PlayFx", this ); }
                     return;
                 }
                 var data = this.GetSoundData(fxType);
-                if (data != null && !(data.clip == null)) {
-                    var index = fxType;
-                    if (UnityEngine.Component.op_Equality(this.fx[index], null)) {
-                        this.fx[index] = new UnityEngine.GameObject.$ctor2("SoundFX_" + System.Enum.toString(FxType, fxType)).AddComponent(UnityEngine.AudioSource);
-                    }
+                if (data == null || data.clip == null) {
+                    return;
+                }
+                var index = fxType;
+                if (index < this.fx.length && UnityEngine.Component.op_Equality(this.fx[index], null)) {
+                    this.fx[index] = new UnityEngine.GameObject.$ctor2("SoundFX_" + System.Enum.toString(FxType, fxType)).AddComponent(UnityEngine.AudioSource);
+                }
+                if (index < this.fx.length) {
                     this.fx[index].clip = data.clip;
                     this.fx[index].Play();
                     for (var i = 1; i < data.repeatCount; i = (i + 1) | 0) {
@@ -3185,12 +3651,14 @@ if ( TRACE ) { TRACE( "Ply_SoundManager#PlayLoopFx", this ); }
                 var data = this.GetSoundData(fxType);
                 if (data != null && !(data.clip == null)) {
                     var index = fxType;
-                    if (UnityEngine.Component.op_Equality(this.fx[index], null)) {
+                    if (index < this.fx.length && UnityEngine.Component.op_Equality(this.fx[index], null)) {
                         this.fx[index] = new UnityEngine.GameObject.$ctor2("SoundFX_Loop_" + System.Enum.toString(FxType, fxType)).AddComponent(UnityEngine.AudioSource);
                     }
-                    this.fx[index].clip = data.clip;
-                    this.fx[index].loop = true;
-                    this.fx[index].Play();
+                    if (index < this.fx.length) {
+                        this.fx[index].clip = data.clip;
+                        this.fx[index].loop = true;
+                        this.fx[index].Play();
+                    }
                 }
             },
             /*Ply_SoundManager.PlayLoopFx end.*/
@@ -3238,6 +3706,8 @@ if ( TRACE ) { TRACE( "Ply_SoundManager#GetSoundData", this ); }
                         return this.fxAudio.Spray;
                     case FxType.Brush: 
                         return this.fxAudio.Brush;
+                    case FxType.Keo: 
+                        return this.fxAudio.Keo;
                     default: 
                         return null;
                 }
@@ -3306,12 +3776,16 @@ if ( TRACE ) { TRACE( "Ply_SoundManager#Mute", this ); }
     /*CupCollision end.*/
 
     /*FxAudio start.*/
-    $m("FxAudio", function () { return {"att":1056769,"a":2,"at":[new System.SerializableAttribute()],"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"Brush","t":4,"rt":SoundData,"sn":"Brush"},{"a":2,"n":"ClickBox","t":4,"rt":SoundData,"sn":"ClickBox"},{"a":2,"n":"Happy","t":4,"rt":SoundData,"sn":"Happy"},{"a":2,"n":"Spray","t":4,"rt":SoundData,"sn":"Spray"},{"a":2,"n":"Wrong","t":4,"rt":SoundData,"sn":"Wrong"}]}; }, $n);
+    $m("FxAudio", function () { return {"att":1056769,"a":2,"at":[new System.SerializableAttribute()],"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"Brush","t":4,"rt":SoundData,"sn":"Brush"},{"a":2,"n":"ClickBox","t":4,"rt":SoundData,"sn":"ClickBox"},{"a":2,"n":"Happy","t":4,"rt":SoundData,"sn":"Happy"},{"a":2,"n":"Keo","t":4,"rt":SoundData,"sn":"Keo"},{"a":2,"n":"Spray","t":4,"rt":SoundData,"sn":"Spray"},{"a":2,"n":"Wrong","t":4,"rt":SoundData,"sn":"Wrong"}]}; }, $n);
     /*FxAudio end.*/
 
     /*FxType start.*/
-    $m("FxType", function () { return {"att":257,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"Brush","is":true,"t":4,"rt":FxType,"sn":"Brush","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Click","is":true,"t":4,"rt":FxType,"sn":"Click","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Happy","is":true,"t":4,"rt":FxType,"sn":"Happy","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Spray","is":true,"t":4,"rt":FxType,"sn":"Spray","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Wrong","is":true,"t":4,"rt":FxType,"sn":"Wrong","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}}]}; }, $n);
+    $m("FxType", function () { return {"att":257,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"Brush","is":true,"t":4,"rt":FxType,"sn":"Brush","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Click","is":true,"t":4,"rt":FxType,"sn":"Click","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Happy","is":true,"t":4,"rt":FxType,"sn":"Happy","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Keo","is":true,"t":4,"rt":FxType,"sn":"Keo","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Spray","is":true,"t":4,"rt":FxType,"sn":"Spray","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}},{"a":2,"n":"Wrong","is":true,"t":4,"rt":FxType,"sn":"Wrong","box":function ($v) { return Bridge.box($v, FxType, System.Enum.toStringFn(FxType));}}]}; }, $n);
     /*FxType end.*/
+
+    /*HairCutController start.*/
+    $m("HairCutController", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"CheckOverlapDuringMove","t":8,"sn":"CheckOverlapDuringMove","rt":$n[0].Void},{"a":1,"n":"HandleFirstTap","t":8,"sn":"HandleFirstTap","rt":$n[0].Void},{"a":2,"n":"OpenStore","t":8,"sn":"OpenStore","rt":$n[0].Void},{"a":1,"n":"PerformCut","t":8,"sn":"PerformCut","rt":$n[0].Void},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"a":1,"n":"StartScissorCut","t":8,"sn":"StartScissorCut","rt":$n[0].Void},{"a":2,"n":"TriggerLossEndGame","t":8,"sn":"TriggerLossEndGame","rt":$n[0].Void},{"a":2,"n":"TriggerWinEndGame","t":8,"sn":"TriggerWinEndGame","rt":$n[0].Void},{"a":1,"n":"Update","t":8,"sn":"Update","rt":$n[0].Void},{"at":[new UnityEngine.TooltipAttribute("Danh s\u00e1ch GameObject c\u1ea7n T\u1eaeT sau khi k\u1ebft th\u00fac")],"a":2,"n":"afterEndDisableObjects","t":4,"rt":System.Array.type(UnityEngine.GameObject),"sn":"afterEndDisableObjects"},{"at":[new UnityEngine.TooltipAttribute("Danh s\u00e1ch GameObject c\u1ea7n B\u1eacT sau khi k\u1ebft th\u00fac (End Card, UI Store, Overlay...)")],"a":2,"n":"afterEndEnableObjects","t":4,"rt":System.Array.type(UnityEngine.GameObject),"sn":"afterEndEnableObjects"},{"at":[new UnityEngine.HeaderAttribute("=== Sprite Masks (b\u1eadt l\u00ean khi c\u1eaft) ==="),new UnityEngine.TooltipAttribute("K\u00e9o th\u1ea3 T\u1ea4T C\u1ea2 mask con v\u00e0o \u0111\u00e2y")],"a":2,"n":"allMasks","t":4,"rt":System.Array.type(UnityEngine.SpriteMask),"sn":"allMasks"},{"at":[new UnityEngine.TooltipAttribute("Animator c\u1ea7n B\u1eacT (enabled = true) khi Tap l\u1ea7n 1")],"a":2,"n":"animatorToEnableOnFirstTap","t":4,"rt":$n[1].Animator,"sn":"animatorToEnableOnFirstTap"},{"at":[new UnityEngine.HeaderAttribute("=== End Game (Sau 3s) ==="),new UnityEngine.TooltipAttribute("Th\u1eddi gian ch\u1edd tr\u01b0\u1edbc khi chuy\u1ec3n sang End Game & Click To Store (m\u1eb7c \u0111\u1ecbnh 3s)")],"a":2,"n":"endDelay","t":4,"rt":$n[0].Single,"sn":"endDelay","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"fadeDuration","t":4,"rt":$n[0].Single,"sn":"fadeDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"fallDistance","t":4,"rt":$n[0].Single,"sn":"fallDistance","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"fallDuration","t":4,"rt":$n[0].Single,"sn":"fallDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("=== T\u00f3c r\u01a1i xu\u1ed1ng ==="),new UnityEngine.TooltipAttribute("K\u00e9o th\u1ea3 GameObject 'T\u00f3c r\u01a1i xu\u1ed1ng' v\u00e0o \u0111\u00e2y")],"a":2,"n":"fallingHairParent","t":4,"rt":$n[1].Transform,"sn":"fallingHairParent"},{"at":[new UnityEngine.TooltipAttribute("K\u00e9o th\u1ea3 T\u1ea4T C\u1ea2 SpriteRenderer b\u00ean trong 'T\u00f3c r\u01a1i xu\u1ed1ng' v\u00e0o \u0111\u00e2y")],"a":2,"n":"fallingHairRenderers","t":4,"rt":System.Array.type(UnityEngine.SpriteRenderer),"sn":"fallingHairRenderers"},{"at":[new UnityEngine.TooltipAttribute("T\u00ean Trigger parameter c\u1ee7a Animation c\u1ea7n ch\u1ea1y khi Tap l\u1ea7n 1 (\u0111\u1ec3 tr\u1ed1ng n\u1ebfu kh\u00f4ng d\u00f9ng)")],"a":2,"n":"firstTapTriggerName","t":4,"rt":$n[0].String,"sn":"firstTapTriggerName"},{"a":1,"n":"hasCut","t":4,"rt":$n[0].Boolean,"sn":"hasCut","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"hasHitTarget","t":4,"rt":$n[0].Boolean,"sn":"hasHitTarget","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.TooltipAttribute("N\u1ebfu t\u00edch ch\u1ecdn: Khi LOSS s\u1ebd th\u1ef1c hi\u1ec7n End Game ngay l\u1eadp t\u1ee9c (kh\u00f4ng ch\u1edd 3s)")],"a":2,"n":"immediateEndGameOnLoss","t":4,"rt":$n[0].Boolean,"sn":"immediateEndGameOnLoss","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"initialLossSprite","t":4,"rt":$n[1].Sprite,"sn":"initialLossSprite"},{"a":1,"n":"initialScissorsPos","t":4,"rt":$n[1].Vector3,"sn":"initialScissorsPos"},{"a":1,"n":"isMovingScissor","t":4,"rt":$n[0].Boolean,"sn":"isMovingScissor","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"isStoreRedirectActive","t":4,"rt":$n[0].Boolean,"sn":"isStoreRedirectActive","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.TooltipAttribute("\u0110i\u1ec3m A c\u1ee7a line (m\u00e9p tr\u00e1i \u0111\u01b0\u1eddng c\u1eaft)")],"a":2,"n":"linePointA","t":4,"rt":$n[1].Transform,"sn":"linePointA"},{"at":[new UnityEngine.TooltipAttribute("\u0110i\u1ec3m B c\u1ee7a line (m\u00e9p ph\u1ea3i \u0111\u01b0\u1eddng c\u1eaft)")],"a":2,"n":"linePointB","t":4,"rt":$n[1].Transform,"sn":"linePointB"},{"at":[new UnityEngine.TooltipAttribute("GameObject c\u1ea7n B\u1eacT (SetActive = true) khi b\u1ecb LOSS (v\u00ed d\u1ee5: Popup Thua, UI Try Again, v.v.)")],"a":2,"n":"lossObjectToEnable","t":4,"rt":$n[1].GameObject,"sn":"lossObjectToEnable"},{"at":[new UnityEngine.TooltipAttribute("Danh s\u00e1ch nhi\u1ec1u GameObject c\u1ea7n B\u1eacT khi b\u1ecb LOSS")],"a":2,"n":"lossObjectsToEnable","t":4,"rt":System.Array.type(UnityEngine.GameObject),"sn":"lossObjectsToEnable"},{"at":[new UnityEngine.TooltipAttribute("Sprite m\u1edbi khi b\u1ecb LOSS (v\u00ed d\u1ee5: sprite halaand-loss)")],"a":2,"n":"lossSprite","t":4,"rt":$n[1].Sprite,"sn":"lossSprite"},{"at":[new UnityEngine.HeaderAttribute("--- LOSS Settings ---"),new UnityEngine.TooltipAttribute("SpriteRenderer c\u1ea7n \u0111\u1ed5i h\u00ecnh khi b\u1ecb LOSS (v\u00ed d\u1ee5: th\u00e2n/m\u1eb7t nh\u00e2n v\u1eadt)")],"a":2,"n":"lossSpriteRenderer","t":4,"rt":$n[1].SpriteRenderer,"sn":"lossSpriteRenderer"},{"at":[new UnityEngine.HeaderAttribute("=== C\u1ea5u h\u00ecnh ==="),new UnityEngine.TooltipAttribute("GameObject c\u1ea7n T\u1eaeT (SetActive = false) khi k\u00e9o \u0111\u00e3 ch\u1ea1y xong t\u1edbi \u0111i\u1ec3m B")],"a":2,"n":"objectToDisableOnComplete","t":4,"rt":$n[1].GameObject,"sn":"objectToDisableOnComplete"},{"at":[new UnityEngine.TooltipAttribute("Danh s\u00e1ch c\u00e1c GameObject c\u1ea7n T\u1eaeT n\u1ebfu b\u1ea1n mu\u1ed1n t\u1eaft nhi\u1ec1u h\u01a1n 1 object")],"a":2,"n":"objectsToDisableOnComplete","t":4,"rt":System.Array.type(UnityEngine.GameObject),"sn":"objectsToDisableOnComplete"},{"at":[new UnityEngine.TooltipAttribute("Th\u1eddi gian k\u00e9o ch\u1ea1y t\u1eeb A \u2192 B (gi\u00e2y)")],"a":2,"n":"scissorMoveDuration","t":4,"rt":$n[0].Single,"sn":"scissorMoveDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("=== C\u00e2y k\u00e9o ==="),new UnityEngine.TooltipAttribute("K\u00e9o th\u1ea3 con k\u00e9o v\u00e0o \u0111\u00e2y")],"a":2,"n":"scissors","t":4,"rt":$n[1].Transform,"sn":"scissors"},{"at":[new UnityEngine.TooltipAttribute("Animator tr\u00ean con k\u00e9o")],"a":2,"n":"scissorsAnimator","t":4,"rt":$n[1].Animator,"sn":"scissorsAnimator"},{"at":[new UnityEngine.HeaderAttribute("=== Win / Loss Settings ==="),new UnityEngine.TooltipAttribute("BoxCollider2D tr\u00ean con k\u00e9o (Keo)")],"a":2,"n":"scissorsCollider","t":4,"rt":$n[1].Collider2D,"sn":"scissorsCollider"},{"a":1,"n":"tapState","t":4,"rt":$n[0].Int32,"sn":"tapState","box":function ($v) { return Bridge.box($v, System.Int32);}},{"at":[new UnityEngine.TooltipAttribute("Animator c\u1ee7a GameObject c\u1ea7n T\u1eaeT khi click v\u00e0o m\u00e0n h\u00ecnh")],"a":2,"n":"targetAnimatorToDisable","t":4,"rt":$n[1].Animator,"sn":"targetAnimatorToDisable"},{"at":[new UnityEngine.TooltipAttribute("BoxCollider2D c\u1ee7a Arrow 218")],"a":2,"n":"targetCollider","t":4,"rt":$n[1].Collider2D,"sn":"targetCollider"},{"at":[new UnityEngine.HeaderAttribute("=== Step 1 (Tap L\u1ea7n 1) ==="),new UnityEngine.TooltipAttribute("GameObject Tutorial / H\u01b0\u1edbng d\u1eabn c\u1ea7n \u1ea8N khi ng\u01b0\u1eddi ch\u01a1i Tap l\u1ea7n 1")],"a":2,"n":"tutObject","t":4,"rt":$n[1].GameObject,"sn":"tutObject"},{"at":[new UnityEngine.TooltipAttribute("GameObject c\u1ea7n T\u1eaeT khi WIN")],"a":2,"n":"winObjectToDisable","t":4,"rt":$n[1].GameObject,"sn":"winObjectToDisable"},{"at":[new UnityEngine.HeaderAttribute("--- WIN Settings ---"),new UnityEngine.TooltipAttribute("GameObject c\u1ea7n B\u1eacT khi WIN")],"a":2,"n":"winObjectToEnable","t":4,"rt":$n[1].GameObject,"sn":"winObjectToEnable"},{"at":[new UnityEngine.TooltipAttribute("Danh s\u00e1ch c\u00e1c GameObject c\u1ea7n T\u1eaeT khi WIN (UI H\u01b0\u1edbng d\u1eabn, N\u00fat Hold To Shoot, v.v.)")],"a":2,"n":"winObjectsToDisable","t":4,"rt":System.Array.type(UnityEngine.GameObject),"sn":"winObjectsToDisable"},{"at":[new UnityEngine.TooltipAttribute("Danh s\u00e1ch c\u00e1c GameObject c\u1ea7n B\u1eacT khi WIN (Confetti, UI Th\u1eafng, Sound, v.v.)")],"a":2,"n":"winObjectsToEnable","t":4,"rt":System.Array.type(UnityEngine.GameObject),"sn":"winObjectsToEnable"}]}; }, $n);
+    /*HairCutController end.*/
 
     /*HideOnFirstClick start.*/
     $m("HideOnFirstClick", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"a":1,"n":"Update","t":8,"sn":"Update","rt":$n[0].Void},{"at":[new UnityEngine.TooltipAttribute("K\u00e9o th\u1ea3 object b\u1ea1n mu\u1ed1n t\u1eaft v\u00e0o \u0111\u00e2y (V\u00ed d\u1ee5: b\u00e0n tay h\u01b0\u1edbng d\u1eabn). N\u1ebfu \u0111\u1ec3 tr\u1ed1ng th\u00ec n\u00f3 s\u1ebd t\u1ef1 t\u1eaft ch\u00ednh n\u00f3.")],"a":2,"n":"objectToHide","t":4,"rt":$n[1].GameObject,"sn":"objectToHide"}]}; }, $n);
@@ -3348,7 +3822,7 @@ if ( TRACE ) { TRACE( "Ply_SoundManager#Mute", this ); }
     /*Ply_Pool+PoolAmount end.*/
 
     /*Ply_Singleton$1 start.*/
-    $m("Ply_Singleton$1", function (T) { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"v":true,"a":2,"n":"Awake","t":8,"sn":"Awake","rt":$n[0].Void},{"a":2,"n":"Ins","is":true,"t":4,"rt":T,"sn":"Ins"}]}; }, $n);
+    $m("Ply_Singleton$1", function (T) { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"v":true,"a":2,"n":"Awake","t":8,"sn":"Awake","rt":$n[0].Void},{"a":2,"n":"Instance","is":true,"t":16,"rt":T,"g":{"a":2,"n":"get_Instance","t":8,"rt":T,"fg":"Instance","is":true},"fn":"Instance"},{"a":2,"n":"Ins","is":true,"t":4,"rt":T,"sn":"Ins"}]}; }, $n);
     /*Ply_Singleton$1 end.*/
 
     /*Ply_SoundManager start.*/

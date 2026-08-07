@@ -4,5 +4,6 @@ public enum FxType
 	Happy,
 	Wrong,
 	Spray,
-	Brush
+	Brush,
+	Keo
 }

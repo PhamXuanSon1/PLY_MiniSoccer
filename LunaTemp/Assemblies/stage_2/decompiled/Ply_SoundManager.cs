@@ -6,7 +6,7 @@ public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>
 
 	public AudioSource bgm1;
 
-	private AudioSource[] fx = new AudioSource[10];
+	private AudioSource[] fx = new AudioSource[15];
 
 	private bool isMute = false;
 
@@ -17,13 +17,17 @@ public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>
 			return;
 		}
 		SoundData data = GetSoundData(fxType);
-		if (data != null && !(data.clip == null))
+		if (data == null || data.clip == null)
 		{
-			int index = (int)fxType;
-			if (fx[index] == null)
-			{
-				fx[index] = new GameObject("SoundFX_" + fxType).AddComponent<AudioSource>();
-			}
+			return;
+		}
+		int index = (int)fxType;
+		if (index < fx.Length && fx[index] == null)
+		{
+			fx[index] = new GameObject("SoundFX_" + fxType).AddComponent<AudioSource>();
+		}
+		if (index < fx.Length)
+		{
 			fx[index].clip = data.clip;
 			fx[index].Play();
 			for (int i = 1; i < data.repeatCount; i++)
@@ -43,13 +47,16 @@ public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>
 		if (data != null && !(data.clip == null))
 		{
 			int index = (int)fxType;
-			if (fx[index] == null)
+			if (index < fx.Length && fx[index] == null)
 			{
 				fx[index] = new GameObject("SoundFX_Loop_" + fxType).AddComponent<AudioSource>();
 			}
-			fx[index].clip = data.clip;
-			fx[index].loop = true;
-			fx[index].Play();
+			if (index < fx.Length)
+			{
+				fx[index].clip = data.clip;
+				fx[index].loop = true;
+				fx[index].Play();
+			}
 		}
 	}
 
@@ -88,6 +95,8 @@ public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>
 			return fxAudio.Spray;
 		case FxType.Brush:
 			return fxAudio.Brush;
+		case FxType.Keo:
+			return fxAudio.Keo;
 		default:
 			return null;
 		}

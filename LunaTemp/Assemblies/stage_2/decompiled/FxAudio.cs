@@ -12,4 +12,6 @@ public class FxAudio
 	public SoundData Spray;
 
 	public SoundData Brush;
+
+	public SoundData Keo;
 }

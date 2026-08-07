@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ply_Singleton<T> : MonoBehaviour
 {
     public static T Ins;
+    public static T Instance => Ins;
 
     public virtual void Awake()
     {
