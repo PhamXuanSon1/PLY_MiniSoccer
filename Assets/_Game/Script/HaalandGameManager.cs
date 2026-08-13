@@ -69,6 +69,8 @@ namespace HaalandGame
         public float haalandHurtDelay = 2.0f;  // Sau 2.0s kể từ khi bật Cloud -> Bật Haaland bị đau
         public float cloudDuration = 3.0f;     // Hết 3.0s mây khói tắt -> Bật StandPlayer
         public float refereeAnimDelay = 0.5f;  // Sau 0.5s kể từ khi bật StandPlayer -> Phát Anim trọng tài
+        public float nextActionDelay = 2.0f;   // Sau 2.0s kể từ khi hiện Win/Wrong UI -> Bật lại Dribble
+        public float dribbleToTackleDelay = 0.5f; // Sau 0.5s kể từ khi bật Dribble -> Mới kích hoạt Messi xoạc bóng
 
         [Header("=== 7. CHỌN CẦU THỦ & CHAT BUBBLES ===")]
         public Animator ronaldoStandAnimator;
@@ -111,6 +113,11 @@ namespace HaalandGame
         [Tooltip("Sprite Mbappe buồn/phản đối (Khi chọn SAI Mbappe)")]
         public Sprite mbappeSadSprite;
 
+        [Header("--- Trọng Tài Stand ---")]
+        public SpriteRenderer refereeSpriteRenderer;
+        [Tooltip("Sprite Trọng Tài khi chọn xong cầu thủ")]
+        public Sprite refereeReactionSprite;
+
         public int currentLevel = 1;
         private bool isTackleStarted = false;
         private bool isChoiceMade = false;
@@ -120,6 +127,7 @@ namespace HaalandGame
         private Sprite originalMessiSprite;
         private Sprite originalViniSprite;
         private Sprite originalMbappeSprite;
+        private Sprite originalRefereeSprite;
 
         private void Awake()
         {
@@ -133,6 +141,7 @@ namespace HaalandGame
             if (messiSpriteRenderer != null) originalMessiSprite = messiSpriteRenderer.sprite;
             if (viniSpriteRenderer != null) originalViniSprite = viniSpriteRenderer.sprite;
             if (mbappeSpriteRenderer != null) originalMbappeSprite = mbappeSpriteRenderer.sprite;
+            if (refereeSpriteRenderer != null) originalRefereeSprite = refereeSpriteRenderer.sprite;
 
             InitLevel();
         }
@@ -165,7 +174,7 @@ namespace HaalandGame
             if (viniChatBubble != null) viniChatBubble.SetActive(false);
             if (mbappeChatBubble != null) mbappeChatBubble.SetActive(false);
 
-            // Reset Sprite tất cả cầu thủ về origin
+            // Reset Sprite tất cả cầu thủ & Trọng tài về origin
             ResetPlayerSpritesToOrigin();
 
             if (refereeAnimator != null)
@@ -190,6 +199,7 @@ namespace HaalandGame
             if (messiSpriteRenderer != null && originalMessiSprite != null) messiSpriteRenderer.sprite = originalMessiSprite;
             if (viniSpriteRenderer != null && originalViniSprite != null) viniSpriteRenderer.sprite = originalViniSprite;
             if (mbappeSpriteRenderer != null && originalMbappeSprite != null) mbappeSpriteRenderer.sprite = originalMbappeSprite;
+            if (refereeSpriteRenderer != null && originalRefereeSprite != null) refereeSpriteRenderer.sprite = originalRefereeSprite;
         }
 
         // Helper methods cho UI Icon Buttons OnClick () trong Inspector
@@ -224,6 +234,12 @@ namespace HaalandGame
 
             if (isChoiceMade) return;
             isChoiceMade = true;
+
+            // Đổi Sprite Trọng Tài sang refereeReactionSprite (nếu được gán)
+            if (refereeSpriteRenderer != null && refereeReactionSprite != null)
+            {
+                refereeSpriteRenderer.sprite = refereeReactionSprite;
+            }
 
             // Dừng animation xoay đầu của trọng tài, rewind về frame 0, reset child transform và xoay root về hướng cầu thủ được chọn (Tương thích tốt với Luna)
             if (refereeAnimator != null)
@@ -276,8 +292,8 @@ namespace HaalandGame
                 }
                 if (ronaldoChatBubble != null) ronaldoChatBubble.SetActive(true);
 
-                // Sau 2s -> Sang Level 2 (TH2: Messi xoạc L->R nhanh)
-                Invoke(nameof(GoToLevel2), 2.0f);
+                // Sau khi hiện Win UI -> Sang Level 2 (TH2: Messi xoạc L->R nhanh)
+                Invoke(nameof(GoToLevel2), nextActionDelay);
             }
             else
             {
@@ -326,8 +342,8 @@ namespace HaalandGame
                     if (mbappeChatBubble != null) mbappeChatBubble.SetActive(true);
                 }
 
-                // Sau 2s -> Chơi lại (TH1: Replay Messi xoạc L->R + Tackle)
-                Invoke(nameof(ReplayLevel1), 2.0f);
+                // Sau khi hiện Wrong UI -> Chơi lại (TH1: Replay Messi xoạc L->R + Tackle)
+                Invoke(nameof(ReplayLevel1), nextActionDelay);
             }
         }
 
@@ -336,7 +352,7 @@ namespace HaalandGame
             Debug.Log("[HaalandGameManager] GoToLevel2: Transitioning to Level 2 (Messi Tackle).");
             currentLevel = 2;
             InitLevel();
-            OnUserTapStart();
+            Invoke(nameof(StartTackleAfterDelay), dribbleToTackleDelay);
         }
 
         private void ReplayLevel1()
@@ -344,6 +360,11 @@ namespace HaalandGame
             Debug.Log("[HaalandGameManager] ReplayLevel1: Replaying Level 1 with Messi Tackle.");
             currentLevel = 2; // Chạy Messi xoạc theo sơ đồ Replay
             InitLevel();
+            Invoke(nameof(StartTackleAfterDelay), dribbleToTackleDelay);
+        }
+
+        private void StartTackleAfterDelay()
+        {
             OnUserTapStart();
         }
 
