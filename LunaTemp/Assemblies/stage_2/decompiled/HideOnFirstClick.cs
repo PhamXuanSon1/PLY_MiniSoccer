@@ -1,3 +1,4 @@
+using HaalandGame;
 using UnityEngine;
 
 public class HideOnFirstClick : MonoBehaviour
@@ -17,6 +18,10 @@ public class HideOnFirstClick : MonoBehaviour
 	{
 		if (Input.GetMouseButtonDown(0))
 		{
+			if (HaalandGameManager.Instance != null)
+			{
+				HaalandGameManager.Instance.OnUserTapStart();
+			}
 			if (objectToHide != null)
 			{
 				objectToHide.SetActive(false);

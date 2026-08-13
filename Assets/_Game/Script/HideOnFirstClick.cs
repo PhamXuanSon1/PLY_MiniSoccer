@@ -19,6 +19,11 @@ public class HideOnFirstClick : MonoBehaviour
         // Nhận diện lần chạm/click chuột đầu tiên
         if (Input.GetMouseButtonDown(0))
         {
+            if (HaalandGame.HaalandGameManager.Instance != null)
+            {
+                HaalandGame.HaalandGameManager.Instance.OnUserTapStart();
+            }
+
             if (objectToHide != null)
             {
                 objectToHide.SetActive(false); // Tắt object đi
