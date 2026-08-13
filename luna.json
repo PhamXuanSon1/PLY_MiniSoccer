@@ -1,7 +1,7 @@
 {
     "version": "7.1.0",
     "projectId": "60d50cfced72ae74bb8c1682cb9abbe6",
-    "applicationID": 0,
+    "applicationID": 40548,
     "creativeName": "PLY_V19",
     "pgServer": "EU",
     "window": {
@@ -7291,10 +7291,6 @@
                 "excluded": true
             },
             {
-                "name": "DG.Tweening.TweenExtensions",
-                "excluded": true
-            },
-            {
                 "name": "DG.Tweening.TweenParams",
                 "excluded": true
             },
@@ -8605,6 +8601,18 @@
             {
                 "name": "HaalandGame.PlayerType",
                 "excluded": false
+            },
+            {
+                "name": "ALEvent",
+                "excluded": false
+            },
+            {
+                "name": "pc.Debugger.Components.EditorCamera",
+                "excluded": true
+            },
+            {
+                "name": "pc.Debugger.Components.EditorGUI",
+                "excluded": true
             }
         ],
         "unusedMethods": [
@@ -17084,7 +17092,7 @@
                     },
                     {
                         "name": "localPosition#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "position#get",
@@ -17100,7 +17108,7 @@
                     },
                     {
                         "name": "localScale#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "lossyScale#get",
@@ -17124,11 +17132,11 @@
                     },
                     {
                         "name": "localRotation#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "localRotation#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "rotation#get",
@@ -29332,7 +29340,7 @@
                     },
                     {
                         "name": "AddActiveTweenToSequence",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "DespawnAll",
@@ -29396,7 +29404,7 @@
                     },
                     {
                         "name": "Goto",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Pause",
@@ -29720,7 +29728,7 @@
                     },
                     {
                         "name": "DOScale$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "DOScale",
@@ -30070,7 +30078,7 @@
                     },
                     {
                         "name": "Append",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Prepend",
@@ -30502,7 +30510,7 @@
                     },
                     {
                         "name": "DoInsert",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "DoAppendInterval",
@@ -32176,7 +32184,7 @@
                     },
                     {
                         "name": "GoToStore",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "OpenStore",
@@ -32188,6 +32196,18 @@
                     },
                     {
                         "name": "PlayOrTriggerAnimation",
+                        "excluded": false
+                    },
+                    {
+                        "name": "StartTackleAfterDelay",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayTackleSound",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayTackleAnimationAndTimers",
                         "excluded": false
                     }
                 ]
@@ -33773,6 +33793,258 @@
                         "excluded": false
                     }
                 ]
+            },
+            {
+                "className": "AppLovinAnalytics",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Track",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "HaalandGame.IconListAnimator",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnEnable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDisable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDestroy",
+                        "excluded": true
+                    },
+                    {
+                        "name": "TriggerStartWithDelay",
+                        "excluded": false
+                    },
+                    {
+                        "name": "AutoAssignIconsIfEmpty",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayLoopPulseAnimation",
+                        "excluded": false
+                    },
+                    {
+                        "name": "StopAnimation",
+                        "excluded": false
+                    },
+                    {
+                        "name": "PlayGrowAnimation",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "HaalandGame.HaalandGameManager.TransformState",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "getDefaultValue",
+                        "excluded": false
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "getHashCode",
+                        "excluded": true
+                    },
+                    {
+                        "name": "equals",
+                        "excluded": true
+                    },
+                    {
+                        "name": "$clone",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "DG.Tweening.TweenExtensions",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "Complete",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Complete$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Flip",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ForceInit",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Goto",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GotoWithCallbacks",
+                        "excluded": true
+                    },
+                    {
+                        "name": "DoGoto",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Kill",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ManualUpdate",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Pause",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Play",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayBackwards",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PlayForward",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Restart",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Rewind",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SmoothRewind",
+                        "excluded": true
+                    },
+                    {
+                        "name": "TogglePause",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GotoWaypoint",
+                        "excluded": true
+                    },
+                    {
+                        "name": "WaitForCompletion",
+                        "excluded": true
+                    },
+                    {
+                        "name": "WaitForRewind",
+                        "excluded": true
+                    },
+                    {
+                        "name": "WaitForKill",
+                        "excluded": true
+                    },
+                    {
+                        "name": "WaitForElapsedLoops",
+                        "excluded": true
+                    },
+                    {
+                        "name": "WaitForPosition",
+                        "excluded": true
+                    },
+                    {
+                        "name": "WaitForStart",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CompletedLoops",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Delay",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ElapsedDelay",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Duration",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Elapsed",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ElapsedPercentage",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ElapsedDirectionalPercentage",
+                        "excluded": true
+                    },
+                    {
+                        "name": "IsActive",
+                        "excluded": true
+                    },
+                    {
+                        "name": "IsBackwards",
+                        "excluded": true
+                    },
+                    {
+                        "name": "IsComplete",
+                        "excluded": true
+                    },
+                    {
+                        "name": "IsInitialized",
+                        "excluded": true
+                    },
+                    {
+                        "name": "IsPlaying",
+                        "excluded": true
+                    },
+                    {
+                        "name": "Loops",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PathGetPoint",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PathGetDrawPoints",
+                        "excluded": true
+                    },
+                    {
+                        "name": "PathLength",
+                        "excluded": true
+                    }
+                ]
             }
         ],
         "stubberDataList": [],
@@ -34290,6 +34562,46 @@
                         "script": "",
                         "ext": "",
                         "name": "Assets/_Game/Font/LilitaOne-Regular SDF.asset"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply19/lv1/moi (2).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply19/lv1/trong tai (2).png"
+                    },
+                    {
+                        "maxWidth": 592,
+                        "maxHeight": 309,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply19/I will tell my Father.png"
+                    },
+                    {
+                        "maxWidth": 200,
+                        "maxHeight": 200,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply19/lv1/New Project (57) (1).png"
                     }
                 ]
             },
@@ -34353,6 +34665,76 @@
                         "script": "",
                         "ext": "",
                         "name": "Assets/_Game/Sound/confetti (mp3cut.net).mp3"
+                    },
+                    {
+                        "channels": 1,
+                        "startTime": "00:00.000",
+                        "endTime": "00:30.000",
+                        "lengthInSeconds": 30.0,
+                        "bitrate": 64,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sound/19/chß╗ë khi chß╗ìn vini.mp3"
+                    },
+                    {
+                        "channels": 1,
+                        "startTime": "00:00.000",
+                        "endTime": "00:30.000",
+                        "lengthInSeconds": 30.0,
+                        "bitrate": 64,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sound/19/khi chß╗ìn messi v├á mbappe.mp3"
+                    },
+                    {
+                        "channels": 1,
+                        "startTime": "00:00.000",
+                        "endTime": "00:30.000",
+                        "lengthInSeconds": 30.0,
+                        "bitrate": 64,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sound/19/ngay khi cß║ºu thß╗º bß╗ï xoß║íc b├│ng.mp3"
+                    },
+                    {
+                        "channels": 1,
+                        "startTime": "00:00.000",
+                        "endTime": "00:30.000",
+                        "lengthInSeconds": 30.0,
+                        "bitrate": 64,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sound/19/1.mp3"
+                    },
+                    {
+                        "channels": 1,
+                        "startTime": "00:00.000",
+                        "endTime": "00:30.000",
+                        "lengthInSeconds": 30.0,
+                        "bitrate": 64,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sound/19/2.mp3"
+                    },
+                    {
+                        "channels": 1,
+                        "startTime": "00:00.000",
+                        "endTime": "00:30.000",
+                        "lengthInSeconds": 30.0,
+                        "bitrate": 64,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sound/19/3.mp3"
+                    },
+                    {
+                        "channels": 1,
+                        "startTime": "00:00.000",
+                        "endTime": "00:30.000",
+                        "lengthInSeconds": 30.0,
+                        "bitrate": 64,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sound/19/4.mp3"
                     }
                 ]
             },

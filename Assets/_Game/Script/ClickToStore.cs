@@ -8,6 +8,9 @@ public class ClickToStore : MonoBehaviour
     {
         Debug.Log("Đã click vào Item -> Chuyển hướng ra Store!");
         
+        // Analytics: CTA clicked
+        AppLovinAnalytics.Track(ALEvent.CTA_CLICKED);
+        
         // Gọi lệnh kết thúc game và mở Store của Luna
         LifeCycle.GameEnded();
         Playable.InstallFullGame();

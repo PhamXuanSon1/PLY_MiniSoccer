@@ -101,6 +101,14 @@ public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>
 			return fxAudio.Confetti;
 		case FxType.Lose2:
 			return fxAudio.Lose2;
+		case FxType.SelectVini:
+			return fxAudio.SelectVini;
+		case FxType.SelectMessiMbappe:
+			return fxAudio.SelectMessiMbappe;
+		case FxType.Tackle:
+			return fxAudio.Tackle;
+		case FxType.HaalandHurt:
+			return fxAudio.HaalandHurt;
 		default:
 			return null;
 		}

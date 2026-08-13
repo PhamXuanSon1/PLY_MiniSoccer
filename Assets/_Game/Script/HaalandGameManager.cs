@@ -22,9 +22,15 @@ namespace HaalandGame
         public Animator messiTackleAnimator;
         public string startMessiTackleTrigger = "StartMessiTackle";
 
+        [Tooltip("Thời gian chờ (delay) trước khi phát animation xoạc bóng (mặc định 1.0s)")]
+        public float tackleAnimDelay = 1.0f;
+
         [Header("=== 3. HAALAND RÊ BÓNG & KHÓI (FIGHTING CLOUD) ===")]
         [Tooltip("Obj ảnh 're bong' (con của Haaland rê bóng) - sẽ tắt khi va chạm")]
         public GameObject haalandDribbleImage;
+        [Tooltip("Animator của Haaland rê bóng (phát khi người chơi click lần đầu)")]
+        public Animator haalandDribbleAnimator;
+        public string startHaalandDribbleTrigger = "StartHaalandDribble";
 
         [Tooltip("GameObject FightingCloud (Bật khi va chạm, tắt sau 3s)")]
         public GameObject fightingCloud;
@@ -71,6 +77,7 @@ namespace HaalandGame
         public float refereeAnimDelay = 0.5f;  // Sau 0.5s kể từ khi bật StandPlayer -> Phát Anim trọng tài
         public float nextActionDelay = 2.0f;   // Sau 2.0s kể từ khi hiện Win/Wrong UI -> Bật lại Dribble
         public float dribbleToTackleDelay = 0.5f; // Sau 0.5s kể từ khi bật Dribble -> Mới kích hoạt Messi xoạc bóng
+        public float tackleSoundDelay = 0.2f;  // Độ trễ phát sound xoạc bóng kể từ khi kích hoạt xoạc
 
         [Header("=== 7. CHỌN CẦU THỦ & CHAT BUBBLES ===")]
         public Animator ronaldoStandAnimator;
@@ -118,6 +125,9 @@ namespace HaalandGame
         [Tooltip("Sprite Trọng Tài khi chọn xong cầu thủ")]
         public Sprite refereeReactionSprite;
 
+        [Header("=== 9. DOTWEEN ICON ANIMATION ===")]
+        public IconListAnimator iconListAnimator;
+
         public int currentLevel = 1;
         private bool isTackleStarted = false;
         private bool isChoiceMade = false;
@@ -129,10 +139,23 @@ namespace HaalandGame
         private Sprite originalMbappeSprite;
         private Sprite originalRefereeSprite;
 
+        private struct TransformState
+        {
+            public Transform transform;
+            public Vector3 localPosition;
+            public Quaternion localRotation;
+            public Vector3 localScale;
+        }
+
+        private System.Collections.Generic.List<TransformState> haalandDribbleOriginalStates = new System.Collections.Generic.List<TransformState>();
+
         private void Awake()
         {
             if (Instance == null) Instance = this;
             else Destroy(gameObject);
+            
+            // Analytics: Game is loading
+            AppLovinAnalytics.Track(ALEvent.LOADING);
         }
 
         private void Start()
@@ -143,7 +166,31 @@ namespace HaalandGame
             if (mbappeSpriteRenderer != null) originalMbappeSprite = mbappeSpriteRenderer.sprite;
             if (refereeSpriteRenderer != null) originalRefereeSprite = refereeSpriteRenderer.sprite;
 
+            // Lưu giữ vị trí, góc xoay, scale ban đầu của haalandDribbleImage và tất cả child objects (như 're bong')
+            if (haalandDribbleImage != null)
+            {
+                haalandDribbleOriginalStates.Clear();
+                foreach (Transform t in haalandDribbleImage.GetComponentsInChildren<Transform>(true))
+                {
+                    if (t != null)
+                    {
+                        haalandDribbleOriginalStates.Add(new TransformState
+                        {
+                            transform = t,
+                            localPosition = t.localPosition,
+                            localRotation = t.localRotation,
+                            localScale = t.localScale
+                        });
+                    }
+                }
+            }
+
             InitLevel();
+            
+            // Analytics: Game is loaded
+            AppLovinAnalytics.Track(ALEvent.LOADED);
+            // Analytics: Game is displayed
+            AppLovinAnalytics.Track(ALEvent.DISPLAYED);
         }
 
         public void InitLevel()
@@ -161,7 +208,30 @@ namespace HaalandGame
             if (winExtraObj2 != null) winExtraObj2.SetActive(false);
             if (iconListUI != null) iconListUI.SetActive(false);
 
-            if (haalandDribbleImage != null) haalandDribbleImage.SetActive(true);
+            if (haalandDribbleImage != null)
+            {
+                // Khôi phục lại vị trí, góc xoay, scale ban đầu TRƯỚC KHI Active lại GameObject (tránh giật 1 frame ở V3(0,0,0))
+                foreach (var state in haalandDribbleOriginalStates)
+                {
+                    if (state.transform != null)
+                    {
+                        state.transform.localPosition = state.localPosition;
+                        state.transform.localRotation = state.localRotation;
+                        state.transform.localScale = state.localScale;
+                    }
+                }
+
+                Animator anim = haalandDribbleAnimator != null ? haalandDribbleAnimator : haalandDribbleImage.GetComponentInChildren<Animator>(true);
+                if (anim != null)
+                {
+                    anim.enabled = true;
+                    anim.Play(0, 0, 0f);
+                    anim.Update(0f);
+                }
+
+                // SAU ĐÓ MỚI ACTIVE GAME OBJECT
+                haalandDribbleImage.SetActive(true);
+            }
             if (fightingCloud != null) fightingCloud.SetActive(false);
             if (haalandHurt != null) haalandHurt.SetActive(false);
             if (standPlayers != null) standPlayers.SetActive(false);
@@ -234,11 +304,26 @@ namespace HaalandGame
 
             if (isChoiceMade) return;
             isChoiceMade = true;
+            
+            // Analytics: Player selection progression
+            AppLovinAnalytics.Track(ALEvent.CHALLENGE_PASS_25);
+            AppLovinAnalytics.Track(ALEvent.CHALLENGE_PASS_50);
+            AppLovinAnalytics.Track(ALEvent.CHALLENGE_PASS_75);
 
             // Đổi Sprite Trọng Tài sang refereeReactionSprite (nếu được gán)
             if (refereeSpriteRenderer != null && refereeReactionSprite != null)
             {
                 refereeSpriteRenderer.sprite = refereeReactionSprite;
+            }
+
+            // Phát Sound tương ứng khi chọn cầu thủ
+            if (selectedPlayer == PlayerType.Vini)
+            {
+                if (Ply_SoundManager.Instance != null) Ply_SoundManager.Instance.PlayFx(FxType.SelectVini);
+            }
+            else if (selectedPlayer == PlayerType.Messi || selectedPlayer == PlayerType.Mbappe)
+            {
+                if (Ply_SoundManager.Instance != null) Ply_SoundManager.Instance.PlayFx(FxType.SelectMessiMbappe);
             }
 
             // Dừng animation xoay đầu của trọng tài, rewind về frame 0, reset child transform và xoay root về hướng cầu thủ được chọn (Tương thích tốt với Luna)
@@ -268,6 +353,9 @@ namespace HaalandGame
             {
                 // === TH1: CHỌN ĐÚNG (RONALDO) ===
                 Debug.Log("[HaalandGameManager] Correct Choice: Ronaldo!");
+                
+                // Analytics: Challenge solved
+                AppLovinAnalytics.Track(ALEvent.CHALLENGE_SOLVED);
 
                 // Tắt Question UI & Wrong Choice UI -> Bật Win Choice UI và 2 obj phụ
                 if (questionUI != null) questionUI.SetActive(false);
@@ -299,6 +387,9 @@ namespace HaalandGame
             {
                 // === TH2: CHỌN SAI (VINI / MESSI / MBAPPE) ===
                 Debug.Log($"[HaalandGameManager] Wrong Choice: {selectedPlayer}!");
+                
+                // Analytics: Challenge failed
+                AppLovinAnalytics.Track(ALEvent.CHALLENGE_FAILED);
 
                 // 1. Đổi Sprite Ronaldo -> Evil Laugh (Cười nham hiểm)
                 if (ronaldoSpriteRenderer != null && ronaldoEvilLaughSprite != null)
@@ -358,6 +449,10 @@ namespace HaalandGame
         private void ReplayLevel1()
         {
             Debug.Log("[HaalandGameManager] ReplayLevel1: Replaying Level 1 with Messi Tackle.");
+            
+            // Analytics: Challenge retry
+            AppLovinAnalytics.Track(ALEvent.CHALLENGE_RETRY);
+            
             currentLevel = 2; // Chạy Messi xoạc theo sơ đồ Replay
             InitLevel();
             Invoke(nameof(StartTackleAfterDelay), dribbleToTackleDelay);
@@ -373,10 +468,46 @@ namespace HaalandGame
         {
             if (isTackleStarted) return;
             isTackleStarted = true;
-            Debug.Log("[HaalandGameManager] OnUserTapStart: Game started, triggering tackle.");
+            Debug.Log("[HaalandGameManager] OnUserTapStart: Game started.");
+            
+            // Analytics: Challenge started
+            AppLovinAnalytics.Track(ALEvent.CHALLENGE_STARTED);
 
             // Ẩn tutUI ("TAP TO PLAY")
             if (tutUI != null) tutUI.SetActive(false);
+
+            // SetTrigger cho Haaland rê bóng di chuyển ngay khi người chơi click lần đầu
+            if (haalandDribbleAnimator != null)
+            {
+                PlayOrTriggerAnimation(haalandDribbleAnimator, startHaalandDribbleTrigger, "StartHaalandDribble");
+            }
+
+            if (currentLevel != 1)
+            {
+                // Reset Sprite tất cả cầu thủ về origin khi Messi chuẩn bị xoạc bóng
+                ResetPlayerSpritesToOrigin();
+
+                // Tắt UI chọn sai & Win Choice UI & 2 obj phụ -> Bật lại Question UI khi Messi xoạc bóng lại
+                if (wrongChoiceUI != null) wrongChoiceUI.SetActive(false);
+                if (winChoiceUI != null) winChoiceUI.SetActive(false);
+                if (winExtraObj1 != null) winExtraObj1.SetActive(false);
+                if (winExtraObj2 != null) winExtraObj2.SetActive(false);
+                if (questionUI != null) questionUI.SetActive(true);
+            }
+
+            if (tackleAnimDelay > 0f)
+            {
+                Invoke(nameof(PlayTackleAnimationAndTimers), tackleAnimDelay);
+            }
+            else
+            {
+                PlayTackleAnimationAndTimers();
+            }
+        }
+
+        private void PlayTackleAnimationAndTimers()
+        {
+            Debug.Log("[HaalandGameManager] PlayTackleAnimationAndTimers: Triggering tackle animation.");
 
             // Bật GameObject xoạc bóng và phát Trigger xoạc bóng
             if (currentLevel == 1)
@@ -386,16 +517,6 @@ namespace HaalandGame
             }
             else
             {
-                // Reset Sprite tất cả cầu thủ về origin khi Messi bắt đầu xoạc bóng
-                ResetPlayerSpritesToOrigin();
-
-                // Tắt UI chọn sai & Win Choice UI & 2 obj phụ -> Bật lại Question UI khi Messi xoạc bóng lại
-                if (wrongChoiceUI != null) wrongChoiceUI.SetActive(false);
-                if (winChoiceUI != null) winChoiceUI.SetActive(false);
-                if (winExtraObj1 != null) winExtraObj1.SetActive(false);
-                if (winExtraObj2 != null) winExtraObj2.SetActive(false);
-                if (questionUI != null) questionUI.SetActive(true);
-
                 if (messiTackle != null) messiTackle.SetActive(true);
                 PlayOrTriggerAnimation(messiTackleAnimator, startMessiTackleTrigger, "StartMessiTackle");
             }
@@ -403,11 +524,21 @@ namespace HaalandGame
             // Tự động đếm giờ theo các mốc thời gian nếu useAutoTimers = true
             if (useAutoTimers)
             {
+                Invoke(nameof(PlayTackleSound), tackleSoundDelay);
                 Invoke(nameof(OnTackleFinished), tackleHideDelay);
                 Invoke(nameof(OnImpactCloudStart), impactCloudDelay);
                 Invoke(nameof(ShowHaalandHurt), impactCloudDelay + haalandHurtDelay);
                 Invoke(nameof(OnCloudFinished), impactCloudDelay + cloudDuration);
             }
+            else
+            {
+                PlayTackleSound();
+            }
+        }
+
+        private void PlayTackleSound()
+        {
+            if (Ply_SoundManager.Instance != null) Ply_SoundManager.Instance.PlayFx(FxType.Tackle);
         }
 
         // 2. Sau 0.5s (OnTackleFinished)
@@ -445,7 +576,7 @@ namespace HaalandGame
         public void OnCloudFinished()
         {
             Debug.Log("[HaalandGameManager] OnCloudFinished: 3s reached -> FightingCloud hidden, StandPlayer & QuestionUI & IconListUI activated.");
-            isStandPlayerEntered = true;
+            isStandPlayerEntered = true; 
 
             // TẮT GameObject FightingCloud
             if (fightingCloud != null) fightingCloud.SetActive(false);
@@ -453,9 +584,19 @@ namespace HaalandGame
             // Đảm bảo BẬT GameObject Haaland Dau
             if (haalandHurt != null) haalandHurt.SetActive(true);
 
+            // Sound sau khi hết khói và cầu thủ bị chấn thương
+            if (Ply_SoundManager.Instance != null) Ply_SoundManager.Instance.PlayFx(FxType.HaalandHurt);
+
             // Bật UI Câu hỏi (Question UI) & 4 Icon chọn cầu thủ (Icon List UI) cùng lúc với StandPlayer
             if (questionUI != null) questionUI.SetActive(true);
             if (iconListUI != null) iconListUI.SetActive(true);
+
+            if (iconListAnimator != null) iconListAnimator.PlayGrowAnimation();
+            else if (iconListUI != null)
+            {
+                var anim = iconListUI.GetComponent<IconListAnimator>();
+                if (anim != null) anim.PlayGrowAnimation();
+            }
 
             // Active GameObject StandPlayer và phát Trigger di chuyển vào của nó (standPlayerEnterTrigger)
             if (standPlayers != null)

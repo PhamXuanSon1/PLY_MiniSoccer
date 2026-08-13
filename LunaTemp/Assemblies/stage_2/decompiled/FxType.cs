@@ -7,5 +7,9 @@ public enum FxType
 	Brush,
 	Keo,
 	Confetti,
-	Lose2
+	Lose2,
+	SelectVini,
+	SelectMessiMbappe,
+	Tackle,
+	HaalandHurt
 }

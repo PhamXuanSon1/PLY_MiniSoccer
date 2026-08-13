@@ -16,6 +16,10 @@ public enum FxType
     Keo,
     Confetti,
     Lose2,
+    SelectVini,
+    SelectMessiMbappe,
+    Tackle,
+    HaalandHurt,
 }
 
 [System.Serializable]
@@ -36,6 +40,10 @@ public class FxAudio
     public SoundData Keo;
     public SoundData Confetti;
     public SoundData Lose2;
+    public SoundData SelectVini;
+    public SoundData SelectMessiMbappe;
+    public SoundData Tackle;
+    public SoundData HaalandHurt;
 }
 
 public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>
@@ -124,6 +132,10 @@ public class Ply_SoundManager : Ply_Singleton<Ply_SoundManager>
             case FxType.Keo: return fxAudio.Keo;
             case FxType.Confetti: return fxAudio.Confetti;
             case FxType.Lose2: return fxAudio.Lose2;
+            case FxType.SelectVini: return fxAudio.SelectVini;
+            case FxType.SelectMessiMbappe: return fxAudio.SelectMessiMbappe;
+            case FxType.Tackle: return fxAudio.Tackle;
+            case FxType.HaalandHurt: return fxAudio.HaalandHurt;
             default: return null;
         }
     }

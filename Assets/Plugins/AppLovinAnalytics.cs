@@ -5,18 +5,17 @@ using UnityEngine;
 // Docs: https://support.applovin.com/en/growth/promoting-your-apps/welcome-to-applovin/playable-analytics-integration
 public enum ALEvent
 {
-    LOADING,
-    LOADED,
-    DISPLAYED,
-    CHALLENGE_STARTED,
-    CHALLENGE_FAILED,
-    CHALLENGE_RETRY,
-    CHALLENGE_PASS_25,
-    CHALLENGE_PASS_50,
-    CHALLENGE_PASS_75,
-    CHALLENGE_SOLVED,
-    CTA_CLICKED,
-    ENDCARD_SHOWN
+    LOADING, // trong awake
+    LOADED, // khi start
+    DISPLAYED, // khi start
+    CHALLENGE_STARTED, // khi click vào màn hình lần đầu tiên
+    CHALLENGE_FAILED, // chọn sai player ko phải rolnaldo
+    CHALLENGE_RETRY, 
+    CHALLENGE_PASS_25, // sau khi chọn 1 player (không phải sau click đầu tiên)
+    CHALLENGE_PASS_50, // sau khi gọi CHALLENGE_PASS_25 vì game này chỉ chơi 1 item
+    CHALLENGE_PASS_75, // sau khi gọi CHALLENGE_PASS_50 vì game này chỉ chơi 1 item
+    CHALLENGE_SOLVED, // sau khi gọi CHALLENGE_PASS_75 vì game này chỉ chơi 1 item
+    CTA_CLICKED, // cho button để ra stores    ENDCARD_SHOWN
 }
 
 public static class AppLovinAnalytics

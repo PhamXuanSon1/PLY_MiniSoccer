@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Luna.Unity;
 using UnityEngine;
 
@@ -5,6 +6,17 @@ namespace HaalandGame
 {
 	public class HaalandGameManager : MonoBehaviour
 	{
+		private struct TransformState
+		{
+			public Transform transform;
+
+			public Vector3 localPosition;
+
+			public Quaternion localRotation;
+
+			public Vector3 localScale;
+		}
+
 		[Header("=== 1. HƯỚNG DẪN TAP TO PLAY ===")]
 		[Tooltip("GameObject TAP TO PLAY (Click lần đầu để ẩn)")]
 		public GameObject tutUI;
@@ -24,9 +36,17 @@ namespace HaalandGame
 
 		public string startMessiTackleTrigger = "StartMessiTackle";
 
+		[Tooltip("Thời gian chờ (delay) trước khi phát animation xoạc bóng (mặc định 1.0s)")]
+		public float tackleAnimDelay = 1f;
+
 		[Header("=== 3. HAALAND RÊ BÓNG & KHÓI (FIGHTING CLOUD) ===")]
 		[Tooltip("Obj ảnh 're bong' (con của Haaland rê bóng) - sẽ tắt khi va chạm")]
 		public GameObject haalandDribbleImage;
+
+		[Tooltip("Animator của Haaland rê bóng (phát khi người chơi click lần đầu)")]
+		public Animator haalandDribbleAnimator;
+
+		public string startHaalandDribbleTrigger = "StartHaalandDribble";
 
 		[Tooltip("GameObject FightingCloud (Bật khi va chạm, tắt sau 3s)")]
 		public GameObject fightingCloud;
@@ -80,6 +100,12 @@ namespace HaalandGame
 
 		public float refereeAnimDelay = 0.5f;
 
+		public float nextActionDelay = 2f;
+
+		public float dribbleToTackleDelay = 0.5f;
+
+		public float tackleSoundDelay = 0.2f;
+
 		[Header("=== 7. CHỌN CẦU THỦ & CHAT BUBBLES ===")]
 		public Animator ronaldoStandAnimator;
 
@@ -129,6 +155,15 @@ namespace HaalandGame
 		[Tooltip("Sprite Mbappe buồn/phản đối (Khi chọn SAI Mbappe)")]
 		public Sprite mbappeSadSprite;
 
+		[Header("--- Trọng Tài Stand ---")]
+		public SpriteRenderer refereeSpriteRenderer;
+
+		[Tooltip("Sprite Trọng Tài khi chọn xong cầu thủ")]
+		public Sprite refereeReactionSprite;
+
+		[Header("=== 9. DOTWEEN ICON ANIMATION ===")]
+		public IconListAnimator iconListAnimator;
+
 		public int currentLevel = 1;
 
 		private bool isTackleStarted = false;
@@ -145,6 +180,10 @@ namespace HaalandGame
 
 		private Sprite originalMbappeSprite;
 
+		private Sprite originalRefereeSprite;
+
+		private List<TransformState> haalandDribbleOriginalStates = new List<TransformState>();
+
 		public static HaalandGameManager Instance { get; private set; }
 
 		private void Awake()
@@ -157,6 +196,7 @@ namespace HaalandGame
 			{
 				Object.Destroy(base.gameObject);
 			}
+			AppLovinAnalytics.Track(ALEvent.LOADING);
 		}
 
 		private void Start()
@@ -177,7 +217,31 @@ namespace HaalandGame
 			{
 				originalMbappeSprite = mbappeSpriteRenderer.sprite;
 			}
+			if (refereeSpriteRenderer != null)
+			{
+				originalRefereeSprite = refereeSpriteRenderer.sprite;
+			}
+			if (haalandDribbleImage != null)
+			{
+				haalandDribbleOriginalStates.Clear();
+				Transform[] componentsInChildren = haalandDribbleImage.GetComponentsInChildren<Transform>(true);
+				foreach (Transform t in componentsInChildren)
+				{
+					if (t != null)
+					{
+						haalandDribbleOriginalStates.Add(new TransformState
+						{
+							transform = t,
+							localPosition = t.localPosition,
+							localRotation = t.localRotation,
+							localScale = t.localScale
+						});
+					}
+				}
+			}
 			InitLevel();
+			AppLovinAnalytics.Track(ALEvent.LOADED);
+			AppLovinAnalytics.Track(ALEvent.DISPLAYED);
 		}
 
 		public void InitLevel()
@@ -216,6 +280,22 @@ namespace HaalandGame
 			}
 			if (haalandDribbleImage != null)
 			{
+				foreach (TransformState state in haalandDribbleOriginalStates)
+				{
+					if (state.transform != null)
+					{
+						state.transform.localPosition = state.localPosition;
+						state.transform.localRotation = state.localRotation;
+						state.transform.localScale = state.localScale;
+					}
+				}
+				Animator anim = ((haalandDribbleAnimator != null) ? haalandDribbleAnimator : haalandDribbleImage.GetComponentInChildren<Animator>(true));
+				if (anim != null)
+				{
+					anim.enabled = true;
+					anim.Play(0, 0, 0f);
+					anim.Update(0f);
+				}
 				haalandDribbleImage.SetActive(true);
 			}
 			if (fightingCloud != null)
@@ -290,6 +370,10 @@ namespace HaalandGame
 			{
 				mbappeSpriteRenderer.sprite = originalMbappeSprite;
 			}
+			if (refereeSpriteRenderer != null && originalRefereeSprite != null)
+			{
+				refereeSpriteRenderer.sprite = originalRefereeSprite;
+			}
 		}
 
 		public void SelectRonaldo()
@@ -348,6 +432,24 @@ namespace HaalandGame
 					return;
 				}
 				isChoiceMade = true;
+				AppLovinAnalytics.Track(ALEvent.CHALLENGE_PASS_25);
+				AppLovinAnalytics.Track(ALEvent.CHALLENGE_PASS_50);
+				AppLovinAnalytics.Track(ALEvent.CHALLENGE_PASS_75);
+				if (refereeSpriteRenderer != null && refereeReactionSprite != null)
+				{
+					refereeSpriteRenderer.sprite = refereeReactionSprite;
+				}
+				if (selectedPlayer == PlayerType.Vini)
+				{
+					if (Ply_Singleton<Ply_SoundManager>.Instance != null)
+					{
+						Ply_Singleton<Ply_SoundManager>.Instance.PlayFx(FxType.SelectVini);
+					}
+				}
+				else if ((selectedPlayer == PlayerType.Messi || selectedPlayer == PlayerType.Mbappe) && Ply_Singleton<Ply_SoundManager>.Instance != null)
+				{
+					Ply_Singleton<Ply_SoundManager>.Instance.PlayFx(FxType.SelectMessiMbappe);
+				}
 				if (refereeAnimator != null)
 				{
 					refereeAnimator.enabled = true;
@@ -369,6 +471,7 @@ namespace HaalandGame
 				if (selectedPlayer == PlayerType.Ronaldo)
 				{
 					Debug.Log("[HaalandGameManager] Correct Choice: Ronaldo!");
+					AppLovinAnalytics.Track(ALEvent.CHALLENGE_SOLVED);
 					if (questionUI != null)
 					{
 						questionUI.SetActive(false);
@@ -405,10 +508,11 @@ namespace HaalandGame
 					{
 						ronaldoChatBubble.SetActive(true);
 					}
-					Invoke("GoToLevel2", 2f);
+					Invoke("GoToLevel2", nextActionDelay);
 					return;
 				}
 				Debug.Log($"[HaalandGameManager] Wrong Choice: {selectedPlayer}!");
+				AppLovinAnalytics.Track(ALEvent.CHALLENGE_FAILED);
 				if (ronaldoSpriteRenderer != null && ronaldoEvilLaughSprite != null)
 				{
 					ronaldoSpriteRenderer.sprite = ronaldoEvilLaughSprite;
@@ -486,7 +590,7 @@ namespace HaalandGame
 					}
 					break;
 				}
-				Invoke("ReplayLevel1", 2f);
+				Invoke("ReplayLevel1", nextActionDelay);
 			}
 		}
 
@@ -495,14 +599,20 @@ namespace HaalandGame
 			Debug.Log("[HaalandGameManager] GoToLevel2: Transitioning to Level 2 (Messi Tackle).");
 			currentLevel = 2;
 			InitLevel();
-			OnUserTapStart();
+			Invoke("StartTackleAfterDelay", dribbleToTackleDelay);
 		}
 
 		private void ReplayLevel1()
 		{
 			Debug.Log("[HaalandGameManager] ReplayLevel1: Replaying Level 1 with Messi Tackle.");
+			AppLovinAnalytics.Track(ALEvent.CHALLENGE_RETRY);
 			currentLevel = 2;
 			InitLevel();
+			Invoke("StartTackleAfterDelay", dribbleToTackleDelay);
+		}
+
+		private void StartTackleAfterDelay()
+		{
 			OnUserTapStart();
 		}
 
@@ -513,20 +623,17 @@ namespace HaalandGame
 				return;
 			}
 			isTackleStarted = true;
-			Debug.Log("[HaalandGameManager] OnUserTapStart: Game started, triggering tackle.");
+			Debug.Log("[HaalandGameManager] OnUserTapStart: Game started.");
+			AppLovinAnalytics.Track(ALEvent.CHALLENGE_STARTED);
 			if (tutUI != null)
 			{
 				tutUI.SetActive(false);
 			}
-			if (currentLevel == 1)
+			if (haalandDribbleAnimator != null)
 			{
-				if (ronaldoTackle != null)
-				{
-					ronaldoTackle.SetActive(true);
-				}
-				PlayOrTriggerAnimation(ronaldoTackleAnimator, startRonaldoTackleTrigger, "StartRonaldoTackle");
+				PlayOrTriggerAnimation(haalandDribbleAnimator, startHaalandDribbleTrigger, "StartHaalandDribble");
 			}
-			else
+			if (currentLevel != 1)
 			{
 				ResetPlayerSpritesToOrigin();
 				if (wrongChoiceUI != null)
@@ -549,6 +656,30 @@ namespace HaalandGame
 				{
 					questionUI.SetActive(true);
 				}
+			}
+			if (tackleAnimDelay > 0f)
+			{
+				Invoke("PlayTackleAnimationAndTimers", tackleAnimDelay);
+			}
+			else
+			{
+				PlayTackleAnimationAndTimers();
+			}
+		}
+
+		private void PlayTackleAnimationAndTimers()
+		{
+			Debug.Log("[HaalandGameManager] PlayTackleAnimationAndTimers: Triggering tackle animation.");
+			if (currentLevel == 1)
+			{
+				if (ronaldoTackle != null)
+				{
+					ronaldoTackle.SetActive(true);
+				}
+				PlayOrTriggerAnimation(ronaldoTackleAnimator, startRonaldoTackleTrigger, "StartRonaldoTackle");
+			}
+			else
+			{
 				if (messiTackle != null)
 				{
 					messiTackle.SetActive(true);
@@ -557,10 +688,23 @@ namespace HaalandGame
 			}
 			if (useAutoTimers)
 			{
+				Invoke("PlayTackleSound", tackleSoundDelay);
 				Invoke("OnTackleFinished", tackleHideDelay);
 				Invoke("OnImpactCloudStart", impactCloudDelay);
 				Invoke("ShowHaalandHurt", impactCloudDelay + haalandHurtDelay);
 				Invoke("OnCloudFinished", impactCloudDelay + cloudDuration);
+			}
+			else
+			{
+				PlayTackleSound();
+			}
+		}
+
+		private void PlayTackleSound()
+		{
+			if (Ply_Singleton<Ply_SoundManager>.Instance != null)
+			{
+				Ply_Singleton<Ply_SoundManager>.Instance.PlayFx(FxType.Tackle);
 			}
 		}
 
@@ -619,6 +763,10 @@ namespace HaalandGame
 			{
 				haalandHurt.SetActive(true);
 			}
+			if (Ply_Singleton<Ply_SoundManager>.Instance != null)
+			{
+				Ply_Singleton<Ply_SoundManager>.Instance.PlayFx(FxType.HaalandHurt);
+			}
 			if (questionUI != null)
 			{
 				questionUI.SetActive(true);
@@ -626,6 +774,18 @@ namespace HaalandGame
 			if (iconListUI != null)
 			{
 				iconListUI.SetActive(true);
+			}
+			if (iconListAnimator != null)
+			{
+				iconListAnimator.PlayGrowAnimation();
+			}
+			else if (iconListUI != null)
+			{
+				IconListAnimator anim = iconListUI.GetComponent<IconListAnimator>();
+				if (anim != null)
+				{
+					anim.PlayGrowAnimation();
+				}
 			}
 			if (standPlayers != null)
 			{

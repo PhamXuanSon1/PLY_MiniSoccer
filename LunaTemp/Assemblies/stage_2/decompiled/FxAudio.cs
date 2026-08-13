@@ -18,4 +18,12 @@ public class FxAudio
 	public SoundData Confetti;
 
 	public SoundData Lose2;
+
+	public SoundData SelectVini;
+
+	public SoundData SelectMessiMbappe;
+
+	public SoundData Tackle;
+
+	public SoundData HaalandHurt;
 }
