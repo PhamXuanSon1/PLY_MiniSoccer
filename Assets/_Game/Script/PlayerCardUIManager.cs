@@ -124,9 +124,6 @@ public class PlayerCardUIManager : MonoBehaviour
                 if (obj != null) obj.SetActive(false);
             }
         }
-
-        // Sau khi đã bật/tắt các object xong, cho phép người chơi click bất cứ đâu để ra Store
-        canClickToStore = true;
     }
 
     // Gắn hàm này vào một Button (Nút Đóng) trên UI để tắt popup

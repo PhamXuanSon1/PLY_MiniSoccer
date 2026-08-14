@@ -20,7 +20,7 @@ public class BatStrikeController : MonoBehaviour
 	[Tooltip("Tag của object Cup (Nhớ gán Tag 'Cup' cho Cup trong Unity).")]
 	public string targetTag = "Cup";
 
-	private Vector3 initialPosition;
+	private Vector3 initialLocalPos;
 
 	private bool hasFired = false;
 
@@ -30,7 +30,7 @@ public class BatStrikeController : MonoBehaviour
 
 	private void Start()
 	{
-		initialPosition = base.transform.position;
+		initialLocalPos = base.transform.localPosition;
 		rb = GetComponent<Rigidbody2D>();
 		rb.bodyType = RigidbodyType2D.Kinematic;
 	}
@@ -57,20 +57,18 @@ public class BatStrikeController : MonoBehaviour
 				return;
 			}
 			holdTime = 0f;
-			base.transform.position = initialPosition;
+			base.transform.localPosition = initialLocalPos;
 		}
 	}
 
 	private void ChargeBat()
 	{
-		float currentDistance = Vector3.Distance(initialPosition, base.transform.position);
-		if (currentDistance < maxPullDistance)
+		float currentPullX = initialLocalPos.x - base.transform.localPosition.x;
+		if (currentPullX < maxPullDistance)
 		{
-			base.transform.Translate(Vector3.left * pullSpeed * Time.deltaTime);
-			if (Vector3.Distance(initialPosition, base.transform.position) > maxPullDistance)
-			{
-				base.transform.position = initialPosition + Vector3.left * maxPullDistance;
-			}
+			float newX = base.transform.localPosition.x - pullSpeed * Time.deltaTime;
+			newX = Mathf.Clamp(newX, initialLocalPos.x - maxPullDistance, initialLocalPos.x);
+			base.transform.localPosition = new Vector3(newX, initialLocalPos.y, initialLocalPos.z);
 		}
 	}
 
@@ -78,7 +76,7 @@ public class BatStrikeController : MonoBehaviour
 	{
 		hasFired = true;
 		rb.bodyType = RigidbodyType2D.Dynamic;
-		float pullDistance = Vector3.Distance(initialPosition, base.transform.position);
+		float pullDistance = Mathf.Clamp(initialLocalPos.x - base.transform.localPosition.x, 0f, maxPullDistance);
 		float forceMultiplier = ((maxPullDistance > 0f) ? (pullDistance / maxPullDistance) : 1f);
 		forceMultiplier = Mathf.Clamp(forceMultiplier, 0.2f, 1f);
 		float finalForce = strikeForce * forceMultiplier;

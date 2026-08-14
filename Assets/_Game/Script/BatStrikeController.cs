@@ -20,14 +20,14 @@ public class BatStrikeController : MonoBehaviour
     [Tooltip("Tag của object Cup (Nhớ gán Tag 'Cup' cho Cup trong Unity).")]
     public string targetTag = "Cup";
 
-    private Vector3 initialPosition;
+    private Vector3 initialLocalPos;
     private bool hasFired = false;
     private Rigidbody2D rb;
     private float holdTime = 0f;
 
     void Start()
     {
-        initialPosition = transform.position;
+        initialLocalPos = transform.localPosition;
         rb = GetComponent<Rigidbody2D>();
         
         // Đảm bảo lúc đầu gậy ở trạng thái Kinematic để không bị rơi hoặc bật văng lung tung
@@ -62,26 +62,26 @@ public class BatStrikeController : MonoBehaviour
             {
                 // Nếu chỉ là Tap nhanh, reset lại bộ đếm để người chơi có thể giữ lại từ đầu
                 holdTime = 0f;
-                transform.position = initialPosition; // Trả gậy về vị trí gốc lỡ có bị xê dịch tí ti
+                transform.localPosition = initialLocalPos; // Trả gậy về vị trí gốc lỡ có bị xê dịch tí ti
             }
         }
     }
 
     private void ChargeBat()
     {
-        // Tính toán khoảng cách đã lùi so với vị trí ban đầu
-        float currentDistance = Vector3.Distance(initialPosition, transform.position);
+        // Tính khoảng cách đã lùi chỉ tính riêng trên trục X
+        float currentPullX = initialLocalPos.x - transform.localPosition.x;
 
-        if (currentDistance < maxPullDistance)
+        if (currentPullX < maxPullDistance)
         {
             // Di chuyển gậy từ từ về bên trái
-            transform.Translate(Vector3.left * pullSpeed * Time.deltaTime);
+            float newX = transform.localPosition.x - (pullSpeed * Time.deltaTime);
+
+            // Giới hạn (Clamp) tọa độ X không lùi quá maxPullDistance và không vượt quá vị trí ban đầu
+            newX = Mathf.Clamp(newX, initialLocalPos.x - maxPullDistance, initialLocalPos.x);
             
-            // Ép (Clamp) vị trí để gậy không bao giờ lùi quá maxPullDistance
-            if (Vector3.Distance(initialPosition, transform.position) > maxPullDistance)
-            {
-                transform.position = initialPosition + (Vector3.left * maxPullDistance);
-            }
+            // Cập nhật vị trí X, giữ nguyên hoàn toàn trục Y và Z ban đầu
+            transform.localPosition = new Vector3(newX, initialLocalPos.y, initialLocalPos.z);
         }
     }
 
@@ -92,10 +92,10 @@ public class BatStrikeController : MonoBehaviour
         // Chuyển sang Dynamic để nhận lực vật lý (AddForce)
         rb.bodyType = RigidbodyType2D.Dynamic;
 
-        // Tính tỷ lệ lực dựa trên khoảng cách đã kéo (kéo càng sâu bắn càng mạnh)
-        float pullDistance = Vector3.Distance(initialPosition, transform.position);
+        // Tính tỷ lệ lực dựa trên khoảng cách kéo thực tế trên trục X
+        float pullDistance = Mathf.Clamp(initialLocalPos.x - transform.localPosition.x, 0f, maxPullDistance);
         
-        // Tránh chia cho 0 nếu maxPullDistance = 0 (dù trường hợp này hiếm)
+        // Tránh chia cho 0 nếu maxPullDistance = 0
         float forceMultiplier = maxPullDistance > 0 ? pullDistance / maxPullDistance : 1f; 
         
         // Đảm bảo có một lực tác động tối thiểu kể cả khi người chơi vừa nhấp đã nhả tay ngay lập tức

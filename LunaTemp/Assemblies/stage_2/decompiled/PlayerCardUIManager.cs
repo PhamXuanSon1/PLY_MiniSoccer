@@ -117,18 +117,18 @@ public class PlayerCardUIManager : MonoBehaviour
 				}
 			}
 		}
-		if (objectsToTurnOffAfterWait != null)
+		if (objectsToTurnOffAfterWait == null)
 		{
-			GameObject[] array2 = objectsToTurnOffAfterWait;
-			foreach (GameObject obj in array2)
+			yield break;
+		}
+		GameObject[] array2 = objectsToTurnOffAfterWait;
+		foreach (GameObject obj in array2)
+		{
+			if (obj != null)
 			{
-				if (obj != null)
-				{
-					obj.SetActive(false);
-				}
+				obj.SetActive(false);
 			}
 		}
-		canClickToStore = true;
 	}
 
 	public void HideCard()

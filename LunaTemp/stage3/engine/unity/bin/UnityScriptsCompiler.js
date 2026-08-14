@@ -128,7 +128,7 @@ if ( TRACE ) { TRACE( "AutoCameraFit#UpdateCameraNow", this ); }
             minHoldTime: 0,
             strikeForce: 0,
             targetTag: null,
-            initialPosition: null,
+            initialLocalPos: null,
             hasFired: false,
             rb: null,
             holdTime: 0
@@ -137,7 +137,7 @@ if ( TRACE ) { TRACE( "AutoCameraFit#UpdateCameraNow", this ); }
             init: function () {
 if ( TRACE ) { TRACE( "BatStrikeController#init", this ); }
 
-                this.initialPosition = new UnityEngine.Vector3();
+                this.initialLocalPos = new UnityEngine.Vector3();
                 this.pullSpeed = 2.0;
                 this.maxPullDistance = 3.0;
                 this.minHoldTime = 0.15;
@@ -152,7 +152,7 @@ if ( TRACE ) { TRACE( "BatStrikeController#init", this ); }
             Start: function () {
 if ( TRACE ) { TRACE( "BatStrikeController#Start", this ); }
 
-                this.initialPosition = this.transform.position.$clone();
+                this.initialLocalPos = this.transform.localPosition.$clone();
                 this.rb = this.GetComponent(UnityEngine.Rigidbody2D);
                 this.rb.bodyType = UnityEngine.RigidbodyType2D.Kinematic;
             },
@@ -177,7 +177,7 @@ if ( TRACE ) { TRACE( "BatStrikeController#Update", this ); }
                         return;
                     }
                     this.holdTime = 0.0;
-                    this.transform.position = this.initialPosition.$clone();
+                    this.transform.localPosition = this.initialLocalPos.$clone();
                 }
             },
             /*BatStrikeController.Update end.*/
@@ -186,12 +186,11 @@ if ( TRACE ) { TRACE( "BatStrikeController#Update", this ); }
             ChargeBat: function () {
 if ( TRACE ) { TRACE( "BatStrikeController#ChargeBat", this ); }
 
-                var currentDistance = pc.Vec3.distance( this.initialPosition, this.transform.position );
-                if (currentDistance < this.maxPullDistance) {
-                    this.transform.Translate$1(pc.Vec3.LEFT.clone().clone().scale( this.pullSpeed ).clone().scale( UnityEngine.Time.deltaTime ));
-                    if (pc.Vec3.distance( this.initialPosition, this.transform.position ) > this.maxPullDistance) {
-                        this.transform.position = this.initialPosition.$clone().add( pc.Vec3.LEFT.clone().clone().scale( this.maxPullDistance ) );
-                    }
+                var currentPullX = this.initialLocalPos.x - this.transform.localPosition.x;
+                if (currentPullX < this.maxPullDistance) {
+                    var newX = this.transform.localPosition.x - this.pullSpeed * UnityEngine.Time.deltaTime;
+                    newX = Math.max(this.initialLocalPos.x - this.maxPullDistance, Math.min(newX, this.initialLocalPos.x));
+                    this.transform.localPosition = new pc.Vec3( newX, this.initialLocalPos.y, this.initialLocalPos.z );
                 }
             },
             /*BatStrikeController.ChargeBat end.*/
@@ -202,7 +201,7 @@ if ( TRACE ) { TRACE( "BatStrikeController#FireBat", this ); }
 
                 this.hasFired = true;
                 this.rb.bodyType = UnityEngine.RigidbodyType2D.Dynamic;
-                var pullDistance = pc.Vec3.distance( this.initialPosition, this.transform.position );
+                var pullDistance = Math.max(0.0, Math.min(this.initialLocalPos.x - this.transform.localPosition.x, this.maxPullDistance));
                 var forceMultiplier = ((this.maxPullDistance > 0.0) ? (pullDistance / this.maxPullDistance) : 1.0);
                 forceMultiplier = Math.max(0.2, Math.min(forceMultiplier, 1.0));
                 var finalForce = this.strikeForce * forceMultiplier;
@@ -2471,23 +2470,31 @@ if ( TRACE ) { TRACE( "PlayerCardUIManager#WaitAndTriggerObjects", this ); }
                                                 }
                                             }
                                         }
-                                        if (this.objectsToTurnOffAfterWait != null) {
-                                            array2 = this.objectsToTurnOffAfterWait;
-                                            $t1 = Bridge.getEnumerator(array2);
-                                            try {
-                                                while ($t1.moveNext()) {
-                                                    obj = $t1.Current;
-                                                    if (UnityEngine.GameObject.op_Inequality(obj, null)) {
-                                                        obj.SetActive(false);
-                                                    }
-                                                }
-                                            } finally {
-                                                if (Bridge.is($t1, System.IDisposable)) {
-                                                    $t1.System$IDisposable$Dispose();
+                                        if (this.objectsToTurnOffAfterWait == null) {
+                                            $step = 2;
+                                            continue;
+                                        } 
+                                        $step = 3;
+                                        continue;
+                                }
+                                case 2: {
+                                    return false;
+                                }
+                                case 3: {
+                                    array2 = this.objectsToTurnOffAfterWait;
+                                        $t1 = Bridge.getEnumerator(array2);
+                                        try {
+                                            while ($t1.moveNext()) {
+                                                obj = $t1.Current;
+                                                if (UnityEngine.GameObject.op_Inequality(obj, null)) {
+                                                    obj.SetActive(false);
                                                 }
                                             }
+                                        } finally {
+                                            if (Bridge.is($t1, System.IDisposable)) {
+                                                $t1.System$IDisposable$Dispose();
+                                            }
                                         }
-                                        this.canClickToStore = true;
 
                                 }
                                 default: {
@@ -3291,7 +3298,7 @@ if ( TRACE ) { TRACE( "Ply_SoundManager#Mute", this ); }
     /*AutoCameraFit end.*/
 
     /*BatStrikeController start.*/
-    $m("BatStrikeController", function () { return {"att":1048577,"a":2,"at":[new UnityEngine.RequireComponent.ctor(UnityEngine.Rigidbody2D)],"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"ChargeBat","t":8,"sn":"ChargeBat","rt":$n[0].Void},{"a":1,"n":"FireBat","t":8,"sn":"FireBat","rt":$n[0].Void},{"a":1,"n":"OnCollisionEnter2D","t":8,"pi":[{"n":"collision","pt":$n[1].Collision2D,"ps":0}],"sn":"OnCollisionEnter2D","rt":$n[0].Void,"p":[$n[1].Collision2D]},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"a":1,"n":"Update","t":8,"sn":"Update","rt":$n[0].Void},{"a":1,"n":"hasFired","t":4,"rt":$n[0].Boolean,"sn":"hasFired","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"holdTime","t":4,"rt":$n[0].Single,"sn":"holdTime","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"initialPosition","t":4,"rt":$n[1].Vector3,"sn":"initialPosition"},{"at":[new UnityEngine.TooltipAttribute("Kho\u1ea3ng c\u00e1ch l\u00f9i t\u1ed1i \u0111a (\u0111\u01a1n v\u1ecb Unity).")],"a":2,"n":"maxPullDistance","t":4,"rt":$n[0].Single,"sn":"maxPullDistance","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("Th\u1eddi gian gi\u1eef ch\u1ea1m t\u1ed1i thi\u1ec3u \u0111\u1ec3 t\u00ednh l\u00e0 K\u00e9o (gi\u00e2y). N\u1ebfu ch\u1ec9 ch\u1ea1m (tap) nhanh h\u01a1n s\u1ed1 n\u00e0y th\u00ec s\u1ebd b\u1ecb b\u1ecf qua.")],"a":2,"n":"minHoldTime","t":4,"rt":$n[0].Single,"sn":"minHoldTime","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("Charge Settings"),new UnityEngine.TooltipAttribute("T\u1ed1c \u0111\u1ed9 g\u1eady l\u00f9i v\u1ec1 b\u00ean tr\u00e1i khi \u0111ang gi\u1eef m\u00e0n h\u00ecnh.")],"a":2,"n":"pullSpeed","t":4,"rt":$n[0].Single,"sn":"pullSpeed","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"rb","t":4,"rt":$n[1].Rigidbody2D,"sn":"rb"},{"at":[new UnityEngine.TooltipAttribute("L\u1ef1c \u0111\u00e1nh v\u0103ng v\u1ec1 b\u00ean ph\u1ea3i t\u1ed1i \u0111a.")],"a":2,"n":"strikeForce","t":4,"rt":$n[0].Single,"sn":"strikeForce","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("Collision Settings"),new UnityEngine.TooltipAttribute("Tag c\u1ee7a object Cup (Nh\u1edb g\u00e1n Tag 'Cup' cho Cup trong Unity).")],"a":2,"n":"targetTag","t":4,"rt":$n[0].String,"sn":"targetTag"}]}; }, $n);
+    $m("BatStrikeController", function () { return {"att":1048577,"a":2,"at":[new UnityEngine.RequireComponent.ctor(UnityEngine.Rigidbody2D)],"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"ChargeBat","t":8,"sn":"ChargeBat","rt":$n[0].Void},{"a":1,"n":"FireBat","t":8,"sn":"FireBat","rt":$n[0].Void},{"a":1,"n":"OnCollisionEnter2D","t":8,"pi":[{"n":"collision","pt":$n[1].Collision2D,"ps":0}],"sn":"OnCollisionEnter2D","rt":$n[0].Void,"p":[$n[1].Collision2D]},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"a":1,"n":"Update","t":8,"sn":"Update","rt":$n[0].Void},{"a":1,"n":"hasFired","t":4,"rt":$n[0].Boolean,"sn":"hasFired","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"holdTime","t":4,"rt":$n[0].Single,"sn":"holdTime","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"initialLocalPos","t":4,"rt":$n[1].Vector3,"sn":"initialLocalPos"},{"at":[new UnityEngine.TooltipAttribute("Kho\u1ea3ng c\u00e1ch l\u00f9i t\u1ed1i \u0111a (\u0111\u01a1n v\u1ecb Unity).")],"a":2,"n":"maxPullDistance","t":4,"rt":$n[0].Single,"sn":"maxPullDistance","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("Th\u1eddi gian gi\u1eef ch\u1ea1m t\u1ed1i thi\u1ec3u \u0111\u1ec3 t\u00ednh l\u00e0 K\u00e9o (gi\u00e2y). N\u1ebfu ch\u1ec9 ch\u1ea1m (tap) nhanh h\u01a1n s\u1ed1 n\u00e0y th\u00ec s\u1ebd b\u1ecb b\u1ecf qua.")],"a":2,"n":"minHoldTime","t":4,"rt":$n[0].Single,"sn":"minHoldTime","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("Charge Settings"),new UnityEngine.TooltipAttribute("T\u1ed1c \u0111\u1ed9 g\u1eady l\u00f9i v\u1ec1 b\u00ean tr\u00e1i khi \u0111ang gi\u1eef m\u00e0n h\u00ecnh.")],"a":2,"n":"pullSpeed","t":4,"rt":$n[0].Single,"sn":"pullSpeed","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"rb","t":4,"rt":$n[1].Rigidbody2D,"sn":"rb"},{"at":[new UnityEngine.TooltipAttribute("L\u1ef1c \u0111\u00e1nh v\u0103ng v\u1ec1 b\u00ean ph\u1ea3i t\u1ed1i \u0111a.")],"a":2,"n":"strikeForce","t":4,"rt":$n[0].Single,"sn":"strikeForce","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("Collision Settings"),new UnityEngine.TooltipAttribute("Tag c\u1ee7a object Cup (Nh\u1edb g\u00e1n Tag 'Cup' cho Cup trong Unity).")],"a":2,"n":"targetTag","t":4,"rt":$n[0].String,"sn":"targetTag"}]}; }, $n);
     /*BatStrikeController end.*/
 
     /*CameraFollow2D start.*/
