@@ -30,8 +30,6 @@ public class PlayerCardUIManager : MonoBehaviour
     public SpriteRenderer playerImage;
     public SpriteRenderer flagImage;
 
-    private bool canClickToStore = false;
-
     private void Awake()
     {
         // Khởi tạo Singleton
@@ -55,16 +53,6 @@ public class PlayerCardUIManager : MonoBehaviour
     {
         // Tự động ẩn UI khi mới bắt đầu game
         HideCard();
-    }
-
-    private void Update()
-    {
-        // Nếu cờ canClickToStore được bật và người chơi bấm chuột/chạm màn hình
-        if (canClickToStore && Input.GetMouseButtonDown(0))
-        {
-            canClickToStore = false; // Tắt đi để chỉ gọi 1 lần duy nhất
-            GotoStore();
-        }
     }
 
     // Hàm này sẽ được gọi bởi SlotTrigger khi Cup rơi vào ô
@@ -124,9 +112,6 @@ public class PlayerCardUIManager : MonoBehaviour
                 if (obj != null) obj.SetActive(false);
             }
         }
-
-        // Sau khi đã bật/tắt các object xong, cho phép người chơi click bất cứ đâu để ra Store
-        canClickToStore = true;
     }
 
     // Gắn hàm này vào một Button (Nút Đóng) trên UI để tắt popup

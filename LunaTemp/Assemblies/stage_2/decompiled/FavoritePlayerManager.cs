@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
-using Luna.Unity;
 using UnityEngine;
 
 public class FavoritePlayerManager : MonoBehaviour
@@ -138,9 +137,6 @@ public class FavoritePlayerManager : MonoBehaviour
 		if (canClickToStoreGlobal && Input.GetMouseButtonDown(0))
 		{
 			canClickToStoreGlobal = false;
-			Debug.Log("\ud83c\udf89 Chuyển hướng ra Store tải game!");
-			LifeCycle.GameEnded();
-			Playable.InstallFullGame();
 		}
 		else
 		{

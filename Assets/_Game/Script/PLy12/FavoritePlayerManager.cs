@@ -121,9 +121,9 @@ public class FavoritePlayerManager : MonoBehaviour
         if (canClickToStoreGlobal && Input.GetMouseButtonDown(0))
         {
             canClickToStoreGlobal = false; // Chỉ chạy 1 lần
-            Debug.Log("🎉 Chuyển hướng ra Store tải game!");
-            LifeCycle.GameEnded();
-            Playable.InstallFullGame();
+            // Debug.Log("🎉 Chuyển hướng ra Store tải game!");
+            // LifeCycle.GameEnded();
+            // Playable.InstallFullGame();
             return; // Đã ra store thì ngưng xử lý bên dưới
         }
 
