@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: Ronaldo
   halfBodySprite: {fileID: 21300000, guid: 7f2303f793adf3b41b3cf3eb8c909581, type: 3}
-  fullBodySprite: {fileID: 21300000, guid: 0247c48450cf3a8469955cd628c033a6, type: 3}
+  fullBodySprite: {fileID: 21300000, guid: ee66fea143bd8094fb9cc1e93360708c, type: 3}
   nameAudio: {fileID: 8300000, guid: 8adbf984e9dced14b9deab24386611e2, type: 3}
