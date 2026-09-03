@@ -1,7 +1,7 @@
 {
     "version": "7.1.0",
     "projectId": "60d50cfced72ae74bb8c1682cb9abbe6",
-    "applicationID": 0,
+    "applicationID": 40548,
     "creativeName": "PLY_V22",
     "pgServer": "EU",
     "window": {
@@ -34830,6 +34830,46 @@
                         "script": "",
                         "ext": "",
                         "name": "Assets/_Game/Sprite/PLY22/Evil.png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/PLY22/New Project (73) (Custom) (1).png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/PLY22/New Project (71) (Custom) (1).png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/PLY22/New Project (70) (Custom) (1).png"
+                    },
+                    {
+                        "maxWidth": 800,
+                        "maxHeight": 800,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/PLY22/New Project (72) (Custom) (1).png"
                     }
                 ]
             },

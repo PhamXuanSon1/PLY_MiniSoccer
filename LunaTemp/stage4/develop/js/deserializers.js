@@ -835,21 +835,22 @@ Deserializers["HaalandGame.HaalandGameManager"] = function (request, data, root)
   request.r(i2077[85], i2077[86], 0, i2076, 'refereeSpriteRenderer')
   request.r(i2077[87], i2077[88], 0, i2076, 'refereeReactionSprite')
   request.r(i2077[89], i2077[90], 0, i2076, 'iconListAnimator')
-  var i2079 = i2077[91]
+  request.r(i2077[91], i2077[92], 0, i2076, 'postWinAudioClip')
+  var i2079 = i2077[93]
   var i2078 = new (System.Collections.Generic.List$1(Bridge.ns('HaalandGame.PostWinTimedObject')))
   for(var i = 0; i < i2079.length; i += 1) {
     i2078.add(request.d('HaalandGame.PostWinTimedObject', i2079[i + 0]));
   }
   i2076.postWinTimeline = i2078
-  i2076.onPostWinTriggered = request.d('UnityEngine.Events.UnityEvent', i2077[92], i2076.onPostWinTriggered)
-  i2076.postWinDelay = i2077[93]
-  var i2081 = i2077[94]
+  i2076.onPostWinTriggered = request.d('UnityEngine.Events.UnityEvent', i2077[94], i2076.onPostWinTriggered)
+  i2076.postWinDelay = i2077[95]
+  var i2081 = i2077[96]
   var i2080 = new (System.Collections.Generic.List$1(Bridge.ns('UnityEngine.GameObject')))
   for(var i = 0; i < i2081.length; i += 2) {
   request.r(i2081[i + 0], i2081[i + 1], 1, i2080, '')
   }
   i2076.postWinObjects = i2080
-  i2076.currentLevel = i2077[95]
+  i2076.currentLevel = i2077[97]
   return i2076
 }
 
@@ -860,8 +861,9 @@ Deserializers["HaalandGame.PostWinTimedObject"] = function (request, data, root)
   request.r(i2085[1], i2085[2], 0, i2084, 'targetObject')
   i2084.enableDelay = i2085[3]
   i2084.disableDelay = i2085[4]
-  i2084.onEnabled = request.d('UnityEngine.Events.UnityEvent', i2085[5], i2084.onEnabled)
-  i2084.onDisabled = request.d('UnityEngine.Events.UnityEvent', i2085[6], i2084.onDisabled)
+  request.r(i2085[5], i2085[6], 0, i2084, 'soundClip')
+  i2084.onEnabled = request.d('UnityEngine.Events.UnityEvent', i2085[7], i2084.onEnabled)
+  i2084.onDisabled = request.d('UnityEngine.Events.UnityEvent', i2085[8], i2084.onDisabled)
   return i2084
 }
 
@@ -2642,7 +2644,7 @@ Deserializers.lunaSHA = "cf93782349542fe0b84ad13951a26809f8419628";
 
 Deserializers.creativeName = "PLY_V22";
 
-Deserializers.lunaAppID = "40548";
+Deserializers.lunaAppID = "27599";
 
 Deserializers.projectId = "60d50cfced72ae74bb8c1682cb9abbe6";
 
@@ -2664,9 +2666,9 @@ Deserializers.isAntiAliasingEnabled = "True";
 
 Deserializers.isRuntimeAnalysisEnabledForCode = "False";
 
-Deserializers.runtimeAnalysisExcludedClassesCount = "1738";
+Deserializers.runtimeAnalysisExcludedClassesCount = "1735";
 
-Deserializers.runtimeAnalysisExcludedMethodsCount = "4599";
+Deserializers.runtimeAnalysisExcludedMethodsCount = "4593";
 
 Deserializers.runtimeAnalysisExcludedModules = "";
 
@@ -2690,7 +2692,7 @@ Deserializers.graphicsConstraint = 24;
 
 Deserializers.linearColorSpace = false;
 
-Deserializers.buildID = "f556058f-c506-4ebc-ae33-36148c082cec";
+Deserializers.buildID = "04d83b31-3745-464c-bf38-e3908b43c724";
 
 Deserializers.runtimeInitializeOnLoadInfos = [[["Unity","Services","Core","Internal","UnityServicesInitializer","EnableServicesInitializationAsync"],["UnityEngine","U2D","Animation","GpuDeformationSystem","CreateFallbackBuffer"],["UnityEngine","Experimental","Rendering","ScriptableRuntimeReflectionSystemSettings","ScriptingDirtyReflectionSystemInstance"]],[["DG","Tweening","DOTween","RuntimeOnLoad"],["Unity","VisualScripting","RuntimeVSUsageUtility","RuntimeInitializeOnLoadBeforeSceneLoad"],["Unity","Services","Core","Registration","CorePackageInitializer","InitializeOnLoad"],["Unity","Services","Core","Internal","TaskAsyncOperation","SetScheduler"],["Unity","Services","Core","Environments","Client","Scheduler","EngineStateHelper","Init"],["Unity","Services","Core","Environments","Client","Scheduler","ThreadHelper","Init"],["Ua2CoreInitializeCallback","Register"],["UnityEngine","InputSystem","InputSystem","RunInitialUpdate"],["Unity","AI","Navigation","NavMeshLink","ClearTrackedList"],["Unity","AI","Navigation","NavMeshSurface","ClearNavMeshSurfaces"],["Unity","AI","Navigation","NavMeshModifierVolume","ClearNavMeshModifiers"],["Unity","AI","Navigation","NavMeshModifier","ClearNavMeshModifiers"],["UnityEngine","AI","NavMesh","ClearPreUpdateListeners"]],[["Unity","Services","Core","Internal","UnityServicesInitializer","CreateStaticInstance"],["$BurstDirectCallInitializer","Initialize"],["$BurstDirectCallInitializer","Initialize"],["$BurstDirectCallInitializer","Initialize"],["$BurstDirectCallInitializer","Initialize"],["$BurstDirectCallInitializer","Initialize"],["$BurstDirectCallInitializer","Initialize"],["$BurstDirectCallInitializer","Initialize"],["$BurstDirectCallInitializer","Initialize"],["$BurstDirectCallInitializer","Initialize"]],[["Unity","Services","Core","Environments","Client","Http","JsonHelpers","RegisterTypesForAOT"]],[["Unity","Services","Core","UnityThreadUtils","CaptureUnityThreadInfo"],["UnityEngine","InputSystem","Plugins","InputForUI","InputSystemProvider","Bootstrap"],["UnityEngine","InputSystem","InputSystem","RunInitializeInPlayer"]]];
 
