@@ -286,7 +286,7 @@ MonoBehaviour:
     - OUTLINE_ON
   _includedShaderVariants: []
   _excludedShaderVariants: []
-  version: 1057
+  version: 1166
   _shaderParsedShaders:
   - ParsedSubShaders:
     - Index: 0

@@ -1,8 +1,39 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Luna.Unity;
 
 namespace HaalandGame
 {
+    [System.Serializable]
+    public class PostWinTimedObject
+    {
+        [VnLabel("Mô tả / Tên")]
+        public string label = "Object";
+
+        [VnLabel("GameObject")]
+        [Tooltip("Kéo GameObject cần bật/tắt vào đây (có thể để trống nếu chỉ dùng Event)")]
+        public GameObject targetObject;
+
+        [VnLabel("Thời điểm BẬT (s)")]
+        [Tooltip("Mốc thời gian (giây) kể từ khi hiện Cầu thủ Thắng để BẬT object này. Nhập số âm (< 0) nếu không cần bật.")]
+        public float enableDelay = 1.0f;
+
+        [VnLabel("Thời điểm TẮT (s)")]
+        [Tooltip("Mốc thời gian (giây) kể từ khi hiện Cầu thủ Thắng để TẮT object này. Nhập số <= 0 nếu muốn giữ nguyên (không tắt).")]
+        public float disableDelay = -1f;
+
+        [VnLabel("Âm thanh khi BẬT (AudioClip)")]
+        [Tooltip("Kéo file âm thanh (.mp3, .wav) vào đây để phát đúng mốc thời gian BẬT (để trống nếu không cần)")]
+        public AudioClip soundClip;
+
+        [VnLabel("Sự kiện khi BẬT (Event)")]
+        public UnityEvent onEnabled;
+
+        [VnLabel("Sự kiện khi TẮT (Event)")]
+        public UnityEvent onDisabled;
+    }
+
     public class HaalandGameManager : MonoBehaviour
     {
         public static HaalandGameManager Instance { get; private set; }
@@ -29,6 +60,10 @@ namespace HaalandGame
         [VnLabel("Trigger Messi xoạc bóng")]
         public string startMessiTackleTrigger = "StartMessiTackle";
 
+        [VnLabel("Tốc độ anim Messi xoạc bóng")]
+        [Tooltip("Hệ số tốc độ animation Messi chạy xoạc (1.0 = bình thường, 0.75 = chạy chậm lại để nhìn rõ cú xoạc)")]
+        public float messiTackleSpeed = 0.75f;
+
         [VnLabel("Độ trễ trước khi xoạc bóng (s)")]
         [Tooltip("Thời gian chờ (delay) trước khi phát animation xoạc bóng (mặc định 1.0s)")]
         public float tackleAnimDelay = 1.0f;
@@ -52,6 +87,10 @@ namespace HaalandGame
         [VnLabel("Object Cầu thủ bị đau")]
         [Tooltip("GameObject Cầu thủ chính bị đau/chấn thương (Bật khi tắt FightingCloud)")]
         public GameObject haalandHurt;
+
+        [VnLabel("Object Cầu thủ Win (khi Chọn Đúng)")]
+        [Tooltip("GameObject bật lên NGAY LẬP TỨC khi chọn ĐÚNG Ronaldo (đồng thời tắt Cầu thủ bị đau). Khác với Object Cầu thủ khi Thắng xuất hiện sau 3s.")]
+        public GameObject haalandWinOnCorrect;
 
         [VnLabel("Object Cầu thủ khi Thắng")]
         [Tooltip("GameObject bật lên khi người chơi chọn ĐÚNG (Đồng thời tắt Object Cầu thủ bị đau)")]
@@ -107,12 +146,19 @@ namespace HaalandGame
         public bool useAutoTimers = true;
 
         [VnLabel("Độ trễ ẩn xoạc bóng (s)")]
-        [Tooltip("Thời gian ẩn cầu thủ xoạc bóng (mặc định 0.5s)")]
+        [Tooltip("Thời gian ẩn Ronaldo xoạc bóng (mặc định 0.5s)")]
         public float tackleHideDelay = 0.5f;   // Sau 0.5s tắt xoạc bóng
 
-        [VnLabel("Thời điểm va chạm mây khói (s)")]
-        [Tooltip("Thời điểm va chạm bật mây khói tính từ lúc bắt đầu xoạc (mặc định 0.2s - 0.3s)")]
-        public float impactCloudDelay = 0.3f;  // Thời điểm va chạm bật cloud
+        [HideInInspector]
+        public float impactCloudDelay = 0.2f;  // Thời điểm va chạm bật mây khói của Ronaldo (ẩn khỏi Inspector)
+
+        [VnLabel("Độ trễ ẩn xoạc bóng Messi (s)")]
+        [Tooltip("Thời gian ẩn Messi xoạc bóng khi replay (mặc định 0.7s - tăng lên khi Messi chạy chậm)")]
+        public float messiTackleHideDelay = 0.7f;
+
+        [VnLabel("Thời điểm va chạm mây khói Messi (s)")]
+        [Tooltip("Thời điểm va chạm bật mây khói tính từ lúc Messi bắt đầu xoạc khi replay (mặc định 0.45s - tăng lên khi Messi chạy chậm)")]
+        public float messiImpactCloudDelay = 0.45f;
 
         [VnLabel("Độ trễ Cầu thủ bị đau (s)")]
         [Tooltip("Sau bao nhiêu giây kể từ khi bật Mây khói thì kích hoạt Cầu thủ chính ôm chân nằm sân")]
@@ -199,6 +245,22 @@ namespace HaalandGame
         [VnLabel("Icon List Animator")]
         public IconListAnimator iconListAnimator;
 
+        [Header("=== 10. DANH SÁCH OBJECT & EVENT THEO MỐC THỜI GIAN SAU THẮNG ===")]
+        [VnLabel("Âm thanh sau Thắng (AudioClip)")]
+        [Tooltip("Âm thanh phát ngay khi hiện Cầu thủ Thắng / bắt đầu chuỗi (để trống nếu không cần)")]
+        public AudioClip postWinAudioClip;
+
+        [VnLabel("Chuỗi Object theo mốc thời gian")]
+        [Tooltip("Mỗi phần tử cho phép cấu hình thời điểm BẬT và thời điểm TẮT riêng biệt")]
+        public List<PostWinTimedObject> postWinTimeline = new List<PostWinTimedObject>();
+
+        [VnLabel("Sự kiện chung sau khi Thắng (Event)")]
+        [Tooltip("UnityEvent chung được gọi cùng thời điểm Cầu thủ Thắng xuất hiện")]
+        public UnityEvent onPostWinTriggered;
+
+        [HideInInspector] public float postWinDelay = 1.0f;
+        [HideInInspector] public List<GameObject> postWinObjects = new List<GameObject>();
+
         public int currentLevel = 1;
         private bool isTackleStarted = false;
         private bool isChoiceMade = false;
@@ -273,6 +335,7 @@ namespace HaalandGame
             isStandPlayerEntered = false;
             isGameWon = false;
             canClickToStore = false;
+            StopAllCoroutines();
             CancelInvoke();
 
             // Chỉ bật Tap To Play ở Level 1 (lần đầu tiên). Khi Replay (Lose) hoặc sang Level 2 sẽ KHÔNG hiện lại
@@ -282,7 +345,33 @@ namespace HaalandGame
             if (winChoiceUI != null) winChoiceUI.SetActive(false);
             if (winExtraObj1 != null) winExtraObj1.SetActive(false);
             if (winExtraObj2 != null) winExtraObj2.SetActive(false);
-            if (iconListUI != null) iconListUI.SetActive(false);
+            if (iconListUI != null)
+            {
+                foreach (Transform child in iconListUI.transform)
+                {
+                    if (child.gameObject != winChoiceUI && child.gameObject != wrongChoiceUI)
+                    {
+                        child.gameObject.SetActive(true);
+                    }
+                }
+                iconListUI.SetActive(false);
+            }
+
+            if (postWinTimeline != null)
+            {
+                foreach (var item in postWinTimeline)
+                {
+                    if (item != null && item.targetObject != null) item.targetObject.SetActive(false);
+                }
+            }
+
+            if (postWinObjects != null)
+            {
+                foreach (var obj in postWinObjects)
+                {
+                    if (obj != null) obj.SetActive(false);
+                }
+            }
 
             if (haalandDribbleImage != null)
             {
@@ -310,6 +399,7 @@ namespace HaalandGame
             }
             if (fightingCloud != null) fightingCloud.SetActive(false);
             if (haalandHurt != null) haalandHurt.SetActive(false);
+            if (haalandWinOnCorrect != null) haalandWinOnCorrect.SetActive(false);
             if (haalandWin != null) haalandWin.SetActive(false);
             DisableStandPlayers();
 
@@ -437,31 +527,15 @@ namespace HaalandGame
                 isGameWon = true;
                 canClickToStore = false; // Tuyệt đối KHÔNG mở store ngay khi vừa click chọn Ronaldo
 
-                // Tắt Question UI & Wrong Choice UI
-                if (questionUI != null) questionUI.SetActive(false);
+                // TẮT Cầu thủ bị đau (CryYamal) & BẬT Cầu thủ Win (khi chọn đúng)
+                if (haalandHurt != null) haalandHurt.SetActive(false);
+                if (haalandWinOnCorrect != null) haalandWinOnCorrect.SetActive(true);
+
+                // Tắt Wrong Choice UI
                 if (wrongChoiceUI != null) wrongChoiceUI.SetActive(false);
 
-                // Ẩn 4 Icon chọn nhưng bảo toàn Canvas cha nếu winChoiceUI nằm trong đó
-                if (iconListUI != null)
-                {
-                    if (winChoiceUI != null && winChoiceUI.transform.IsChildOf(iconListUI.transform))
-                    {
-                        iconListUI.SetActive(true);
-                        foreach (Transform child in iconListUI.transform)
-                        {
-                            if (child.gameObject != winChoiceUI && 
-                                (winExtraObj1 == null || child.gameObject != winExtraObj1) && 
-                                (winExtraObj2 == null || child.gameObject != winExtraObj2))
-                            {
-                                child.gameObject.SetActive(false);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        iconListUI.SetActive(false);
-                    }
-                }
+                // TẮT NGAY LẬP TỨC: UI Câu hỏi & 4 Icon (chỉ giữ lại UI Win nếu nằm trong cùng Canvas)
+                HideQuestionAndIcons(winChoiceUI);
 
                 // BẬT NGAY LẬP TỨC: UI Chọn đúng (You Win) & Object phụ (Pháo hoa Confetti)
                 if (winChoiceUI != null)
@@ -513,12 +587,25 @@ namespace HaalandGame
                     ronaldoSpriteRenderer.sprite = ronaldoEvilLaughSprite;
                 }
 
-                // Tắt Question UI & Win Choice UI & 2 obj phụ -> Bật Wrong Choice UI
-                if (questionUI != null) questionUI.SetActive(false);
+                // Tắt Win Choice UI & 2 obj phụ
                 if (winChoiceUI != null) winChoiceUI.SetActive(false);
                 if (winExtraObj1 != null) winExtraObj1.SetActive(false);
                 if (winExtraObj2 != null) winExtraObj2.SetActive(false);
-                if (wrongChoiceUI != null) wrongChoiceUI.SetActive(true);
+
+                // TẮT NGAY LẬP TỨC: UI Câu hỏi & 4 Icon (chỉ giữ lại UI Lose nếu nằm trong cùng Canvas)
+                HideQuestionAndIcons(wrongChoiceUI);
+
+                // BẬT NGAY LẬP TỨC: Wrong Choice UI (You Lose)
+                if (wrongChoiceUI != null)
+                {
+                    Transform p = wrongChoiceUI.transform.parent;
+                    while (p != null)
+                    {
+                        p.gameObject.SetActive(true);
+                        p = p.parent;
+                    }
+                    wrongChoiceUI.SetActive(true);
+                }
 
                 // Sound Lose2 khi hiện Wrong Choice UI
                 if (Ply_SoundManager.Instance != null) Ply_SoundManager.Instance.PlayFx(FxType.Lose2);
@@ -542,6 +629,65 @@ namespace HaalandGame
 
                 // Sau khi hiện Wrong UI -> Chơi lại (TH1: Replay Messi xoạc L->R + Tackle)
                 Invoke(nameof(ReplayLevel1), nextActionDelay);
+            }
+        }
+
+        public void HideQuestionAndIcons(GameObject popupToKeep = null)
+        {
+            // Tắt UI Câu hỏi ngay lập tức
+            if (questionUI != null) questionUI.SetActive(false);
+
+            // Tắt cụm 4 Icon
+            if (iconListUI != null)
+            {
+                if (popupToKeep != null && popupToKeep.transform.IsChildOf(iconListUI.transform))
+                {
+                    // Nếu Popup (Win/Lose) nằm trong IconListCanvas thì giữ Canvas active nhưng tắt sạch các nút Icon
+                    iconListUI.SetActive(true);
+                    foreach (Transform child in iconListUI.transform)
+                    {
+                        if (child.gameObject != popupToKeep &&
+                            (winExtraObj1 == null || child.gameObject != winExtraObj1) &&
+                            (winExtraObj2 == null || child.gameObject != winExtraObj2))
+                        {
+                            child.gameObject.SetActive(false);
+                        }
+                    }
+                }
+                else
+                {
+                    iconListUI.SetActive(false);
+                }
+            }
+        }
+
+        public void ShowIconList(bool show = true)
+        {
+            if (iconListUI == null) return;
+
+            iconListUI.SetActive(show);
+
+            if (show)
+            {
+                // Đảm bảo tất cả các icon bên trong (đặc biệt là GameObject Icon chứa 4 nút) được bật
+                foreach (Transform child in iconListUI.transform)
+                {
+                    if (child.gameObject != winChoiceUI && child.gameObject != wrongChoiceUI)
+                    {
+                        child.gameObject.SetActive(true);
+                    }
+                }
+
+                // Kích hoạt animation nhô nẩy của 4 icon
+                if (iconListAnimator != null)
+                {
+                    iconListAnimator.PlayGrowAnimation();
+                }
+                else
+                {
+                    var anim = iconListUI.GetComponentInChildren<IconListAnimator>(true);
+                    if (anim != null) anim.PlayGrowAnimation();
+                }
             }
         }
 
@@ -577,10 +723,11 @@ namespace HaalandGame
 
         public void ShowWinPlayerObject()
         {
-            Debug.Log("[HaalandGameManager] ShowWinPlayerObject: Showing win player object, showing TapToPlay, and hiding winChoiceUI.");
+            Debug.Log("[HaalandGameManager] ShowWinPlayerObject: Showing win player object and hiding winChoiceUI.");
 
-            // Tắt các object cũ: Cầu thủ bị đau, Dàn cầu thủ & Chat bubble
+            // Tắt các object cũ: Cầu thủ bị đau, Cầu thủ win khi chọn đúng, Dàn cầu thủ & Chat bubble
             if (haalandHurt != null) haalandHurt.SetActive(false);
+            if (haalandWinOnCorrect != null) haalandWinOnCorrect.SetActive(false);
             DisableStandPlayers();
             if (ronaldoChatBubble != null) ronaldoChatBubble.SetActive(false);
 
@@ -590,15 +737,114 @@ namespace HaalandGame
             // BẬT Object Cầu thủ khi Thắng
             if (haalandWin != null) haalandWin.SetActive(true);
 
-            // HIỆN LẠI Object TapToPlay (kêu gọi click tải game)
-            if (tutUI != null) tutUI.SetActive(true);
+            // Phát âm thanh sau Thắng (nếu có gán)
+            if (postWinAudioClip != null)
+            {
+                PlaySound(postWinAudioClip);
+            }
 
             // Hiệu ứng pháo hoa (nếu có gán)
             if (winExtraObj1 != null) winExtraObj1.SetActive(true);
             if (winExtraObj2 != null) winExtraObj2.SetActive(true);
 
-            // Kích hoạt cho phép người chơi click tiếp theo để mở Store
+            // Gọi sự kiện chung sau khi thắng
+            onPostWinTriggered?.Invoke();
+
+            // Chạy chuỗi Object & Event theo các mốc thời gian riêng biệt
+            StartCoroutine(RunPostWinTimelineRoutine());
+        }
+
+        private AudioSource customAudioSource;
+
+        public void PlaySound(AudioClip clip)
+        {
+            if (clip == null) return;
+            if (customAudioSource == null)
+            {
+                customAudioSource = gameObject.AddComponent<AudioSource>();
+                customAudioSource.playOnAwake = false;
+                customAudioSource.spatialBlend = 0f; // 2D âm thanh cho Luna Playable
+            }
+            customAudioSource.PlayOneShot(clip);
+        }
+
+        public void PlaySoundFx(AudioClip clip)
+        {
+            PlaySound(clip);
+        }
+
+        private System.Collections.IEnumerator RunPostWinTimelineRoutine()
+        {
+            float maxTime = 0.5f;
+
+            if (postWinTimeline != null && postWinTimeline.Count > 0)
+            {
+                foreach (var item in postWinTimeline)
+                {
+                    if (item == null) continue;
+                    if (item.enableDelay > maxTime) maxTime = item.enableDelay;
+                    if (item.disableDelay > maxTime) maxTime = item.disableDelay;
+
+                    // Lên lịch BẬT
+                    if (item.enableDelay >= 0f)
+                    {
+                        StartCoroutine(TriggerTimedItemEnable(item));
+                    }
+
+                    // Lên lịch TẮT
+                    if (item.disableDelay > 0f)
+                    {
+                        StartCoroutine(TriggerTimedItemDisable(item));
+                    }
+                }
+            }
+
+            // Hỗ trợ danh sách cũ postWinObjects (nếu có)
+            if (postWinObjects != null && postWinObjects.Count > 0)
+            {
+                yield return new WaitForSeconds(postWinDelay);
+                foreach (var obj in postWinObjects)
+                {
+                    if (obj != null) obj.SetActive(true);
+                }
+                if (postWinDelay > maxTime) maxTime = postWinDelay;
+            }
+
+            // Chờ đến khi tất cả các mốc thời gian kết thúc -> Kích hoạt chạm màn hình mở Store
+            yield return new WaitForSeconds(maxTime + 0.2f);
             StartCoroutine(EnableClickToStoreRoutine());
+        }
+
+        private System.Collections.IEnumerator TriggerTimedItemEnable(PostWinTimedObject item)
+        {
+            if (item.enableDelay > 0f)
+            {
+                yield return new WaitForSeconds(item.enableDelay);
+            }
+            if (item.targetObject != null)
+            {
+                item.targetObject.SetActive(true);
+                Debug.Log($"[HaalandGameManager] Đã BẬT '{item.targetObject.name}' ở mốc {item.enableDelay}s.");
+            }
+            if (item.soundClip != null)
+            {
+                PlaySound(item.soundClip);
+            }
+            item.onEnabled?.Invoke();
+        }
+
+        private System.Collections.IEnumerator TriggerTimedItemDisable(PostWinTimedObject item)
+        {
+            if (item.disableDelay > 0f)
+            {
+                yield return new WaitForSeconds(item.disableDelay);
+            }
+            if (item.targetObject != null)
+            {
+                item.targetObject.SetActive(false);
+                Debug.Log($"[HaalandGameManager] Đã TẮT '{item.targetObject.name}' ở mốc {item.disableDelay}s.");
+            }
+            item.onDisabled?.Invoke();
         }
 
         private System.Collections.IEnumerator EnableClickToStoreRoutine()
@@ -695,18 +941,28 @@ namespace HaalandGame
             }
             else
             {
-                if (messiTackle != null) messiTackle.SetActive(true);
+                if (messiTackle != null)
+                {
+                    if (messiTackleAnimator != null && messiTackleSpeed > 0f)
+                    {
+                        messiTackleAnimator.speed = messiTackleSpeed;
+                    }
+                    messiTackle.SetActive(true);
+                }
                 PlayOrTriggerAnimation(messiTackleAnimator, startMessiTackleTrigger, "StartMessiTackle");
             }
 
             // Tự động đếm giờ theo các mốc thời gian nếu useAutoTimers = true
             if (useAutoTimers)
             {
+                float currentImpactDelay = (currentLevel == 1) ? impactCloudDelay : messiImpactCloudDelay;
+                float currentTackleHideDelay = (currentLevel == 1) ? tackleHideDelay : messiTackleHideDelay;
+
                 Invoke(nameof(PlayTackleSound), tackleSoundDelay);
-                Invoke(nameof(OnTackleFinished), tackleHideDelay);
-                Invoke(nameof(OnImpactCloudStart), impactCloudDelay);
-                Invoke(nameof(ShowHaalandHurt), impactCloudDelay + haalandHurtDelay);
-                Invoke(nameof(OnCloudFinished), impactCloudDelay + cloudDuration);
+                Invoke(nameof(OnTackleFinished), currentTackleHideDelay);
+                Invoke(nameof(OnImpactCloudStart), currentImpactDelay);
+                Invoke(nameof(ShowHaalandHurt), currentImpactDelay + haalandHurtDelay);
+                Invoke(nameof(OnCloudFinished), currentImpactDelay + cloudDuration);
             }
             else
             {
@@ -731,6 +987,7 @@ namespace HaalandGame
             if (winExtraObj1 != null) winExtraObj1.SetActive(false);
             if (winExtraObj2 != null) winExtraObj2.SetActive(false);
             if (haalandWin != null) haalandWin.SetActive(false);
+            if (haalandWinOnCorrect != null) haalandWinOnCorrect.SetActive(false);
         }
 
         // 3. Va chạm (OnImpactCloudStart)
@@ -768,14 +1025,7 @@ namespace HaalandGame
 
             // Bật UI Câu hỏi (Question UI) & 4 Icon chọn cầu thủ (Icon List UI) cùng lúc với StandPlayer
             if (questionUI != null) questionUI.SetActive(true);
-            if (iconListUI != null) iconListUI.SetActive(true);
-
-            if (iconListAnimator != null) iconListAnimator.PlayGrowAnimation();
-            else if (iconListUI != null)
-            {
-                var anim = iconListUI.GetComponent<IconListAnimator>();
-                if (anim != null) anim.PlayGrowAnimation();
-            }
+            ShowIconList(true);
 
             // Active GameObject StandPlayer và phát Trigger di chuyển vào của nó (standPlayerEnterTrigger)
             if (standPlayers != null)
@@ -811,7 +1061,7 @@ namespace HaalandGame
             Debug.Log("[HaalandGameManager] OnLineupComplete: StandPlayer lineup complete.");
             isStandPlayerEntered = true;
             if (questionUI != null) questionUI.SetActive(true);
-            if (iconListUI != null) iconListUI.SetActive(true);
+            ShowIconList(true);
             PlayRefereeAnimation();
         }
 

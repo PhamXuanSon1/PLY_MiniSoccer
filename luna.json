@@ -2071,10 +2071,6 @@
                 "excluded": true
             },
             {
-                "name": "UnityEngine.WaitForSeconds",
-                "excluded": true
-            },
-            {
                 "name": "UnityEngine.WaitForSecondsRealtime",
                 "excluded": true
             },
@@ -8617,14 +8613,6 @@
             {
                 "name": "MatchWidthMode",
                 "excluded": false
-            },
-            {
-                "name": "pc.Debugger.Components.EditorCamera",
-                "excluded": true
-            },
-            {
-                "name": "pc.Debugger.Components.EditorGUI",
-                "excluded": true
             }
         ],
         "unusedMethods": [
@@ -25694,7 +25682,7 @@
                     },
                     {
                         "name": "Play$4",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Play$1",
@@ -26870,7 +26858,7 @@
                 "instanceMethods": [
                     {
                         "name": "uiScaleMode#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "uiScaleMode#set",
@@ -26882,7 +26870,7 @@
                     },
                     {
                         "name": "screenMatchMode#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "referenceResolution#get",
@@ -26890,7 +26878,7 @@
                     },
                     {
                         "name": "referenceResolution#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "scaleFactor#get",
@@ -26906,7 +26894,7 @@
                     },
                     {
                         "name": "matchWidthOrHeight#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "referencePixelsPerUnit#get",
@@ -28349,6 +28337,10 @@
                     {
                         "name": "FitToTargetAreaBounds",
                         "excluded": true
+                    },
+                    {
+                        "name": "UpdateCanvasesFit",
+                        "excluded": false
                     }
                 ]
             },
@@ -32245,6 +32237,34 @@
                     {
                         "name": "ShowWinPlayerObject",
                         "excluded": false
+                    },
+                    {
+                        "name": "ShowIconList",
+                        "excluded": false
+                    },
+                    {
+                        "name": "DisableStandPlayers",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ResetStandPlayersToFrameZero",
+                        "excluded": false
+                    },
+                    {
+                        "name": "RunPostWinTimelineRoutine",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TriggerTimedItemEnable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "TriggerTimedItemDisable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "EnableClickToStoreRoutine",
+                        "excluded": false
                     }
                 ]
             },
@@ -33886,7 +33906,7 @@
                     },
                     {
                         "name": "PlayGrowAnimation",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -34083,6 +34103,34 @@
                     {
                         "name": "PathLength",
                         "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "HaalandGame.PostWinTimedObject",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.WaitForSeconds",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Reset",
+                        "excluded": false
                     }
                 ]
             }

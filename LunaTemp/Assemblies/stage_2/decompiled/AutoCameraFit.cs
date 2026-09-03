@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 [ExecuteAlways]
 [RequireComponent(typeof(Camera))]
@@ -22,7 +23,16 @@ public class AutoCameraFit : MonoBehaviour
 	[Tooltip("ExpandOnNarrowScreens (Khuyên dùng): Khi gặp màn hình dài/hẹp hơn màn chuẩn (như iPhone dài, Samsung), Camera sẽ tự động zoom out để chiều rộng KHÔNG BAO GIỜ BỊ TRÀN 2 VIỀN TRÁI/PHẢI!\nAlwaysMatchWidth: Luôn luôn ép vừa khít chiều rộng trong mọi tỉ lệ màn hình.")]
 	public MatchWidthMode widthMode = MatchWidthMode.ExpandOnNarrowScreens;
 
-	[Header("=== 3. CÀI ĐẶT CŨ THEO BOUNDS (TARGET AREA) ===")]
+	[Header("=== 3. CÀI ĐẶT FIT CANVAS (UI) ===")]
+	[VnLabel("Tự động Fit Canvas UI")]
+	[Tooltip("Tự động đồng bộ các CanvasScaler để các Object UI trong Canvas không bao giờ bị tràn viền 2 bên!")]
+	public bool autoFitCanvases = true;
+
+	[VnLabel("Danh sách CanvasScaler")]
+	[Tooltip("Nếu để trống, script sẽ tự động tìm và đồng bộ tất cả CanvasScaler trong Scene")]
+	public CanvasScaler[] targetCanvasScalers;
+
+	[Header("=== 4. CÀI ĐẶT CŨ THEO BOUNDS (TARGET AREA) ===")]
 	[SerializeField]
 	private Transform targetArea;
 
@@ -95,6 +105,7 @@ public class AutoCameraFit : MonoBehaviour
 		{
 			referenceOrthographicSize = cam.orthographicSize;
 		}
+		UpdateCameraNow();
 		Debug.Log($"[AutoCameraFit] ĐÃ LƯU MÀN HÌNH CHUẨN: {referenceResolution.x}x{referenceResolution.y}, OrthoSize: {referenceOrthographicSize}");
 	}
 
@@ -130,8 +141,43 @@ public class AutoCameraFit : MonoBehaviour
 			{
 				FitToTargetAreaBounds();
 			}
+			if (autoFitCanvases)
+			{
+				UpdateCanvasesFit();
+			}
 			lastScreenWidth = Screen.width;
 			lastScreenHeight = Screen.height;
+		}
+	}
+
+	public void UpdateCanvasesFit()
+	{
+		if (referenceResolution.x <= 0f || referenceResolution.y <= 0f || Screen.width <= 0 || Screen.height <= 0)
+		{
+			return;
+		}
+		if (targetCanvasScalers == null || targetCanvasScalers.Length == 0)
+		{
+			targetCanvasScalers = Object.FindObjectsOfType<CanvasScaler>();
+		}
+		CanvasScaler[] scalers = targetCanvasScalers;
+		if (scalers == null || scalers.Length == 0)
+		{
+			return;
+		}
+		float refAspect = referenceResolution.x / referenceResolution.y;
+		float currentAspect = (float)Screen.width / (float)Screen.height;
+		float targetMatch = 1f;
+		targetMatch = ((widthMode != MatchWidthMode.AlwaysMatchWidth) ? ((currentAspect < refAspect) ? 0f : 1f) : 0f);
+		CanvasScaler[] array = scalers;
+		foreach (CanvasScaler scaler in array)
+		{
+			if (!(scaler == null) && scaler.uiScaleMode == CanvasScaler.ScaleMode.ScaleWithScreenSize)
+			{
+				scaler.referenceResolution = referenceResolution;
+				scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
+				scaler.matchWidthOrHeight = targetMatch;
+			}
 		}
 	}
 

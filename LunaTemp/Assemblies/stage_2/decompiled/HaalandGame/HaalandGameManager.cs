@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Luna.Unity;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace HaalandGame
 {
@@ -44,6 +45,10 @@ namespace HaalandGame
 		[VnLabel("Trigger Messi xoạc bóng")]
 		public string startMessiTackleTrigger = "StartMessiTackle";
 
+		[VnLabel("Tốc độ anim Messi xoạc bóng")]
+		[Tooltip("Hệ số tốc độ animation Messi chạy xoạc (1.0 = bình thường, 0.75 = chạy chậm lại để nhìn rõ cú xoạc)")]
+		public float messiTackleSpeed = 0.75f;
+
 		[VnLabel("Độ trễ trước khi xoạc bóng (s)")]
 		[Tooltip("Thời gian chờ (delay) trước khi phát animation xoạc bóng (mặc định 1.0s)")]
 		public float tackleAnimDelay = 1f;
@@ -67,6 +72,10 @@ namespace HaalandGame
 		[VnLabel("Object Cầu thủ bị đau")]
 		[Tooltip("GameObject Cầu thủ chính bị đau/chấn thương (Bật khi tắt FightingCloud)")]
 		public GameObject haalandHurt;
+
+		[VnLabel("Object Cầu thủ Win (khi Chọn Đúng)")]
+		[Tooltip("GameObject bật lên NGAY LẬP TỨC khi chọn ĐÚNG Ronaldo (đồng thời tắt Cầu thủ bị đau). Khác với Object Cầu thủ khi Thắng xuất hiện sau 3s.")]
+		public GameObject haalandWinOnCorrect;
 
 		[VnLabel("Object Cầu thủ khi Thắng")]
 		[Tooltip("GameObject bật lên khi người chơi chọn ĐÚNG (Đồng thời tắt Object Cầu thủ bị đau)")]
@@ -125,12 +134,19 @@ namespace HaalandGame
 		public bool useAutoTimers = true;
 
 		[VnLabel("Độ trễ ẩn xoạc bóng (s)")]
-		[Tooltip("Thời gian ẩn cầu thủ xoạc bóng (mặc định 0.5s)")]
+		[Tooltip("Thời gian ẩn Ronaldo xoạc bóng (mặc định 0.5s)")]
 		public float tackleHideDelay = 0.5f;
 
-		[VnLabel("Thời điểm va chạm mây khói (s)")]
-		[Tooltip("Thời điểm va chạm bật mây khói tính từ lúc bắt đầu xoạc (mặc định 0.2s - 0.3s)")]
-		public float impactCloudDelay = 0.3f;
+		[HideInInspector]
+		public float impactCloudDelay = 0.2f;
+
+		[VnLabel("Độ trễ ẩn xoạc bóng Messi (s)")]
+		[Tooltip("Thời gian ẩn Messi xoạc bóng khi replay (mặc định 0.7s - tăng lên khi Messi chạy chậm)")]
+		public float messiTackleHideDelay = 0.7f;
+
+		[VnLabel("Thời điểm va chạm mây khói Messi (s)")]
+		[Tooltip("Thời điểm va chạm bật mây khói tính từ lúc Messi bắt đầu xoạc khi replay (mặc định 0.45s - tăng lên khi Messi chạy chậm)")]
+		public float messiImpactCloudDelay = 0.45f;
 
 		[VnLabel("Độ trễ Cầu thủ bị đau (s)")]
 		[Tooltip("Sau bao nhiêu giây kể từ khi bật Mây khói thì kích hoạt Cầu thủ chính ôm chân nằm sân")]
@@ -222,6 +238,25 @@ namespace HaalandGame
 		[VnLabel("Icon List Animator")]
 		public IconListAnimator iconListAnimator;
 
+		[Header("=== 10. DANH SÁCH OBJECT & EVENT THEO MỐC THỜI GIAN SAU THẮNG ===")]
+		[VnLabel("Âm thanh sau Thắng (AudioClip)")]
+		[Tooltip("Âm thanh phát ngay khi hiện Cầu thủ Thắng / bắt đầu chuỗi (để trống nếu không cần)")]
+		public AudioClip postWinAudioClip;
+
+		[VnLabel("Chuỗi Object theo mốc thời gian")]
+		[Tooltip("Mỗi phần tử cho phép cấu hình thời điểm BẬT và thời điểm TẮT riêng biệt")]
+		public List<PostWinTimedObject> postWinTimeline = new List<PostWinTimedObject>();
+
+		[VnLabel("Sự kiện chung sau khi Thắng (Event)")]
+		[Tooltip("UnityEvent chung được gọi cùng thời điểm Cầu thủ Thắng xuất hiện")]
+		public UnityEvent onPostWinTriggered;
+
+		[HideInInspector]
+		public float postWinDelay = 1f;
+
+		[HideInInspector]
+		public List<GameObject> postWinObjects = new List<GameObject>();
+
 		public int currentLevel = 1;
 
 		private bool isTackleStarted = false;
@@ -245,6 +280,8 @@ namespace HaalandGame
 		private Sprite originalRefereeSprite;
 
 		private List<TransformState> haalandDribbleOriginalStates = new List<TransformState>();
+
+		private AudioSource customAudioSource;
 
 		public static HaalandGameManager Instance { get; private set; }
 
@@ -313,6 +350,7 @@ namespace HaalandGame
 			isStandPlayerEntered = false;
 			isGameWon = false;
 			canClickToStore = false;
+			StopAllCoroutines();
 			CancelInvoke();
 			if (tutUI != null)
 			{
@@ -340,7 +378,34 @@ namespace HaalandGame
 			}
 			if (iconListUI != null)
 			{
+				foreach (Transform child2 in iconListUI.transform)
+				{
+					if (child2.gameObject != winChoiceUI && child2.gameObject != wrongChoiceUI)
+					{
+						child2.gameObject.SetActive(true);
+					}
+				}
 				iconListUI.SetActive(false);
+			}
+			if (postWinTimeline != null)
+			{
+				foreach (PostWinTimedObject item in postWinTimeline)
+				{
+					if (item != null && item.targetObject != null)
+					{
+						item.targetObject.SetActive(false);
+					}
+				}
+			}
+			if (postWinObjects != null)
+			{
+				foreach (GameObject obj in postWinObjects)
+				{
+					if (obj != null)
+					{
+						obj.SetActive(false);
+					}
+				}
 			}
 			if (haalandDribbleImage != null)
 			{
@@ -369,6 +434,10 @@ namespace HaalandGame
 			if (haalandHurt != null)
 			{
 				haalandHurt.SetActive(false);
+			}
+			if (haalandWinOnCorrect != null)
+			{
+				haalandWinOnCorrect.SetActive(false);
 			}
 			if (haalandWin != null)
 			{
@@ -539,39 +608,26 @@ namespace HaalandGame
 					AppLovinAnalytics.Track(ALEvent.CHALLENGE_SOLVED);
 					isGameWon = true;
 					canClickToStore = false;
-					if (questionUI != null)
+					if (haalandHurt != null)
 					{
-						questionUI.SetActive(false);
+						haalandHurt.SetActive(false);
+					}
+					if (haalandWinOnCorrect != null)
+					{
+						haalandWinOnCorrect.SetActive(true);
 					}
 					if (wrongChoiceUI != null)
 					{
 						wrongChoiceUI.SetActive(false);
 					}
-					if (iconListUI != null)
-					{
-						if (winChoiceUI != null && winChoiceUI.transform.IsChildOf(iconListUI.transform))
-						{
-							iconListUI.SetActive(true);
-							foreach (Transform child2 in iconListUI.transform)
-							{
-								if (child2.gameObject != winChoiceUI && (winExtraObj1 == null || child2.gameObject != winExtraObj1) && (winExtraObj2 == null || child2.gameObject != winExtraObj2))
-								{
-									child2.gameObject.SetActive(false);
-								}
-							}
-						}
-						else
-						{
-							iconListUI.SetActive(false);
-						}
-					}
+					HideQuestionAndIcons(winChoiceUI);
 					if (winChoiceUI != null)
 					{
-						Transform p = winChoiceUI.transform.parent;
-						while (p != null)
+						Transform p2 = winChoiceUI.transform.parent;
+						while (p2 != null)
 						{
-							p.gameObject.SetActive(true);
-							p = p.parent;
+							p2.gameObject.SetActive(true);
+							p2 = p2.parent;
 						}
 						winChoiceUI.SetActive(true);
 					}
@@ -611,10 +667,6 @@ namespace HaalandGame
 				{
 					ronaldoSpriteRenderer.sprite = ronaldoEvilLaughSprite;
 				}
-				if (questionUI != null)
-				{
-					questionUI.SetActive(false);
-				}
 				if (winChoiceUI != null)
 				{
 					winChoiceUI.SetActive(false);
@@ -627,8 +679,15 @@ namespace HaalandGame
 				{
 					winExtraObj2.SetActive(false);
 				}
+				HideQuestionAndIcons(wrongChoiceUI);
 				if (wrongChoiceUI != null)
 				{
+					Transform p = wrongChoiceUI.transform.parent;
+					while (p != null)
+					{
+						p.gameObject.SetActive(true);
+						p = p.parent;
+					}
 					wrongChoiceUI.SetActive(true);
 				}
 				if (Ply_Singleton<Ply_SoundManager>.Instance != null)
@@ -672,6 +731,63 @@ namespace HaalandGame
 			}
 		}
 
+		public void HideQuestionAndIcons(GameObject popupToKeep = null)
+		{
+			if (questionUI != null)
+			{
+				questionUI.SetActive(false);
+			}
+			if (!(iconListUI != null))
+			{
+				return;
+			}
+			if (popupToKeep != null && popupToKeep.transform.IsChildOf(iconListUI.transform))
+			{
+				iconListUI.SetActive(true);
+				{
+					foreach (Transform child in iconListUI.transform)
+					{
+						if (child.gameObject != popupToKeep && (winExtraObj1 == null || child.gameObject != winExtraObj1) && (winExtraObj2 == null || child.gameObject != winExtraObj2))
+						{
+							child.gameObject.SetActive(false);
+						}
+					}
+					return;
+				}
+			}
+			iconListUI.SetActive(false);
+		}
+
+		public void ShowIconList(bool show = true)
+		{
+			if (iconListUI == null)
+			{
+				return;
+			}
+			iconListUI.SetActive(show);
+			if (!show)
+			{
+				return;
+			}
+			foreach (Transform child in iconListUI.transform)
+			{
+				if (child.gameObject != winChoiceUI && child.gameObject != wrongChoiceUI)
+				{
+					child.gameObject.SetActive(true);
+				}
+			}
+			if (iconListAnimator != null)
+			{
+				iconListAnimator.PlayGrowAnimation();
+				return;
+			}
+			IconListAnimator anim = iconListUI.GetComponentInChildren<IconListAnimator>(true);
+			if (anim != null)
+			{
+				anim.PlayGrowAnimation();
+			}
+		}
+
 		public void DisableStandPlayers()
 		{
 			if (!(standPlayers == null))
@@ -700,10 +816,14 @@ namespace HaalandGame
 
 		public void ShowWinPlayerObject()
 		{
-			Debug.Log("[HaalandGameManager] ShowWinPlayerObject: Showing win player object, showing TapToPlay, and hiding winChoiceUI.");
+			Debug.Log("[HaalandGameManager] ShowWinPlayerObject: Showing win player object and hiding winChoiceUI.");
 			if (haalandHurt != null)
 			{
 				haalandHurt.SetActive(false);
+			}
+			if (haalandWinOnCorrect != null)
+			{
+				haalandWinOnCorrect.SetActive(false);
 			}
 			DisableStandPlayers();
 			if (ronaldoChatBubble != null)
@@ -718,9 +838,9 @@ namespace HaalandGame
 			{
 				haalandWin.SetActive(true);
 			}
-			if (tutUI != null)
+			if (postWinAudioClip != null)
 			{
-				tutUI.SetActive(true);
+				PlaySound(postWinAudioClip);
 			}
 			if (winExtraObj1 != null)
 			{
@@ -730,7 +850,106 @@ namespace HaalandGame
 			{
 				winExtraObj2.SetActive(true);
 			}
+			onPostWinTriggered?.Invoke();
+			StartCoroutine(RunPostWinTimelineRoutine());
+		}
+
+		public void PlaySound(AudioClip clip)
+		{
+			if (!(clip == null))
+			{
+				if (customAudioSource == null)
+				{
+					customAudioSource = base.gameObject.AddComponent<AudioSource>();
+					customAudioSource.playOnAwake = false;
+					customAudioSource.spatialBlend = 0f;
+				}
+				customAudioSource.PlayOneShot(clip);
+			}
+		}
+
+		public void PlaySoundFx(AudioClip clip)
+		{
+			PlaySound(clip);
+		}
+
+		private IEnumerator RunPostWinTimelineRoutine()
+		{
+			float maxTime = 0.5f;
+			if (postWinTimeline != null && postWinTimeline.Count > 0)
+			{
+				foreach (PostWinTimedObject item in postWinTimeline)
+				{
+					if (item != null)
+					{
+						if (item.enableDelay > maxTime)
+						{
+							maxTime = item.enableDelay;
+						}
+						if (item.disableDelay > maxTime)
+						{
+							maxTime = item.disableDelay;
+						}
+						if (item.enableDelay >= 0f)
+						{
+							StartCoroutine(TriggerTimedItemEnable(item));
+						}
+						if (item.disableDelay > 0f)
+						{
+							StartCoroutine(TriggerTimedItemDisable(item));
+						}
+					}
+				}
+			}
+			if (postWinObjects != null && postWinObjects.Count > 0)
+			{
+				yield return new WaitForSeconds(postWinDelay);
+				foreach (GameObject obj in postWinObjects)
+				{
+					if (obj != null)
+					{
+						obj.SetActive(true);
+					}
+				}
+				if (postWinDelay > maxTime)
+				{
+					maxTime = postWinDelay;
+				}
+			}
+			yield return new WaitForSeconds(maxTime + 0.2f);
 			StartCoroutine(EnableClickToStoreRoutine());
+		}
+
+		private IEnumerator TriggerTimedItemEnable(PostWinTimedObject item)
+		{
+			if (item.enableDelay > 0f)
+			{
+				yield return new WaitForSeconds(item.enableDelay);
+			}
+			if (item.targetObject != null)
+			{
+				item.targetObject.SetActive(true);
+				Debug.Log($"[HaalandGameManager] Đã BẬT '{item.targetObject.name}' ở mốc {item.enableDelay}s.");
+			}
+			if (item.soundClip != null)
+			{
+				PlaySound(item.soundClip);
+			}
+			item.onEnabled?.Invoke();
+		}
+
+		private IEnumerator TriggerTimedItemDisable(PostWinTimedObject item)
+		{
+			if (item.disableDelay > 0f)
+			{
+				yield return new WaitForSeconds(item.disableDelay);
+			}
+			if (item.targetObject != null)
+			{
+				item.targetObject.SetActive(false);
+				Debug.Log($"[HaalandGameManager] Đã TẮT '{item.targetObject.name}' ở mốc {item.disableDelay}s.");
+			}
+			item.onDisabled?.Invoke();
 		}
 
 		private IEnumerator EnableClickToStoreRoutine()
@@ -841,17 +1060,23 @@ namespace HaalandGame
 			{
 				if (messiTackle != null)
 				{
+					if (messiTackleAnimator != null && messiTackleSpeed > 0f)
+					{
+						messiTackleAnimator.speed = messiTackleSpeed;
+					}
 					messiTackle.SetActive(true);
 				}
 				PlayOrTriggerAnimation(messiTackleAnimator, startMessiTackleTrigger, "StartMessiTackle");
 			}
 			if (useAutoTimers)
 			{
+				float currentImpactDelay = ((currentLevel == 1) ? impactCloudDelay : messiImpactCloudDelay);
+				float currentTackleHideDelay = ((currentLevel == 1) ? tackleHideDelay : messiTackleHideDelay);
 				Invoke("PlayTackleSound", tackleSoundDelay);
-				Invoke("OnTackleFinished", tackleHideDelay);
-				Invoke("OnImpactCloudStart", impactCloudDelay);
-				Invoke("ShowHaalandHurt", impactCloudDelay + haalandHurtDelay);
-				Invoke("OnCloudFinished", impactCloudDelay + cloudDuration);
+				Invoke("OnTackleFinished", currentTackleHideDelay);
+				Invoke("OnImpactCloudStart", currentImpactDelay);
+				Invoke("ShowHaalandHurt", currentImpactDelay + haalandHurtDelay);
+				Invoke("OnCloudFinished", currentImpactDelay + cloudDuration);
 			}
 			else
 			{
@@ -889,6 +1114,10 @@ namespace HaalandGame
 			if (haalandWin != null)
 			{
 				haalandWin.SetActive(false);
+			}
+			if (haalandWinOnCorrect != null)
+			{
+				haalandWinOnCorrect.SetActive(false);
 			}
 		}
 
@@ -934,22 +1163,7 @@ namespace HaalandGame
 			{
 				questionUI.SetActive(true);
 			}
-			if (iconListUI != null)
-			{
-				iconListUI.SetActive(true);
-			}
-			if (iconListAnimator != null)
-			{
-				iconListAnimator.PlayGrowAnimation();
-			}
-			else if (iconListUI != null)
-			{
-				IconListAnimator anim = iconListUI.GetComponent<IconListAnimator>();
-				if (anim != null)
-				{
-					anim.PlayGrowAnimation();
-				}
-			}
+			ShowIconList();
 			if (standPlayers != null)
 			{
 				if (standPlayersAnimator != null)
@@ -982,10 +1196,7 @@ namespace HaalandGame
 			{
 				questionUI.SetActive(true);
 			}
-			if (iconListUI != null)
-			{
-				iconListUI.SetActive(true);
-			}
+			ShowIconList();
 			PlayRefereeAnimation();
 		}
 
