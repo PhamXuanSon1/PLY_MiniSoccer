@@ -21,9 +21,9 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: 0141bd5f03414824aa870683fd619547, type: 3}
+      value: {fileID: 21300000, guid: 139de4350fea66f429d5c76856458ebd, type: 3}
     - time: 1
-      value: {fileID: 21300000, guid: f04f1b04b87c58e4b8d6a3db4f185af6, type: 3}
+      value: {fileID: 21300000, guid: d36b6eebdcd0e6345ac3c0596fb34ce0, type: 3}
     attribute: m_Sprite
     path: CryYamal
     classID: 212
@@ -46,8 +46,8 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 0141bd5f03414824aa870683fd619547, type: 3}
-    - {fileID: 21300000, guid: f04f1b04b87c58e4b8d6a3db4f185af6, type: 3}
+    - {fileID: 21300000, guid: 139de4350fea66f429d5c76856458ebd, type: 3}
+    - {fileID: 21300000, guid: d36b6eebdcd0e6345ac3c0596fb34ce0, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
