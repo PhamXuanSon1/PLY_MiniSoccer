@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[ExecuteAlways]
 [DefaultExecutionOrder(100)]
 public class ScreenHeightPositionAnchor : MonoBehaviour
 {
@@ -17,10 +18,10 @@ public class ScreenHeightPositionAnchor : MonoBehaviour
 	private bool alignOnStart = true;
 
 	[SerializeField]
-	private bool alignOnEnable = false;
+	private bool alignOnEnable = true;
 
 	[SerializeField]
-	private bool realignOnScreenSizeChanged = false;
+	private bool realignOnScreenSizeChanged = true;
 
 	[SerializeField]
 	private bool drawGizmos = true;
@@ -68,6 +69,15 @@ public class ScreenHeightPositionAnchor : MonoBehaviour
 			AlignToScreenHeightRatio();
 		}
 		CacheScreenState();
+	}
+
+	private void Update()
+	{
+		if (!Application.isPlaying && (lastScreenWidth != Screen.width || lastScreenHeight != Screen.height || HasCameraChanged()))
+		{
+			AlignToScreenHeightRatio();
+			CacheScreenState();
+		}
 	}
 
 	private void LateUpdate()

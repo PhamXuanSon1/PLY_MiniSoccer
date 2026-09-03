@@ -2,7 +2,7 @@
     "version": "7.1.0",
     "projectId": "60d50cfced72ae74bb8c1682cb9abbe6",
     "applicationID": 40548,
-    "creativeName": "PLY_V19",
+    "creativeName": "PLY_V22",
     "pgServer": "EU",
     "window": {
         "‐⁙": true
@@ -8607,6 +8607,18 @@
                 "excluded": false
             },
             {
+                "name": "VnLabelAttribute",
+                "excluded": true
+            },
+            {
+                "name": "CameraFitMode",
+                "excluded": false
+            },
+            {
+                "name": "MatchWidthMode",
+                "excluded": false
+            },
+            {
                 "name": "pc.Debugger.Components.EditorCamera",
                 "excluded": true
             },
@@ -17172,7 +17184,7 @@
                     },
                     {
                         "name": "childCount#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "name#get",
@@ -17240,11 +17252,11 @@
                     },
                     {
                         "name": "GetChild",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "IsChildOf",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "InverseTransformPoint",
@@ -17348,7 +17360,7 @@
                     },
                     {
                         "name": "GetEnumerator",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Find",
@@ -17796,7 +17808,7 @@
                     },
                     {
                         "name": "orthographicSize#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "orthographic#get",
@@ -28317,6 +28329,26 @@
                     {
                         "name": "UpdateCameraNow",
                         "excluded": false
+                    },
+                    {
+                        "name": "Start",
+                        "excluded": false
+                    },
+                    {
+                        "name": "CaptureCurrentAsReference",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetDefaultPortraitReference",
+                        "excluded": true
+                    },
+                    {
+                        "name": "FitToReferenceScreen",
+                        "excluded": false
+                    },
+                    {
+                        "name": "FitToTargetAreaBounds",
+                        "excluded": true
                     }
                 ]
             },
@@ -32209,6 +32241,10 @@
                     {
                         "name": "PlayTackleAnimationAndTimers",
                         "excluded": false
+                    },
+                    {
+                        "name": "ShowWinPlayerObject",
+                        "excluded": false
                     }
                 ]
             },
@@ -32273,6 +32309,10 @@
                     {
                         "name": "OnDrawGizmos",
                         "excluded": true
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
                     }
                 ]
             },
@@ -34602,6 +34642,146 @@
                         "script": "",
                         "ext": "",
                         "name": "Assets/_Game/Sprite/ply19/lv1/New Project (57) (1).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/PLY22/CryYamal.png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/PLY22/SleepWithCup.png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/PLY22/thief 2.png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/PLY22/thief.png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/PLY22/lose (2).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/PLY22/lose (4).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/PLY22/idle (4).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/PLY22/idle (2).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply19/lv1/re (1).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/PLY22/idle (3).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/PLY22/idle (1).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/PLY22/sad.png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/PLY22/lose (3).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/PLY22/Evil.png"
                     }
                 ]
             },

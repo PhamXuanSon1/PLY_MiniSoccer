@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[ExecuteAlways]
 [DefaultExecutionOrder(100)] // Ép script này chạy cuối cùng (SAU KHI Camera đã chạy xong) để hết bệnh giật lag
 public class ScreenHeightPositionAnchor : MonoBehaviour
 {
@@ -7,8 +8,8 @@ public class ScreenHeightPositionAnchor : MonoBehaviour
     [SerializeField] private Camera targetCamera;
     [SerializeField, Range(0f, 1f)] private float viewportYRatio = 0f;
     [SerializeField] private bool alignOnStart = true;
-    [SerializeField] private bool alignOnEnable = false;
-    [SerializeField] private bool realignOnScreenSizeChanged = false; // Tắt mặc định để chỉ chạy 1 lần lúc bật game
+    [SerializeField] private bool alignOnEnable = true;
+    [SerializeField] private bool realignOnScreenSizeChanged = true; // Bật để luôn tự động căn lại khi đổi màn hình / xoay màn hình
     [SerializeField] private bool drawGizmos = true;
     [SerializeField] private Color targetLineColor = Color.green;
     [SerializeField] private Color anchorColor = Color.yellow;
@@ -39,6 +40,19 @@ public class ScreenHeightPositionAnchor : MonoBehaviour
             AlignToScreenHeightRatio();
 
         CacheScreenState();
+    }
+
+    private void Update()
+    {
+        // Khi ở Unity Editor (không ấn Play), tự động cập nhật vị trí theo thời gian thực khi đổi màn hình
+        if (!Application.isPlaying)
+        {
+            if (lastScreenWidth != Screen.width || lastScreenHeight != Screen.height || HasCameraChanged())
+            {
+                AlignToScreenHeightRatio();
+                CacheScreenState();
+            }
+        }
     }
 
     private void LateUpdate()

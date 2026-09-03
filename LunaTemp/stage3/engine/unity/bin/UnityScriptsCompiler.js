@@ -1,4 +1,4 @@
-if ( TRACE ) { TRACE( JSON.parse( '["AppLovinAnalytics#Track","AutoCameraFit#init","AutoCameraFit#Awake","AutoCameraFit#Update","AutoCameraFit#UpdateCameraNow","BatStrikeController#init","BatStrikeController#Start","BatStrikeController#Update","BatStrikeController#ChargeBat","BatStrikeController#FireBat","BatStrikeController#OnCollisionEnter2D","CameraFollow2D#init","CameraFollow2D#LateUpdate","ClickToStore#OnMouseDown","ComponentCache$1#init","ComponentCache$1#Get$1","ComponentCache$1#Get","ComponentCache$1#ClearCache","CupCollision#init","CupCollision#OnCollisionEnter2D","DG.Tweening.DOTweenCYInstruction.WaitForCompletion#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForCompletion#ctor","DG.Tweening.DOTweenCYInstruction.WaitForElapsedLoops#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForElapsedLoops#ctor","DG.Tweening.DOTweenCYInstruction.WaitForKill#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForKill#ctor","DG.Tweening.DOTweenCYInstruction.WaitForPosition#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForPosition#ctor","DG.Tweening.DOTweenCYInstruction.WaitForRewind#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForRewind#ctor","DG.Tweening.DOTweenCYInstruction.WaitForStart#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForStart#ctor","DG.Tweening.DOTweenModuleAudio#DOFade","DG.Tweening.DOTweenModuleAudio#DOPitch","DG.Tweening.DOTweenModuleAudio#DOSetFloat","DG.Tweening.DOTweenModuleAudio#DOComplete","DG.Tweening.DOTweenModuleAudio#DOKill","DG.Tweening.DOTweenModuleAudio#DOFlip","DG.Tweening.DOTweenModuleAudio#DOGoto","DG.Tweening.DOTweenModuleAudio#DOPause","DG.Tweening.DOTweenModuleAudio#DOPlay","DG.Tweening.DOTweenModuleAudio#DOPlayBackwards","DG.Tweening.DOTweenModuleAudio#DOPlayForward","DG.Tweening.DOTweenModuleAudio#DORestart","DG.Tweening.DOTweenModuleAudio#DORewind","DG.Tweening.DOTweenModuleAudio#DOSmoothRewind","DG.Tweening.DOTweenModuleAudio#DOTogglePause","DG.Tweening.DOTweenModulePhysics#DOMove","DG.Tweening.DOTweenModulePhysics#DOMoveX","DG.Tweening.DOTweenModulePhysics#DOMoveY","DG.Tweening.DOTweenModulePhysics#DOMoveZ","DG.Tweening.DOTweenModulePhysics#DORotate","DG.Tweening.DOTweenModulePhysics#DOLookAt","DG.Tweening.DOTweenModulePhysics#DOJump","DG.Tweening.DOTweenModulePhysics#DOPath","DG.Tweening.DOTweenModulePhysics#DOPath$1","DG.Tweening.DOTweenModulePhysics#DOLocalPath","DG.Tweening.DOTweenModulePhysics#DOLocalPath$1","DG.Tweening.DOTweenModulePhysics2D#DOMove","DG.Tweening.DOTweenModulePhysics2D#DOMoveX","DG.Tweening.DOTweenModulePhysics2D#DOMoveY","DG.Tweening.DOTweenModulePhysics2D#DORotate","DG.Tweening.DOTweenModulePhysics2D#DOJump","DG.Tweening.DOTweenModulePhysics2D#DOPath","DG.Tweening.DOTweenModulePhysics2D#DOPath$1","DG.Tweening.DOTweenModulePhysics2D#DOLocalPath","DG.Tweening.DOTweenModulePhysics2D#DOLocalPath$1","DG.Tweening.DOTweenModuleSprite#DOColor","DG.Tweening.DOTweenModuleSprite#DOFade","DG.Tweening.DOTweenModuleSprite#DOGradientColor","DG.Tweening.DOTweenModuleSprite#DOBlendableColor","DG.Tweening.DOTweenModuleUI#DOFade","DG.Tweening.DOTweenModuleUI#DOFade$1","DG.Tweening.DOTweenModuleUI#DOFade$2","DG.Tweening.DOTweenModuleUI#DOFade$3","DG.Tweening.DOTweenModuleUI#DOFade$4","DG.Tweening.DOTweenModuleUI#DOColor","DG.Tweening.DOTweenModuleUI#DOColor$1","DG.Tweening.DOTweenModuleUI#DOColor$2","DG.Tweening.DOTweenModuleUI#DOColor$3","DG.Tweening.DOTweenModuleUI#DOFillAmount","DG.Tweening.DOTweenModuleUI#DOGradientColor","DG.Tweening.DOTweenModuleUI#DOFlexibleSize","DG.Tweening.DOTweenModuleUI#DOMinSize","DG.Tweening.DOTweenModuleUI#DOPreferredSize","DG.Tweening.DOTweenModuleUI#DOScale","DG.Tweening.DOTweenModuleUI#DOAnchorPos","DG.Tweening.DOTweenModuleUI#DOAnchorPosX","DG.Tweening.DOTweenModuleUI#DOAnchorPosY","DG.Tweening.DOTweenModuleUI#DOAnchorPos3D","DG.Tweening.DOTweenModuleUI#DOAnchorPos3DX","DG.Tweening.DOTweenModuleUI#DOAnchorPos3DY","DG.Tweening.DOTweenModuleUI#DOAnchorPos3DZ","DG.Tweening.DOTweenModuleUI#DOAnchorMax","DG.Tweening.DOTweenModuleUI#DOAnchorMin","DG.Tweening.DOTweenModuleUI#DOPivot","DG.Tweening.DOTweenModuleUI#DOPivotX","DG.Tweening.DOTweenModuleUI#DOPivotY","DG.Tweening.DOTweenModuleUI#DOSizeDelta","DG.Tweening.DOTweenModuleUI#DOPunchAnchorPos","DG.Tweening.DOTweenModuleUI#DOShakeAnchorPos","DG.Tweening.DOTweenModuleUI#DOShakeAnchorPos$1","DG.Tweening.DOTweenModuleUI#DOJumpAnchorPos","DG.Tweening.DOTweenModuleUI#DONormalizedPos","DG.Tweening.DOTweenModuleUI#DOHorizontalNormalizedPos","DG.Tweening.DOTweenModuleUI#DOVerticalNormalizedPos","DG.Tweening.DOTweenModuleUI#DOValue","DG.Tweening.DOTweenModuleUI#DOCounter","DG.Tweening.DOTweenModuleUI#DOText","DG.Tweening.DOTweenModuleUI#DOBlendableColor","DG.Tweening.DOTweenModuleUI#DOBlendableColor$1","DG.Tweening.DOTweenModuleUI#DOBlendableColor$2","DG.Tweening.DOTweenModuleUI#DOShapeCircle","DG.Tweening.DOTweenModuleUI.Utils#SwitchToRectTransform","DG.Tweening.DOTweenModuleUnityVersion#DOGradientColor","DG.Tweening.DOTweenModuleUnityVersion#DOGradientColor$1","DG.Tweening.DOTweenModuleUnityVersion#WaitForCompletion","DG.Tweening.DOTweenModuleUnityVersion#WaitForRewind","DG.Tweening.DOTweenModuleUnityVersion#WaitForKill","DG.Tweening.DOTweenModuleUnityVersion#WaitForElapsedLoops","DG.Tweening.DOTweenModuleUnityVersion#WaitForPosition","DG.Tweening.DOTweenModuleUnityVersion#WaitForStart","DG.Tweening.DOTweenModuleUnityVersion#DOOffset","DG.Tweening.DOTweenModuleUnityVersion#DOTiling","DG.Tweening.DOTweenModuleUtils#Init","DG.Tweening.DOTweenModuleUtils#Preserver","DG.Tweening.DOTweenModuleUtils.Physics#SetOrientationOnPath","DG.Tweening.DOTweenModuleUtils.Physics#HasRigidbody2D","DG.Tweening.DOTweenModuleUtils.Physics#HasRigidbody","DG.Tweening.DOTweenModuleUtils.Physics#CreateDOTweenPathTween","HaalandGame.AnimationEventBridge#OnTackleFinished","HaalandGame.AnimationEventBridge#OnImpactCloudStart","HaalandGame.AnimationEventBridge#ShowHaalandHurt","HaalandGame.AnimationEventBridge#OnCloudFinished","HaalandGame.AnimationEventBridge#PlayRefereeAnimation","HaalandGame.AnimationEventBridge#OnLineupComplete","HaalandGame.AnimationEventBridge#OnRedCardFinished","HaalandGame.HaalandGameManager#init","HaalandGame.HaalandGameManager#Awake","HaalandGame.HaalandGameManager#Start","HaalandGame.HaalandGameManager#InitLevel","HaalandGame.HaalandGameManager#ResetPlayerSpritesToOrigin","HaalandGame.HaalandGameManager#SelectRonaldo","HaalandGame.HaalandGameManager#SelectMessi","HaalandGame.HaalandGameManager#SelectVini","HaalandGame.HaalandGameManager#SelectMbappe","HaalandGame.HaalandGameManager#SelectPlayerByIndex","HaalandGame.HaalandGameManager#OnPlayerSelected","HaalandGame.HaalandGameManager#GoToLevel2","HaalandGame.HaalandGameManager#ReplayLevel1","HaalandGame.HaalandGameManager#StartTackleAfterDelay","HaalandGame.HaalandGameManager#OnUserTapStart","HaalandGame.HaalandGameManager#PlayTackleAnimationAndTimers","HaalandGame.HaalandGameManager#PlayTackleSound","HaalandGame.HaalandGameManager#OnTackleFinished","HaalandGame.HaalandGameManager#OnImpactCloudStart","HaalandGame.HaalandGameManager#ShowHaalandHurt","HaalandGame.HaalandGameManager#OnCloudFinished","HaalandGame.HaalandGameManager#PlayRefereeAnimation","HaalandGame.HaalandGameManager#OnLineupComplete","HaalandGame.HaalandGameManager#OnRedCardFinished","HaalandGame.HaalandGameManager#GoToStore","HaalandGame.HaalandGameManager#OpenStore","HaalandGame.HaalandGameManager#Update","HaalandGame.HaalandGameManager#PlayOrTriggerAnimation","HaalandGame.HaalandGameManager.TransformState#getDefaultValue","HaalandGame.HaalandGameManager.TransformState#init","HaalandGame.HaalandGameManager.TransformState#ctor","HaalandGame.HaalandGameManager.TransformState#getHashCode","HaalandGame.HaalandGameManager.TransformState#equals","HaalandGame.HaalandGameManager.TransformState#$clone","HaalandGame.IconListAnimator#init","HaalandGame.IconListAnimator#Awake","HaalandGame.IconListAnimator#OnEnable","HaalandGame.IconListAnimator#OnDisable","HaalandGame.IconListAnimator#OnDestroy","HaalandGame.IconListAnimator#TriggerStartWithDelay","HaalandGame.IconListAnimator#AutoAssignIconsIfEmpty","HaalandGame.IconListAnimator#PlayLoopPulseAnimation","HaalandGame.IconListAnimator#StopAnimation","HaalandGame.IconListAnimator#PlayGrowAnimation","HaalandGame.PlayerSelectable#init","HaalandGame.PlayerSelectable#OnMouseDown","HairCutController#init","HairCutController#Start","HairCutController#Update","HairCutController#HandleFirstTap","HairCutController#StartScissorCut","HairCutController#CheckOverlapDuringMove","HairCutController#PerformCut","HairCutController#TriggerWinEndGame","HairCutController#TriggerLossEndGame","HairCutController#OpenStore","HideOnFirstClick#Start","HideOnFirstClick#Update","ItemMovementController#init","ItemMovementController#Start","ItemMovementController#Update","ItemMovementController#HandleItemMovement","MoveBetweenPoints#init","MoveBetweenPoints#Start","PlayerCardUIManager#init","PlayerCardUIManager#Awake","PlayerCardUIManager#GotoStore","PlayerCardUIManager#Start","PlayerCardUIManager#Update","PlayerCardUIManager#ShowPlayerCard","PlayerCardUIManager#WaitAndTriggerObjects","PlayerCardUIManager#HideCard","Ply_Singleton$1#Instance#get","Ply_Singleton$1#init","Ply_Singleton$1#Awake","Ply_Pool.PoolAmount#getDefaultValue","Ply_Pool.PoolAmount#ctor","Ply_Pool.PoolAmount#getHashCode","Ply_Pool.PoolAmount#equals","Ply_Pool.PoolAmount#$clone","ScreenHeightPositionAnchor#init","ScreenHeightPositionAnchor#Awake","ScreenHeightPositionAnchor#OnEnable","ScreenHeightPositionAnchor#Start","ScreenHeightPositionAnchor#LateUpdate","ScreenHeightPositionAnchor#AlignToScreenHeightRatio","ScreenHeightPositionAnchor#GetTargetCamera","ScreenHeightPositionAnchor#GetAnchor","ScreenHeightPositionAnchor#CacheScreenState","ScreenHeightPositionAnchor#HasCameraChanged","ScreenHeightPositionAnchor#OnDrawGizmos","SlotTrigger#init","SlotTrigger#Start","SlotTrigger#OnTriggerEnter2D","SlotTrigger#FlyAndShowUI","SlotTrigger#ShowUI","SoundData#init","Yielders#EndOfFrame#get","Yielders#FixedUpdate#get","Yielders#init","Yielders#Get","Ply_Pool#inherits","Ply_Pool#init","Ply_Pool#Awake","Ply_Pool#OnInit","Ply_Pool#Spawn$1","Ply_Pool#Spawn","Ply_Pool#Despawn","Ply_Pool#GetPrefab","Ply_SoundManager#inherits","Ply_SoundManager#init","Ply_SoundManager#PlayFx","Ply_SoundManager#PlayLoopFx","Ply_SoundManager#StopFx","Ply_SoundManager#PlayBGM1","Ply_SoundManager#PlayBGM2","Ply_SoundManager#GetSoundData","Ply_SoundManager#MuteFx","Ply_SoundManager#Mute"]' ) ); }
+if ( TRACE ) { TRACE( JSON.parse( '["AppLovinAnalytics#Track","AutoCameraFit#init","AutoCameraFit#Awake","AutoCameraFit#Start","AutoCameraFit#Update","AutoCameraFit#CaptureCurrentAsReference","AutoCameraFit#SetDefaultPortraitReference","AutoCameraFit#UpdateCameraNow","AutoCameraFit#FitToReferenceScreen","AutoCameraFit#FitToTargetAreaBounds","BatStrikeController#init","BatStrikeController#Start","BatStrikeController#Update","BatStrikeController#ChargeBat","BatStrikeController#FireBat","BatStrikeController#OnCollisionEnter2D","CameraFollow2D#init","CameraFollow2D#LateUpdate","ClickToStore#OnMouseDown","ComponentCache$1#init","ComponentCache$1#Get$1","ComponentCache$1#Get","ComponentCache$1#ClearCache","CupCollision#init","CupCollision#OnCollisionEnter2D","DG.Tweening.DOTweenCYInstruction.WaitForCompletion#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForCompletion#ctor","DG.Tweening.DOTweenCYInstruction.WaitForElapsedLoops#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForElapsedLoops#ctor","DG.Tweening.DOTweenCYInstruction.WaitForKill#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForKill#ctor","DG.Tweening.DOTweenCYInstruction.WaitForPosition#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForPosition#ctor","DG.Tweening.DOTweenCYInstruction.WaitForRewind#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForRewind#ctor","DG.Tweening.DOTweenCYInstruction.WaitForStart#keepWaiting#get","DG.Tweening.DOTweenCYInstruction.WaitForStart#ctor","DG.Tweening.DOTweenModuleAudio#DOFade","DG.Tweening.DOTweenModuleAudio#DOPitch","DG.Tweening.DOTweenModuleAudio#DOSetFloat","DG.Tweening.DOTweenModuleAudio#DOComplete","DG.Tweening.DOTweenModuleAudio#DOKill","DG.Tweening.DOTweenModuleAudio#DOFlip","DG.Tweening.DOTweenModuleAudio#DOGoto","DG.Tweening.DOTweenModuleAudio#DOPause","DG.Tweening.DOTweenModuleAudio#DOPlay","DG.Tweening.DOTweenModuleAudio#DOPlayBackwards","DG.Tweening.DOTweenModuleAudio#DOPlayForward","DG.Tweening.DOTweenModuleAudio#DORestart","DG.Tweening.DOTweenModuleAudio#DORewind","DG.Tweening.DOTweenModuleAudio#DOSmoothRewind","DG.Tweening.DOTweenModuleAudio#DOTogglePause","DG.Tweening.DOTweenModulePhysics#DOMove","DG.Tweening.DOTweenModulePhysics#DOMoveX","DG.Tweening.DOTweenModulePhysics#DOMoveY","DG.Tweening.DOTweenModulePhysics#DOMoveZ","DG.Tweening.DOTweenModulePhysics#DORotate","DG.Tweening.DOTweenModulePhysics#DOLookAt","DG.Tweening.DOTweenModulePhysics#DOJump","DG.Tweening.DOTweenModulePhysics#DOPath","DG.Tweening.DOTweenModulePhysics#DOPath$1","DG.Tweening.DOTweenModulePhysics#DOLocalPath","DG.Tweening.DOTweenModulePhysics#DOLocalPath$1","DG.Tweening.DOTweenModulePhysics2D#DOMove","DG.Tweening.DOTweenModulePhysics2D#DOMoveX","DG.Tweening.DOTweenModulePhysics2D#DOMoveY","DG.Tweening.DOTweenModulePhysics2D#DORotate","DG.Tweening.DOTweenModulePhysics2D#DOJump","DG.Tweening.DOTweenModulePhysics2D#DOPath","DG.Tweening.DOTweenModulePhysics2D#DOPath$1","DG.Tweening.DOTweenModulePhysics2D#DOLocalPath","DG.Tweening.DOTweenModulePhysics2D#DOLocalPath$1","DG.Tweening.DOTweenModuleSprite#DOColor","DG.Tweening.DOTweenModuleSprite#DOFade","DG.Tweening.DOTweenModuleSprite#DOGradientColor","DG.Tweening.DOTweenModuleSprite#DOBlendableColor","DG.Tweening.DOTweenModuleUI#DOFade","DG.Tweening.DOTweenModuleUI#DOFade$1","DG.Tweening.DOTweenModuleUI#DOFade$2","DG.Tweening.DOTweenModuleUI#DOFade$3","DG.Tweening.DOTweenModuleUI#DOFade$4","DG.Tweening.DOTweenModuleUI#DOColor","DG.Tweening.DOTweenModuleUI#DOColor$1","DG.Tweening.DOTweenModuleUI#DOColor$2","DG.Tweening.DOTweenModuleUI#DOColor$3","DG.Tweening.DOTweenModuleUI#DOFillAmount","DG.Tweening.DOTweenModuleUI#DOGradientColor","DG.Tweening.DOTweenModuleUI#DOFlexibleSize","DG.Tweening.DOTweenModuleUI#DOMinSize","DG.Tweening.DOTweenModuleUI#DOPreferredSize","DG.Tweening.DOTweenModuleUI#DOScale","DG.Tweening.DOTweenModuleUI#DOAnchorPos","DG.Tweening.DOTweenModuleUI#DOAnchorPosX","DG.Tweening.DOTweenModuleUI#DOAnchorPosY","DG.Tweening.DOTweenModuleUI#DOAnchorPos3D","DG.Tweening.DOTweenModuleUI#DOAnchorPos3DX","DG.Tweening.DOTweenModuleUI#DOAnchorPos3DY","DG.Tweening.DOTweenModuleUI#DOAnchorPos3DZ","DG.Tweening.DOTweenModuleUI#DOAnchorMax","DG.Tweening.DOTweenModuleUI#DOAnchorMin","DG.Tweening.DOTweenModuleUI#DOPivot","DG.Tweening.DOTweenModuleUI#DOPivotX","DG.Tweening.DOTweenModuleUI#DOPivotY","DG.Tweening.DOTweenModuleUI#DOSizeDelta","DG.Tweening.DOTweenModuleUI#DOPunchAnchorPos","DG.Tweening.DOTweenModuleUI#DOShakeAnchorPos","DG.Tweening.DOTweenModuleUI#DOShakeAnchorPos$1","DG.Tweening.DOTweenModuleUI#DOJumpAnchorPos","DG.Tweening.DOTweenModuleUI#DONormalizedPos","DG.Tweening.DOTweenModuleUI#DOHorizontalNormalizedPos","DG.Tweening.DOTweenModuleUI#DOVerticalNormalizedPos","DG.Tweening.DOTweenModuleUI#DOValue","DG.Tweening.DOTweenModuleUI#DOCounter","DG.Tweening.DOTweenModuleUI#DOText","DG.Tweening.DOTweenModuleUI#DOBlendableColor","DG.Tweening.DOTweenModuleUI#DOBlendableColor$1","DG.Tweening.DOTweenModuleUI#DOBlendableColor$2","DG.Tweening.DOTweenModuleUI#DOShapeCircle","DG.Tweening.DOTweenModuleUI.Utils#SwitchToRectTransform","DG.Tweening.DOTweenModuleUnityVersion#DOGradientColor","DG.Tweening.DOTweenModuleUnityVersion#DOGradientColor$1","DG.Tweening.DOTweenModuleUnityVersion#WaitForCompletion","DG.Tweening.DOTweenModuleUnityVersion#WaitForRewind","DG.Tweening.DOTweenModuleUnityVersion#WaitForKill","DG.Tweening.DOTweenModuleUnityVersion#WaitForElapsedLoops","DG.Tweening.DOTweenModuleUnityVersion#WaitForPosition","DG.Tweening.DOTweenModuleUnityVersion#WaitForStart","DG.Tweening.DOTweenModuleUnityVersion#DOOffset","DG.Tweening.DOTweenModuleUnityVersion#DOTiling","DG.Tweening.DOTweenModuleUtils#Init","DG.Tweening.DOTweenModuleUtils#Preserver","DG.Tweening.DOTweenModuleUtils.Physics#SetOrientationOnPath","DG.Tweening.DOTweenModuleUtils.Physics#HasRigidbody2D","DG.Tweening.DOTweenModuleUtils.Physics#HasRigidbody","DG.Tweening.DOTweenModuleUtils.Physics#CreateDOTweenPathTween","HaalandGame.AnimationEventBridge#OnTackleFinished","HaalandGame.AnimationEventBridge#OnImpactCloudStart","HaalandGame.AnimationEventBridge#ShowHaalandHurt","HaalandGame.AnimationEventBridge#OnCloudFinished","HaalandGame.AnimationEventBridge#PlayRefereeAnimation","HaalandGame.AnimationEventBridge#OnLineupComplete","HaalandGame.AnimationEventBridge#OnRedCardFinished","HaalandGame.HaalandGameManager#init","HaalandGame.HaalandGameManager#Awake","HaalandGame.HaalandGameManager#Start","HaalandGame.HaalandGameManager#InitLevel","HaalandGame.HaalandGameManager#ResetPlayerSpritesToOrigin","HaalandGame.HaalandGameManager#SelectRonaldo","HaalandGame.HaalandGameManager#SelectMessi","HaalandGame.HaalandGameManager#SelectVini","HaalandGame.HaalandGameManager#SelectMbappe","HaalandGame.HaalandGameManager#SelectPlayerByIndex","HaalandGame.HaalandGameManager#OnPlayerSelected","HaalandGame.HaalandGameManager#DisableStandPlayers","HaalandGame.HaalandGameManager#ResetStandPlayersToFrameZero","HaalandGame.HaalandGameManager#ShowWinPlayerObject","HaalandGame.HaalandGameManager#EnableClickToStoreRoutine","HaalandGame.HaalandGameManager#GoToLevel2","HaalandGame.HaalandGameManager#ReplayLevel1","HaalandGame.HaalandGameManager#StartTackleAfterDelay","HaalandGame.HaalandGameManager#OnUserTapStart","HaalandGame.HaalandGameManager#PlayTackleAnimationAndTimers","HaalandGame.HaalandGameManager#PlayTackleSound","HaalandGame.HaalandGameManager#OnTackleFinished","HaalandGame.HaalandGameManager#OnImpactCloudStart","HaalandGame.HaalandGameManager#ShowHaalandHurt","HaalandGame.HaalandGameManager#OnCloudFinished","HaalandGame.HaalandGameManager#PlayRefereeAnimation","HaalandGame.HaalandGameManager#OnLineupComplete","HaalandGame.HaalandGameManager#OnRedCardFinished","HaalandGame.HaalandGameManager#GoToStore","HaalandGame.HaalandGameManager#OpenStore","HaalandGame.HaalandGameManager#Update","HaalandGame.HaalandGameManager#PlayOrTriggerAnimation","HaalandGame.HaalandGameManager.TransformState#getDefaultValue","HaalandGame.HaalandGameManager.TransformState#init","HaalandGame.HaalandGameManager.TransformState#ctor","HaalandGame.HaalandGameManager.TransformState#getHashCode","HaalandGame.HaalandGameManager.TransformState#equals","HaalandGame.HaalandGameManager.TransformState#$clone","HaalandGame.IconListAnimator#init","HaalandGame.IconListAnimator#Awake","HaalandGame.IconListAnimator#OnEnable","HaalandGame.IconListAnimator#OnDisable","HaalandGame.IconListAnimator#OnDestroy","HaalandGame.IconListAnimator#TriggerStartWithDelay","HaalandGame.IconListAnimator#AutoAssignIconsIfEmpty","HaalandGame.IconListAnimator#PlayLoopPulseAnimation","HaalandGame.IconListAnimator#StopAnimation","HaalandGame.IconListAnimator#PlayGrowAnimation","HaalandGame.PlayerSelectable#init","HaalandGame.PlayerSelectable#OnMouseDown","HairCutController#init","HairCutController#Start","HairCutController#Update","HairCutController#HandleFirstTap","HairCutController#StartScissorCut","HairCutController#CheckOverlapDuringMove","HairCutController#PerformCut","HairCutController#TriggerWinEndGame","HairCutController#TriggerLossEndGame","HairCutController#OpenStore","HideOnFirstClick#Start","HideOnFirstClick#Update","ItemMovementController#init","ItemMovementController#Start","ItemMovementController#Update","ItemMovementController#HandleItemMovement","MoveBetweenPoints#init","MoveBetweenPoints#Start","PlayerCardUIManager#init","PlayerCardUIManager#Awake","PlayerCardUIManager#GotoStore","PlayerCardUIManager#Start","PlayerCardUIManager#Update","PlayerCardUIManager#ShowPlayerCard","PlayerCardUIManager#WaitAndTriggerObjects","PlayerCardUIManager#HideCard","Ply_Singleton$1#Instance#get","Ply_Singleton$1#init","Ply_Singleton$1#Awake","Ply_Pool.PoolAmount#getDefaultValue","Ply_Pool.PoolAmount#ctor","Ply_Pool.PoolAmount#getHashCode","Ply_Pool.PoolAmount#equals","Ply_Pool.PoolAmount#$clone","ScreenHeightPositionAnchor#init","ScreenHeightPositionAnchor#Awake","ScreenHeightPositionAnchor#OnEnable","ScreenHeightPositionAnchor#Start","ScreenHeightPositionAnchor#Update","ScreenHeightPositionAnchor#LateUpdate","ScreenHeightPositionAnchor#AlignToScreenHeightRatio","ScreenHeightPositionAnchor#GetTargetCamera","ScreenHeightPositionAnchor#GetAnchor","ScreenHeightPositionAnchor#CacheScreenState","ScreenHeightPositionAnchor#HasCameraChanged","ScreenHeightPositionAnchor#OnDrawGizmos","SlotTrigger#init","SlotTrigger#Start","SlotTrigger#OnTriggerEnter2D","SlotTrigger#FlyAndShowUI","SlotTrigger#ShowUI","SoundData#init","VnLabelAttribute#ctor","Yielders#EndOfFrame#get","Yielders#FixedUpdate#get","Yielders#init","Yielders#Get","Ply_Pool#inherits","Ply_Pool#init","Ply_Pool#Awake","Ply_Pool#OnInit","Ply_Pool#Spawn$1","Ply_Pool#Spawn","Ply_Pool#Despawn","Ply_Pool#GetPrefab","Ply_SoundManager#inherits","Ply_SoundManager#init","Ply_SoundManager#PlayFx","Ply_SoundManager#PlayLoopFx","Ply_SoundManager#StopFx","Ply_SoundManager#PlayBGM1","Ply_SoundManager#PlayBGM2","Ply_SoundManager#GetSoundData","Ply_SoundManager#MuteFx","Ply_SoundManager#Mute"]' ) ); }
 /**
  * @compiler Bridge.NET 17.9.42-luna
  */
@@ -48,6 +48,10 @@ if ( TRACE ) { TRACE( "AppLovinAnalytics#Track", this ); }
     Bridge.define("AutoCameraFit", {
         inherits: [UnityEngine.MonoBehaviour],
         fields: {
+            fitMode: 0,
+            referenceResolution: null,
+            referenceOrthographicSize: 0,
+            widthMode: 0,
             targetArea: null,
             paddingLandscape: 0,
             paddingPortrait: 0,
@@ -69,6 +73,11 @@ if ( TRACE ) { TRACE( "AppLovinAnalytics#Track", this ); }
             init: function () {
 if ( TRACE ) { TRACE( "AutoCameraFit#init", this ); }
 
+                this.referenceResolution = new UnityEngine.Vector2();
+                this.fitMode = CameraFitMode.ReferenceScreen;
+                this.referenceResolution = new pc.Vec2( 1080.0, 1920.0 );
+                this.referenceOrthographicSize = 12.1755571;
+                this.widthMode = MatchWidthMode.ExpandOnNarrowScreens;
                 this.paddingLandscape = 0.6;
                 this.paddingPortrait = 0.22;
                 this.extraPaddingSmallScreen = 0.12;
@@ -90,6 +99,14 @@ if ( TRACE ) { TRACE( "AutoCameraFit#Awake", this ); }
             },
             /*AutoCameraFit.Awake end.*/
 
+            /*AutoCameraFit.Start start.*/
+            Start: function () {
+if ( TRACE ) { TRACE( "AutoCameraFit#Start", this ); }
+
+                this.UpdateCameraNow();
+            },
+            /*AutoCameraFit.Start end.*/
+
             /*AutoCameraFit.Update start.*/
             Update: function () {
 if ( TRACE ) { TRACE( "AutoCameraFit#Update", this ); }
@@ -100,9 +117,76 @@ if ( TRACE ) { TRACE( "AutoCameraFit#Update", this ); }
             },
             /*AutoCameraFit.Update end.*/
 
+            /*AutoCameraFit.CaptureCurrentAsReference start.*/
+            CaptureCurrentAsReference: function () {
+if ( TRACE ) { TRACE( "AutoCameraFit#CaptureCurrentAsReference", this ); }
+
+                if (UnityEngine.Component.op_Equality(this.cam, null)) {
+                    this.cam = this.GetComponent(UnityEngine.Camera);
+                }
+                this.referenceResolution = new pc.Vec2( UnityEngine.Screen.width, UnityEngine.Screen.height );
+                if (UnityEngine.Component.op_Inequality(this.cam, null)) {
+                    this.referenceOrthographicSize = this.cam.orthographicSize;
+                }
+                UnityEngine.Debug.Log$1(System.String.format("[AutoCameraFit] \u0110\u00c3 L\u01afU M\u00c0N H\u00ccNH CHU\u1ea8N: {0}x{1}, OrthoSize: {2}", Bridge.box(this.referenceResolution.x, System.Single, System.Single.format, System.Single.getHashCode), Bridge.box(this.referenceResolution.y, System.Single, System.Single.format, System.Single.getHashCode), Bridge.box(this.referenceOrthographicSize, System.Single, System.Single.format, System.Single.getHashCode)));
+            },
+            /*AutoCameraFit.CaptureCurrentAsReference end.*/
+
+            /*AutoCameraFit.SetDefaultPortraitReference start.*/
+            SetDefaultPortraitReference: function () {
+if ( TRACE ) { TRACE( "AutoCameraFit#SetDefaultPortraitReference", this ); }
+
+                if (UnityEngine.Component.op_Equality(this.cam, null)) {
+                    this.cam = this.GetComponent(UnityEngine.Camera);
+                }
+                this.referenceResolution = new pc.Vec2( 1080.0, 1920.0 );
+                if (UnityEngine.Component.op_Inequality(this.cam, null)) {
+                    this.referenceOrthographicSize = this.cam.orthographicSize;
+                }
+                UnityEngine.Debug.Log$1(System.String.format("[AutoCameraFit] \u0110\u00e3 \u0111\u1eb7t chu\u1ea9n 1080x1920, OrthoSize: {0}", [Bridge.box(this.referenceOrthographicSize, System.Single, System.Single.format, System.Single.getHashCode)]));
+            },
+            /*AutoCameraFit.SetDefaultPortraitReference end.*/
+
             /*AutoCameraFit.UpdateCameraNow start.*/
             UpdateCameraNow: function () {
 if ( TRACE ) { TRACE( "AutoCameraFit#UpdateCameraNow", this ); }
+
+                if (UnityEngine.Component.op_Equality(this.cam, null)) {
+                    this.cam = this.GetComponent(UnityEngine.Camera);
+                }
+                if (!(UnityEngine.Component.op_Equality(this.cam, null))) {
+                    if (this.fitMode === CameraFitMode.ReferenceScreen) {
+                        this.FitToReferenceScreen();
+                    } else {
+                        this.FitToTargetAreaBounds();
+                    }
+                    this.lastScreenWidth = UnityEngine.Screen.width;
+                    this.lastScreenHeight = UnityEngine.Screen.height;
+                }
+            },
+            /*AutoCameraFit.UpdateCameraNow end.*/
+
+            /*AutoCameraFit.FitToReferenceScreen start.*/
+            FitToReferenceScreen: function () {
+if ( TRACE ) { TRACE( "AutoCameraFit#FitToReferenceScreen", this ); }
+
+                if (!(this.referenceResolution.x <= 0.0) && !(this.referenceResolution.y <= 0.0) && UnityEngine.Screen.width > 0 && UnityEngine.Screen.height > 0) {
+                    var refAspect = this.referenceResolution.x / this.referenceResolution.y;
+                    var currentAspect = UnityEngine.Screen.width / UnityEngine.Screen.height;
+                    if (this.widthMode === MatchWidthMode.AlwaysMatchWidth) {
+                        this.cam.orthographicSize = this.referenceOrthographicSize * (refAspect / currentAspect);
+                    } else if (currentAspect < refAspect) {
+                        this.cam.orthographicSize = this.referenceOrthographicSize * (refAspect / currentAspect);
+                    } else {
+                        this.cam.orthographicSize = this.referenceOrthographicSize;
+                    }
+                }
+            },
+            /*AutoCameraFit.FitToReferenceScreen end.*/
+
+            /*AutoCameraFit.FitToTargetAreaBounds start.*/
+            FitToTargetAreaBounds: function () {
+if ( TRACE ) { TRACE( "AutoCameraFit#FitToTargetAreaBounds", this ); }
 
                 var $t;
                 if (UnityEngine.Component.op_Equality(this.targetArea, null)) {
@@ -148,10 +232,8 @@ if ( TRACE ) { TRACE( "AutoCameraFit#UpdateCameraNow", this ); }
                         this.tallScreenObject.localPosition = new pc.Vec3( this.tallScreenObject.localPosition.x, this.originalObjectY, this.tallScreenObject.localPosition.z );
                     }
                 }
-                this.lastScreenWidth = UnityEngine.Screen.width;
-                this.lastScreenHeight = UnityEngine.Screen.height;
             },
-            /*AutoCameraFit.UpdateCameraNow end.*/
+            /*AutoCameraFit.FitToTargetAreaBounds end.*/
 
 
         }
@@ -265,6 +347,18 @@ if ( TRACE ) { TRACE( "BatStrikeController#OnCollisionEnter2D", this ); }
         }
     });
     /*BatStrikeController end.*/
+
+    /*CameraFitMode start.*/
+    Bridge.define("CameraFitMode", {
+        $kind: 6,
+        statics: {
+            fields: {
+                ReferenceScreen: 0,
+                TargetAreaBounds: 1
+            }
+        }
+    });
+    /*CameraFitMode end.*/
 
     /*CameraFollow2D start.*/
     Bridge.define("CameraFollow2D", {
@@ -2341,6 +2435,8 @@ if ( TRACE ) { TRACE( "HaalandGame.AnimationEventBridge#OnRedCardFinished", this
             startHaalandDribbleTrigger: null,
             fightingCloud: null,
             haalandHurt: null,
+            haalandWin: null,
+            winPlayerDelay: 0,
             standPlayers: null,
             standPlayersAnimator: null,
             standPlayerEnterTrigger: null,
@@ -2361,10 +2457,6 @@ if ( TRACE ) { TRACE( "HaalandGame.AnimationEventBridge#OnRedCardFinished", this
             nextActionDelay: 0,
             dribbleToTackleDelay: 0,
             tackleSoundDelay: 0,
-            ronaldoStandAnimator: null,
-            viniStandAnimator: null,
-            messiStandAnimator: null,
-            mbappeStandAnimator: null,
             ronaldoChatBubble: null,
             messiChatBubble: null,
             viniChatBubble: null,
@@ -2385,6 +2477,8 @@ if ( TRACE ) { TRACE( "HaalandGame.AnimationEventBridge#OnRedCardFinished", this
             isTackleStarted: false,
             isChoiceMade: false,
             isStandPlayerEntered: false,
+            isGameWon: false,
+            canClickToStore: false,
             originalRonaldoSprite: null,
             originalMessiSprite: null,
             originalViniSprite: null,
@@ -2400,6 +2494,7 @@ if ( TRACE ) { TRACE( "HaalandGame.HaalandGameManager#init", this ); }
                 this.startMessiTackleTrigger = "StartMessiTackle";
                 this.tackleAnimDelay = 1.0;
                 this.startHaalandDribbleTrigger = "StartHaalandDribble";
+                this.winPlayerDelay = 3.0;
                 this.standPlayerEnterTrigger = "playerEnter";
                 this.refereeLookAroundTrigger = "TriggerTurnLeftRight";
                 this.useAutoTimers = true;
@@ -2415,6 +2510,8 @@ if ( TRACE ) { TRACE( "HaalandGame.HaalandGameManager#init", this ); }
                 this.isTackleStarted = false;
                 this.isChoiceMade = false;
                 this.isStandPlayerEntered = false;
+                this.isGameWon = false;
+                this.canClickToStore = false;
                 this.haalandDribbleOriginalStates = new (System.Collections.Generic.List$1(HaalandGame.HaalandGameManager.TransformState)).ctor();
             }
         },
@@ -2483,9 +2580,11 @@ if ( TRACE ) { TRACE( "HaalandGame.HaalandGameManager#InitLevel", this ); }
                 this.isTackleStarted = false;
                 this.isChoiceMade = false;
                 this.isStandPlayerEntered = false;
+                this.isGameWon = false;
+                this.canClickToStore = false;
                 this.CancelInvoke();
                 if (UnityEngine.GameObject.op_Inequality(this.tutUI, null)) {
-                    this.tutUI.SetActive(true);
+                    this.tutUI.SetActive(this.currentLevel === 1);
                 }
                 if (UnityEngine.GameObject.op_Inequality(this.questionUI, null)) {
                     this.questionUI.SetActive(false);
@@ -2535,9 +2634,10 @@ if ( TRACE ) { TRACE( "HaalandGame.HaalandGameManager#InitLevel", this ); }
                 if (UnityEngine.GameObject.op_Inequality(this.haalandHurt, null)) {
                     this.haalandHurt.SetActive(false);
                 }
-                if (UnityEngine.GameObject.op_Inequality(this.standPlayers, null)) {
-                    this.standPlayers.SetActive(false);
+                if (UnityEngine.GameObject.op_Inequality(this.haalandWin, null)) {
+                    this.haalandWin.SetActive(false);
                 }
+                this.DisableStandPlayers();
                 if (UnityEngine.GameObject.op_Inequality(this.ronaldoTackle, null)) {
                     this.ronaldoTackle.SetActive(false);
                 }
@@ -2662,7 +2762,7 @@ if ( TRACE ) { TRACE( "HaalandGame.HaalandGameManager#SelectPlayerByIndex", this
             OnPlayerSelected: function (selectedPlayer) {
 if ( TRACE ) { TRACE( "HaalandGame.HaalandGameManager#OnPlayerSelected", this ); }
 
-                var $t;
+                var $t, $t1;
                 UnityEngine.Debug.Log$1(System.String.format("[HaalandGameManager] OnPlayerSelected: Player selected = {0} (Level = {1})", Bridge.box(selectedPlayer, HaalandGame.PlayerType, System.Enum.toStringFn(HaalandGame.PlayerType)), Bridge.box(this.currentLevel, System.Int32)));
                 if (this.currentLevel === 2) {
                     this.OpenStore();
@@ -2708,15 +2808,42 @@ if ( TRACE ) { TRACE( "HaalandGame.HaalandGameManager#OnPlayerSelected", this );
                         this.refereeAnimator.transform.localEulerAngles = new pc.Vec3( 0.0, targetY, 0.0 );
                     }
                     if (selectedPlayer === HaalandGame.PlayerType.Ronaldo) {
-                        UnityEngine.Debug.Log$1("[HaalandGameManager] Correct Choice: Ronaldo!");
+                        UnityEngine.Debug.Log$1("[HaalandGameManager] Correct Choice: Ronaldo! Game Won.");
                         AppLovinAnalytics.Track(ALEvent.CHALLENGE_SOLVED);
+                        this.isGameWon = true;
+                        this.canClickToStore = false;
                         if (UnityEngine.GameObject.op_Inequality(this.questionUI, null)) {
                             this.questionUI.SetActive(false);
                         }
                         if (UnityEngine.GameObject.op_Inequality(this.wrongChoiceUI, null)) {
                             this.wrongChoiceUI.SetActive(false);
                         }
+                        if (UnityEngine.GameObject.op_Inequality(this.iconListUI, null)) {
+                            if (UnityEngine.GameObject.op_Inequality(this.winChoiceUI, null) && this.winChoiceUI.transform.IsChildOf(this.iconListUI.transform)) {
+                                this.iconListUI.SetActive(true);
+                                $t1 = Bridge.getEnumerator(this.iconListUI.transform);
+                                try {
+                                    while ($t1.moveNext()) {
+                                        var child2 = Bridge.cast($t1.Current, UnityEngine.Transform);
+                                        if (UnityEngine.GameObject.op_Inequality(child2.gameObject, this.winChoiceUI) && (UnityEngine.GameObject.op_Equality(this.winExtraObj1, null) || UnityEngine.GameObject.op_Inequality(child2.gameObject, this.winExtraObj1)) && (UnityEngine.GameObject.op_Equality(this.winExtraObj2, null) || UnityEngine.GameObject.op_Inequality(child2.gameObject, this.winExtraObj2))) {
+                                            child2.gameObject.SetActive(false);
+                                        }
+                                    }
+                                } finally {
+                                    if (Bridge.is($t1, System.IDisposable)) {
+                                        $t1.System$IDisposable$Dispose();
+                                    }
+                                }
+                            } else {
+                                this.iconListUI.SetActive(false);
+                            }
+                        }
                         if (UnityEngine.GameObject.op_Inequality(this.winChoiceUI, null)) {
+                            var p = this.winChoiceUI.transform.parent;
+                            while (UnityEngine.Component.op_Inequality(p, null)) {
+                                p.gameObject.SetActive(true);
+                                p = p.parent;
+                            }
                             this.winChoiceUI.SetActive(true);
                         }
                         if (UnityEngine.GameObject.op_Inequality(this.winExtraObj1, null)) {
@@ -2731,13 +2858,14 @@ if ( TRACE ) { TRACE( "HaalandGame.HaalandGameManager#OnPlayerSelected", this );
                         if (UnityEngine.Component.op_Inequality(this.ronaldoSpriteRenderer, null) && this.ronaldoSadSprite != null) {
                             this.ronaldoSpriteRenderer.sprite = this.ronaldoSadSprite;
                         }
-                        if (UnityEngine.Component.op_Inequality(this.ronaldoStandAnimator, null)) {
-                            this.PlayOrTriggerAnimation(this.ronaldoStandAnimator, "Sad", "Sad");
-                        }
                         if (UnityEngine.GameObject.op_Inequality(this.ronaldoChatBubble, null)) {
                             this.ronaldoChatBubble.SetActive(true);
                         }
-                        this.Invoke("GoToLevel2", this.nextActionDelay);
+                        if (this.winPlayerDelay > 0.0) {
+                            this.Invoke("ShowWinPlayerObject", this.winPlayerDelay);
+                        } else {
+                            this.ShowWinPlayerObject();
+                        }
                         return;
                     }
                     UnityEngine.Debug.Log$1(System.String.format("[HaalandGameManager] Wrong Choice: {0}!", [Bridge.box(selectedPlayer, HaalandGame.PlayerType, System.Enum.toStringFn(HaalandGame.PlayerType))]));
@@ -2763,16 +2891,10 @@ if ( TRACE ) { TRACE( "HaalandGame.HaalandGameManager#OnPlayerSelected", this );
                     if (UnityEngine.MonoBehaviour.op_Inequality(Ply_Singleton$1(Ply_SoundManager).Instance, null)) {
                         Ply_Singleton$1(Ply_SoundManager).Instance.PlayFx(FxType.Lose2);
                     }
-                    if (UnityEngine.Component.op_Inequality(this.ronaldoStandAnimator, null)) {
-                        this.PlayOrTriggerAnimation(this.ronaldoStandAnimator, "Laugh", "Laugh");
-                    }
                     switch (selectedPlayer) {
                         case HaalandGame.PlayerType.Messi: 
                             if (UnityEngine.Component.op_Inequality(this.messiSpriteRenderer, null) && this.messiSadSprite != null) {
                                 this.messiSpriteRenderer.sprite = this.messiSadSprite;
-                            }
-                            if (UnityEngine.Component.op_Inequality(this.messiStandAnimator, null)) {
-                                this.PlayOrTriggerAnimation(this.messiStandAnimator, "Protest", "Protest");
                             }
                             if (UnityEngine.GameObject.op_Inequality(this.messiChatBubble, null)) {
                                 this.messiChatBubble.SetActive(true);
@@ -2782,9 +2904,6 @@ if ( TRACE ) { TRACE( "HaalandGame.HaalandGameManager#OnPlayerSelected", this );
                             if (UnityEngine.Component.op_Inequality(this.viniSpriteRenderer, null) && this.viniSadSprite != null) {
                                 this.viniSpriteRenderer.sprite = this.viniSadSprite;
                             }
-                            if (UnityEngine.Component.op_Inequality(this.viniStandAnimator, null)) {
-                                this.PlayOrTriggerAnimation(this.viniStandAnimator, "Protest", "Protest");
-                            }
                             if (UnityEngine.GameObject.op_Inequality(this.viniChatBubble, null)) {
                                 this.viniChatBubble.SetActive(true);
                             }
@@ -2792,9 +2911,6 @@ if ( TRACE ) { TRACE( "HaalandGame.HaalandGameManager#OnPlayerSelected", this );
                         case HaalandGame.PlayerType.Mbappe: 
                             if (UnityEngine.Component.op_Inequality(this.mbappeSpriteRenderer, null) && this.mbappeSadSprite != null) {
                                 this.mbappeSpriteRenderer.sprite = this.mbappeSadSprite;
-                            }
-                            if (UnityEngine.Component.op_Inequality(this.mbappeStandAnimator, null)) {
-                                this.PlayOrTriggerAnimation(this.mbappeStandAnimator, "Protest", "Protest");
                             }
                             if (UnityEngine.GameObject.op_Inequality(this.mbappeChatBubble, null)) {
                                 this.mbappeChatBubble.SetActive(true);
@@ -2806,6 +2922,126 @@ if ( TRACE ) { TRACE( "HaalandGame.HaalandGameManager#OnPlayerSelected", this );
             },
             /*HaalandGame.HaalandGameManager.OnPlayerSelected end.*/
 
+            /*HaalandGame.HaalandGameManager.DisableStandPlayers start.*/
+            DisableStandPlayers: function () {
+if ( TRACE ) { TRACE( "HaalandGame.HaalandGameManager#DisableStandPlayers", this ); }
+
+                if (!(UnityEngine.GameObject.op_Equality(this.standPlayers, null))) {
+                    this.ResetStandPlayersToFrameZero();
+                    this.standPlayers.SetActive(false);
+                }
+            },
+            /*HaalandGame.HaalandGameManager.DisableStandPlayers end.*/
+
+            /*HaalandGame.HaalandGameManager.ResetStandPlayersToFrameZero start.*/
+            ResetStandPlayersToFrameZero: function () {
+if ( TRACE ) { TRACE( "HaalandGame.HaalandGameManager#ResetStandPlayersToFrameZero", this ); }
+
+                if (!(UnityEngine.GameObject.op_Equality(this.standPlayers, null)) && UnityEngine.Component.op_Inequality(this.standPlayersAnimator, null)) {
+                    if (this.standPlayers.activeSelf) {
+                        this.standPlayersAnimator.Play$4("playerEnter", 0, 0.0);
+                        this.standPlayersAnimator.Update(0.0);
+                        return;
+                    }
+                    this.standPlayers.SetActive(true);
+                    this.standPlayersAnimator.Play$4("playerEnter", 0, 0.0);
+                    this.standPlayersAnimator.Update(0.0);
+                    this.standPlayers.SetActive(false);
+                }
+            },
+            /*HaalandGame.HaalandGameManager.ResetStandPlayersToFrameZero end.*/
+
+            /*HaalandGame.HaalandGameManager.ShowWinPlayerObject start.*/
+            ShowWinPlayerObject: function () {
+if ( TRACE ) { TRACE( "HaalandGame.HaalandGameManager#ShowWinPlayerObject", this ); }
+
+                UnityEngine.Debug.Log$1("[HaalandGameManager] ShowWinPlayerObject: Showing win player object, showing TapToPlay, and hiding winChoiceUI.");
+                if (UnityEngine.GameObject.op_Inequality(this.haalandHurt, null)) {
+                    this.haalandHurt.SetActive(false);
+                }
+                this.DisableStandPlayers();
+                if (UnityEngine.GameObject.op_Inequality(this.ronaldoChatBubble, null)) {
+                    this.ronaldoChatBubble.SetActive(false);
+                }
+                if (UnityEngine.GameObject.op_Inequality(this.winChoiceUI, null)) {
+                    this.winChoiceUI.SetActive(false);
+                }
+                if (UnityEngine.GameObject.op_Inequality(this.haalandWin, null)) {
+                    this.haalandWin.SetActive(true);
+                }
+                if (UnityEngine.GameObject.op_Inequality(this.tutUI, null)) {
+                    this.tutUI.SetActive(true);
+                }
+                if (UnityEngine.GameObject.op_Inequality(this.winExtraObj1, null)) {
+                    this.winExtraObj1.SetActive(true);
+                }
+                if (UnityEngine.GameObject.op_Inequality(this.winExtraObj2, null)) {
+                    this.winExtraObj2.SetActive(true);
+                }
+                this.StartCoroutine$1(this.EnableClickToStoreRoutine());
+            },
+            /*HaalandGame.HaalandGameManager.ShowWinPlayerObject end.*/
+
+            /*HaalandGame.HaalandGameManager.EnableClickToStoreRoutine start.*/
+            EnableClickToStoreRoutine: function () {
+if ( TRACE ) { TRACE( "HaalandGame.HaalandGameManager#EnableClickToStoreRoutine", this ); }
+
+                var $step = 0,
+                    $jumpFromFinally,
+                    $returnValue,
+                    $async_e;
+
+                var $enumerator = new Bridge.GeneratorEnumerator(Bridge.fn.bind(this, function () {
+                    try {
+                        for (;;) {
+                            switch ($step) {
+                                case 0: {
+                                    $enumerator.current = null;
+                                        $step = 1;
+                                        return true;
+                                }
+                                case 1: {
+                                    if ( UnityEngine.Input.GetMouseButton(0) ) {
+                                            $step = 2;
+                                            continue;
+                                        } 
+                                        $step = 4;
+                                        continue;
+                                }
+                                case 2: {
+                                    $enumerator.current = null;
+                                        $step = 3;
+                                        return true;
+                                }
+                                case 3: {
+                                    
+                                        $step = 1;
+                                        continue;
+                                }
+                                case 4: {
+                                    $enumerator.current = new UnityEngine.WaitForSeconds(0.2);
+                                        $step = 5;
+                                        return true;
+                                }
+                                case 5: {
+                                    this.canClickToStore = true;
+                                        UnityEngine.Debug.Log$1("[HaalandGameManager] \u0110\u00e3 k\u00edch ho\u1ea1t: Ch\u1ea1m m\u00e0n h\u00ecnh b\u1ea5t k\u1ef3 \u0111\u00e2u \u0111\u1ec3 ra Store!");
+
+                                }
+                                default: {
+                                    return false;
+                                }
+                            }
+                        }
+                    } catch($async_e1) {
+                        $async_e = System.Exception.create($async_e1);
+                        throw $async_e;
+                    }
+                }));
+                return $enumerator;
+            },
+            /*HaalandGame.HaalandGameManager.EnableClickToStoreRoutine end.*/
+
             /*HaalandGame.HaalandGameManager.GoToLevel2 start.*/
             GoToLevel2: function () {
 if ( TRACE ) { TRACE( "HaalandGame.HaalandGameManager#GoToLevel2", this ); }
@@ -2813,6 +3049,9 @@ if ( TRACE ) { TRACE( "HaalandGame.HaalandGameManager#GoToLevel2", this ); }
                 UnityEngine.Debug.Log$1("[HaalandGameManager] GoToLevel2: Transitioning to Level 2 (Messi Tackle).");
                 this.currentLevel = 2;
                 this.InitLevel();
+                if (UnityEngine.GameObject.op_Inequality(this.tutUI, null)) {
+                    this.tutUI.SetActive(false);
+                }
                 this.Invoke("StartTackleAfterDelay", this.dribbleToTackleDelay);
             },
             /*HaalandGame.HaalandGameManager.GoToLevel2 end.*/
@@ -2825,6 +3064,9 @@ if ( TRACE ) { TRACE( "HaalandGame.HaalandGameManager#ReplayLevel1", this ); }
                 AppLovinAnalytics.Track(ALEvent.CHALLENGE_RETRY);
                 this.currentLevel = 2;
                 this.InitLevel();
+                if (UnityEngine.GameObject.op_Inequality(this.tutUI, null)) {
+                    this.tutUI.SetActive(false);
+                }
                 this.Invoke("StartTackleAfterDelay", this.dribbleToTackleDelay);
             },
             /*HaalandGame.HaalandGameManager.ReplayLevel1 end.*/
@@ -2934,6 +3176,9 @@ if ( TRACE ) { TRACE( "HaalandGame.HaalandGameManager#OnTackleFinished", this );
                 if (UnityEngine.GameObject.op_Inequality(this.winExtraObj2, null)) {
                     this.winExtraObj2.SetActive(false);
                 }
+                if (UnityEngine.GameObject.op_Inequality(this.haalandWin, null)) {
+                    this.haalandWin.SetActive(false);
+                }
             },
             /*HaalandGame.HaalandGameManager.OnTackleFinished end.*/
 
@@ -2992,6 +3237,9 @@ if ( TRACE ) { TRACE( "HaalandGame.HaalandGameManager#OnCloudFinished", this ); 
                     }
                 }
                 if (UnityEngine.GameObject.op_Inequality(this.standPlayers, null)) {
+                    if (UnityEngine.Component.op_Inequality(this.standPlayersAnimator, null)) {
+                        this.standPlayersAnimator.Play$4("playerEnter", 0, 0.0);
+                    }
                     this.standPlayers.SetActive(true);
                     this.PlayOrTriggerAnimation(this.standPlayersAnimator, this.standPlayerEnterTrigger, "playerEnter");
                 }
@@ -3040,7 +3288,11 @@ if ( TRACE ) { TRACE( "HaalandGame.HaalandGameManager#OnRedCardFinished", this )
             GoToStore: function () {
 if ( TRACE ) { TRACE( "HaalandGame.HaalandGameManager#GoToStore", this ); }
 
-                this.OpenStore();
+                if (this.isGameWon && !this.canClickToStore) {
+                    UnityEngine.Debug.Log$1("[HaalandGameManager] GoToStore: B\u1ecf qua click v\u00ec \u0111ang trong th\u1eddi gian m\u1eebng chi\u1ebfn th\u1eafng.");
+                } else {
+                    this.OpenStore();
+                }
             },
             /*HaalandGame.HaalandGameManager.GoToStore end.*/
 
@@ -3049,6 +3301,7 @@ if ( TRACE ) { TRACE( "HaalandGame.HaalandGameManager#GoToStore", this ); }
 if ( TRACE ) { TRACE( "HaalandGame.HaalandGameManager#OpenStore", this ); }
 
                 UnityEngine.Debug.Log$1("[HaalandGameManager] OpenStore: Redirecting to Store.");
+                AppLovinAnalytics.Track(ALEvent.CTA_CLICKED);
                 Luna.Unity.LifeCycle.GameEnded();
                 Luna.Unity.Playable.InstallFullGame();
             },
@@ -3060,6 +3313,9 @@ if ( TRACE ) { TRACE( "HaalandGame.HaalandGameManager#Update", this ); }
 
                 if (!this.isTackleStarted && UnityEngine.Input.GetMouseButtonDown(0)) {
                     this.OnUserTapStart();
+                } else if (this.canClickToStore && UnityEngine.Input.GetMouseButtonDown(0)) {
+                    this.canClickToStore = false;
+                    this.OpenStore();
                 } else if (this.currentLevel === 2 && this.isStandPlayerEntered && !this.isChoiceMade && UnityEngine.Input.GetMouseButtonDown(0)) {
                     this.isChoiceMade = true;
                     this.OpenStore();
@@ -4033,6 +4289,18 @@ if ( TRACE ) { TRACE( "ItemMovementController#HandleItemMovement", this ); }
     });
     /*ItemMovementController end.*/
 
+    /*MatchWidthMode start.*/
+    Bridge.define("MatchWidthMode", {
+        $kind: 6,
+        statics: {
+            fields: {
+                ExpandOnNarrowScreens: 0,
+                AlwaysMatchWidth: 1
+            }
+        }
+    });
+    /*MatchWidthMode end.*/
+
     /*MoveBetweenPoints start.*/
     Bridge.define("MoveBetweenPoints", {
         inherits: [UnityEngine.MonoBehaviour],
@@ -4431,8 +4699,8 @@ if ( TRACE ) { TRACE( "ScreenHeightPositionAnchor#init", this ); }
                 this.lastCameraRotation = new UnityEngine.Quaternion();
                 this.viewportYRatio = 0.0;
                 this.alignOnStart = true;
-                this.alignOnEnable = false;
-                this.realignOnScreenSizeChanged = false;
+                this.alignOnEnable = true;
+                this.realignOnScreenSizeChanged = true;
                 this.drawGizmos = true;
                 this.targetLineColor = new pc.Color( 0, 1, 0, 1 );
                 this.anchorColor = new pc.Color( 1, 1, 0, 1 );
@@ -4469,6 +4737,17 @@ if ( TRACE ) { TRACE( "ScreenHeightPositionAnchor#Start", this ); }
                 this.CacheScreenState();
             },
             /*ScreenHeightPositionAnchor.Start end.*/
+
+            /*ScreenHeightPositionAnchor.Update start.*/
+            Update: function () {
+if ( TRACE ) { TRACE( "ScreenHeightPositionAnchor#Update", this ); }
+
+                if (!UnityEngine.Application.isPlaying && (this.lastScreenWidth !== UnityEngine.Screen.width || this.lastScreenHeight !== UnityEngine.Screen.height || this.HasCameraChanged())) {
+                    this.AlignToScreenHeightRatio();
+                    this.CacheScreenState();
+                }
+            },
+            /*ScreenHeightPositionAnchor.Update end.*/
 
             /*ScreenHeightPositionAnchor.LateUpdate start.*/
             LateUpdate: function () {
@@ -4766,6 +5045,24 @@ if ( TRACE ) { TRACE( "SoundData#init", this ); }
         }
     });
     /*TargetColliderData end.*/
+
+    /*VnLabelAttribute start.*/
+    Bridge.define("VnLabelAttribute", {
+        inherits: [UnityEngine.PropertyAttribute],
+        fields: {
+            Label: null
+        },
+        ctors: {
+            ctor: function (label) {
+if ( TRACE ) { TRACE( "VnLabelAttribute#ctor", this ); }
+
+                this.$initialize();
+                UnityEngine.PropertyAttribute.ctor.call(this);
+                this.Label = label;
+            }
+        }
+    });
+    /*VnLabelAttribute end.*/
 
     /*Yielders start.*/
     Bridge.define("Yielders", {
@@ -5086,12 +5383,16 @@ if ( TRACE ) { TRACE( "Ply_SoundManager#Mute", this ); }
     /*AppLovinAnalytics end.*/
 
     /*AutoCameraFit start.*/
-    $m("AutoCameraFit", function () { return {"att":1048577,"a":2,"at":[new UnityEngine.ExecuteAlwaysAttribute(),new UnityEngine.RequireComponent.ctor(UnityEngine.Camera)],"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"Awake","t":8,"sn":"Awake","rt":$n[0].Void},{"a":1,"n":"Update","t":8,"sn":"Update","rt":$n[0].Void},{"at":[new UnityEngine.ContextMenu.ctor("Update Camera Fit")],"a":2,"n":"UpdateCameraNow","t":8,"sn":"UpdateCameraNow","rt":$n[0].Void},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"adjustInEditMode","t":4,"rt":$n[0].Boolean,"sn":"adjustInEditMode","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"autoUpdateOnResize","t":4,"rt":$n[0].Boolean,"sn":"autoUpdateOnResize","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"cam","t":4,"rt":$n[1].Camera,"sn":"cam"},{"a":2,"n":"canvasBtn","t":4,"rt":$n[1].GameObject,"sn":"canvasBtn"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"extraPaddingSmallScreen","t":4,"rt":$n[0].Single,"sn":"extraPaddingSmallScreen","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"hasOriginalObjectY","t":4,"rt":$n[0].Boolean,"sn":"hasOriginalObjectY","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"lastScreenHeight","t":4,"rt":$n[0].Int32,"sn":"lastScreenHeight","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":1,"n":"lastScreenWidth","t":4,"rt":$n[0].Int32,"sn":"lastScreenWidth","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":1,"n":"originalObjectY","t":4,"rt":$n[0].Single,"sn":"originalObjectY","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"paddingLandscape","t":4,"rt":$n[0].Single,"sn":"paddingLandscape","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"paddingPortrait","t":4,"rt":$n[0].Single,"sn":"paddingPortrait","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"smallScreenThreshold","t":4,"rt":$n[0].Int32,"sn":"smallScreenThreshold","box":function ($v) { return Bridge.box($v, System.Int32);}},{"at":[new UnityEngine.HeaderAttribute("Tall Screen Adjustments")],"a":2,"n":"tallScreenObject","t":4,"rt":$n[1].Transform,"sn":"tallScreenObject"},{"a":2,"n":"tallScreenRatioThreshold","t":4,"rt":$n[0].Single,"sn":"tallScreenRatioThreshold","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"tallScreenYOffset","t":4,"rt":$n[0].Single,"sn":"tallScreenYOffset","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"targetArea","t":4,"rt":$n[1].Transform,"sn":"targetArea"}]}; }, $n);
+    $m("AutoCameraFit", function () { return {"att":1048577,"a":2,"at":[new UnityEngine.ExecuteAlwaysAttribute(),new UnityEngine.RequireComponent.ctor(UnityEngine.Camera),new UnityEngine.DefaultExecutionOrder(-50)],"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"Awake","t":8,"sn":"Awake","rt":$n[0].Void},{"at":[new UnityEngine.ContextMenu.ctor("1. L\u1ea5y M\u00e0n h\u00ecnh & Camera hi\u1ec7n t\u1ea1i l\u00e0m M\u00e0n h\u00ecnh chu\u1ea9n")],"a":2,"n":"CaptureCurrentAsReference","t":8,"sn":"CaptureCurrentAsReference","rt":$n[0].Void},{"a":1,"n":"FitToReferenceScreen","t":8,"sn":"FitToReferenceScreen","rt":$n[0].Void},{"a":1,"n":"FitToTargetAreaBounds","t":8,"sn":"FitToTargetAreaBounds","rt":$n[0].Void},{"at":[new UnityEngine.ContextMenu.ctor("2. \u0110\u1eb7t chu\u1ea9n m\u00e0n d\u1ecdc ph\u1ed5 th\u00f4ng (1080 x 1920)")],"a":2,"n":"SetDefaultPortraitReference","t":8,"sn":"SetDefaultPortraitReference","rt":$n[0].Void},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"a":1,"n":"Update","t":8,"sn":"Update","rt":$n[0].Void},{"at":[new UnityEngine.ContextMenu.ctor("Update Camera Fit")],"a":2,"n":"UpdateCameraNow","t":8,"sn":"UpdateCameraNow","rt":$n[0].Void},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"adjustInEditMode","t":4,"rt":$n[0].Boolean,"sn":"adjustInEditMode","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.HeaderAttribute("=== 4. T\u1ef0 \u0110\u1ed8NG C\u1eacP NH\u1eacT ==="),new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"autoUpdateOnResize","t":4,"rt":$n[0].Boolean,"sn":"autoUpdateOnResize","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"cam","t":4,"rt":$n[1].Camera,"sn":"cam"},{"a":2,"n":"canvasBtn","t":4,"rt":$n[1].GameObject,"sn":"canvasBtn"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"extraPaddingSmallScreen","t":4,"rt":$n[0].Single,"sn":"extraPaddingSmallScreen","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("=== 1. CH\u1ebe \u0110\u1ed8 FIT CAMERA ==="),new VnLabelAttribute("Ch\u1ebf \u0111\u1ed9 Fit Camera")],"a":2,"n":"fitMode","t":4,"rt":CameraFitMode,"sn":"fitMode","box":function ($v) { return Bridge.box($v, CameraFitMode, System.Enum.toStringFn(CameraFitMode));}},{"a":1,"n":"hasOriginalObjectY","t":4,"rt":$n[0].Boolean,"sn":"hasOriginalObjectY","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"lastScreenHeight","t":4,"rt":$n[0].Int32,"sn":"lastScreenHeight","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":1,"n":"lastScreenWidth","t":4,"rt":$n[0].Int32,"sn":"lastScreenWidth","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":1,"n":"originalObjectY","t":4,"rt":$n[0].Single,"sn":"originalObjectY","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"paddingLandscape","t":4,"rt":$n[0].Single,"sn":"paddingLandscape","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"paddingPortrait","t":4,"rt":$n[0].Single,"sn":"paddingPortrait","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new VnLabelAttribute("Camera Size \u1edf m\u00e0n chu\u1ea9n"),new UnityEngine.TooltipAttribute("Orthographic Size c\u1ee7a Camera \u1edf m\u00e0n h\u00ecnh chu\u1ea9n b\u1ea1n \u0111\u00e3 c\u0103n ch\u1ec9nh (VD: 12.18). Khi \u0111\u1ed5i sang m\u00e0n kh\u00e1c, Camera s\u1ebd t\u1ef1 \u0111\u1ed9ng t\u00ednh to\u00e1n t\u1eeb s\u1ed1 n\u00e0y \u0111\u1ec3 chi\u1ec1u r\u1ed9ng lu\u00f4n v\u1eeba kh\u00edt.")],"a":2,"n":"referenceOrthographicSize","t":4,"rt":$n[0].Single,"sn":"referenceOrthographicSize","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("=== 2. C\u00c0I \u0110\u1eb6T M\u00c0N H\u00ccNH CHU\u1ea8N (REFERENCE SCREEN) ==="),new VnLabelAttribute("\u0110\u1ed9 ph\u00e2n gi\u1ea3i chu\u1ea9n (Reference Res)"),new UnityEngine.TooltipAttribute("\u0110\u1ed9 ph\u00e2n gi\u1ea3i m\u00e0n h\u00ecnh b\u1ea1n \u0111\u00e3 c\u0103n ch\u1ec9nh game v\u1eeba v\u1eb7n \u0111\u1eb9p nh\u1ea5t (M\u1eb7c \u0111\u1ecbnh: 1080 x 1920 ho\u1eb7c t\u1ec9 l\u1ec7 9 x 16)")],"a":2,"n":"referenceResolution","t":4,"rt":$n[1].Vector2,"sn":"referenceResolution"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"smallScreenThreshold","t":4,"rt":$n[0].Int32,"sn":"smallScreenThreshold","box":function ($v) { return Bridge.box($v, System.Int32);}},{"at":[new UnityEngine.HeaderAttribute("Tall Screen Adjustments (Legacy)")],"a":2,"n":"tallScreenObject","t":4,"rt":$n[1].Transform,"sn":"tallScreenObject"},{"a":2,"n":"tallScreenRatioThreshold","t":4,"rt":$n[0].Single,"sn":"tallScreenRatioThreshold","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"tallScreenYOffset","t":4,"rt":$n[0].Single,"sn":"tallScreenYOffset","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("=== 3. C\u00c0I \u0110\u1eb6T C\u0168 THEO BOUNDS (TARGET AREA) ==="),new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"targetArea","t":4,"rt":$n[1].Transform,"sn":"targetArea"},{"at":[new VnLabelAttribute("C\u00e1ch kh\u1edbp chi\u1ec1u r\u1ed9ng"),new UnityEngine.TooltipAttribute("ExpandOnNarrowScreens (Khuy\u00ean d\u00f9ng): Khi g\u1eb7p m\u00e0n h\u00ecnh d\u00e0i/h\u1eb9p h\u01a1n m\u00e0n chu\u1ea9n (nh\u01b0 iPhone d\u00e0i, Samsung), Camera s\u1ebd t\u1ef1 \u0111\u1ed9ng zoom out \u0111\u1ec3 chi\u1ec1u r\u1ed9ng KH\u00d4NG BAO GI\u1edc B\u1eca TR\u00c0N 2 VI\u1ec0N TR\u00c1I/PH\u1ea2I!\nAlwaysMatchWidth: Lu\u00f4n lu\u00f4n \u00e9p v\u1eeba kh\u00edt chi\u1ec1u r\u1ed9ng trong m\u1ecdi t\u1ec9 l\u1ec7 m\u00e0n h\u00ecnh.")],"a":2,"n":"widthMode","t":4,"rt":MatchWidthMode,"sn":"widthMode","box":function ($v) { return Bridge.box($v, MatchWidthMode, System.Enum.toStringFn(MatchWidthMode));}}]}; }, $n);
     /*AutoCameraFit end.*/
 
     /*BatStrikeController start.*/
     $m("BatStrikeController", function () { return {"att":1048577,"a":2,"at":[new UnityEngine.RequireComponent.ctor(UnityEngine.Rigidbody2D)],"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"ChargeBat","t":8,"sn":"ChargeBat","rt":$n[0].Void},{"a":1,"n":"FireBat","t":8,"sn":"FireBat","rt":$n[0].Void},{"a":1,"n":"OnCollisionEnter2D","t":8,"pi":[{"n":"collision","pt":$n[1].Collision2D,"ps":0}],"sn":"OnCollisionEnter2D","rt":$n[0].Void,"p":[$n[1].Collision2D]},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"a":1,"n":"Update","t":8,"sn":"Update","rt":$n[0].Void},{"a":1,"n":"hasFired","t":4,"rt":$n[0].Boolean,"sn":"hasFired","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"holdTime","t":4,"rt":$n[0].Single,"sn":"holdTime","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"initialPosition","t":4,"rt":$n[1].Vector3,"sn":"initialPosition"},{"at":[new UnityEngine.TooltipAttribute("Kho\u1ea3ng c\u00e1ch l\u00f9i t\u1ed1i \u0111a (\u0111\u01a1n v\u1ecb Unity).")],"a":2,"n":"maxPullDistance","t":4,"rt":$n[0].Single,"sn":"maxPullDistance","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("Th\u1eddi gian gi\u1eef ch\u1ea1m t\u1ed1i thi\u1ec3u \u0111\u1ec3 t\u00ednh l\u00e0 K\u00e9o (gi\u00e2y). N\u1ebfu ch\u1ec9 ch\u1ea1m (tap) nhanh h\u01a1n s\u1ed1 n\u00e0y th\u00ec s\u1ebd b\u1ecb b\u1ecf qua.")],"a":2,"n":"minHoldTime","t":4,"rt":$n[0].Single,"sn":"minHoldTime","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("Charge Settings"),new UnityEngine.TooltipAttribute("T\u1ed1c \u0111\u1ed9 g\u1eady l\u00f9i v\u1ec1 b\u00ean tr\u00e1i khi \u0111ang gi\u1eef m\u00e0n h\u00ecnh.")],"a":2,"n":"pullSpeed","t":4,"rt":$n[0].Single,"sn":"pullSpeed","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"rb","t":4,"rt":$n[1].Rigidbody2D,"sn":"rb"},{"at":[new UnityEngine.TooltipAttribute("L\u1ef1c \u0111\u00e1nh v\u0103ng v\u1ec1 b\u00ean ph\u1ea3i t\u1ed1i \u0111a.")],"a":2,"n":"strikeForce","t":4,"rt":$n[0].Single,"sn":"strikeForce","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("Collision Settings"),new UnityEngine.TooltipAttribute("Tag c\u1ee7a object Cup (Nh\u1edb g\u00e1n Tag 'Cup' cho Cup trong Unity).")],"a":2,"n":"targetTag","t":4,"rt":$n[0].String,"sn":"targetTag"}]}; }, $n);
     /*BatStrikeController end.*/
+
+    /*CameraFitMode start.*/
+    $m("CameraFitMode", function () { return {"att":257,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"ReferenceScreen","is":true,"t":4,"rt":CameraFitMode,"sn":"ReferenceScreen","box":function ($v) { return Bridge.box($v, CameraFitMode, System.Enum.toStringFn(CameraFitMode));}},{"a":2,"n":"TargetAreaBounds","is":true,"t":4,"rt":CameraFitMode,"sn":"TargetAreaBounds","box":function ($v) { return Bridge.box($v, CameraFitMode, System.Enum.toStringFn(CameraFitMode));}}]}; }, $n);
+    /*CameraFitMode end.*/
 
     /*CameraFollow2D start.*/
     $m("CameraFollow2D", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"LateUpdate","t":8,"sn":"LateUpdate","rt":$n[0].Void},{"at":[new UnityEngine.TooltipAttribute("B\u1ecf tick n\u1ebfu b\u1ea1n ch\u1ec9 mu\u1ed1n Camera ch\u1ea1y ngang, kh\u00f4ng ch\u1ea1y l\u00ean xu\u1ed1ng")],"a":2,"n":"followY","t":4,"rt":$n[0].Boolean,"sn":"followY","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.TooltipAttribute("V\u1ecb tr\u00ed b\u00f9 tr\u1eeb c\u1ee7a Camera so v\u1edbi Target. Tr\u1ee5c Z lu\u00f4n ph\u1ea3i l\u00e0 s\u1ed1 \u00e2m \u0111\u1ec3 nh\u00ecn th\u1ea5y c\u1ea3nh (VD: -10).")],"a":2,"n":"offset","t":4,"rt":$n[1].Vector3,"sn":"offset"},{"at":[new UnityEngine.HeaderAttribute("\u0110\u1ed9 m\u01b0\u1ee3t & Kho\u1ea3ng c\u00e1ch"),new UnityEngine.TooltipAttribute("T\u1ed1c \u0111\u1ed9 b\u00e1m theo (S\u1ed1 c\u00e0ng l\u1edbn b\u00e1m c\u00e0ng s\u00e1t). Khuy\u1ebfn ngh\u1ecb: 5 \u0111\u1ebfn 10")],"a":2,"n":"smoothSpeed","t":4,"rt":$n[0].Single,"sn":"smoothSpeed","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("C\u00e0i \u0111\u1eb7t Target"),new UnityEngine.TooltipAttribute("K\u00e9o v\u1eadt th\u1ec3 m\u00e0 Camera c\u1ea7n \u0111i theo (V\u00ed d\u1ee5: Cup) v\u00e0o \u0111\u00e2y")],"a":2,"n":"target","t":4,"rt":$n[1].Transform,"sn":"target"}]}; }, $n);
@@ -5128,6 +5429,10 @@ if ( TRACE ) { TRACE( "Ply_SoundManager#Mute", this ); }
     /*ItemMovementController start.*/
     $m("ItemMovementController", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"HandleItemMovement","t":8,"sn":"HandleItemMovement","rt":$n[0].Void},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"a":1,"n":"Update","t":8,"sn":"Update","rt":$n[0].Void},{"at":[new UnityEngine.HeaderAttribute("Settings"),new UnityEngine.TooltipAttribute("Select 'Item' Layer here in the Inspector")],"a":2,"n":"itemLayer","t":4,"rt":$n[1].LayerMask,"sn":"itemLayer"},{"a":1,"n":"mainCamera","t":4,"rt":$n[1].Camera,"sn":"mainCamera"},{"a":1,"n":"offset","t":4,"rt":$n[1].Vector3,"sn":"offset"},{"a":1,"n":"selectedItem","t":4,"rt":$n[1].Transform,"sn":"selectedItem"}]}; }, $n);
     /*ItemMovementController end.*/
+
+    /*MatchWidthMode start.*/
+    $m("MatchWidthMode", function () { return {"att":257,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"AlwaysMatchWidth","is":true,"t":4,"rt":MatchWidthMode,"sn":"AlwaysMatchWidth","box":function ($v) { return Bridge.box($v, MatchWidthMode, System.Enum.toStringFn(MatchWidthMode));}},{"a":2,"n":"ExpandOnNarrowScreens","is":true,"t":4,"rt":MatchWidthMode,"sn":"ExpandOnNarrowScreens","box":function ($v) { return Bridge.box($v, MatchWidthMode, System.Enum.toStringFn(MatchWidthMode));}}]}; }, $n);
+    /*MatchWidthMode end.*/
 
     /*MoveBetweenPoints start.*/
     $m("MoveBetweenPoints", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"at":[new UnityEngine.TooltipAttribute("Th\u1eddi gian ch\u1ea1y t\u1eeb A t\u1edbi B (t\u00ednh b\u1eb1ng gi\u00e2y). S\u1ed1 c\u00e0ng nh\u1ecf ch\u1ea1y c\u00e0ng nhanh.")],"a":2,"n":"duration","t":4,"rt":$n[0].Single,"sn":"duration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("K\u00e9o th\u1ea3 v\u1eadt th\u1ec3 l\u00e0m m\u1ed1c \u0110i\u1ec3m A (Xu\u1ea5t ph\u00e1t) v\u00e0o \u0111\u00e2y")],"a":2,"n":"pointA","t":4,"rt":$n[1].Transform,"sn":"pointA"},{"at":[new UnityEngine.TooltipAttribute("K\u00e9o th\u1ea3 v\u1eadt th\u1ec3 l\u00e0m m\u1ed1c \u0110i\u1ec3m B (\u0110\u00edch \u0111\u1ebfn) v\u00e0o \u0111\u00e2y")],"a":2,"n":"pointB","t":4,"rt":$n[1].Transform,"sn":"pointB"}]}; }, $n);
@@ -5168,7 +5473,7 @@ if ( TRACE ) { TRACE( "Ply_SoundManager#Mute", this ); }
     /*PoolType end.*/
 
     /*ScreenHeightPositionAnchor start.*/
-    $m("ScreenHeightPositionAnchor", function () { return {"att":1048577,"a":2,"at":[new UnityEngine.DefaultExecutionOrder(100)],"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"AlignToScreenHeightRatio","t":8,"sn":"AlignToScreenHeightRatio","rt":$n[0].Void},{"a":1,"n":"Awake","t":8,"sn":"Awake","rt":$n[0].Void},{"a":1,"n":"CacheScreenState","t":8,"sn":"CacheScreenState","rt":$n[0].Void},{"a":1,"n":"GetAnchor","t":8,"sn":"GetAnchor","rt":$n[1].Transform},{"a":1,"n":"GetTargetCamera","t":8,"sn":"GetTargetCamera","rt":$n[1].Camera},{"a":1,"n":"HasCameraChanged","t":8,"sn":"HasCameraChanged","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"LateUpdate","t":8,"sn":"LateUpdate","rt":$n[0].Void},{"a":1,"n":"OnDrawGizmos","t":8,"sn":"OnDrawGizmos","rt":$n[0].Void},{"a":1,"n":"OnEnable","t":8,"sn":"OnEnable","rt":$n[0].Void},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"alignOnEnable","t":4,"rt":$n[0].Boolean,"sn":"alignOnEnable","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"alignOnStart","t":4,"rt":$n[0].Boolean,"sn":"alignOnStart","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"anchorColor","t":4,"rt":$n[1].Color,"sn":"anchorColor"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"anchorPoint","t":4,"rt":$n[1].Transform,"sn":"anchorPoint"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"drawGizmos","t":4,"rt":$n[0].Boolean,"sn":"drawGizmos","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"lastCameraAspect","t":4,"rt":$n[0].Single,"sn":"lastCameraAspect","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"lastCameraFieldOfView","t":4,"rt":$n[0].Single,"sn":"lastCameraFieldOfView","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"lastCameraOrthographicSize","t":4,"rt":$n[0].Single,"sn":"lastCameraOrthographicSize","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"lastCameraPosition","t":4,"rt":$n[1].Vector3,"sn":"lastCameraPosition"},{"a":1,"n":"lastCameraRotation","t":4,"rt":$n[1].Quaternion,"sn":"lastCameraRotation"},{"a":1,"n":"lastScreenHeight","t":4,"rt":$n[0].Int32,"sn":"lastScreenHeight","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":1,"n":"lastScreenWidth","t":4,"rt":$n[0].Int32,"sn":"lastScreenWidth","box":function ($v) { return Bridge.box($v, System.Int32);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"realignOnScreenSizeChanged","t":4,"rt":$n[0].Boolean,"sn":"realignOnScreenSizeChanged","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"targetCamera","t":4,"rt":$n[1].Camera,"sn":"targetCamera"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"targetLineColor","t":4,"rt":$n[1].Color,"sn":"targetLineColor"},{"at":[new UnityEngine.SerializeFieldAttribute(),new UnityEngine.RangeAttribute(0.0, 1.0)],"a":1,"n":"viewportYRatio","t":4,"rt":$n[0].Single,"sn":"viewportYRatio","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}}]}; }, $n);
+    $m("ScreenHeightPositionAnchor", function () { return {"att":1048577,"a":2,"at":[new UnityEngine.ExecuteAlwaysAttribute(),new UnityEngine.DefaultExecutionOrder(100)],"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"AlignToScreenHeightRatio","t":8,"sn":"AlignToScreenHeightRatio","rt":$n[0].Void},{"a":1,"n":"Awake","t":8,"sn":"Awake","rt":$n[0].Void},{"a":1,"n":"CacheScreenState","t":8,"sn":"CacheScreenState","rt":$n[0].Void},{"a":1,"n":"GetAnchor","t":8,"sn":"GetAnchor","rt":$n[1].Transform},{"a":1,"n":"GetTargetCamera","t":8,"sn":"GetTargetCamera","rt":$n[1].Camera},{"a":1,"n":"HasCameraChanged","t":8,"sn":"HasCameraChanged","rt":$n[0].Boolean,"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"LateUpdate","t":8,"sn":"LateUpdate","rt":$n[0].Void},{"a":1,"n":"OnDrawGizmos","t":8,"sn":"OnDrawGizmos","rt":$n[0].Void},{"a":1,"n":"OnEnable","t":8,"sn":"OnEnable","rt":$n[0].Void},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"a":1,"n":"Update","t":8,"sn":"Update","rt":$n[0].Void},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"alignOnEnable","t":4,"rt":$n[0].Boolean,"sn":"alignOnEnable","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"alignOnStart","t":4,"rt":$n[0].Boolean,"sn":"alignOnStart","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"anchorColor","t":4,"rt":$n[1].Color,"sn":"anchorColor"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"anchorPoint","t":4,"rt":$n[1].Transform,"sn":"anchorPoint"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"drawGizmos","t":4,"rt":$n[0].Boolean,"sn":"drawGizmos","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"lastCameraAspect","t":4,"rt":$n[0].Single,"sn":"lastCameraAspect","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"lastCameraFieldOfView","t":4,"rt":$n[0].Single,"sn":"lastCameraFieldOfView","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"lastCameraOrthographicSize","t":4,"rt":$n[0].Single,"sn":"lastCameraOrthographicSize","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"lastCameraPosition","t":4,"rt":$n[1].Vector3,"sn":"lastCameraPosition"},{"a":1,"n":"lastCameraRotation","t":4,"rt":$n[1].Quaternion,"sn":"lastCameraRotation"},{"a":1,"n":"lastScreenHeight","t":4,"rt":$n[0].Int32,"sn":"lastScreenHeight","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":1,"n":"lastScreenWidth","t":4,"rt":$n[0].Int32,"sn":"lastScreenWidth","box":function ($v) { return Bridge.box($v, System.Int32);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"realignOnScreenSizeChanged","t":4,"rt":$n[0].Boolean,"sn":"realignOnScreenSizeChanged","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"targetCamera","t":4,"rt":$n[1].Camera,"sn":"targetCamera"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"targetLineColor","t":4,"rt":$n[1].Color,"sn":"targetLineColor"},{"at":[new UnityEngine.SerializeFieldAttribute(),new UnityEngine.RangeAttribute(0.0, 1.0)],"a":1,"n":"viewportYRatio","t":4,"rt":$n[0].Single,"sn":"viewportYRatio","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}}]}; }, $n);
     /*ScreenHeightPositionAnchor end.*/
 
     /*SlotTrigger start.*/
@@ -5183,6 +5488,10 @@ if ( TRACE ) { TRACE( "Ply_SoundManager#Mute", this ); }
     $m("TargetColliderData", function () { return {"att":1056769,"a":2,"at":[new System.SerializableAttribute()],"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"at":[new UnityEngine.TooltipAttribute("Collider 2D c\u1ee7a v\u00f9ng m\u1ee5c ti\u00eau")],"a":2,"n":"collider","t":4,"rt":$n[1].Collider2D,"sn":"collider"},{"at":[new UnityEngine.TooltipAttribute("C\u00f3 ph\u1ea3i v\u00f9ng WIN hay kh\u00f4ng? (T\u00edch ch\u1ecdn = WIN, B\u1ecf t\u00edch = LOSS)")],"a":2,"n":"isWin","t":4,"rt":$n[0].Boolean,"sn":"isWin","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.TooltipAttribute("Sprite hi\u1ec3n th\u1ecb cho nh\u00e2n v\u1eadt khi con k\u00e9o \u0111i v\u00e0o v\u00f9ng n\u00e0y cu\u1ed1i c\u00f9ng")],"a":2,"n":"resultSprite","t":4,"rt":$n[1].Sprite,"sn":"resultSprite"}]}; }, $n);
     /*TargetColliderData end.*/
 
+    /*VnLabelAttribute start.*/
+    $m("VnLabelAttribute", function () { return {"att":1048577,"a":2,"m":[{"a":2,"n":".ctor","t":1,"p":[$n[0].String],"pi":[{"n":"label","pt":$n[0].String,"ps":0}],"sn":"ctor"},{"a":2,"n":"Label","t":16,"rt":$n[0].String,"g":{"a":2,"n":"get_Label","t":8,"rt":$n[0].String,"fg":"Label"},"fn":"Label"},{"a":1,"backing":true,"n":"<Label>k__BackingField","t":4,"rt":$n[0].String,"sn":"Label"}]}; }, $n);
+    /*VnLabelAttribute end.*/
+
     /*Yielders start.*/
     $m("Yielders", function () { return {"att":1048961,"a":2,"s":true,"m":[{"a":2,"n":"Get","is":true,"t":8,"pi":[{"n":"seconds","pt":$n[0].Single,"ps":0}],"sn":"Get","rt":$n[1].WaitForSeconds,"p":[$n[0].Single]},{"a":2,"n":"EndOfFrame","is":true,"t":16,"rt":$n[1].WaitForEndOfFrame,"g":{"a":2,"n":"get_EndOfFrame","t":8,"rt":$n[1].WaitForEndOfFrame,"fg":"EndOfFrame","is":true},"fn":"EndOfFrame"},{"a":2,"n":"FixedUpdate","is":true,"t":16,"rt":$n[1].WaitForFixedUpdate,"g":{"a":2,"n":"get_FixedUpdate","t":8,"rt":$n[1].WaitForFixedUpdate,"fg":"FixedUpdate","is":true},"fn":"FixedUpdate"},{"a":1,"n":"_endOfFrame","is":true,"t":4,"rt":$n[1].WaitForEndOfFrame,"sn":"_endOfFrame"},{"a":1,"n":"_fixedUpdate","is":true,"t":4,"rt":$n[1].WaitForFixedUpdate,"sn":"_fixedUpdate"},{"a":1,"n":"_timeInterval","is":true,"t":4,"rt":$n[2].Dictionary$2(System.Single,UnityEngine.WaitForSeconds),"sn":"_timeInterval"}]}; }, $n);
     /*Yielders end.*/
@@ -5192,7 +5501,7 @@ if ( TRACE ) { TRACE( "Ply_SoundManager#Mute", this ); }
     /*HaalandGame.AnimationEventBridge end.*/
 
     /*HaalandGame.HaalandGameManager start.*/
-    $m("HaalandGame.HaalandGameManager", function () { return {"nested":[$n[5].HaalandGameManager.TransformState],"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"Awake","t":8,"sn":"Awake","rt":$n[0].Void},{"a":1,"n":"GoToLevel2","t":8,"sn":"GoToLevel2","rt":$n[0].Void},{"a":2,"n":"GoToStore","t":8,"sn":"GoToStore","rt":$n[0].Void},{"a":2,"n":"InitLevel","t":8,"sn":"InitLevel","rt":$n[0].Void},{"a":2,"n":"OnCloudFinished","t":8,"sn":"OnCloudFinished","rt":$n[0].Void},{"a":2,"n":"OnImpactCloudStart","t":8,"sn":"OnImpactCloudStart","rt":$n[0].Void},{"a":2,"n":"OnLineupComplete","t":8,"sn":"OnLineupComplete","rt":$n[0].Void},{"a":2,"n":"OnPlayerSelected","t":8,"pi":[{"n":"selectedPlayer","pt":$n[5].PlayerType,"ps":0}],"sn":"OnPlayerSelected","rt":$n[0].Void,"p":[$n[5].PlayerType]},{"a":2,"n":"OnRedCardFinished","t":8,"sn":"OnRedCardFinished","rt":$n[0].Void},{"a":2,"n":"OnTackleFinished","t":8,"sn":"OnTackleFinished","rt":$n[0].Void},{"a":2,"n":"OnUserTapStart","t":8,"sn":"OnUserTapStart","rt":$n[0].Void},{"a":2,"n":"OpenStore","t":8,"sn":"OpenStore","rt":$n[0].Void},{"a":1,"n":"PlayOrTriggerAnimation","t":8,"pi":[{"n":"anim","pt":$n[1].Animator,"ps":0},{"n":"triggerName","pt":$n[0].String,"ps":1},{"n":"defaultStateName","pt":$n[0].String,"ps":2}],"sn":"PlayOrTriggerAnimation","rt":$n[0].Void,"p":[$n[1].Animator,$n[0].String,$n[0].String]},{"a":2,"n":"PlayRefereeAnimation","t":8,"sn":"PlayRefereeAnimation","rt":$n[0].Void},{"a":1,"n":"PlayTackleAnimationAndTimers","t":8,"sn":"PlayTackleAnimationAndTimers","rt":$n[0].Void},{"a":1,"n":"PlayTackleSound","t":8,"sn":"PlayTackleSound","rt":$n[0].Void},{"a":1,"n":"ReplayLevel1","t":8,"sn":"ReplayLevel1","rt":$n[0].Void},{"a":1,"n":"ResetPlayerSpritesToOrigin","t":8,"sn":"ResetPlayerSpritesToOrigin","rt":$n[0].Void},{"a":2,"n":"SelectMbappe","t":8,"sn":"SelectMbappe","rt":$n[0].Void},{"a":2,"n":"SelectMessi","t":8,"sn":"SelectMessi","rt":$n[0].Void},{"a":2,"n":"SelectPlayerByIndex","t":8,"pi":[{"n":"index","pt":$n[0].Int32,"ps":0}],"sn":"SelectPlayerByIndex","rt":$n[0].Void,"p":[$n[0].Int32]},{"a":2,"n":"SelectRonaldo","t":8,"sn":"SelectRonaldo","rt":$n[0].Void},{"a":2,"n":"SelectVini","t":8,"sn":"SelectVini","rt":$n[0].Void},{"a":2,"n":"ShowHaalandHurt","t":8,"sn":"ShowHaalandHurt","rt":$n[0].Void},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"a":1,"n":"StartTackleAfterDelay","t":8,"sn":"StartTackleAfterDelay","rt":$n[0].Void},{"a":1,"n":"Update","t":8,"sn":"Update","rt":$n[0].Void},{"a":2,"n":"Instance","is":true,"t":16,"rt":$n[5].HaalandGameManager,"g":{"a":2,"n":"get_Instance","t":8,"rt":$n[5].HaalandGameManager,"fg":"Instance","is":true},"s":{"a":1,"n":"set_Instance","t":8,"p":[$n[5].HaalandGameManager],"rt":$n[0].Void,"fs":"Instance","is":true},"fn":"Instance"},{"a":2,"n":"cloudDuration","t":4,"rt":$n[0].Single,"sn":"cloudDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"currentLevel","t":4,"rt":$n[0].Int32,"sn":"currentLevel","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":2,"n":"dribbleToTackleDelay","t":4,"rt":$n[0].Single,"sn":"dribbleToTackleDelay","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("GameObject FightingCloud (B\u1eadt khi va ch\u1ea1m, t\u1eaft sau 3s)")],"a":2,"n":"fightingCloud","t":4,"rt":$n[1].GameObject,"sn":"fightingCloud"},{"at":[new UnityEngine.TooltipAttribute("Animator c\u1ee7a Haaland r\u00ea b\u00f3ng (ph\u00e1t khi ng\u01b0\u1eddi ch\u01a1i click l\u1ea7n \u0111\u1ea7u)")],"a":2,"n":"haalandDribbleAnimator","t":4,"rt":$n[1].Animator,"sn":"haalandDribbleAnimator"},{"at":[new UnityEngine.HeaderAttribute("=== 3. HAALAND R\u00ca B\u00d3NG & KH\u00d3I (FIGHTING CLOUD) ==="),new UnityEngine.TooltipAttribute("Obj \u1ea3nh 're bong' (con c\u1ee7a Haaland r\u00ea b\u00f3ng) - s\u1ebd t\u1eaft khi va ch\u1ea1m")],"a":2,"n":"haalandDribbleImage","t":4,"rt":$n[1].GameObject,"sn":"haalandDribbleImage"},{"a":1,"n":"haalandDribbleOriginalStates","t":4,"rt":$n[2].List$1(HaalandGame.HaalandGameManager.TransformState),"sn":"haalandDribbleOriginalStates"},{"at":[new UnityEngine.TooltipAttribute("GameObject Haaland Dau (B\u1eadt khi t\u1eaft FightingCloud)")],"a":2,"n":"haalandHurt","t":4,"rt":$n[1].GameObject,"sn":"haalandHurt"},{"a":2,"n":"haalandHurtDelay","t":4,"rt":$n[0].Single,"sn":"haalandHurtDelay","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("=== 9. DOTWEEN ICON ANIMATION ===")],"a":2,"n":"iconListAnimator","t":4,"rt":$n[5].IconListAnimator,"sn":"iconListAnimator"},{"at":[new UnityEngine.TooltipAttribute("UI 4 Icon ch\u1ecdn c\u1ea7u th\u1ee7")],"a":2,"n":"iconListUI","t":4,"rt":$n[1].GameObject,"sn":"iconListUI"},{"a":2,"n":"impactCloudDelay","t":4,"rt":$n[0].Single,"sn":"impactCloudDelay","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"isChoiceMade","t":4,"rt":$n[0].Boolean,"sn":"isChoiceMade","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"isStandPlayerEntered","t":4,"rt":$n[0].Boolean,"sn":"isStandPlayerEntered","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"isTackleStarted","t":4,"rt":$n[0].Boolean,"sn":"isTackleStarted","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.TooltipAttribute("Chat Bubble Mbappe ('It's not me')")],"a":2,"n":"mbappeChatBubble","t":4,"rt":$n[1].GameObject,"sn":"mbappeChatBubble"},{"at":[new UnityEngine.TooltipAttribute("Sprite Mbappe bu\u1ed3n/ph\u1ea3n \u0111\u1ed1i (Khi ch\u1ecdn SAI Mbappe)")],"a":2,"n":"mbappeSadSprite","t":4,"rt":$n[1].Sprite,"sn":"mbappeSadSprite"},{"at":[new UnityEngine.HeaderAttribute("--- Mbappe Stand ---")],"a":2,"n":"mbappeSpriteRenderer","t":4,"rt":$n[1].SpriteRenderer,"sn":"mbappeSpriteRenderer"},{"a":2,"n":"mbappeStandAnimator","t":4,"rt":$n[1].Animator,"sn":"mbappeStandAnimator"},{"at":[new UnityEngine.TooltipAttribute("Chat Bubble Messi ('I will tell my Father')")],"a":2,"n":"messiChatBubble","t":4,"rt":$n[1].GameObject,"sn":"messiChatBubble"},{"at":[new UnityEngine.TooltipAttribute("Sprite Messi bu\u1ed3n/ph\u1ea3n \u0111\u1ed1i (Khi ch\u1ecdn SAI Messi)")],"a":2,"n":"messiSadSprite","t":4,"rt":$n[1].Sprite,"sn":"messiSadSprite"},{"at":[new UnityEngine.HeaderAttribute("--- Messi Stand ---")],"a":2,"n":"messiSpriteRenderer","t":4,"rt":$n[1].SpriteRenderer,"sn":"messiSpriteRenderer"},{"a":2,"n":"messiStandAnimator","t":4,"rt":$n[1].Animator,"sn":"messiStandAnimator"},{"at":[new UnityEngine.TooltipAttribute("GameObject Messi xo\u1ea1c b\u00f3ng (Lv2 / Replay)")],"a":2,"n":"messiTackle","t":4,"rt":$n[1].GameObject,"sn":"messiTackle"},{"a":2,"n":"messiTackleAnimator","t":4,"rt":$n[1].Animator,"sn":"messiTackleAnimator"},{"a":2,"n":"nextActionDelay","t":4,"rt":$n[0].Single,"sn":"nextActionDelay","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"originalMbappeSprite","t":4,"rt":$n[1].Sprite,"sn":"originalMbappeSprite"},{"a":1,"n":"originalMessiSprite","t":4,"rt":$n[1].Sprite,"sn":"originalMessiSprite"},{"a":1,"n":"originalRefereeSprite","t":4,"rt":$n[1].Sprite,"sn":"originalRefereeSprite"},{"a":1,"n":"originalRonaldoSprite","t":4,"rt":$n[1].Sprite,"sn":"originalRonaldoSprite"},{"a":1,"n":"originalViniSprite","t":4,"rt":$n[1].Sprite,"sn":"originalViniSprite"},{"at":[new UnityEngine.HeaderAttribute("=== 5. TR\u1eccNG T\u00c0I & C\u00c2U H\u1eceI (QUESTION UI & REFEREE) ==="),new UnityEngine.TooltipAttribute("UI c\u00e2u h\u1ecfi 'Who fouled Haaland?'")],"a":2,"n":"questionUI","t":4,"rt":$n[1].GameObject,"sn":"questionUI"},{"a":2,"n":"refereeAnimDelay","t":4,"rt":$n[0].Single,"sn":"refereeAnimDelay","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.TooltipAttribute("Animator Tr\u1ecdng T\u00e0i")],"a":2,"n":"refereeAnimator","t":4,"rt":$n[1].Animator,"sn":"refereeAnimator"},{"a":2,"n":"refereeLookAroundTrigger","t":4,"rt":$n[0].String,"sn":"refereeLookAroundTrigger"},{"at":[new UnityEngine.TooltipAttribute("Sprite Tr\u1ecdng T\u00e0i khi ch\u1ecdn xong c\u1ea7u th\u1ee7")],"a":2,"n":"refereeReactionSprite","t":4,"rt":$n[1].Sprite,"sn":"refereeReactionSprite"},{"at":[new UnityEngine.HeaderAttribute("--- Tr\u1ecdng T\u00e0i Stand ---")],"a":2,"n":"refereeSpriteRenderer","t":4,"rt":$n[1].SpriteRenderer,"sn":"refereeSpriteRenderer"},{"at":[new UnityEngine.TooltipAttribute("Chat Bubble Ronaldo ('You got me')")],"a":2,"n":"ronaldoChatBubble","t":4,"rt":$n[1].GameObject,"sn":"ronaldoChatBubble"},{"at":[new UnityEngine.TooltipAttribute("Sprite Ronaldo c\u01b0\u1eddi nham hi\u1ec3m (Khi ch\u1ecdn SAI ng\u01b0\u1eddi kh\u00e1c)")],"a":2,"n":"ronaldoEvilLaughSprite","t":4,"rt":$n[1].Sprite,"sn":"ronaldoEvilLaughSprite"},{"at":[new UnityEngine.TooltipAttribute("Sprite Ronaldo bu\u1ed3n (Khi ch\u1ecdn \u0110\u00daNG Ronaldo)")],"a":2,"n":"ronaldoSadSprite","t":4,"rt":$n[1].Sprite,"sn":"ronaldoSadSprite"},{"at":[new UnityEngine.HeaderAttribute("=== 8. PLAYER SPRITE REACTIONS ==="),new UnityEngine.TooltipAttribute("SpriteRenderer c\u1ee7a Ronaldo Stand")],"a":2,"n":"ronaldoSpriteRenderer","t":4,"rt":$n[1].SpriteRenderer,"sn":"ronaldoSpriteRenderer"},{"at":[new UnityEngine.HeaderAttribute("=== 7. CH\u1eccN C\u1ea6U TH\u1ee6 & CHAT BUBBLES ===")],"a":2,"n":"ronaldoStandAnimator","t":4,"rt":$n[1].Animator,"sn":"ronaldoStandAnimator"},{"at":[new UnityEngine.HeaderAttribute("=== 2. XO\u1ea0C B\u00d3NG (RONALDO / MESSI) ==="),new UnityEngine.TooltipAttribute("GameObject Ronaldo xo\u1ea1c b\u00f3ng")],"a":2,"n":"ronaldoTackle","t":4,"rt":$n[1].GameObject,"sn":"ronaldoTackle"},{"a":2,"n":"ronaldoTackleAnimator","t":4,"rt":$n[1].Animator,"sn":"ronaldoTackleAnimator"},{"a":2,"n":"standPlayerEnterTrigger","t":4,"rt":$n[0].String,"sn":"standPlayerEnterTrigger"},{"at":[new UnityEngine.HeaderAttribute("=== 4. C\u1ea6U TH\u1ee6 B\u01af\u1edaC V\u00c0O (STAND PLAYER) ==="),new UnityEngine.TooltipAttribute("GameObject StandPlayer ch\u1ee9a c\u00e1c c\u1ea7u th\u1ee7 & tr\u1ecdng t\u00e0i")],"a":2,"n":"standPlayers","t":4,"rt":$n[1].GameObject,"sn":"standPlayers"},{"a":2,"n":"standPlayersAnimator","t":4,"rt":$n[1].Animator,"sn":"standPlayersAnimator"},{"a":2,"n":"startHaalandDribbleTrigger","t":4,"rt":$n[0].String,"sn":"startHaalandDribbleTrigger"},{"a":2,"n":"startMessiTackleTrigger","t":4,"rt":$n[0].String,"sn":"startMessiTackleTrigger"},{"a":2,"n":"startRonaldoTackleTrigger","t":4,"rt":$n[0].String,"sn":"startRonaldoTackleTrigger"},{"at":[new UnityEngine.TooltipAttribute("Th\u1eddi gian ch\u1edd (delay) tr\u01b0\u1edbc khi ph\u00e1t animation xo\u1ea1c b\u00f3ng (m\u1eb7c \u0111\u1ecbnh 1.0s)")],"a":2,"n":"tackleAnimDelay","t":4,"rt":$n[0].Single,"sn":"tackleAnimDelay","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"tackleHideDelay","t":4,"rt":$n[0].Single,"sn":"tackleHideDelay","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"tackleSoundDelay","t":4,"rt":$n[0].Single,"sn":"tackleSoundDelay","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("=== 1. H\u01af\u1edaNG D\u1eaaN TAP TO PLAY ==="),new UnityEngine.TooltipAttribute("GameObject TAP TO PLAY (Click l\u1ea7n \u0111\u1ea7u \u0111\u1ec3 \u1ea9n)")],"a":2,"n":"tutUI","t":4,"rt":$n[1].GameObject,"sn":"tutUI"},{"at":[new UnityEngine.HeaderAttribute("=== 6. T\u00d9Y CH\u1eccN \u0110\u1ebeM GI\u1edc T\u1ef0 \u0110\u1ed8NG (AUTO TIMERS) ==="),new UnityEngine.TooltipAttribute("T\u1ef1 \u0111\u1ed9ng ch\u1ea1y chu\u1ed7i th\u1eddi gian n\u1ebfu kh\u00f4ng \u0111\u1eb7t Animation Event tr\u00ean timeline")],"a":2,"n":"useAutoTimers","t":4,"rt":$n[0].Boolean,"sn":"useAutoTimers","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.TooltipAttribute("Chat Bubble Vini ('It's not me')")],"a":2,"n":"viniChatBubble","t":4,"rt":$n[1].GameObject,"sn":"viniChatBubble"},{"at":[new UnityEngine.TooltipAttribute("Sprite Vini bu\u1ed3n/ph\u1ea3n \u0111\u1ed1i (Khi ch\u1ecdn SAI Vini)")],"a":2,"n":"viniSadSprite","t":4,"rt":$n[1].Sprite,"sn":"viniSadSprite"},{"at":[new UnityEngine.HeaderAttribute("--- Vini Stand ---")],"a":2,"n":"viniSpriteRenderer","t":4,"rt":$n[1].SpriteRenderer,"sn":"viniSpriteRenderer"},{"a":2,"n":"viniStandAnimator","t":4,"rt":$n[1].Animator,"sn":"viniStandAnimator"},{"at":[new UnityEngine.TooltipAttribute("UI b\u1eadt khi ch\u1ecdn \u0110\u00daNG (khi ch\u1ecdn \u0111\u00fang Ronaldo)")],"a":2,"n":"winChoiceUI","t":4,"rt":$n[1].GameObject,"sn":"winChoiceUI"},{"at":[new UnityEngine.TooltipAttribute("Object ph\u1ee5 1 b\u1eadt c\u00f9ng Win Choice UI")],"a":2,"n":"winExtraObj1","t":4,"rt":$n[1].GameObject,"sn":"winExtraObj1"},{"at":[new UnityEngine.TooltipAttribute("Object ph\u1ee5 2 b\u1eadt c\u00f9ng Win Choice UI")],"a":2,"n":"winExtraObj2","t":4,"rt":$n[1].GameObject,"sn":"winExtraObj2"},{"at":[new UnityEngine.TooltipAttribute("UI b\u1eadt khi ch\u1ecdn SAI (khi Ronaldo c\u01b0\u1eddi nham hi\u1ec3m)")],"a":2,"n":"wrongChoiceUI","t":4,"rt":$n[1].GameObject,"sn":"wrongChoiceUI"},{"a":1,"backing":true,"n":"<Instance>k__BackingField","is":true,"t":4,"rt":$n[5].HaalandGameManager,"sn":"Instance"}]}; }, $n);
+    $m("HaalandGame.HaalandGameManager", function () { return {"nested":[$n[5].HaalandGameManager.TransformState],"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"Awake","t":8,"sn":"Awake","rt":$n[0].Void},{"a":2,"n":"DisableStandPlayers","t":8,"sn":"DisableStandPlayers","rt":$n[0].Void},{"a":1,"n":"EnableClickToStoreRoutine","t":8,"sn":"EnableClickToStoreRoutine","rt":$n[3].IEnumerator},{"a":1,"n":"GoToLevel2","t":8,"sn":"GoToLevel2","rt":$n[0].Void},{"a":2,"n":"GoToStore","t":8,"sn":"GoToStore","rt":$n[0].Void},{"a":2,"n":"InitLevel","t":8,"sn":"InitLevel","rt":$n[0].Void},{"a":2,"n":"OnCloudFinished","t":8,"sn":"OnCloudFinished","rt":$n[0].Void},{"a":2,"n":"OnImpactCloudStart","t":8,"sn":"OnImpactCloudStart","rt":$n[0].Void},{"a":2,"n":"OnLineupComplete","t":8,"sn":"OnLineupComplete","rt":$n[0].Void},{"a":2,"n":"OnPlayerSelected","t":8,"pi":[{"n":"selectedPlayer","pt":$n[5].PlayerType,"ps":0}],"sn":"OnPlayerSelected","rt":$n[0].Void,"p":[$n[5].PlayerType]},{"a":2,"n":"OnRedCardFinished","t":8,"sn":"OnRedCardFinished","rt":$n[0].Void},{"a":2,"n":"OnTackleFinished","t":8,"sn":"OnTackleFinished","rt":$n[0].Void},{"a":2,"n":"OnUserTapStart","t":8,"sn":"OnUserTapStart","rt":$n[0].Void},{"a":2,"n":"OpenStore","t":8,"sn":"OpenStore","rt":$n[0].Void},{"a":1,"n":"PlayOrTriggerAnimation","t":8,"pi":[{"n":"anim","pt":$n[1].Animator,"ps":0},{"n":"triggerName","pt":$n[0].String,"ps":1},{"n":"defaultStateName","pt":$n[0].String,"ps":2}],"sn":"PlayOrTriggerAnimation","rt":$n[0].Void,"p":[$n[1].Animator,$n[0].String,$n[0].String]},{"a":2,"n":"PlayRefereeAnimation","t":8,"sn":"PlayRefereeAnimation","rt":$n[0].Void},{"a":1,"n":"PlayTackleAnimationAndTimers","t":8,"sn":"PlayTackleAnimationAndTimers","rt":$n[0].Void},{"a":1,"n":"PlayTackleSound","t":8,"sn":"PlayTackleSound","rt":$n[0].Void},{"a":1,"n":"ReplayLevel1","t":8,"sn":"ReplayLevel1","rt":$n[0].Void},{"a":1,"n":"ResetPlayerSpritesToOrigin","t":8,"sn":"ResetPlayerSpritesToOrigin","rt":$n[0].Void},{"a":2,"n":"ResetStandPlayersToFrameZero","t":8,"sn":"ResetStandPlayersToFrameZero","rt":$n[0].Void},{"a":2,"n":"SelectMbappe","t":8,"sn":"SelectMbappe","rt":$n[0].Void},{"a":2,"n":"SelectMessi","t":8,"sn":"SelectMessi","rt":$n[0].Void},{"a":2,"n":"SelectPlayerByIndex","t":8,"pi":[{"n":"index","pt":$n[0].Int32,"ps":0}],"sn":"SelectPlayerByIndex","rt":$n[0].Void,"p":[$n[0].Int32]},{"a":2,"n":"SelectRonaldo","t":8,"sn":"SelectRonaldo","rt":$n[0].Void},{"a":2,"n":"SelectVini","t":8,"sn":"SelectVini","rt":$n[0].Void},{"a":2,"n":"ShowHaalandHurt","t":8,"sn":"ShowHaalandHurt","rt":$n[0].Void},{"a":2,"n":"ShowWinPlayerObject","t":8,"sn":"ShowWinPlayerObject","rt":$n[0].Void},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"a":1,"n":"StartTackleAfterDelay","t":8,"sn":"StartTackleAfterDelay","rt":$n[0].Void},{"a":1,"n":"Update","t":8,"sn":"Update","rt":$n[0].Void},{"a":2,"n":"Instance","is":true,"t":16,"rt":$n[5].HaalandGameManager,"g":{"a":2,"n":"get_Instance","t":8,"rt":$n[5].HaalandGameManager,"fg":"Instance","is":true},"s":{"a":1,"n":"set_Instance","t":8,"p":[$n[5].HaalandGameManager],"rt":$n[0].Void,"fs":"Instance","is":true},"fn":"Instance"},{"a":1,"n":"canClickToStore","t":4,"rt":$n[0].Boolean,"sn":"canClickToStore","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new VnLabelAttribute("Th\u1eddi l\u01b0\u1ee3ng m\u00e2y kh\u00f3i (s)"),new UnityEngine.TooltipAttribute("Th\u1eddi gian t\u1ed3n t\u1ea1i c\u1ee7a m\u00e2y kh\u00f3i tr\u01b0\u1edbc khi tan v\u00e0 d\u00e0n c\u1ea7u th\u1ee7 b\u01b0\u1edbc v\u00e0o")],"a":2,"n":"cloudDuration","t":4,"rt":$n[0].Single,"sn":"cloudDuration","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":2,"n":"currentLevel","t":4,"rt":$n[0].Int32,"sn":"currentLevel","box":function ($v) { return Bridge.box($v, System.Int32);}},{"at":[new VnLabelAttribute("\u0110\u1ed9 tr\u1ec5 R\u00ea b\u00f3ng -> Xo\u1ea1c (s)"),new UnityEngine.TooltipAttribute("Sau bao nhi\u00eau gi\u00e2y k\u1ec3 t\u1eeb khi Haaland r\u00ea b\u00f3ng l\u1ea1i th\u00ec Messi m\u1edbi k\u00edch ho\u1ea1t xo\u1ea1c b\u00f3ng")],"a":2,"n":"dribbleToTackleDelay","t":4,"rt":$n[0].Single,"sn":"dribbleToTackleDelay","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new VnLabelAttribute("Object M\u00e2y kh\u00f3i va ch\u1ea1m"),new UnityEngine.TooltipAttribute("GameObject FightingCloud (B\u1eadt khi va ch\u1ea1m, t\u1eaft sau 3s)")],"a":2,"n":"fightingCloud","t":4,"rt":$n[1].GameObject,"sn":"fightingCloud"},{"at":[new VnLabelAttribute("Animator C\u1ea7u th\u1ee7 r\u00ea b\u00f3ng"),new UnityEngine.TooltipAttribute("Animator c\u1ee7a C\u1ea7u th\u1ee7 ch\u00ednh r\u00ea b\u00f3ng (ph\u00e1t khi ng\u01b0\u1eddi ch\u01a1i click l\u1ea7n \u0111\u1ea7u)")],"a":2,"n":"haalandDribbleAnimator","t":4,"rt":$n[1].Animator,"sn":"haalandDribbleAnimator"},{"at":[new UnityEngine.HeaderAttribute("=== 3. C\u1ea6U TH\u1ee6 CH\u00cdNH & KH\u00d3I (MAIN PLAYER & FIGHTING CLOUD) ==="),new VnLabelAttribute("\u1ea2nh C\u1ea7u th\u1ee7 r\u00ea b\u00f3ng"),new UnityEngine.TooltipAttribute("Obj \u1ea3nh r\u00ea b\u00f3ng c\u1ee7a C\u1ea7u th\u1ee7 ch\u00ednh (Haaland/Yamal...) - s\u1ebd t\u1eaft khi va ch\u1ea1m")],"a":2,"n":"haalandDribbleImage","t":4,"rt":$n[1].GameObject,"sn":"haalandDribbleImage"},{"a":1,"n":"haalandDribbleOriginalStates","t":4,"rt":$n[2].List$1(HaalandGame.HaalandGameManager.TransformState),"sn":"haalandDribbleOriginalStates"},{"at":[new VnLabelAttribute("Object C\u1ea7u th\u1ee7 b\u1ecb \u0111au"),new UnityEngine.TooltipAttribute("GameObject C\u1ea7u th\u1ee7 ch\u00ednh b\u1ecb \u0111au/ch\u1ea5n th\u01b0\u01a1ng (B\u1eadt khi t\u1eaft FightingCloud)")],"a":2,"n":"haalandHurt","t":4,"rt":$n[1].GameObject,"sn":"haalandHurt"},{"at":[new VnLabelAttribute("\u0110\u1ed9 tr\u1ec5 C\u1ea7u th\u1ee7 b\u1ecb \u0111au (s)"),new UnityEngine.TooltipAttribute("Sau bao nhi\u00eau gi\u00e2y k\u1ec3 t\u1eeb khi b\u1eadt M\u00e2y kh\u00f3i th\u00ec k\u00edch ho\u1ea1t C\u1ea7u th\u1ee7 ch\u00ednh \u00f4m ch\u00e2n n\u1eb1m s\u00e2n")],"a":2,"n":"haalandHurtDelay","t":4,"rt":$n[0].Single,"sn":"haalandHurtDelay","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new VnLabelAttribute("Object C\u1ea7u th\u1ee7 khi Th\u1eafng"),new UnityEngine.TooltipAttribute("GameObject b\u1eadt l\u00ean khi ng\u01b0\u1eddi ch\u01a1i ch\u1ecdn \u0110\u00daNG (\u0110\u1ed3ng th\u1eddi t\u1eaft Object C\u1ea7u th\u1ee7 b\u1ecb \u0111au)")],"a":2,"n":"haalandWin","t":4,"rt":$n[1].GameObject,"sn":"haalandWin"},{"at":[new UnityEngine.HeaderAttribute("=== 9. DOTWEEN ICON ANIMATION ==="),new VnLabelAttribute("Icon List Animator")],"a":2,"n":"iconListAnimator","t":4,"rt":$n[5].IconListAnimator,"sn":"iconListAnimator"},{"at":[new VnLabelAttribute("UI Danh s\u00e1ch 4 Icon"),new UnityEngine.TooltipAttribute("UI 4 Icon ch\u1ecdn c\u1ea7u th\u1ee7")],"a":2,"n":"iconListUI","t":4,"rt":$n[1].GameObject,"sn":"iconListUI"},{"at":[new VnLabelAttribute("Th\u1eddi \u0111i\u1ec3m va ch\u1ea1m m\u00e2y kh\u00f3i (s)"),new UnityEngine.TooltipAttribute("Th\u1eddi \u0111i\u1ec3m va ch\u1ea1m b\u1eadt m\u00e2y kh\u00f3i t\u00ednh t\u1eeb l\u00fac b\u1eaft \u0111\u1ea7u xo\u1ea1c (m\u1eb7c \u0111\u1ecbnh 0.2s - 0.3s)")],"a":2,"n":"impactCloudDelay","t":4,"rt":$n[0].Single,"sn":"impactCloudDelay","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"isChoiceMade","t":4,"rt":$n[0].Boolean,"sn":"isChoiceMade","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"isGameWon","t":4,"rt":$n[0].Boolean,"sn":"isGameWon","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"isStandPlayerEntered","t":4,"rt":$n[0].Boolean,"sn":"isStandPlayerEntered","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":1,"n":"isTackleStarted","t":4,"rt":$n[0].Boolean,"sn":"isTackleStarted","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new VnLabelAttribute("Chat Bubble Mbappe"),new UnityEngine.TooltipAttribute("Chat Bubble Mbappe ('It's not me')")],"a":2,"n":"mbappeChatBubble","t":4,"rt":$n[1].GameObject,"sn":"mbappeChatBubble"},{"at":[new VnLabelAttribute("Sprite Mbappe bu\u1ed3n (SAI)"),new UnityEngine.TooltipAttribute("Sprite Mbappe bu\u1ed3n/ph\u1ea3n \u0111\u1ed1i (Khi ch\u1ecdn SAI Mbappe)")],"a":2,"n":"mbappeSadSprite","t":4,"rt":$n[1].Sprite,"sn":"mbappeSadSprite"},{"at":[new UnityEngine.HeaderAttribute("--- Mbappe Stand ---"),new VnLabelAttribute("SpriteRenderer Mbappe")],"a":2,"n":"mbappeSpriteRenderer","t":4,"rt":$n[1].SpriteRenderer,"sn":"mbappeSpriteRenderer"},{"at":[new VnLabelAttribute("Chat Bubble Messi"),new UnityEngine.TooltipAttribute("Chat Bubble Messi ('I will tell my Father')")],"a":2,"n":"messiChatBubble","t":4,"rt":$n[1].GameObject,"sn":"messiChatBubble"},{"at":[new VnLabelAttribute("Sprite Messi bu\u1ed3n (SAI)"),new UnityEngine.TooltipAttribute("Sprite Messi bu\u1ed3n/ph\u1ea3n \u0111\u1ed1i (Khi ch\u1ecdn SAI Messi)")],"a":2,"n":"messiSadSprite","t":4,"rt":$n[1].Sprite,"sn":"messiSadSprite"},{"at":[new UnityEngine.HeaderAttribute("--- Messi Stand ---"),new VnLabelAttribute("SpriteRenderer Messi")],"a":2,"n":"messiSpriteRenderer","t":4,"rt":$n[1].SpriteRenderer,"sn":"messiSpriteRenderer"},{"at":[new VnLabelAttribute("Object Messi xo\u1ea1c b\u00f3ng"),new UnityEngine.TooltipAttribute("GameObject Messi xo\u1ea1c b\u00f3ng (Lv2 / Replay)")],"a":2,"n":"messiTackle","t":4,"rt":$n[1].GameObject,"sn":"messiTackle"},{"at":[new VnLabelAttribute("Animator Messi xo\u1ea1c b\u00f3ng")],"a":2,"n":"messiTackleAnimator","t":4,"rt":$n[1].Animator,"sn":"messiTackleAnimator"},{"at":[new VnLabelAttribute("Th\u1eddi gian ch\u1edd k\u1ebft qu\u1ea3 (s)"),new UnityEngine.TooltipAttribute("Th\u1eddi gian ch\u1edd sau khi ng\u01b0\u1eddi ch\u01a1i ch\u1ecdn xong (hi\u1ec7n UI Th\u1eafng/Thua) tr\u01b0\u1edbc khi chuy\u1ec3n sang Level 2/Replay")],"a":2,"n":"nextActionDelay","t":4,"rt":$n[0].Single,"sn":"nextActionDelay","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"n":"originalMbappeSprite","t":4,"rt":$n[1].Sprite,"sn":"originalMbappeSprite"},{"a":1,"n":"originalMessiSprite","t":4,"rt":$n[1].Sprite,"sn":"originalMessiSprite"},{"a":1,"n":"originalRefereeSprite","t":4,"rt":$n[1].Sprite,"sn":"originalRefereeSprite"},{"a":1,"n":"originalRonaldoSprite","t":4,"rt":$n[1].Sprite,"sn":"originalRonaldoSprite"},{"a":1,"n":"originalViniSprite","t":4,"rt":$n[1].Sprite,"sn":"originalViniSprite"},{"at":[new UnityEngine.HeaderAttribute("=== 5. TR\u1eccNG T\u00c0I & C\u00c2U H\u1eceI (QUESTION UI & REFEREE) ==="),new VnLabelAttribute("UI C\u00e2u h\u1ecfi"),new UnityEngine.TooltipAttribute("UI c\u00e2u h\u1ecfi 'Who fouled Haaland?'")],"a":2,"n":"questionUI","t":4,"rt":$n[1].GameObject,"sn":"questionUI"},{"at":[new VnLabelAttribute("\u0110\u1ed9 tr\u1ec5 anim Tr\u1ecdng t\u00e0i (s)"),new UnityEngine.TooltipAttribute("Sau bao nhi\u00eau gi\u00e2y k\u1ec3 t\u1eeb khi b\u1eadt d\u00e0n c\u1ea7u th\u1ee7 th\u00ec Tr\u1ecdng t\u00e0i b\u1eaft \u0111\u1ea7u quay \u0111\u1ea7u nh\u00ecn qua l\u1ea1i")],"a":2,"n":"refereeAnimDelay","t":4,"rt":$n[0].Single,"sn":"refereeAnimDelay","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new VnLabelAttribute("Animator Tr\u1ecdng T\u00e0i"),new UnityEngine.TooltipAttribute("Animator Tr\u1ecdng T\u00e0i")],"a":2,"n":"refereeAnimator","t":4,"rt":$n[1].Animator,"sn":"refereeAnimator"},{"at":[new VnLabelAttribute("Trigger Tr\u1ecdng t\u00e0i ng\u00f3 nghi\u00eang")],"a":2,"n":"refereeLookAroundTrigger","t":4,"rt":$n[0].String,"sn":"refereeLookAroundTrigger"},{"at":[new VnLabelAttribute("Sprite Tr\u1ecdng t\u00e0i ch\u00fa \u00fd"),new UnityEngine.TooltipAttribute("Sprite Tr\u1ecdng T\u00e0i khi ch\u1ecdn xong c\u1ea7u th\u1ee7")],"a":2,"n":"refereeReactionSprite","t":4,"rt":$n[1].Sprite,"sn":"refereeReactionSprite"},{"at":[new UnityEngine.HeaderAttribute("--- Tr\u1ecdng T\u00e0i Stand ---"),new VnLabelAttribute("SpriteRenderer Tr\u1ecdng t\u00e0i")],"a":2,"n":"refereeSpriteRenderer","t":4,"rt":$n[1].SpriteRenderer,"sn":"refereeSpriteRenderer"},{"at":[new UnityEngine.HeaderAttribute("=== 7. CHAT BUBBLES C\u1ea6U TH\u1ee6 ==="),new VnLabelAttribute("Chat Bubble Ronaldo"),new UnityEngine.TooltipAttribute("Chat Bubble Ronaldo ('You got me')")],"a":2,"n":"ronaldoChatBubble","t":4,"rt":$n[1].GameObject,"sn":"ronaldoChatBubble"},{"at":[new VnLabelAttribute("Sprite Ronaldo c\u01b0\u1eddi (SAI)"),new UnityEngine.TooltipAttribute("Sprite Ronaldo c\u01b0\u1eddi nham hi\u1ec3m (Khi ch\u1ecdn SAI ng\u01b0\u1eddi kh\u00e1c)")],"a":2,"n":"ronaldoEvilLaughSprite","t":4,"rt":$n[1].Sprite,"sn":"ronaldoEvilLaughSprite"},{"at":[new VnLabelAttribute("Sprite Ronaldo bu\u1ed3n (\u0110\u00daNG)"),new UnityEngine.TooltipAttribute("Sprite Ronaldo bu\u1ed3n (Khi ch\u1ecdn \u0110\u00daNG Ronaldo)")],"a":2,"n":"ronaldoSadSprite","t":4,"rt":$n[1].Sprite,"sn":"ronaldoSadSprite"},{"at":[new UnityEngine.HeaderAttribute("=== 8. PLAYER SPRITE REACTIONS ==="),new VnLabelAttribute("SpriteRenderer Ronaldo"),new UnityEngine.TooltipAttribute("SpriteRenderer c\u1ee7a Ronaldo Stand")],"a":2,"n":"ronaldoSpriteRenderer","t":4,"rt":$n[1].SpriteRenderer,"sn":"ronaldoSpriteRenderer"},{"at":[new UnityEngine.HeaderAttribute("=== 2. XO\u1ea0C B\u00d3NG (RONALDO / MESSI) ==="),new VnLabelAttribute("Object Ronaldo xo\u1ea1c b\u00f3ng"),new UnityEngine.TooltipAttribute("GameObject Ronaldo xo\u1ea1c b\u00f3ng")],"a":2,"n":"ronaldoTackle","t":4,"rt":$n[1].GameObject,"sn":"ronaldoTackle"},{"at":[new VnLabelAttribute("Animator Ronaldo xo\u1ea1c b\u00f3ng")],"a":2,"n":"ronaldoTackleAnimator","t":4,"rt":$n[1].Animator,"sn":"ronaldoTackleAnimator"},{"at":[new VnLabelAttribute("Trigger C\u1ea7u th\u1ee7 b\u01b0\u1edbc v\u00e0o")],"a":2,"n":"standPlayerEnterTrigger","t":4,"rt":$n[0].String,"sn":"standPlayerEnterTrigger"},{"at":[new UnityEngine.HeaderAttribute("=== 4. C\u1ea6U TH\u1ee6 B\u01af\u1edaC V\u00c0O (STAND PLAYER) ==="),new VnLabelAttribute("Object D\u00e0n c\u1ea7u th\u1ee7 & Tr\u1ecdng t\u00e0i"),new UnityEngine.TooltipAttribute("GameObject StandPlayer ch\u1ee9a c\u00e1c c\u1ea7u th\u1ee7 & tr\u1ecdng t\u00e0i")],"a":2,"n":"standPlayers","t":4,"rt":$n[1].GameObject,"sn":"standPlayers"},{"at":[new VnLabelAttribute("Animator D\u00e0n c\u1ea7u th\u1ee7")],"a":2,"n":"standPlayersAnimator","t":4,"rt":$n[1].Animator,"sn":"standPlayersAnimator"},{"at":[new VnLabelAttribute("Trigger C\u1ea7u th\u1ee7 r\u00ea b\u00f3ng")],"a":2,"n":"startHaalandDribbleTrigger","t":4,"rt":$n[0].String,"sn":"startHaalandDribbleTrigger"},{"at":[new VnLabelAttribute("Trigger Messi xo\u1ea1c b\u00f3ng")],"a":2,"n":"startMessiTackleTrigger","t":4,"rt":$n[0].String,"sn":"startMessiTackleTrigger"},{"at":[new VnLabelAttribute("Trigger Ronaldo xo\u1ea1c b\u00f3ng")],"a":2,"n":"startRonaldoTackleTrigger","t":4,"rt":$n[0].String,"sn":"startRonaldoTackleTrigger"},{"at":[new VnLabelAttribute("\u0110\u1ed9 tr\u1ec5 tr\u01b0\u1edbc khi xo\u1ea1c b\u00f3ng (s)"),new UnityEngine.TooltipAttribute("Th\u1eddi gian ch\u1edd (delay) tr\u01b0\u1edbc khi ph\u00e1t animation xo\u1ea1c b\u00f3ng (m\u1eb7c \u0111\u1ecbnh 1.0s)")],"a":2,"n":"tackleAnimDelay","t":4,"rt":$n[0].Single,"sn":"tackleAnimDelay","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new VnLabelAttribute("\u0110\u1ed9 tr\u1ec5 \u1ea9n xo\u1ea1c b\u00f3ng (s)"),new UnityEngine.TooltipAttribute("Th\u1eddi gian \u1ea9n c\u1ea7u th\u1ee7 xo\u1ea1c b\u00f3ng (m\u1eb7c \u0111\u1ecbnh 0.5s)")],"a":2,"n":"tackleHideDelay","t":4,"rt":$n[0].Single,"sn":"tackleHideDelay","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new VnLabelAttribute("\u0110\u1ed9 tr\u1ec5 \u00e2m thanh xo\u1ea1c b\u00f3ng (s)"),new UnityEngine.TooltipAttribute("\u0110\u1ed9 tr\u1ec5 ph\u00e1t \u00e2m thanh xo\u1ea1c b\u00f3ng k\u1ec3 t\u1eeb khi k\u00edch ho\u1ea1t xo\u1ea1c")],"a":2,"n":"tackleSoundDelay","t":4,"rt":$n[0].Single,"sn":"tackleSoundDelay","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.HeaderAttribute("=== 1. H\u01af\u1edaNG D\u1eaaN TAP TO PLAY ==="),new VnLabelAttribute("UI H\u01b0\u1edbng d\u1eabn (Tap To Play)"),new UnityEngine.TooltipAttribute("GameObject TAP TO PLAY (Click l\u1ea7n \u0111\u1ea7u \u0111\u1ec3 \u1ea9n)")],"a":2,"n":"tutUI","t":4,"rt":$n[1].GameObject,"sn":"tutUI"},{"at":[new UnityEngine.HeaderAttribute("=== 6. T\u00d9Y CH\u1eccN \u0110\u1ebeM GI\u1edc T\u1ef0 \u0110\u1ed8NG (AUTO TIMERS) ==="),new VnLabelAttribute("T\u1ef1 \u0111\u1ed9ng \u0111\u1ebfm gi\u1edd (Auto Timers)"),new UnityEngine.TooltipAttribute("T\u1ef1 \u0111\u1ed9ng ch\u1ea1y chu\u1ed7i th\u1eddi gian n\u1ebfu kh\u00f4ng \u0111\u1eb7t Animation Event tr\u00ean timeline")],"a":2,"n":"useAutoTimers","t":4,"rt":$n[0].Boolean,"sn":"useAutoTimers","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new VnLabelAttribute("Chat Bubble Vini"),new UnityEngine.TooltipAttribute("Chat Bubble Vini ('It's not me')")],"a":2,"n":"viniChatBubble","t":4,"rt":$n[1].GameObject,"sn":"viniChatBubble"},{"at":[new VnLabelAttribute("Sprite Vini bu\u1ed3n (SAI)"),new UnityEngine.TooltipAttribute("Sprite Vini bu\u1ed3n/ph\u1ea3n \u0111\u1ed1i (Khi ch\u1ecdn SAI Vini)")],"a":2,"n":"viniSadSprite","t":4,"rt":$n[1].Sprite,"sn":"viniSadSprite"},{"at":[new UnityEngine.HeaderAttribute("--- Vini Stand ---"),new VnLabelAttribute("SpriteRenderer Vini")],"a":2,"n":"viniSpriteRenderer","t":4,"rt":$n[1].SpriteRenderer,"sn":"viniSpriteRenderer"},{"at":[new VnLabelAttribute("UI Ch\u1ecdn \u0110\u00daNG"),new UnityEngine.TooltipAttribute("UI b\u1eadt khi ch\u1ecdn \u0110\u00daNG (khi ch\u1ecdn \u0111\u00fang Ronaldo)")],"a":2,"n":"winChoiceUI","t":4,"rt":$n[1].GameObject,"sn":"winChoiceUI"},{"at":[new VnLabelAttribute("Object ph\u1ee5 Win 1"),new UnityEngine.TooltipAttribute("Object ph\u1ee5 1 b\u1eadt c\u00f9ng Win Choice UI")],"a":2,"n":"winExtraObj1","t":4,"rt":$n[1].GameObject,"sn":"winExtraObj1"},{"at":[new VnLabelAttribute("Object ph\u1ee5 Win 2"),new UnityEngine.TooltipAttribute("Object ph\u1ee5 2 b\u1eadt c\u00f9ng Win Choice UI")],"a":2,"n":"winExtraObj2","t":4,"rt":$n[1].GameObject,"sn":"winExtraObj2"},{"at":[new VnLabelAttribute("\u0110\u1ed9 tr\u1ec5 hi\u1ec7n C\u1ea7u th\u1ee7 khi Th\u1eafng (s)"),new UnityEngine.TooltipAttribute("Th\u1eddi gian ch\u1edd (gi\u00e2y) k\u1ec3 t\u1eeb khi ch\u1ecdn \u0110\u00daNG \u0111\u1ebfn khi hi\u1ec7n Object C\u1ea7u th\u1ee7 khi Th\u1eafng (m\u1eb7c \u0111\u1ecbnh 3.0s)")],"a":2,"n":"winPlayerDelay","t":4,"rt":$n[0].Single,"sn":"winPlayerDelay","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new VnLabelAttribute("UI Ch\u1ecdn SAI"),new UnityEngine.TooltipAttribute("UI b\u1eadt khi ch\u1ecdn SAI (khi Ronaldo c\u01b0\u1eddi nham hi\u1ec3m)")],"a":2,"n":"wrongChoiceUI","t":4,"rt":$n[1].GameObject,"sn":"wrongChoiceUI"},{"a":1,"backing":true,"n":"<Instance>k__BackingField","is":true,"t":4,"rt":$n[5].HaalandGameManager,"sn":"Instance"}]}; }, $n);
     /*HaalandGame.HaalandGameManager end.*/
 
     /*HaalandGame.HaalandGameManager+TransformState start.*/
