@@ -62,7 +62,6 @@ public class PlayerCardUIManager : MonoBehaviour
         // Nếu cờ canClickToStore được bật và người chơi bấm chuột/chạm màn hình
         if (canClickToStore && Input.GetMouseButtonDown(0))
         {
-            canClickToStore = false; // Tắt đi để chỉ gọi 1 lần duy nhất
             GotoStore();
         }
     }
@@ -75,6 +74,10 @@ public class PlayerCardUIManager : MonoBehaviour
             Debug.LogWarning("Không có dữ liệu thẻ cầu thủ được truyền vào!");
             return;
         }
+
+        // Khóa click-to-store trong lúc card/endcard mới đang chuyển vào.
+        // Cờ này sẽ được bật lại sau khi EndcardItem đã hiện xong.
+        canClickToStore = false;
 
         // Cập nhật thông tin lên giao diện
         if (nationalityText != null) nationalityText.text = data.nationality;

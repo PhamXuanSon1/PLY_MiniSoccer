@@ -60,7 +60,6 @@ public class PlayerCardUIManager : MonoBehaviour
 	{
 		if (canClickToStore && Input.GetMouseButtonDown(0))
 		{
-			canClickToStore = false;
 			GotoStore();
 		}
 	}
@@ -72,6 +71,7 @@ public class PlayerCardUIManager : MonoBehaviour
 			Debug.LogWarning("Không có dữ liệu thẻ cầu thủ được truyền vào!");
 			return;
 		}
+		canClickToStore = false;
 		if (nationalityText != null)
 		{
 			nationalityText.text = data.nationality;

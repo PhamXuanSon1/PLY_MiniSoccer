@@ -2382,7 +2382,6 @@ if ( TRACE ) { TRACE( "PlayerCardUIManager#Start", this ); }
 if ( TRACE ) { TRACE( "PlayerCardUIManager#Update", this ); }
 
                 if (this.canClickToStore && UnityEngine.Input.GetMouseButtonDown(0)) {
-                    this.canClickToStore = false;
                     this.GotoStore();
                 }
             },
@@ -2397,6 +2396,7 @@ if ( TRACE ) { TRACE( "PlayerCardUIManager#ShowPlayerCard", this ); }
                     UnityEngine.Debug.LogWarning$1("Kh\u00f4ng c\u00f3 d\u1eef li\u1ec7u th\u1ebb c\u1ea7u th\u1ee7 \u0111\u01b0\u1ee3c truy\u1ec1n v\u00e0o!");
                     return;
                 }
+                this.canClickToStore = false;
                 if (UnityEngine.MonoBehaviour.op_Inequality(this.nationalityText, null)) {
                     this.nationalityText.text = data.nationality;
                 }

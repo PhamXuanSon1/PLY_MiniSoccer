@@ -33136,8 +33136,8 @@
                         "name": "Assets/_Game/Sprite/ply11/Item/ThanhTrai.png"
                     },
                     {
-                        "maxWidth": 2024,
-                        "maxHeight": 118,
+                        "maxWidth": 281,
+                        "maxHeight": 154,
                         "format": "png32",
                         "compression": "quantSize",
                         "quality": 65,
@@ -33154,6 +33154,16 @@
                         "script": "",
                         "ext": "",
                         "name": "Assets/_Game/Sprite/ply11/FullBody/5france (1).png"
+                    },
+                    {
+                        "maxWidth": 205,
+                        "maxHeight": 205,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply11/Item/Icon.png"
                     }
                 ]
             },
