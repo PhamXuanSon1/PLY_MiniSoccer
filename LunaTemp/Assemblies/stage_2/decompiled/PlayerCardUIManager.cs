@@ -29,6 +29,8 @@ public class PlayerCardUIManager : MonoBehaviour
 
 	private bool canClickToStore = false;
 
+	private bool gameEndedSent = false;
+
 	public static PlayerCardUIManager Instance { get; private set; }
 
 	private void Awake()
@@ -45,6 +47,10 @@ public class PlayerCardUIManager : MonoBehaviour
 
 	public void GotoStore()
 	{
+		if (!gameEndedSent)
+		{
+			gameEndedSent = true;
+		}
 		LifeCycle.GameEnded();
 		Playable.InstallFullGame();
 	}
@@ -58,7 +64,6 @@ public class PlayerCardUIManager : MonoBehaviour
 	{
 		if (canClickToStore && Input.GetMouseButtonDown(0))
 		{
-			canClickToStore = false;
 			GotoStore();
 		}
 	}

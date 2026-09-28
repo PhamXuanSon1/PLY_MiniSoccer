@@ -269,12 +269,20 @@ if ( TRACE ) { TRACE( "CameraFollow2D#LateUpdate", this ); }
     /*ClickToStore start.*/
     Bridge.define("ClickToStore", {
         inherits: [UnityEngine.MonoBehaviour],
+        statics: {
+            fields: {
+                gameEndedSent: false
+            }
+        },
         methods: {
             /*ClickToStore.OnMouseDown start.*/
             OnMouseDown: function () {
 if ( TRACE ) { TRACE( "ClickToStore#OnMouseDown", this ); }
 
                 UnityEngine.Debug.Log$1("\u0110\u00e3 click v\u00e0o Item -> Chuy\u1ec3n h\u01b0\u1edbng ra Store!");
+                if (!ClickToStore.gameEndedSent) {
+                    ClickToStore.gameEndedSent = true;
+                }
                 Luna.Unity.LifeCycle.GameEnded();
                 Luna.Unity.Playable.InstallFullGame();
             },
@@ -2335,7 +2343,8 @@ if ( TRACE ) { TRACE( "MoveBetweenPoints#Start", this ); }
             objectsToTurnOffAfterWait: null,
             playerNameText: null,
             playerImage: null,
-            canClickToStore: false
+            canClickToStore: false,
+            gameEndedSent: false
         },
         ctors: {
             init: function () {
@@ -2343,6 +2352,7 @@ if ( TRACE ) { TRACE( "PlayerCardUIManager#init", this ); }
 
                 this.waitTime = 3.0;
                 this.canClickToStore = false;
+                this.gameEndedSent = false;
             }
         },
         methods: {
@@ -2362,6 +2372,9 @@ if ( TRACE ) { TRACE( "PlayerCardUIManager#Awake", this ); }
             GotoStore: function () {
 if ( TRACE ) { TRACE( "PlayerCardUIManager#GotoStore", this ); }
 
+                if (!this.gameEndedSent) {
+                    this.gameEndedSent = true;
+                }
                 Luna.Unity.LifeCycle.GameEnded();
                 Luna.Unity.Playable.InstallFullGame();
             },
@@ -2380,7 +2393,6 @@ if ( TRACE ) { TRACE( "PlayerCardUIManager#Start", this ); }
 if ( TRACE ) { TRACE( "PlayerCardUIManager#Update", this ); }
 
                 if (this.canClickToStore && UnityEngine.Input.GetMouseButtonDown(0)) {
-                    this.canClickToStore = false;
                     this.GotoStore();
                 }
             },
@@ -3294,7 +3306,7 @@ if ( TRACE ) { TRACE( "Ply_SoundManager#Mute", this ); }
     /*CameraFollow2D end.*/
 
     /*ClickToStore start.*/
-    $m("ClickToStore", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"OnMouseDown","t":8,"sn":"OnMouseDown","rt":$n[0].Void}]}; }, $n);
+    $m("ClickToStore", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"OnMouseDown","t":8,"sn":"OnMouseDown","rt":$n[0].Void},{"a":1,"n":"gameEndedSent","is":true,"t":4,"rt":$n[0].Boolean,"sn":"gameEndedSent","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}}]}; }, $n);
     /*ClickToStore end.*/
 
     /*ComponentCache$1 start.*/
@@ -3332,7 +3344,7 @@ if ( TRACE ) { TRACE( "Ply_SoundManager#Mute", this ); }
     /*PlayerCardData end.*/
 
     /*PlayerCardUIManager start.*/
-    $m("PlayerCardUIManager", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"Awake","t":8,"sn":"Awake","rt":$n[0].Void},{"a":2,"n":"GotoStore","t":8,"sn":"GotoStore","rt":$n[0].Void},{"a":2,"n":"HideCard","t":8,"sn":"HideCard","rt":$n[0].Void},{"a":2,"n":"ShowPlayerCard","t":8,"pi":[{"n":"data","pt":PlayerCardData,"ps":0}],"sn":"ShowPlayerCard","rt":$n[0].Void,"p":[PlayerCardData]},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"a":1,"n":"Update","t":8,"sn":"Update","rt":$n[0].Void},{"a":1,"n":"WaitAndTriggerObjects","t":8,"sn":"WaitAndTriggerObjects","rt":$n[3].IEnumerator},{"a":2,"n":"Instance","is":true,"t":16,"rt":PlayerCardUIManager,"g":{"a":2,"n":"get_Instance","t":8,"rt":PlayerCardUIManager,"fg":"Instance","is":true},"s":{"a":1,"n":"set_Instance","t":8,"p":[PlayerCardUIManager],"rt":$n[0].Void,"fs":"Instance","is":true},"fn":"Instance"},{"a":1,"n":"canClickToStore","t":4,"rt":$n[0].Boolean,"sn":"canClickToStore","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.HeaderAttribute("UI Panels"),new UnityEngine.TooltipAttribute("Panel ch\u00ednh ch\u1ee9a giao di\u1ec7n hi\u1ec3n th\u1ecb (D\u00f9ng \u0111\u1ec3 b\u1eadt/t\u1eaft to\u00e0n b\u1ed9 popup)")],"a":2,"n":"cardPanel","t":4,"rt":$n[1].GameObject,"sn":"cardPanel"},{"at":[new UnityEngine.TooltipAttribute("K\u00e9o th\u1ea3 c\u00e1c object kh\u00e1c mu\u1ed1n B\u1eacT L\u00caN c\u00f9ng l\u00fac v\u1edbi Card Panel v\u00e0o danh s\u00e1ch n\u00e0y")],"a":2,"n":"extraObjectsToActivate","t":4,"rt":System.Array.type(UnityEngine.GameObject),"sn":"extraObjectsToActivate"},{"at":[new UnityEngine.TooltipAttribute("C\u00e1c object s\u1ebd t\u1ef1 \u0111\u1ed9ng T\u1eaeT \u0110I sau khi h\u1ebft th\u1eddi gian \u0111\u1ebfm ng\u01b0\u1ee3c")],"a":2,"n":"objectsToTurnOffAfterWait","t":4,"rt":System.Array.type(UnityEngine.GameObject),"sn":"objectsToTurnOffAfterWait"},{"at":[new UnityEngine.TooltipAttribute("C\u00e1c object s\u1ebd t\u1ef1 \u0111\u1ed9ng B\u1eacT L\u00caN sau khi h\u1ebft th\u1eddi gian \u0111\u1ebfm ng\u01b0\u1ee3c")],"a":2,"n":"objectsToTurnOnAfterWait","t":4,"rt":System.Array.type(UnityEngine.GameObject),"sn":"objectsToTurnOnAfterWait"},{"a":2,"n":"playerImage","t":4,"rt":$n[1].SpriteRenderer,"sn":"playerImage"},{"at":[new UnityEngine.HeaderAttribute("UI Elements (K\u00e9o th\u1ea3 t\u1eeb Canvas v\u00e0o \u0111\u00e2y)")],"a":2,"n":"playerNameText","t":4,"rt":$n[4].TMP_Text,"sn":"playerNameText"},{"at":[new UnityEngine.HeaderAttribute("H\u00e0nh \u0111\u1ed9ng \u0111\u1ebfm ng\u01b0\u1ee3c (V\u00ed d\u1ee5: \u0110\u1ee3i 3 gi\u00e2y)"),new UnityEngine.TooltipAttribute("Th\u1eddi gian \u0111\u1ebfm ng\u01b0\u1ee3c (t\u00ednh b\u1eb1ng gi\u00e2y)")],"a":2,"n":"waitTime","t":4,"rt":$n[0].Single,"sn":"waitTime","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"backing":true,"n":"<Instance>k__BackingField","is":true,"t":4,"rt":PlayerCardUIManager,"sn":"Instance"}]}; }, $n);
+    $m("PlayerCardUIManager", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":1,"n":"Awake","t":8,"sn":"Awake","rt":$n[0].Void},{"a":2,"n":"GotoStore","t":8,"sn":"GotoStore","rt":$n[0].Void},{"a":2,"n":"HideCard","t":8,"sn":"HideCard","rt":$n[0].Void},{"a":2,"n":"ShowPlayerCard","t":8,"pi":[{"n":"data","pt":PlayerCardData,"ps":0}],"sn":"ShowPlayerCard","rt":$n[0].Void,"p":[PlayerCardData]},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"a":1,"n":"Update","t":8,"sn":"Update","rt":$n[0].Void},{"a":1,"n":"WaitAndTriggerObjects","t":8,"sn":"WaitAndTriggerObjects","rt":$n[3].IEnumerator},{"a":2,"n":"Instance","is":true,"t":16,"rt":PlayerCardUIManager,"g":{"a":2,"n":"get_Instance","t":8,"rt":PlayerCardUIManager,"fg":"Instance","is":true},"s":{"a":1,"n":"set_Instance","t":8,"p":[PlayerCardUIManager],"rt":$n[0].Void,"fs":"Instance","is":true},"fn":"Instance"},{"a":1,"n":"canClickToStore","t":4,"rt":$n[0].Boolean,"sn":"canClickToStore","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.HeaderAttribute("UI Panels"),new UnityEngine.TooltipAttribute("Panel ch\u00ednh ch\u1ee9a giao di\u1ec7n hi\u1ec3n th\u1ecb (D\u00f9ng \u0111\u1ec3 b\u1eadt/t\u1eaft to\u00e0n b\u1ed9 popup)")],"a":2,"n":"cardPanel","t":4,"rt":$n[1].GameObject,"sn":"cardPanel"},{"at":[new UnityEngine.TooltipAttribute("K\u00e9o th\u1ea3 c\u00e1c object kh\u00e1c mu\u1ed1n B\u1eacT L\u00caN c\u00f9ng l\u00fac v\u1edbi Card Panel v\u00e0o danh s\u00e1ch n\u00e0y")],"a":2,"n":"extraObjectsToActivate","t":4,"rt":System.Array.type(UnityEngine.GameObject),"sn":"extraObjectsToActivate"},{"a":1,"n":"gameEndedSent","t":4,"rt":$n[0].Boolean,"sn":"gameEndedSent","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"at":[new UnityEngine.TooltipAttribute("C\u00e1c object s\u1ebd t\u1ef1 \u0111\u1ed9ng T\u1eaeT \u0110I sau khi h\u1ebft th\u1eddi gian \u0111\u1ebfm ng\u01b0\u1ee3c")],"a":2,"n":"objectsToTurnOffAfterWait","t":4,"rt":System.Array.type(UnityEngine.GameObject),"sn":"objectsToTurnOffAfterWait"},{"at":[new UnityEngine.TooltipAttribute("C\u00e1c object s\u1ebd t\u1ef1 \u0111\u1ed9ng B\u1eacT L\u00caN sau khi h\u1ebft th\u1eddi gian \u0111\u1ebfm ng\u01b0\u1ee3c")],"a":2,"n":"objectsToTurnOnAfterWait","t":4,"rt":System.Array.type(UnityEngine.GameObject),"sn":"objectsToTurnOnAfterWait"},{"a":2,"n":"playerImage","t":4,"rt":$n[1].SpriteRenderer,"sn":"playerImage"},{"at":[new UnityEngine.HeaderAttribute("UI Elements (K\u00e9o th\u1ea3 t\u1eeb Canvas v\u00e0o \u0111\u00e2y)")],"a":2,"n":"playerNameText","t":4,"rt":$n[4].TMP_Text,"sn":"playerNameText"},{"at":[new UnityEngine.HeaderAttribute("H\u00e0nh \u0111\u1ed9ng \u0111\u1ebfm ng\u01b0\u1ee3c (V\u00ed d\u1ee5: \u0110\u1ee3i 3 gi\u00e2y)"),new UnityEngine.TooltipAttribute("Th\u1eddi gian \u0111\u1ebfm ng\u01b0\u1ee3c (t\u00ednh b\u1eb1ng gi\u00e2y)")],"a":2,"n":"waitTime","t":4,"rt":$n[0].Single,"sn":"waitTime","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"a":1,"backing":true,"n":"<Instance>k__BackingField","is":true,"t":4,"rt":PlayerCardUIManager,"sn":"Instance"}]}; }, $n);
     /*PlayerCardUIManager end.*/
 
     /*Ply_GameUnit start.*/

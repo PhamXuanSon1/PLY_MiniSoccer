@@ -30,6 +30,7 @@ public class PlayerCardUIManager : MonoBehaviour
     public SpriteRenderer playerImage;
 
     private bool canClickToStore = false;
+    private bool gameEndedSent = false; // LifeCycle.GameEnded chỉ gọi 1 lần
 
     private void Awake()
     {
@@ -46,7 +47,11 @@ public class PlayerCardUIManager : MonoBehaviour
 
     public void GotoStore()
     {
-        LifeCycle.GameEnded();
+        if (!gameEndedSent)
+        {
+            gameEndedSent = true;
+        }
+            LifeCycle.GameEnded();
 
         Playable.InstallFullGame();
     }
@@ -61,7 +66,7 @@ public class PlayerCardUIManager : MonoBehaviour
         // Nếu cờ canClickToStore được bật và người chơi bấm chuột/chạm màn hình
         if (canClickToStore && Input.GetMouseButtonDown(0))
         {
-            canClickToStore = false; // Tắt đi để chỉ gọi 1 lần duy nhất
+            // Giữ cờ bật để user quay lại từ Store vẫn click ra Store được tiếp
             GotoStore();
         }
     }
