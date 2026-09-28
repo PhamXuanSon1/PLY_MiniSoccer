@@ -1,0 +1,175 @@
+{
+    "BuildID": "16467878-0a3e-4a46-ade4-4ee059661c71",
+    "Command": "project:upload",
+    "ProjectID": "60d50cfced72ae74bb8c1682cb9abbe6",
+    "ProjectStateHash": "a6f2477ecb9dea1cfb3ecf2e91c80c3ef9aa290554ee7c63240685fe279e29a5",
+    "StageCompletedAt": 2,
+    "EarliestFatalError": 0,
+    "StartTime": 1790565641386,
+    "EndTime": 1790565665649,
+    "PlaygroundUserID": 33919,
+    "OperatingSystem": "win32",
+    "TargetPlatform": "playground",
+    "UnityVersion": "6000.0.38f1",
+    "LunaVersion": "7.1.0",
+    "LogCount": 7,
+    "Logs": [
+        {
+            "LogID": "8705f3c4-74f1-4b02-96d8-6eaba094738c",
+            "Timestamp": 1790565645755,
+            "Stage": 1,
+            "Severity": 0,
+            "ErrorType": 0,
+            "ErrorCode": "LP1030",
+            "Description": "TMP Font Asset uses unsupported 'Atlas Population Mode'",
+            "Details": [
+                "TMP Font Asset '{0}' uses Atlas Population Mode '{1}' which is not supported"
+            ],
+            "DescriptionValues": [],
+            "DetailsValues": [
+                "LilitaOne-Regular SDF",
+                "Dynamic"
+            ],
+            "LogCount": 1,
+            "FilePath": "",
+            "LinePosition": 0,
+            "ClassName": "",
+            "MemberName": "",
+            "Order": 0
+        },
+        {
+            "LogID": "b022dd60-bb7a-4068-b43d-400064a6623c",
+            "Timestamp": 1790565646368,
+            "Stage": 1,
+            "Severity": 0,
+            "ErrorType": 0,
+            "ErrorCode": "LP1030",
+            "Description": "TMP Font Asset uses unsupported 'Atlas Population Mode'",
+            "Details": [
+                "TMP Font Asset '{0}' uses Atlas Population Mode '{1}' which is not supported"
+            ],
+            "DescriptionValues": [],
+            "DetailsValues": [
+                "LiberationSans SDF - Fallback",
+                "Dynamic"
+            ],
+            "LogCount": 1,
+            "FilePath": "",
+            "LinePosition": 0,
+            "ClassName": "",
+            "MemberName": "",
+            "Order": 1
+        },
+        {
+            "LogID": "912fc2d7-3cff-46dc-bb7d-539ff2fa971c",
+            "Timestamp": 1790565649121,
+            "Stage": 1,
+            "Severity": 0,
+            "ErrorType": 2,
+            "ErrorCode": "LP1014",
+            "Description": "We recommend running Runtime Analysis to find and remove all unused code",
+            "Details": [
+                "Navigate to the Runtime Analysis → Code tab to enable code stripping. Before uploading the playable, please make sure to have played all scenario’s of the playable in a development build to make Runtime Analysis work properly."
+            ],
+            "DescriptionValues": [],
+            "DetailsValues": [],
+            "LogCount": 1,
+            "FilePath": "",
+            "LinePosition": 0,
+            "ClassName": "",
+            "MemberName": "",
+            "Order": 2
+        },
+        {
+            "LogID": "6b95c5d0-c828-430f-94f5-2440d0c6b5f5",
+            "Timestamp": 1790565649140,
+            "Stage": 1,
+            "Severity": 0,
+            "ErrorType": 0,
+            "ErrorCode": "LP1027",
+            "Description": "This DOTween version is not supported",
+            "Details": [
+                "The incorrect DOTween version for this Unity version is in use, please update or downgrade to the recommended version {0} in the package manager. Go to Window → Package Manager."
+            ],
+            "DescriptionValues": [],
+            "DetailsValues": [
+                ""
+            ],
+            "LogCount": 1,
+            "FilePath": "",
+            "LinePosition": 0,
+            "ClassName": "",
+            "MemberName": "",
+            "Order": 3
+        },
+        {
+            "LogID": "5dab99cc-f7b7-427c-baa8-587d4a68f2c6",
+            "Timestamp": 1790565649140,
+            "Stage": 1,
+            "Severity": 0,
+            "ErrorType": 0,
+            "ErrorCode": "LP1015",
+            "Description": "This TMP version is not fully supported",
+            "Details": [
+                "The incorrect Text Mesh Pro for this Unity version is in use, please update or downgrade to the recommended version {0} in the package manager. Go to Window → Package Manager"
+            ],
+            "DescriptionValues": [],
+            "DetailsValues": [
+                ""
+            ],
+            "LogCount": 1,
+            "FilePath": "",
+            "LinePosition": 0,
+            "ClassName": "",
+            "MemberName": "",
+            "Order": 4
+        },
+        {
+            "LogID": "0824e4e9-8261-426a-a6d7-7c5b376d03cd",
+            "Timestamp": 1790565649140,
+            "Stage": 1,
+            "Severity": 0,
+            "ErrorType": 0,
+            "ErrorCode": "LP1032",
+            "Description": "Package(s) is not supported in Luna",
+            "Details": [
+                "Currently package(s) com.unity.timeline are not supported in Luna. We recommend you to remove it and workaround it's functionality."
+            ],
+            "DescriptionValues": [
+                "com.unity.timeline (1.8.7)"
+            ],
+            "DetailsValues": [
+                "com.unity.timeline"
+            ],
+            "LogCount": 1,
+            "FilePath": "F:/UnityProject/PLY_MiniSoccer/Packages\\manifest.json",
+            "LinePosition": 0,
+            "ClassName": "",
+            "MemberName": "",
+            "Order": 5
+        },
+        {
+            "LogID": "7615ee28-67c4-4a3f-ab1d-966990cd8508",
+            "Timestamp": 1790565649142,
+            "Stage": 1,
+            "Severity": 0,
+            "ErrorType": 2,
+            "ErrorCode": "LP1010",
+            "Description": "Looks like a collider was scaled, this might affect performance.",
+            "Details": [
+                "Icon",
+                "Logo",
+                "Slot1",
+                "Slot2"
+            ],
+            "DescriptionValues": [],
+            "DetailsValues": [],
+            "LogCount": 4,
+            "FilePath": "",
+            "LinePosition": 0,
+            "ClassName": "",
+            "MemberName": "",
+            "Order": 6
+        }
+    ]
+}

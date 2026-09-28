@@ -14,6 +14,7 @@ public class FavoritePlayerEndcard : MonoBehaviour
     public GameObject endcardPanel;
 
     private bool canClickToStore = false;
+    private bool gameEndedSent = false; // LifeCycle.GameEnded chỉ gọi 1 lần
 
     private void Start()
     {
@@ -60,7 +61,7 @@ public class FavoritePlayerEndcard : MonoBehaviour
         // Nếu màn hình Endcard đã hiện và người chơi bấm chuột/chạm màn hình
         if (canClickToStore && Input.GetMouseButtonDown(0))
         {
-            canClickToStore = false; // Tắt đi để chỉ chạy 1 lần duy nhất
+            // Giữ cờ bật để user quay lại từ Store vẫn click ra Store được tiếp
             GotoStore();
         }
     }
@@ -69,7 +70,11 @@ public class FavoritePlayerEndcard : MonoBehaviour
     public void GotoStore()
     {
         Debug.Log("🎉 Chuyển hướng ra Store tải game!");
-        LifeCycle.GameEnded();
+        if (!gameEndedSent)
+        {
+            gameEndedSent = true;
+            LifeCycle.GameEnded();
+        }
         Playable.InstallFullGame();
     }
 }

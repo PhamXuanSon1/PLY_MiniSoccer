@@ -89,15 +89,16 @@ public class FavoritePlayerManager : MonoBehaviour
     [Header("Hành động đếm ngược (Ví dụ: Đợi 3 giây)")]
     [Tooltip("Thời gian đếm ngược (tính bằng giây)")]
     public float waitTime = 3f;
-    
+
     [Tooltip("Các object sẽ tự động BẬT LÊN sau khi hết thời gian đếm ngược")]
     public GameObject[] objectsToTurnOnAfterWait;
-    
+
     [Tooltip("Các object sẽ tự động TẮT ĐI sau khi hết thời gian đếm ngược")]
     public GameObject[] objectsToTurnOffAfterWait;
 
     private int currentIndex = 0; // Đánh dấu xem đã lôi đến cầu thủ thứ mấy ra rồi
     private bool canClickToStoreGlobal = false; // Cờ theo dõi click ra Store toàn cục
+    private bool gameEndedSent = false; // LifeCycle.GameEnded chỉ gọi 1 lần
 
     private Sequence globalIdleSeq; // Chuỗi hiệu ứng thở luân phiên cho 2 Slot
     private Coroutine nameSequenceRoutine; // Biến lưu trữ tiến trình đọc tên
@@ -130,9 +131,13 @@ public class FavoritePlayerManager : MonoBehaviour
         // 1. Kiểm tra click toàn cục ra Store (chỉ xảy ra khi game đã kết thúc và đếm ngược xong)
         if (canClickToStoreGlobal && Input.GetMouseButtonDown(0))
         {
-            canClickToStoreGlobal = false; // Chỉ chạy 1 lần
+            // Giữ cờ bật để user quay lại từ Store vẫn click ra Store được tiếp
             Debug.Log("🎉 Chuyển hướng ra Store tải game!");
             AppLovinAnalytics.Track(ALEvent.CTA_CLICKED);
+            if (!gameEndedSent)
+            {
+                gameEndedSent = true;
+            }
             LifeCycle.GameEnded();
             Playable.InstallFullGame();
             return; // Đã ra store thì ngưng xử lý bên dưới
@@ -193,7 +198,7 @@ public class FavoritePlayerManager : MonoBehaviour
         if (slotB != null) slotB.transform.localScale = slotB.originalScale;
 
         globalIdleSeq = DOTween.Sequence();
-        
+
         // Thở Slot A (co lại rồi nảy ra)
         if (slotA != null)
         {
@@ -321,10 +326,10 @@ public class FavoritePlayerManager : MonoBehaviour
 
         // 2. Tạo chuỗi hiệu ứng bay (Sequence)
         Sequence seq = DOTween.Sequence();
-        
+
         // - Bay đến target theo hình vòng cung (DOJump)
         seq.Append(loserSlot.transform.DOJump(discardTarget.position, arcHeight, 1, moveDuration));
-        
+
         // - Phóng to lên 1 chút khi vừa rớt xuống (Nhân với Scale gốc)
         seq.Append(loserSlot.transform.DOScale(loserSlot.originalScale * scaleUpSize, scaleUpDuration));
 
@@ -342,10 +347,10 @@ public class FavoritePlayerManager : MonoBehaviour
             {
                 // VẪN CÒN NGƯỜI -> Khôi phục Slot và đổi hình
                 loserSlot.transform.position = loserSlot.originalPosition;
-                
+
                 // Chuẩn bị trạng thái ban đầu
                 loserSlot.transform.localScale = loserSlot.originalScale * appearStartScale;
-                
+
                 // Bắt buộc ép Alpha về 0 (0/255) trước khi hiện lên để chắc chắn nó tàng hình
                 Color c = loserSlot.spriteRenderer.color;
                 c.a = 0f;
@@ -357,11 +362,11 @@ public class FavoritePlayerManager : MonoBehaviour
 
                 // Tạo chuỗi xuất hiện (Appear Sequence)
                 Sequence appearSeq = DOTween.Sequence();
-                
+
                 // Phóng to lên cực đại ĐỒNG THỜI hiện rõ dần lên
                 appearSeq.Append(loserSlot.transform.DOScale(loserSlot.originalScale * appearMaxScale, appearUpDuration));
                 appearSeq.Join(loserSlot.spriteRenderer.DOFade(1f, appearUpDuration));
-                
+
                 // Sau đó nảy nhẹ về lại chuẩn (1.0)
                 appearSeq.Append(loserSlot.transform.DOScale(loserSlot.originalScale, appearDownDuration));
 
@@ -369,7 +374,7 @@ public class FavoritePlayerManager : MonoBehaviour
                 {
                     // Chạy xong hết thì mở khoá cho chơi tiếp
                     isAnimating = false;
-                    
+
                     // KÍCH HOẠT LẠI HIỆU ỨNG THỞ LUÂN PHIÊN
                     PlayGlobalIdleAnimation();
 
@@ -382,7 +387,7 @@ public class FavoritePlayerManager : MonoBehaviour
                 // HẾT NGƯỜI -> Game kết thúc
                 // Giữ nguyên trạng thái tàng hình của loserSlot, và bung Endcard
                 isAnimating = false;
-                
+
                 // Cố tình tạo hiệu ứng thở vô hạn cho kẻ chiến thắng cuối cùng
                 DOTween.Sequence()
                     .Append(chosenSlot.transform.DOScale(chosenSlot.originalScale * chosenSlot.idleScale, chosenSlot.idleDuration).SetLoops(2, LoopType.Yoyo).SetEase(Ease.InOutSine))
