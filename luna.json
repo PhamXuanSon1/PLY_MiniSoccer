@@ -1,7 +1,7 @@
 {
     "version": "7.1.0",
     "projectId": "60d50cfced72ae74bb8c1682cb9abbe6",
-    "applicationID": 40548,
+    "applicationID": 33920,
     "creativeName": "PLY_V15",
     "pgServer": "EU",
     "window": {
@@ -80,7 +80,7 @@
             "externalSources": [],
             "externalJSLibraries": [],
             "scriptingDefines": [],
-            "msbuildVersion": "18.7",
+            "msbuildVersion": "18.10",
             "monoVersion": "9.0.2",
             "dotnetVersion": ""
         },
@@ -31949,6 +31949,16 @@
                         "script": "",
                         "ext": "",
                         "name": "Assets/_Game/Sprite/ply16/Vector 175.png"
+                    },
+                    {
+                        "maxWidth": 256,
+                        "maxHeight": 256,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply11/Item/brainrot_mini_challenge_256.png"
                     }
                 ]
             },
