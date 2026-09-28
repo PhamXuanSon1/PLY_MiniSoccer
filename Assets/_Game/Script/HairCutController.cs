@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using DG.Tweening;
 using Luna.Unity;
 
@@ -106,6 +107,22 @@ public class HairCutController : MonoBehaviour
     [Tooltip("Tên Trigger parameter của Animation cần chạy khi Tap lần 1 (để trống nếu không dùng)")]
     public string firstTapTriggerName;
 
+    [Header("=== Events (tự setup trong Inspector) ===")]
+    [Tooltip("Gọi khi người chơi Tap lần 1 (sau khi ẩn Tutorial & bật Animation)")]
+    public UnityEvent onFirstTap;
+
+    [Tooltip("Gọi khi người chơi Tap lần 2 (bắt đầu cắt)")]
+    public UnityEvent onSecondTap;
+
+    [Tooltip("Gọi khi WIN")]
+    public UnityEvent onWin;
+
+    [Tooltip("Gọi khi LOSS")]
+    public UnityEvent onLoss;
+
+    [Tooltip("Gọi khi bật chế độ click màn hình -> ra Store (sau WIN/LOSS)")]
+    public UnityEvent onStoreRedirectActive;
+
     [Header("=== Cấu hình ===")]
     [Tooltip("GameObject cần TẮT (SetActive = false) khi kéo đã chạy xong tới điểm B")]
     public GameObject objectToDisableOnComplete;
@@ -145,11 +162,10 @@ public class HairCutController : MonoBehaviour
         // Khi game đã kết thúc: Bất kỳ click/tap nào trên màn hình đều mở Store
         if (isStoreRedirectActive)
         {
-            if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
+            if (StoreRedirect.TappedThisFrame())
             {
                 Debug.Log("[HairCutController] Người chơi click màn hình -> Mở Store (Luna)!");
-                LifeCycle.GameEnded();
-                Playable.InstallFullGame();
+                StoreRedirect.Install();
             }
             return;
         }
@@ -174,6 +190,7 @@ public class HairCutController : MonoBehaviour
                 // TAP LẦN 2: Cắt tóc
                 tapState = 2;
                 hasCut = true;
+                onSecondTap?.Invoke();
                 StartScissorCut();
             }
         }
@@ -202,6 +219,9 @@ public class HairCutController : MonoBehaviour
                 animatorToEnableOnFirstTap.SetTrigger(firstTapTriggerName);
             }
         }
+
+        // 3. Event cho người dùng tự setup
+        onFirstTap?.Invoke();
     }
 
     /// <summary>
@@ -547,7 +567,10 @@ public class HairCutController : MonoBehaviour
             }
         }
 
+        onWin?.Invoke();
         isStoreRedirectActive = true;
+        StoreRedirect.EndGameOnce();
+        onStoreRedirectActive?.Invoke();
         Debug.Log("[HairCutController] WIN -> ĐÃ KÍCH HOẠT: Click màn hình bất kỳ lúc nào cũng ra Store!");
     }
 
@@ -647,7 +670,10 @@ public class HairCutController : MonoBehaviour
         }
 
         // 7. Kích hoạt click đâu cũng ra Store
+        onLoss?.Invoke();
         isStoreRedirectActive = true;
+        StoreRedirect.EndGameOnce();
+        onStoreRedirectActive?.Invoke();
         Debug.Log("[HairCutController] LOSS -> ĐÃ KÍCH HOẠT: Kéo về vị trí cũ, Khôi phục Sprite ban đầu & Click màn hình bất kỳ lúc nào cũng ra Store!");
     }
 
@@ -657,7 +683,6 @@ public class HairCutController : MonoBehaviour
     public void OpenStore()
     {
         Debug.Log("[HairCutController] Chuyển hướng mở Store Luna!");
-        LifeCycle.GameEnded();
-        Playable.InstallFullGame();
+        StoreRedirect.Install();
     }
 }

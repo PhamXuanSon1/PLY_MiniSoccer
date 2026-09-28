@@ -46,6 +46,7 @@ public class PlayerCardUIManager : MonoBehaviour
 
     public void GotoStore()
     {
+        
         LifeCycle.GameEnded();
 
         Playable.InstallFullGame();
