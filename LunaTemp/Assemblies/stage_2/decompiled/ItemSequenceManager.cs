@@ -26,8 +26,8 @@ public class ItemSequenceManager : MonoBehaviour
 	public float delayBetweenItems = 0.3f;
 
 	[Header("Characters")]
-	[Tooltip("Kéo 4 CharacterDropZone của 4 nhân vật vào đây (hoặc để trống code tự tìm)")]
-	public List<CharacterDropZone> characterList = new List<CharacterDropZone>();
+	[Tooltip("Kéo 4 CharacterSlot của 4 nhân vật vào đây")]
+	public List<CharacterSlot> characterList = new List<CharacterSlot>();
 
 	[Header("Result Objects (Win / Lose)")]
 	[Tooltip("Sẽ tự động cập nhật: Thắng nếu 4 nhân vật nhận đúng đồ, Thua nếu có nhân vật nhận sai đồ")]
@@ -218,7 +218,7 @@ public class ItemSequenceManager : MonoBehaviour
 		bool allCorrect = true;
 		if (characterList != null)
 		{
-			foreach (CharacterDropZone zone in characterList)
+			foreach (CharacterSlot zone in characterList)
 			{
 				if (zone != null && !zone.isCorrectItemReceived)
 				{
@@ -309,7 +309,7 @@ public class ItemSequenceManager : MonoBehaviour
 		}
 		if (characterList != null)
 		{
-			foreach (CharacterDropZone character in characterList)
+			foreach (CharacterSlot character in characterList)
 			{
 				if (character != null)
 				{

@@ -2,7 +2,7 @@
     "version": "7.1.0",
     "projectId": "60d50cfced72ae74bb8c1682cb9abbe6",
     "applicationID": 40548,
-    "creativeName": "MiniSoccer_PLY14",
+    "creativeName": "Ply2_Fix",
     "pgServer": "EU",
     "window": {
         "‐⁙": true
@@ -19182,7 +19182,7 @@
                     },
                     {
                         "name": "depth#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "material#get",
@@ -19326,7 +19326,7 @@
                     },
                     {
                         "name": "Raycast",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "LayoutComplete",
@@ -19602,7 +19602,7 @@
                     },
                     {
                         "name": "alphaHitTestMinimumThreshold#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "alphaHitTestMinimumThreshold#set",
@@ -19658,7 +19658,7 @@
                     },
                     {
                         "name": "IsRaycastLocationValid",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "MapCoordinate",
@@ -27006,7 +27006,7 @@
                     },
                     {
                         "name": "sortingLayerID#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "sortingLayerID#set",
@@ -27066,7 +27066,7 @@
                     },
                     {
                         "name": "sortingOrder#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "sortingOrder#set",
@@ -27610,7 +27610,7 @@
                     },
                     {
                         "name": "m_IgnoreReversedGraphics#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "m_IgnoreReversedGraphics#set",
@@ -33405,32 +33405,6 @@
                 ]
             },
             {
-                "className": "CharacterDropZone",
-                "staticMethods": [],
-                "instanceMethods": [
-                    {
-                        "name": "init",
-                        "excluded": false
-                    },
-                    {
-                        "name": "Awake",
-                        "excluded": false
-                    },
-                    {
-                        "name": "OnItemDropped",
-                        "excluded": false
-                    },
-                    {
-                        "name": "ResetCharacter",
-                        "excluded": false
-                    },
-                    {
-                        "name": "OnMouseDown",
-                        "excluded": false
-                    }
-                ]
-            },
-            {
                 "className": "CharacterItemData",
                 "staticMethods": [],
                 "instanceMethods": [
@@ -34135,6 +34109,50 @@
                     {
                         "name": "ctor",
                         "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "CharacterItemVisual",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "CharacterSlot",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ShowVisual",
+                        "excluded": false
+                    },
+                    {
+                        "name": "FindVisual",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ResetCharacter",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnMouseDown",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnItemDropped",
+                        "excluded": false
                     }
                 ]
             }
@@ -34934,6 +34952,226 @@
                         "script": "",
                         "ext": "",
                         "name": "Assets/_Game/Sprite/Item/TapToPlay.png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Script/ply2_fix/vini (4) (Custom) (1).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Script/ply2_fix/yamal (2) (Custom) (1).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Script/ply2_fix/yamal (3) (Custom) (1).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Script/ply2_fix/vini (3) (Custom) (1).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Script/ply2_fix/vini (5) (Custom) (1).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Script/ply2_fix/ronaldo (4) (Custom) (1).png"
+                    },
+                    {
+                        "maxWidth": 512,
+                        "maxHeight": 512,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/endcard/New_Project_21_1.png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Script/ply2_fix/ronaldo (2) (Custom) (1).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Script/ply2_fix/messi (4) (Custom) (1).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Script/ply2_fix/ronaldo (5) (Custom) (1).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Script/ply2_fix/messi (2) (Custom) (2).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Script/ply2_fix/ronaldo (1) (Custom) (1).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Script/ply2_fix/messi (3) (Custom) (2).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Script/ply2_fix/messi (5) (Custom) (1).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Script/ply2_fix/vini (2) (Custom) (1).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Script/ply2_fix/messi (1) (Custom) (2).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Script/ply2_fix/yamal (4) (Custom) (1).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Script/ply2_fix/yamal (5) (Custom) (1).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Script/ply2_fix/yamal (1) (Custom) (1).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Script/ply2_fix/ronaldo (3) (Custom) (1).png"
+                    },
+                    {
+                        "maxWidth": 600,
+                        "maxHeight": 600,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Script/ply2_fix/vini (1) (Custom) (1).png"
+                    },
+                    {
+                        "maxWidth": 349,
+                        "maxHeight": 512,
+                        "format": "png32",
+                        "compression": "quantSize",
+                        "quality": 65,
+                        "script": "",
+                        "ext": "",
+                        "name": "Assets/_Game/Sprite/ply14/wc.png"
                     }
                 ]
             },

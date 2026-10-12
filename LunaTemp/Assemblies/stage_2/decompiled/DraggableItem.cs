@@ -97,7 +97,7 @@ public class DraggableItem : MonoBehaviour
 			{
 				continue;
 			}
-			CharacterDropZone dropZone = hit.collider.GetComponent<CharacterDropZone>();
+			CharacterSlot dropZone = hit.collider.GetComponent<CharacterSlot>();
 			if (dropZone != null)
 			{
 				droppedOnTarget = dropZone.OnItemDropped(this);
