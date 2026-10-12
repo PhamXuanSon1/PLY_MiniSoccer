@@ -23,8 +23,8 @@ public class ItemSequenceManager : MonoBehaviour
     public Ease moveEase = Ease.OutBack;
     public float delayBetweenItems = 0.3f;
     [Header("Characters")]
-    [Tooltip("Kéo 4 CharacterDropZone của 4 nhân vật vào đây (hoặc để trống code tự tìm)")]
-    public List<CharacterDropZone> characterList = new List<CharacterDropZone>();
+    [Tooltip("Kéo 4 CharacterSlot của 4 nhân vật vào đây")]
+    public List<CharacterSlot> characterList = new List<CharacterSlot>();
 
     [Header("Result Objects (Win / Lose)")]
     [Tooltip("Sẽ tự động cập nhật: Thắng nếu 4 nhân vật nhận đúng đồ, Thua nếu có nhân vật nhận sai đồ")]
@@ -62,6 +62,7 @@ public class ItemSequenceManager : MonoBehaviour
 
     public bool isItemReady { get; private set; } = false;
 
+    /// <summary>Ẩn đối tượng hướng dẫn khi người chơi bắt đầu thao tác với vật phẩm đầu tiên.</summary>
     public void OnFirstItemDragged()
     {
         if (!hasDraggedFirstItem)
@@ -74,6 +75,7 @@ public class ItemSequenceManager : MonoBehaviour
         }
     }
 
+    /// <summary>Lấy vật phẩm đang hoạt động theo thứ tự trong danh sách.</summary>
     public DraggableItem GetCurrentActiveItem()
     {
         if (currentItemIndex >= 0 && currentItemIndex < itemList.Count)
@@ -83,6 +85,7 @@ public class ItemSequenceManager : MonoBehaviour
         return null;
     }
 
+    /// <summary>Thiết lập singleton của màn chơi.</summary>
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -92,6 +95,7 @@ public class ItemSequenceManager : MonoBehaviour
 
     [HideInInspector] public bool isFailedMode = false;
 
+    /// <summary>Theo dõi lần nhấn đầu tiên và mở cửa hàng khi đang ở trạng thái thua.</summary>
     private void Update()
     {
         if (!hasTrackedFirstClick && Input.GetMouseButtonDown(0))
@@ -107,6 +111,7 @@ public class ItemSequenceManager : MonoBehaviour
         }
     }
 
+    /// <summary>Gửi sự kiện nhấn CTA và mở trang cài đặt trò chơi.</summary>
     public void OpenStore()
     {
         Debug.Log("CLICK IN FAILED MODE -> CHUYEN HUONG RA STORE!");
@@ -122,6 +127,7 @@ public class ItemSequenceManager : MonoBehaviour
         }
     }
 
+    /// <summary>Gửi sự kiện analytics cho lần tương tác đầu tiên.</summary>
     private void TrackFirstClick()
     {
         if (hasTrackedFirstClick)
@@ -142,6 +148,7 @@ public class ItemSequenceManager : MonoBehaviour
         }
     }
 
+    /// <summary>Ẩn các đối tượng ban đầu và bắt đầu hiển thị vật phẩm đầu tiên.</summary>
     private void Start()
     {
         AppLovinAnalytics.Track(ALEvent.LOADED);
@@ -167,6 +174,7 @@ public class ItemSequenceManager : MonoBehaviour
     }
 
     // Độc giả gọi khi 1 món đồ được thả thành công vào nhân vật
+    /// <summary>Cập nhật tiến độ sau khi nhận vật phẩm và chuyển sang bước kế tiếp.</summary>
     public void OnItemCompleted()
     {
         currentItemIndex++;
@@ -190,6 +198,7 @@ public class ItemSequenceManager : MonoBehaviour
         }
     }
 
+    /// <summary>Gửi sự kiện analytics tương ứng với các mốc tiến độ.</summary>
     private void TrackProgressAnalytics(int count)
     {
          
@@ -209,6 +218,7 @@ public class ItemSequenceManager : MonoBehaviour
             }
     }
 
+    /// <summary>Hiển thị kết quả thắng/thua rồi xử lý endcard hoặc khởi động lại màn chơi.</summary>
     private IEnumerator ShowResultAndEndcardRoutine()
     {
         // 1. Chờ N giây rồi kiểm tra điều kiện Win/Lose và hiện text tương ứng
@@ -349,12 +359,14 @@ public class ItemSequenceManager : MonoBehaviour
         }
     }
 
+    /// <summary>Chờ khoảng thời gian chỉ định trước khi xuất hiện vật phẩm tiếp theo.</summary>
     private IEnumerator SpawnNextItemWithDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
         SpawnNextItem();
     }
 
+    /// <summary>Đưa vật phẩm hiện tại từ điểm xuất phát đến vị trí thao tác.</summary>
     private void SpawnNextItem()
     {
         if (currentItemIndex >= itemList.Count) return;

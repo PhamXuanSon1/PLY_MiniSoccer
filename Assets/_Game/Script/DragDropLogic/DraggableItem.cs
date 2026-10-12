@@ -17,12 +17,14 @@ public class DraggableItem : MonoBehaviour
     private int originalSortingOrder;
     private bool isDragging = false;
 
+    /// <summary>Khởi tạo tham chiếu camera và bộ hiển thị của vật phẩm.</summary>
     private void Awake()
     {
         mainCamera = Camera.main;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    /// <summary>Kiểm tra vật phẩm có nằm trên layer được phép kéo hay không.</summary>
     private bool IsValidItemLayer()
     {
         // Nếu gán itemLayer trong Inspector ➔ Kiểm tra theo LayerMask
@@ -41,6 +43,7 @@ public class DraggableItem : MonoBehaviour
         return true;
     }
 
+    /// <summary>Bắt đầu kéo vật phẩm và lưu vị trí ban đầu cùng khoảng lệch con trỏ.</summary>
     private void OnMouseDown()
     {
         // Chỉ cho phép kéo nếu GameObject thuộc Layer Item hợp lệ
@@ -72,6 +75,7 @@ public class DraggableItem : MonoBehaviour
         }
     }
 
+    /// <summary>Cập nhật vị trí vật phẩm theo con trỏ trong lúc kéo.</summary>
     private void OnMouseDrag()
     {
         if (!isDragging) return;
@@ -80,6 +84,7 @@ public class DraggableItem : MonoBehaviour
         transform.position = mouseWorldPos + offset;
     }
 
+    /// <summary>Thả vật phẩm vào nhân vật hoặc đưa vật phẩm về vị trí cũ.</summary>
     private void OnMouseUp()
     {
         if (!isDragging) return;
@@ -102,7 +107,7 @@ public class DraggableItem : MonoBehaviour
             // Bỏ qua collider 3D của chính món đồ đang kéo
             if (hit.collider.gameObject == gameObject) continue;
 
-            CharacterDropZone dropZone = hit.collider.GetComponent<CharacterDropZone>();
+            CharacterSlot dropZone = hit.collider.GetComponent<CharacterSlot>();
             if (dropZone != null)
             {
                 droppedOnTarget = dropZone.OnItemDropped(this);
@@ -117,6 +122,7 @@ public class DraggableItem : MonoBehaviour
         }
     }
 
+    /// <summary>Chuyển vị trí con trỏ trên màn hình thành tọa độ thế giới.</summary>
     private Vector3 GetMouseWorldPos()
     {
         Vector3 mouseScreenPos = Input.mousePosition;
